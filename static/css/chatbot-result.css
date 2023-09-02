@@ -326,8 +326,14 @@
   position: relative;
   width: 24px;
   height: 24px;
+  color: #636363;
   overflow: hidden;
   flex-shrink: 0;
+}
+.copy-select-undefined:hover {
+  color: rgb(196, 196, 196);
+  border-radius: 6px;
+  cursor: pointer;
 }
 .copy-select-undefined-parent {
   margin: 0 !important;
