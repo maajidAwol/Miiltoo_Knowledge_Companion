@@ -74,7 +74,7 @@ def send():
 def quiz_send():
     prompt = "generate a five random question quiz from  the content having four choices a,b,c,d and answer letter and detail of the answer in json format"
     PERSIST = False
-    query = None
+
 
     loader = TextLoader("books/books.txt", encoding="utf-8")
     # loader = DirectoryLoader("data/")
@@ -85,7 +85,7 @@ def quiz_send():
         retriever=index.vectorstore.as_retriever(search_kwargs={"k": 1}),
     )
 
-    query = None
+    query = prompt
 
     result = chain({"question": prompt, "chat_history": ""})
     print(result)
