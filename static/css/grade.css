@@ -66,6 +66,18 @@
   width: 255.56px;
   height: 246px;
 }
+.book-cover {
+  background: no-repeat url(/static/public/bio-g9-cover.svg);
+  object-fit: cover;
+  background-position: center;
+  border-radius: 16px;
+}
+.hist-g9-cover {
+  background: no-repeat url(/static/public/hist-g9-cover.svg);
+  object-fit: cover;
+  background-position: center;
+  border-radius: 16px;
+}
 .grade-overlay-child {
   top: 0.07px;
   border-radius: var(--br-lgi);
@@ -161,10 +173,11 @@
 }
 .title {
   align-self: stretch;
-  padding: 0 var(--padding-mini-5);
+  padding: 0% 4%;
   justify-content: space-between;
   font-size: var(--font-size-6xl);
   color: var(--color-black);
+  flex-wrap: nowrap;
 }
 .description1,
 .lorem-ipsum-dolor {
@@ -281,9 +294,9 @@
 .book-box-parent {
   align-self: stretch;
   flex-direction: row;
-  padding: var(--padding-53xl) var(--padding-141xl);
+  padding: var(--padding-53xl) 20%;
   align-items: flex-start;
-  gap: 36px;
+  gap: 4%;
   text-align: left;
   font-size: var(--font-size-9xl);
   color: var(--color-white);
@@ -1003,4 +1016,8 @@ a:hover,
 .history-book {
   color: none;
   text-decoration: none;
+}
+.slide-indicator-g9 {
+  margin-top: 0%;
+  margin-bottom: 4%;
 }
