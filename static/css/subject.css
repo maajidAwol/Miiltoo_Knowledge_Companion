@@ -854,13 +854,13 @@ a:hover,
   z-index: 5;
 }
 .promtTextArea {
-  width: 262%;
-  height: 187%;
+  width: 82%;
+  height: 116%;
   position: absolute;
   top: 1%;
   color: white;
   background: #272c2d;
-  padding: 1% 5% 0% 8%;
+  padding: 1% 5% 0% 4%;
   border: none;
   font-size: 16px;
   line-height: 150%;
