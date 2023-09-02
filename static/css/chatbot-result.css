@@ -64,6 +64,9 @@
   width: 42px;
   height: 17px;
 }
+.toggle-btn:hover {
+  cursor: pointer;
+}
 .frame-div {
   align-self: stretch;
   display: flex;
@@ -406,6 +409,7 @@
 }
 .btn-primary:hover {
   background-color: #07bfbc;
+  cursor: pointer;
 }
 #wait_btn {
   color: #202124;
