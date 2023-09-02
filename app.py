@@ -22,7 +22,9 @@ def main():
 @app.route("/history/")
 def history():
     return render_template("hist-g9.html")
-
+@app.route("/grade/")
+def grade():
+    return render_template("grade.html")
 @app.route("/request", methods=["POST"])
 def send():
     prompt =request.json.get("prompt")
