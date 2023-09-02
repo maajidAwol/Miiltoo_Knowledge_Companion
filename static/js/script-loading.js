@@ -10,7 +10,7 @@ function showLoadingPopup() {
   setTimeout(function () {
     hideLoadingPopup();
     showDesiredPopup();
-  }, 2000); // Adjust the timeout duration as needed
+  }, 1500); // Adjust the timeout duration as needed
 }
 function hideLoadingPopup() {
   overlay.classList.add("hidden");
