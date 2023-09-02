@@ -4,6 +4,7 @@ const response = document.querySelector("#ccc");
 
 submit.addEventListener("click", function (event) {
 
+
   event.preventDefault();
   fetch("/request", {
     method: "POST",
