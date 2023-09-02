@@ -1,9 +1,9 @@
-const prompt = document.querySelector("#prompt");
-const submit = document.querySelector(".ask");
-const response = document.querySelector("#response");
+const prompt = document.querySelector("#aaa");
+const submit = document.querySelector("#bbb");
+const response = document.querySelector("#ccc");
 
 submit.addEventListener("click", function (event) {
- 
+
   event.preventDefault();
   fetch("/request", {
     method: "POST",
