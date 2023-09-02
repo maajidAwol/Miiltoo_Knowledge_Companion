@@ -75,6 +75,32 @@ def send():
     chat_history.append((query, result['answer']))
     query = None
     return result
+@app.route("/requestH", methods=["POST"])
+def ChatWHistory():
+    prompt =request.json.get("prompt")
+    PERSIST = False
+    query = None
+
+    loader = TextLoader("books/history.txt", encoding="utf-8")
+        # loader = DirectoryLoader("data/")
+    index = VectorstoreIndexCreator().from_loaders([loader])
+
+    chain = ConversationalRetrievalChain.from_llm(
+        llm=ChatOpenAI(model="gpt-3.5-turbo", temperature=0),
+        retriever=index.vectorstore.as_retriever(search_kwargs={"k": 1}),
+    )
+
+    chat_history = []
+
+    # message = request.json.get("message")
+    # query = input("Prompt: ")
+
+    result = chain({"question": prompt, "chat_history": chat_history})
+    print(result)
+
+    chat_history.append((query, result['answer']))
+    query = None
+    return result
 @app.route("/quiz_request",methods=["POST"])
 def quiz_send():
 
