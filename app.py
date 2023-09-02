@@ -13,6 +13,25 @@ from langchain.indexes import VectorstoreIndexCreator
 from langchain.indexes.vectorstore import VectorStoreIndexWrapper
 from langchain.llms import OpenAI
 from langchain.vectorstores import Chroma
+def ext(text):
+  json_pattern = r'\{.*\}'
+
+  # Search for the JSON-like pattern in the text
+  match = re.search(json_pattern, text, re.DOTALL)
+
+  if match:
+    json_string = match.group()  # Get the matched JSON-like string
+    try:
+      # Parse JSON-like string into a Python dictionary
+      json_object = json.loads(json_string)
+      print("Extracted JSON-like object:")
+      print(json.dumps(json_object, indent=4))
+      return json_object
+    except json.JSONDecodeError:
+      print("Found a JSON-like pattern, but it's not valid JSON.")
+  else:
+    print("No JSON-like pattern found in the text.")
+
 os.environ["OPENAI_API_KEY"]=""
 
 app = Flask(__name__)
@@ -51,5 +70,28 @@ def send():
     chat_history.append((query, result['answer']))
     query = None
     return result
+@app.route("/quiz_request",methods=["POST"])
+def quiz_send():
+    prompt = "generate a five random question quiz from  the content having four choices a,b,c,d and answer letter and detail of the answer in json format"
+    PERSIST = False
+    query = None
+
+    loader = TextLoader("books/books.txt", encoding="utf-8")
+    # loader = DirectoryLoader("data/")
+    index = VectorstoreIndexCreator().from_loaders([loader])
+
+    chain = ConversationalRetrievalChain.from_llm(
+        llm=ChatOpenAI(model="gpt-3.5-turbo", temperature=0),
+        retriever=index.vectorstore.as_retriever(search_kwargs={"k": 1}),
+    )
+
+    query = None
+
+    result = chain({"question": prompt, "chat_history": ""})
+    print(result)
+    r = ext(result["answer"])
+
+    query = None
+    return r
 if __name__ == "__main__":
     app.run(debug=True)
