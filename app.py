@@ -35,6 +35,8 @@ def ext(text):
 os.environ["OPENAI_API_KEY"]=""
 
 app = Flask(__name__)
+app.static_folder = 'static'
+
 @app.route("/")
 def main():
     return render_template("index.html")
