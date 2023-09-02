@@ -31,13 +31,6 @@ btn_robot.addEventListener("click", function () {
   openresult.classList.remove("hidden");
 });
 
-btn_ask.addEventListener("click", function (event) {
-  event.preventDefault();
-  overlay.classList.remove("hidden");
-  btn_wait.style.zIndex = 4;
-  showLoadingPopup();
-});
-
 btn_toggle.addEventListener("click", function () {
   openresult.classList.add("hidden");
   openquize.classList.remove("hidden");
