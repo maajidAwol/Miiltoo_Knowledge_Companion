@@ -1,0 +1,169 @@
+.contact-box,
+.contact-box * {
+  box-sizing: border-box;
+}
+.contact-box {
+  border-radius: 26px;
+  border-style: solid;
+  border-color: #009eb1;
+  border-width: 3px;
+  padding: 32px 0px 32px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 58%;
+  height: 559px;
+  position: relative;
+}
+.contact-headline {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.contact-us {
+  color: #000000;
+  text-align: left;
+  font: 600 38px "Source Serif Pro", sans-serif;
+  position: relative;
+}
+.line-1 {
+  flex-shrink: 0;
+  position: relative;
+  overflow: visible;
+}
+.fullname-box {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.frame-221 {
+  padding: 4px 8px 4px 8px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+.full-name {
+  color: #2fa4be;
+  text-align: left;
+  font: 600 22px "Source Serif Pro", sans-serif;
+  position: relative;
+}
+.frame-222 {
+  background: #cdfaff;
+  border-radius: 10.5px;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-shrink: 0;
+  width: 300px;
+  position: relative;
+}
+.username-or-email {
+  color: var(--blue-gray-500, #64748b);
+  text-align: left;
+  font: 400 18px "Source Serif Pro", sans-serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.icon-user {
+  flex-shrink: 0;
+  position: relative;
+  overflow: visible;
+}
+.email-box {
+  padding: 0px 0px 0px 32px;
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.email {
+  color: #2fa4be;
+  text-align: left;
+  font: 600 22px "Source Serif Pro", sans-serif;
+  position: relative;
+}
+.icon-envelope {
+  flex-shrink: 0;
+  position: relative;
+  overflow: visible;
+}
+.meassage-box {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  align-items: flex-start;
+  justify-content: center;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.message {
+  color: #2fa4be;
+  text-align: left;
+  font: 600 22px "Source Serif Pro", sans-serif;
+  position: relative;
+}
+.frame-2222 {
+  background: #cdfaff;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 300px;
+  height: 150px;
+  position: relative;
+}
+.send-btn {
+  background: #65fffc;
+  border-radius: 24px;
+  padding: 8px 16px 8px 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+.send-undefined {
+  flex-shrink: 0;
+  position: relative;
+  overflow: visible;
+}
+.send-message {
+  color: #042e41;
+  text-align: left;
+  font: 600 22px "Source Serif Pro", sans-serif;
+  text-transform: lowercase;
+  position: relative;
+}
