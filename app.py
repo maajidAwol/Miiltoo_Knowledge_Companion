@@ -32,7 +32,7 @@ def ext(text):
   else:
     print("No JSON-like pattern found in the text.")
 
-os.environ["OPENAI_API_KEY"]="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"
+os.environ["OPENAI_API_KEY"]=""
 
 app = Flask(__name__)
 app.static_folder = 'static'
@@ -40,10 +40,10 @@ app.static_folder = 'static'
 @app.route("/")
 def main():
     return render_template("index.html")
-@app.route("/history/")
+@app.route("/biology/")
 def history():
     return render_template("bio-g9.html")
-@app.route("/biology/")
+@app.route("/history/")
 def biology():
     return render_template("hist-g9.html")
 @app.route("/grade/")
