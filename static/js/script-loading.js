@@ -10,10 +10,10 @@ function showLoadingPopup() {
   setTimeout(function () {
     hideLoadingPopup();
     showDesiredPopup();
-  }, 2000); // Adjust the timeout duration as needed
+  }, 1500); // Adjust the timeout duration as needed
 }
 function hideLoadingPopup() {
-  // overlay.classList.add("hidden");
+  overlay.classList.add("hidden");
 }
 function showDesiredPopup() {
   btn_wait.style.zIndex = 0;
@@ -26,7 +26,7 @@ btn_robot.addEventListener("click", function () {
 
 btn_ask.addEventListener("click", function (event) {
   event.preventDefault();
-  //overlay.classList.remove("hidden");
+  overlay.classList.remove("hidden");
   btn_wait.style.zIndex = 4;
   showLoadingPopup();
 });
