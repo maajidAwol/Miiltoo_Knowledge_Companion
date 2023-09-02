@@ -283,7 +283,7 @@
             <div class="ellipse-7"></div>
           </div>
           <div class="frame-228">
-            <div class="btn-generate">
+            <button id="fetch-quiz" class="btn-generate">
               <div class="frame-146">
                 <svg
                   class="vector2"
@@ -299,9 +299,9 @@
                   />
                 </svg>
         
-                <div class="generate">generate</div>
+                <div class="generate">Generate Quiz</div>
               </div>
-            </div>
+            </button>
             <div class="selection-section">
               <div class="chapter">
                 <div class="frame-134">
@@ -373,7 +373,101 @@
           <div class="frame-parent1">
             <img class="frame-icon" alt="" src="../static/public/frame.svg" />
   
-            <div class="lorem-ipsum-dolor-container" id="response"></div>
+            <div class="lorem-ipsum-dolor-container" id="response">
+
+
+<h1>GENERATED QUIZ</h1>
+<!--  <button id="fetch-quiz">Fetch Quiz</button>-->
+  <form id="quiz-form">
+    <div id="quiz-container"></div>
+    <button type="button" id="submit-button" disabled>Submit Answers</button>
+  </form>
+  <div id="results" style="display: none;"></div>
+
+  <script>
+    const fetchQuizButton = document.getElementById("fetch-quiz");
+    const quizContainer = document.getElementById('quiz-container');
+    const submitButton = document.getElementById('submit-button');
+    const resultsContainer = document.getElementById('results');
+
+    let quizData; // To store fetched quiz data
+    let score = 0;
+
+    fetchQuizButton.addEventListener("click", function () {
+      fetch("/quiz_request", {
+        method: "POST", // Assuming you're using a GET request to fetch quiz data
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          quizData = data.quiz;
+          buildQuiz();
+          fetchQuizButton.disabled = true; // Disable the fetch button after fetching quiz data
+        });
+    });
+
+    function buildQuiz() {
+      quizContainer.innerHTML = '';
+      score = 0;
+
+      quizData.forEach((question, index) => {
+        const choices = question.choices;
+        const questionElement = document.createElement('div');
+        questionElement.innerHTML = `<p>${index + 1}. ${question.question}</p>`;
+
+        Object.keys(choices).forEach(choice => {
+          const choiceLabel = document.createElement('label');
+          choiceLabel.innerHTML = `
+            <input type="radio" name="question${index}" value="${choice}" required>
+            ${choice}: ${choices[choice]}
+          `;
+          questionElement.appendChild(choiceLabel);
+        });
+
+        quizContainer.appendChild(questionElement);
+      });
+
+      submitButton.disabled = false;
+    }
+
+    submitButton.addEventListener('click', function () {
+      showResults();
+      submitButton.disabled = true;
+    });
+
+    function showResults() {
+      score = 0; // Reset the score before evaluating user answers
+      resultsContainer.innerHTML = ''; // Clear previous results
+
+      quizData.forEach((question, index) => {
+        const userAnswer = document.querySelector(`input[name="question${index}"]:checked`);
+        const correctAnswer = question.answer;
+
+        if (userAnswer) {
+          const userChoice = userAnswer.value;
+          if (userChoice === correctAnswer) {
+            score++;
+          }
+
+          const explanation = question.explanation;
+          const resultElement = document.createElement('div');
+          resultElement.innerHTML = `
+            <p><strong>Question ${index + 1}:</strong> ${question.question}</p>
+            <p>Your answer: ${userChoice}</p>
+            <p>Correct answer: ${correctAnswer}</p>
+            <p>Explanation: ${explanation}</p>
+          `;
+          resultsContainer.appendChild(resultElement);
+        }
+      });
+
+      resultsContainer.style.display = 'block';
+      resultsContainer.innerHTML += `<p>Your score: ${score}/${quizData.length}</p>`; // Display the final score
+    }
+  </script>
+            </div>
           </div>
         
         </section>

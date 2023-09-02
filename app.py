@@ -78,7 +78,7 @@ def send():
 @app.route("/quiz_request",methods=["POST"])
 def quiz_send():
 
-    prompt = "generate a five random question quiz from  the content having four choices a,b,c,d and answer letter and detail of the answer in json format"
+    prompt = "generate a five conceptual and random question quiz from  the content having four choices a,b,c,d and answer letter and explanation  of the answer in json format"
     PERSIST = False
 
 
