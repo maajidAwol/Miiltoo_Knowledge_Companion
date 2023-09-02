@@ -43,6 +43,9 @@ def main():
 @app.route("/history/")
 def history():
     return render_template("hist-g9.html")
+@app.route("/biology/")
+def biology():
+    return render_template("bio-g9.html")
 @app.route("/grade/")
 def grade():
     return render_template("grade.html")
