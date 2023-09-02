@@ -40,12 +40,12 @@ app.static_folder = 'static'
 @app.route("/")
 def main():
     return render_template("index.html")
-@app.route("/biology/")
+@app.route("/history")
 def history():
-    return render_template("bio-g9.html")
-@app.route("/history/")
-def biology():
     return render_template("hist-g9.html")
+@app.route("/biology")
+def biology():
+    return render_template("bio-g9.html")
 @app.route("/grade/")
 def grade():
     return render_template("grade.html")
