@@ -831,17 +831,24 @@ a:hover,
 }
 .close-btn,
 .close-result {
-  position: absolute;
-  top: 3%;
-  left: 115%;
-  margin-left: -30%;
-  width: 10%;
-  height: 16%;
-  padding: 7px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -17%;
+  left: 176%;
+  width: 24px;
+  height: 22px;
   border-radius: 13px;
   background: transparent;
   border: none;
   cursor: pointer;
+}
+.union-icon {
+  position: absolute;
+  margin: 0 !important;
+  width: 100%;
+  height: 100%;
 }
 .overlay-wait {
   width: 100%;
@@ -894,4 +901,13 @@ a:hover,
   font-size: var(--font-size-base);
   color: #979797;
   font-family: var(--font-inter);
+}
+.overlay-wait {
+  width: 56.1%;
+  height: 97vh;
+  background: #00000075;
+  position: fixed;
+  left: 43.1%;
+  top: 2%;
+  z-index: 8;
 }

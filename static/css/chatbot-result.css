@@ -137,13 +137,7 @@
   gap: 16px;
   font-size: var(--font-size-3xl);
 }
-.union-icon {
-  position: absolute;
-  top: 1%;
-  margin: 0 !important;
-  width: 31px;
-  height: 31.23px;
-}
+
 .frame-parent {
   align-self: stretch;
   display: flex;
@@ -370,7 +364,7 @@
   backdrop-filter: blur(49.5px);
   border: 1px solid #3c3c3c;
   width: 54%;
-  height: 93vh;
+  height: 92vh;
   flex-direction: column;
   padding: 16px;
   justify-content: flex-start;
