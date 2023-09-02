@@ -32,7 +32,7 @@ def ext(text):
   else:
     print("No JSON-like pattern found in the text.")
 
-os.environ["OPENAI_API_KEY"]=""
+os.environ["OPENAI_API_KEY"]="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"
 
 app = Flask(__name__)
 app.static_folder = 'static'
@@ -55,7 +55,7 @@ def send():
     PERSIST = False
     query = None
 
-    loader = TextLoader("data/dm.txt", encoding="utf-8")
+    loader = TextLoader("books/books.txt", encoding="utf-8")
         # loader = DirectoryLoader("data/")
     index = VectorstoreIndexCreator().from_loaders([loader])
 
