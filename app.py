@@ -20,8 +20,9 @@ app = Flask(__name__)
 def main():
     return render_template("index.html")
 @app.route("/history/")
-def main():
+def history():
     return render_template("hist-g9.html")
+
 @app.route("/request", methods=["POST"])
 def send():
     prompt =request.json.get("prompt")
