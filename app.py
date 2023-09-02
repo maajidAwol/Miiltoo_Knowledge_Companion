@@ -32,7 +32,7 @@ def ext(text):
   else:
     print("No JSON-like pattern found in the text.")
 
-os.environ["OPENAI_API_KEY"]="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"
+os.environ["OPENAI_API_KEY"]="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"
 
 app = Flask(__name__)
 app.static_folder = 'static'
