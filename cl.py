@@ -28,8 +28,10 @@ def ext(text):
       return json_object
     except json.JSONDecodeError:
       print("Found a JSON-like pattern, but it's not valid JSON.")
+      return "fail"
   else:
     print("No JSON-like pattern found in the text.")
+    return "fail"
 def send(prompt):
     # prompt =request.json.get("prompt")
 

@@ -156,7 +156,11 @@ def quiz_send():
     r = ext(result["answer"])
 
     query = None
-    return r
+    if r== "fail":
+        render_template("bio-g9.html")
+    else:
+        return r
+
 @app.route("/quiz_requestH",methods=["POST"])
 def quizH_send():
     quiz_number = request.json.get('number')
