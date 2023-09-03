@@ -260,28 +260,7 @@
         
         
         <div class="container">
-          <div class="filter-btn">
-            <div class="frame-208">
-              <div class="frame-134">
-                <svg
-                  class="frame"
-                  width="24"
-                  height="25"
-                  viewBox="0 0 24 25"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10 16.5H14C14.5523 16.5 15 16.9477 15 17.5C15 18.0128 14.614 18.4355 14.1166 18.4933L14 18.5H10C9.44772 18.5 9 18.0523 9 17.5C9 16.9872 9.38604 16.5645 9.88338 16.5067L10 16.5ZM8 11.5H16C16.5523 11.5 17 11.9477 17 12.5C17 13.0128 16.614 13.4355 16.1166 13.4933L16 13.5H8C7.44772 13.5 7 13.0523 7 12.5C7 11.9872 7.38604 11.5645 7.88338 11.5067L8 11.5ZM5 6.5H19C19.5523 6.5 20 6.94772 20 7.5C20 8.01284 19.614 8.43551 19.1166 8.49327L19 8.5H5C4.44772 8.5 4 8.05228 4 7.5C4 6.98716 4.38604 6.56449 4.88338 6.50673L5 6.5Z"
-                    fill="white"
-                  />
-                </svg>
-        
-                <div class="filter">filter</div>
-              </div>
-            </div>
-            <div class="ellipse-7"></div>
-          </div>
+         
           <div class="frame-228">
             <button id="fetch-quiz" class="btn-generate">
               <div class="frame-146">
@@ -305,59 +284,39 @@
             <div class="selection-section">
               <div class="chapter">
                 <div class="frame-134">
-                  <svg
-                    class="triangle-down-undefined"
-                    width="17"
-                    height="17"
-                    viewBox="0 0 17 17"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M2.89113 2.38208C1.71566 2.38208 0.979548 3.65289 1.56439 4.67253L6.82886 13.8509C7.41659 14.8756 8.89461 14.8756 9.48234 13.8509L14.7468 4.67254C15.3317 3.65289 14.5956 2.38208 13.4201 2.38208H2.89113Z"
-                      fill="#5E5E5E"
-                    />
-                  </svg>
-        
-                  <div class="please-choose-chapter">please choose chapter</div>
+                 <select name="" id="chapter">
+                  <option value="">
+                  <div class="please-choose-chapter">choose chapter</div>
+
+                  </option>
+                 </select>
                 </div>
               </div>
               <div class="part-section">
                 <div class="frame-134">
-                  <svg
-                    class="triangle-down-undefined2"
-                    width="18"
-                    height="17"
-                    viewBox="0 0 18 17"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M3.70558 2.38208C2.53012 2.38208 1.794 3.65289 2.37884 4.67253L7.64332 13.8509C8.23105 14.8756 9.70907 14.8756 10.2968 13.8509L15.5613 4.67254C16.1461 3.65289 15.41 2.38208 14.2346 2.38208H3.70558Z"
-                      fill="#5E5E5E"
-                    />
-                  </svg>
+                  <select name="" id="subtopic">
+                    <option value="">
+                  <div class="please-choose-section">choose subtopic</div>
+
+                    </option>
+                  </select>
         
-                  <div class="please-choose-section">please choose section</div>
                 </div>
               </div>
               <div class="question">
                 <div class="frame-134">
-                  <svg
-                    class="triangle-down-undefined3"
-                    width="17"
-                    height="17"
-                    viewBox="0 0 17 17"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M3.52003 2.38208C2.34457 2.38208 1.60845 3.65289 2.19329 4.67253L7.45777 13.8509C8.0455 14.8756 9.52352 14.8756 10.1112 13.8509L15.3757 4.67254C15.9606 3.65289 15.2245 2.38208 14.049 2.38208H3.52003Z"
-                      fill="#5E5E5E"
-                    />
-                  </svg>
+                 <select name="" id="chapter">
+                  <option value="">
+                  <div class="no-of-question">How many quize</div>
+                  </option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                 </select>
         
-                  <div class="no-of-question">no of question</div>
                 </div>
               </div>
             </div>
@@ -555,6 +514,115 @@
       </div>
     </footer>
 
+    <script >
+      console.log("here");
+var biology = {
+  "chapter 1:Introduction to Biology": {
+    "1.1:Definition of Biology ": [],
+    "1.2:Why do we study Biology?": [],
+    "1.3:The scientific method": [],
+    "1.4:Tools of a Biologist": [],
+    "1.5: Handling and using of light Microscope ": [],
+    "1.6:General Laboratory Safety Rules": [],
+  },
+  "chapter 2:Characteristics and Classification of organisms": {
+    "2.1: Characteristics of living things": [],
+    "2.2: Taxonomy of living things": [],
+    "2.3: Relevance of classification": [],
+    "2.4: Linnaean system of nomenclature": [],
+    "2.5: Common Ethiopian animals and plants": [],
+    "2.6: The five-kingdom system of classification": [],
+    "2.7: Renowned taxonomists in Ethiopia": [],
+  },
+  "chapter 3: Cells": {
+    "3.1: What is a cell?": [],
+    "3.2: Cell theory": [],
+    "3.3: Cell structure and function": [],
+    "3.4: Types of cells": [],
+    "3.5: Animal and plant cells": [],
+    "3.6: Observing cells under a microscope": [],
+    "3.7: The cell and its environment": [],
+    "3.8: Levels of Biological Organization": [],
+  },
+  "chapter 4 :Reproduction": {
+    "4.1: Introduction to reproduction": [],
+    "4.2: Asexual reproduction": [],
+    "4.3: Types of asexual reproduction ": [],
+    "4.4: Sexual reproduction": [],
+    "4.5: Primary and secondary sexual characteristics": [],
+    "4.6: Male reproductive structures": [],
+    "4.7: Female reproductive structures": [],
+    "4.8: The Menstrual cycle": [],
+    "4.9: Fertilization and pregnancy": [],
+    "4.10: Methods of birth control": [],
+    "4.11: Sexually transmitted infection: transmission and prevention": [],
+  },
+  "chapter 5:Human Health, Nutrition, and Disease ": {
+    "5.1: What is food?": [],
+    "5.2: Nutrition": [],
+    "5.3: Nutrients ": [],
+    "5.4: Balanced diet": [],
+    "5.5: Deficiency diseases": [],
+    "5.6: Malnutrition": [],
+    "5.7: Substance abuse ": [],
+    "5.8: Types of diseases": [],
+    "5.9: Renowned Nutritionists in Ethiopia": [],
+  },
+  "chapter 6:Ecology": {
+    "6.1: Ecology": [],
+    "6.2: Ecological relationships": [],
+  },
+};
+
+let history = {
+  "chapter 7: Political, Social and  Economic Processes in Ethiopia Mid- 16th to Mid- 19thC.":
+    {
+      "7.1 The “Solomonic” Dynasty & the Christian Kingdom, 13th -16th C": [],
+      "7.2 The Muslim Principalities": [],
+      "7.3 Relationship Between the Christian Kingdom and the Sultanate of Adal, 1520s to 1559   ":
+        [],
+      "7.4 Political and socio-economic conditions of southern and central states in Ethiopia":
+        [],
+      "7.5 Population Movements, Expansion and Integration in Ethiopia": [],
+      "7.6 Gada System of the Oromo ": [],
+      "7.7 Moggasa and Guddifacha  ": [],
+      "7.8 Egalitarian System of Governance ": [],
+    },
+  "chapter 8: Political, Social and  Economic Processes in Ethiopia Mid- 16th to Mid- 19thC.":
+    {
+      "8.1 Peoples and states of the Eastern, Central, Southern and Western Regions":
+        [],
+
+      "8.2 Gondarine Period ": [],
+      "8.3 The Zemene Mesafint (The Era of Warlords)": [],
+      "8.4 The Yejju Dynasty ": [],
+      "8.5 The Kingdom of Shoa ": [],
+    },
+  "chapter 9: The Age of Revolutions 1750s to 1815 ": {
+    "9.1 Industrial Capitalism in Europe": [],
+    "9.2 French Revolution": [],
+    "9.3 Napoleonic Era ": [],
+    "9.4 American War of Independence": [],
+    "9.5 The Congress of Vienna": [],
+  },
+};
+
+window.onload = function () {
+  var chapter = document.getElementById("chapter");
+  var section = document.getElementById("subtopic");
+  var question = document.getElementById("question");
+  for (var i in biology) {
+    chapter.options[chapter.options.length] = new Option(i);
+  }
+  chapter.onchange = function () {
+    section.length = 1;
+    for (var j in biology[this.value]) {
+      section.options[section.options.length] = new Option(j);
+    }
+  };
+};
+
+    </script>
     <script src="../static/js/script-loading.js"></script>
     <script src="../static/js/chatbot.js"></script>
   </body>

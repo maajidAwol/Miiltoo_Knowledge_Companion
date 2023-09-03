@@ -998,3 +998,14 @@ a:hover,
 .dropdown:hover .dropdown-content {
   display: block;
 }
+select {
+  width: 100%;
+  height: 89%;
+  background: #272c2d;
+  font-size: 14px;
+  border-radius: 10px;
+  padding: 1% 4%;
+  outline: none;
+  border: none;
+  color: white;
+}
