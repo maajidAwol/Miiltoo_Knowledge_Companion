@@ -159,10 +159,10 @@ def quiz_send():
     return r
 @app.route("/quiz_requestH",methods=["POST"])
 def quizH_send():
-    quiz_number = request.form.get('quiz_number')
-    chapter = request.form.get('chapter')
-    subtopic = request.form.get('subtopic')
-    prompt = "generate a five conceptual and random question quiz from  the content having four choices a,b,c,d and answer letter and explanation  of the answer in json format"
+    quiz_number = request.json.get('number')
+    chapter = request.json.get('chapter')
+    subtopic = request.json.get('subtopic')
+    prompt = f'generate a {quiz_number} conceptual and random question quiz from  the content specially from {chapter}:characteristics and subtopic {subtopic} having four choices a,b,c,d and answer letter and explanation  of the answer in json format'
     PERSIST = False
 
 
