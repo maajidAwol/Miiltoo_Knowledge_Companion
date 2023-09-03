@@ -278,14 +278,14 @@
                     fill="#212121"
                   />
                 </svg>
-        
+
                 <div class="generate">Generate Quiz</div>
               </div>
             </button>
             <div class="selection-section">
               <div class="chapter">
                 <div class="frame-134">
-                 <select name="chapter" id="chapter" required>
+                 <select name="" id="chapter">
                   <option value="">
                   <div class="please-choose-chapter">choose chapter</div>
 
@@ -295,28 +295,29 @@
               </div>
               <div class="part-section">
                 <div class="frame-134">
-                  <select name="subtopic" id="subtopic" required>
+                  <select name="" id="subtopic">
                     <option value="">
                   <div class="please-choose-section">choose subtopic</div>
 
                     </option>
                   </select>
-        
+
                 </div>
               </div>
               <div class="question">
                 <div class="frame-134">
-                 <select name="quiz_number" id="quiz_number">
+                 <select name="" id="number">
                   <option value="">
                   <div class="no-of-question">How many quistion</div>
                   </option>
-
+                  <option value="1">1</option>
+                  <option value="2">2</option>
                   <option value="3">3</option>
+                  <option value="4">4</option>
                   <option value="5">5</option>
-                  <option value="8">8</option>
-                  <option value="10">10</option>
+                  <option value="6">6</option>
                  </select>
-        
+
                 </div>
               </div>
             </div>
@@ -326,7 +327,7 @@
         
         <div class="group-container">
           <img class="frame-inner" alt="" src="../static/public/group-131.svg" />
-  
+
           <div class="chat">Result</div>
         </div>
         <section class="frame-section">
@@ -352,7 +353,6 @@
 
     let quizData; // To store fetched quiz data
     let score = 0;
-
 
     fetchQuizButton.addEventListener("click", function (event) {
     event.preventDefault();
