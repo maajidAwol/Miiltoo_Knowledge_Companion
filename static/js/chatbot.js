@@ -79,5 +79,6 @@ messageInput.addEventListener("keydown", function(event) {
     event.preventDefault(); // Prevent the default Enter key behavior
     sendMessage();
     sendBtn.style.visibility="hidden";
+       messageInput.value = "";
   }
 });
