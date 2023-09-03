@@ -61,18 +61,18 @@ function sendMessage() {
         const messageDiv = document.createElement("div");
         messageDiv.classList.add("mt-3", "p-3", "rounded");
         messageDiv.classList.add("bot-message");
-       
+
         const content = data.answer;
-        
+
         // Check if the content has code block
         const hasCodeBlock = content.includes("```");
         if (hasCodeBlock) {
           // If the content has code block, wrap it in a <pre><code> element
           const codeContent = content.replace(/```([\s\S]+?)```/g, '</p><pre><code>$1</code></pre><p>');
 
-         
+
           messageDiv.innerHTML = `<img src="../static/public/logo.png" class="bot-icon"><p>${codeContent}</p>`
-         
+
         }
         else{
           messageDiv.innerHTML = `<img src="../static/public/logo.png" class="bot-icon"><p>${content}</p>`
@@ -86,10 +86,14 @@ function sendMessage() {
 }
 
 
-sendBtn.addEventListener("click", sendMessage);
-messageInput.addEventListener("keydown", event => {
+sendBtn.addEventListener("click", function(event) {
+  event.preventDefault(); // Prevent the default form submission behavior
+  sendMessage();
+});
+
+messageInput.addEventListener("keydown", function(event) {
   if (event.keyCode === 13 && !event.shiftKey) {
-    event.preventDefault();
+    event.preventDefault(); // Prevent the default Enter key behavior
     sendMessage();
   }
 });
