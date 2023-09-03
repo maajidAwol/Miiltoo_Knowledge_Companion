@@ -262,6 +262,7 @@
         <div class="container">
          
           <div class="frame-228">
+            <form>
             <button id="fetch-quiz" class="btn-generate">
               <div class="frame-146">
                 <svg
@@ -284,7 +285,7 @@
             <div class="selection-section">
               <div class="chapter">
                 <div class="frame-134">
-                 <select name="" id="chapter">
+                 <select name="chapter" id="chapter" required>
                   <option value="">
                   <div class="please-choose-chapter">choose chapter</div>
 
@@ -294,7 +295,7 @@
               </div>
               <div class="part-section">
                 <div class="frame-134">
-                  <select name="" id="subtopic">
+                  <select name="subtopic" id="subtopic" required>
                     <option value="">
                   <div class="please-choose-section">choose subtopic</div>
 
@@ -305,22 +306,22 @@
               </div>
               <div class="question">
                 <div class="frame-134">
-                 <select name="" id="chapter">
+                 <select name="quiz_number" id="quiz_number">
                   <option value="">
-                  <div class="no-of-question">How many quize</div>
+                  <div class="no-of-question">How many quistion</div>
                   </option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
+
                   <option value="3">3</option>
-                  <option value="4">4</option>
                   <option value="5">5</option>
-                  <option value="6">6</option>
+                  <option value="8">8</option>
+                  <option value="10">10</option>
                  </select>
         
                 </div>
               </div>
             </div>
           </div>
+          </form>
         </div>
         
         <div class="group-container">
@@ -351,13 +352,17 @@
 
     let quizData; // To store fetched quiz data
     let score = 0;
-    submitButton.style.display = "none";
-    fetchQuizButton.addEventListener("click", function () {
-     submitButton.style.display = "none";
-     quizContainer.innerHTML = '';
-           fetchQuizButton.style.display = "none";
+
+
+    fetchQuizButton.addEventListener("click", function (event) {
+    event.preventDefault();
+      submitButton.style.display = "none";
+      fetchQuizButton.style.display = "none";
+      quizContainer.innerHTML = ''; // Clear the previous quiz content
+      resultsContainer.style.display = "none"; // Hide the results
+
       fetch("/quiz_request", {
-        method: "POST", // Assuming you're using a GET request to fetch quiz data
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
@@ -367,13 +372,11 @@
           quizData = data.quiz;
           buildQuiz();
           submitButton.style.display = "block";
-           fetchQuizButton.style.display = "block";
-          //fetchQuizButton.disabled = true; // Disable the fetch button after fetching quiz data
+          fetchQuizButton.style.display = "block";
         });
     });
 
     function buildQuiz() {
-      quizContainer.innerHTML = '';
       score = 0;
 
       quizData.forEach((question, index) => {
@@ -398,8 +401,7 @@
 
     submitButton.addEventListener('click', function () {
       showResults();
-    //  submitButton.disabled = true;
-    submitButton.style.display = "none";
+      submitButton.style.display = "none";
     });
 
     function showResults() {
@@ -429,9 +431,10 @@
       });
 
       resultsContainer.style.display = 'block';
-      resultsContainer.innerHTML += `<p>Your score: ${score}/${quizData.length}</p>`; // Display the final score
+      resultsContainer.innerHTML += `<p>Your score: ${score}/${quizData.length}</p>`;
     }
   </script>
+
             </div>
           </div>
 

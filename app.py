@@ -103,10 +103,18 @@ def ChatWHistory():
     return result
 @app.route("/quiz_request",methods=["POST"])
 def quiz_send():
-
-    prompt = "generate a five conceptual and random question quiz from  the content specially from chapter 2:characteristics and subtopic 2.2 taxonomy of living things having four choices a,b,c,d and answer letter and explanation  of the answer in json format"
-    PERSIST = False
-
+    # quiz_number = request.form.get('quiz_number')
+    # chapter = request.form.get('chapter')
+    # subtopic = request.form.get('subtopic')
+    # prompt = "generate a five conceptual and random question quiz from  the content specially from chapter 2:characteristics and subtopic 2.2 taxonomy of living things having four choices a,b,c,d and answer letter and explanation  of the answer in json format"
+    # PERSIST = False
+    quiz_number = request.form.get('quiz_number')
+    chapter = request.form.get('chapter')
+    subtopic = request.form.get('subtopic')
+    print(quiz_number)
+    print(chapter)
+    print(subtopic)
+    prompt = f"Generate a {quiz_number}-question quiz from the content, especially from chapter {chapter}: {subtopic}, having four choices a, b, c, d, and answer letter, and an explanation of the answer in JSON format."
 
     loader = TextLoader("books/books.txt", encoding="utf-8")
     # loader = DirectoryLoader("data/")
@@ -119,11 +127,11 @@ def quiz_send():
 
     query = prompt
 
-    result = chain({"question": prompt, "chat_history": ""})
-    print(result)
-    r = ext(result["answer"])
+    # result = chain({"question": prompt, "chat_history": ""})
+    # print(result)
+    # r = ext(result["answer"])
 
     query = None
-    return r
+    return "j"
 if __name__ == "__main__":
     app.run(debug=True)
