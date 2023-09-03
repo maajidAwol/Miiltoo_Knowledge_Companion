@@ -30,13 +30,13 @@ def ext(text):
       print("Found a JSON-like pattern, but it's not valid JSON.")
   else:
     print("No JSON-like pattern found in the text.")
-def send():
+def send(prompt):
     # prompt =request.json.get("prompt")
-    prompt ="who are you"
+
     PERSIST = False
     query = None
 
-    loader = TextLoader("books/books.txt")
+    loader = TextLoader("books/books.txt",encoding="utf-8")
         # loader = DirectoryLoader("data/")
     index = VectorstoreIndexCreator().from_loaders([loader])
 
@@ -79,5 +79,4 @@ def quiz_send():
 
     query = None
     return r
-quiz_send()
-quiz_send()
+send("who are ")

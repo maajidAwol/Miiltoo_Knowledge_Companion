@@ -49,6 +49,7 @@ function sendMessage() {
     addMessage(message, true);
 
     fetch("/request", {
+
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -57,11 +58,12 @@ function sendMessage() {
     })
       .then(response => response.json())
       .then(data => {
+
                   messageInput.value = "";
         const messageDiv = document.createElement("div");
         messageDiv.classList.add("mt-3", "p-3", "rounded");
         messageDiv.classList.add("bot-message");
-
+        sendBtn.style.visibility = "visible";
         const content = data.answer;
 
         // Check if the content has code block
@@ -89,11 +91,13 @@ function sendMessage() {
 sendBtn.addEventListener("click", function(event) {
   event.preventDefault(); // Prevent the default form submission behavior
   sendMessage();
+   sendBtn.style.visibility="hidden";
 });
 
 messageInput.addEventListener("keydown", function(event) {
   if (event.keyCode === 13 && !event.shiftKey) {
     event.preventDefault(); // Prevent the default Enter key behavior
     sendMessage();
+    sendBtn.style.visibility="hidden";
   }
 });

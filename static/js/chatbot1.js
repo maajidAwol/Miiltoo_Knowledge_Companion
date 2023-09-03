@@ -39,6 +39,7 @@ function sendMessage() {
         const messageDiv = document.createElement("div");
         messageDiv.classList.add("mt-3", "p-3", "rounded");
         messageDiv.classList.add("bot-message");
+       sendBtn.style.visibility = "visible";
 
         const content = data.answer;
 
@@ -67,11 +68,13 @@ function sendMessage() {
 sendBtn.addEventListener("click", function(event) {
   event.preventDefault(); // Prevent the default form submission behavior
   sendMessage();
+  sendBtn.style.visibility="hidden";
 });
 
 messageInput.addEventListener("keydown", function(event) {
   if (event.keyCode === 13 && !event.shiftKey) {
     event.preventDefault(); // Prevent the default Enter key behavior
     sendMessage();
+      sendBtn.style.visibility="hidden";
   }
 });

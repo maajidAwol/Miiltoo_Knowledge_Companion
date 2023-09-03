@@ -61,7 +61,7 @@
           </div>
         </div>
       </div>
-    </header>
+    </div></header>
     </div>
     <main>
     <iframe
@@ -138,7 +138,7 @@
                 <div class="chat">subject :</div>
               </div>
               <div class="history-wrapper">
-                <div class="history">biology</div>
+                <div class="history">History</div>
               </div>
             </div>
           </div>
@@ -165,10 +165,10 @@
                   />
                   <div class="ask">Ask</div>
                 </button>
-              <button class="btn-primary" id="wait_btn">
-                  <img class="vector-icon2" alt="" src="../static/public/vector2.svg" />
-                  <div class="ask">Wait</div>
-              </button>
+<!--              <button class="btn-primary" id="wait_btn">-->
+<!--                  <img class="vector-icon2" alt="" src="../static/public/vector2.svg" />-->
+<!--                  <div class="ask">Wait</div>-->
+<!--              </button>-->
             </form>
           </div>
         </fieldset>
@@ -244,38 +244,18 @@
                 <div class="chat">subject :</div>
               </div>
               <div class="history-wrapper">
-                <div class="history">biology</div>
+                <div class="history">History</div>
               </div>
             </div>
           </div>
         </div>
         
         
-        <div class="container">
-          <div class="filter-btn">
-            <div class="frame-208">
-              <div class="frame-134">
-                <svg
-                  class="frame"
-                  width="24"
-                  height="25"
-                  viewBox="0 0 24 25"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10 16.5H14C14.5523 16.5 15 16.9477 15 17.5C15 18.0128 14.614 18.4355 14.1166 18.4933L14 18.5H10C9.44772 18.5 9 18.0523 9 17.5C9 16.9872 9.38604 16.5645 9.88338 16.5067L10 16.5ZM8 11.5H16C16.5523 11.5 17 11.9477 17 12.5C17 13.0128 16.614 13.4355 16.1166 13.4933L16 13.5H8C7.44772 13.5 7 13.0523 7 12.5C7 11.9872 7.38604 11.5645 7.88338 11.5067L8 11.5ZM5 6.5H19C19.5523 6.5 20 6.94772 20 7.5C20 8.01284 19.614 8.43551 19.1166 8.49327L19 8.5H5C4.44772 8.5 4 8.05228 4 7.5C4 6.98716 4.38604 6.56449 4.88338 6.50673L5 6.5Z"
-                    fill="white"
-                  />
-                </svg>
-        
-                <div class="filter">filter</div>
-              </div>
-            </div>
-            <div class="ellipse-7"></div>
-          </div>
+         <div class="container">
+
           <div class="frame-228">
-            <div class="btn-generate">
+            <form>
+            <button id="fetch-quiz" class="btn-generate">
               <div class="frame-146">
                 <svg
                   class="vector2"
@@ -290,70 +270,51 @@
                     fill="#212121"
                   />
                 </svg>
-        
-                <div class="generate">generate</div>
+
+                <div class="generate">Generate Quiz</div>
               </div>
-            </div>
+            </button>
             <div class="selection-section">
               <div class="chapter">
                 <div class="frame-134">
-                  <svg
-                    class="triangle-down-undefined"
-                    width="17"
-                    height="17"
-                    viewBox="0 0 17 17"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M2.89113 2.38208C1.71566 2.38208 0.979548 3.65289 1.56439 4.67253L6.82886 13.8509C7.41659 14.8756 8.89461 14.8756 9.48234 13.8509L14.7468 4.67254C15.3317 3.65289 14.5956 2.38208 13.4201 2.38208H2.89113Z"
-                      fill="#5E5E5E"
-                    />
-                  </svg>
-        
-                  <div class="please-choose-chapter">please choose chapter</div>
+                 <select name="" id="chapter">
+                  <option value="">
+                  <div class="please-choose-chapter">choose chapter</div>
+
+                  </option>
+                 </select>
                 </div>
               </div>
               <div class="part-section">
                 <div class="frame-134">
-                  <svg
-                    class="triangle-down-undefined2"
-                    width="18"
-                    height="17"
-                    viewBox="0 0 18 17"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M3.70558 2.38208C2.53012 2.38208 1.794 3.65289 2.37884 4.67253L7.64332 13.8509C8.23105 14.8756 9.70907 14.8756 10.2968 13.8509L15.5613 4.67254C16.1461 3.65289 15.41 2.38208 14.2346 2.38208H3.70558Z"
-                      fill="#5E5E5E"
-                    />
-                  </svg>
-        
-                  <div class="please-choose-section">please choose section</div>
+                  <select name="" id="subtopic">
+                    <option value="">
+                  <div class="please-choose-section">choose subtopic</div>
+
+                    </option>
+                  </select>
+
                 </div>
               </div>
               <div class="question">
                 <div class="frame-134">
-                  <svg
-                    class="triangle-down-undefined3"
-                    width="17"
-                    height="17"
-                    viewBox="0 0 17 17"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M3.52003 2.38208C2.34457 2.38208 1.60845 3.65289 2.19329 4.67253L7.45777 13.8509C8.0455 14.8756 9.52352 14.8756 10.1112 13.8509L15.3757 4.67254C15.9606 3.65289 15.2245 2.38208 14.049 2.38208H3.52003Z"
-                      fill="#5E5E5E"
-                    />
-                  </svg>
-        
-                  <div class="no-of-question">no of question</div>
+                 <select name="" id="number">
+                  <option value="">
+                  <div class="no-of-question">How many quistion</div>
+                  </option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                 </select>
+
                 </div>
               </div>
             </div>
-          </div>
+        </form>  </div>
+
         </div>
         
         <div class="group-container">
@@ -365,7 +326,111 @@
           <div class="frame-parent1">
             <img class="frame-icon" alt="" src="../static/public/frame.svg" />
   
-            <div class="lorem-ipsum-dolor-container" id="response"></div>
+            <div class="lorem-ipsum-dolor-container" id="response">
+
+
+<h1>GENERATED QUIZ</h1>
+<!--  <button id="fetch-quiz">Fetch Quiz</button>-->
+  <form id="quiz-form">
+    <div id="quiz-container"></div>
+    <button type="button" style="display: none;" id="submit-button" disabled>Submit Answers</button>
+  </form>
+  <div id="results" style="display: none;"></div>
+
+  <script>
+    const fetchQuizButton = document.getElementById("fetch-quiz");
+    const quizContainer = document.getElementById('quiz-container');
+    const submitButton = document.getElementById('submit-button');
+    const resultsContainer = document.getElementById('results');
+
+    let quizData; // To store fetched quiz data
+    let score = 0;
+
+    fetchQuizButton.addEventListener("click", function (event) {
+    event.preventDefault();
+      submitButton.style.display = "none";
+      fetchQuizButton.style.display = "none";
+      quizContainer.innerHTML = ''; // Clear the previous quiz content
+      resultsContainer.style.display = "none"; // Hide the results
+
+      fetch("/quiz_requestH", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          quizData = data.quiz;
+          buildQuiz();
+          submitButton.style.display = "block";
+          fetchQuizButton.style.display = "block";
+        });
+    });
+
+    function buildQuiz() {
+      score = 0;
+
+      quizData.forEach((question, index) => {
+        const choices = question.choices;
+        const questionElement = document.createElement('div');
+        questionElement.innerHTML = `<p>${index + 1}. ${question.question}</p>`;
+
+        Object.keys(choices).forEach(choice => {
+          const choiceLabel = document.createElement('label');
+          choiceLabel.innerHTML = `
+            <input type="radio" name="question${index}" value="${choice}" required>
+            ${choice}: ${choices[choice]}
+          <br>`;
+          questionElement.appendChild(choiceLabel);
+        });
+
+        quizContainer.appendChild(questionElement);
+      });
+
+      submitButton.disabled = false;
+    }
+
+    submitButton.addEventListener('click', function () {
+      showResults();
+      submitButton.style.display = "none";
+    });
+
+    function showResults() {
+      score = 0; // Reset the score before evaluating user answers
+      resultsContainer.innerHTML = ''; // Clear previous results
+
+      quizData.forEach((question, index) => {
+        const userAnswer = document.querySelector(`input[name="question${index}"]:checked`);
+        const correctAnswer = question.answer;
+
+        if (userAnswer) {
+          const userChoice = userAnswer.value;
+          if (userChoice === correctAnswer) {
+            score++;
+          }
+
+          const explanation = question.explanation;
+          const resultElement = document.createElement('div');
+          resultElement.innerHTML = `
+            <p><strong>Question ${index + 1}:</strong> ${question.question}</p>
+            <p>Your answer: ${userChoice}</p>
+            <p>Correct answer: ${correctAnswer}</p>
+            <p>Explanation: ${explanation}</p>
+          `;
+          resultsContainer.appendChild(resultElement);
+        }
+      });
+
+      resultsContainer.style.display = 'block';
+      resultsContainer.innerHTML += `<p>Your score: ${score}/${quizData.length}</p>`;
+    }
+  </script>
+
+            </div>
+          </div>
+
+
           </div>
         
         </section>

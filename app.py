@@ -51,29 +51,59 @@ def grade():
     return render_template("grade.html")
 @app.route("/request", methods=["POST"])
 def send():
+    prompt = None
     prompt =request.json.get("prompt")
     PERSIST = False
-    query = None
+    # PERSIST = False
+    # query = None
+    #
+    # loader = TextLoader("books/books.txt", encoding="utf-8")
+    #     # loader = DirectoryLoader("data/")
+    # index = VectorstoreIndexCreator().from_loaders([loader])
+    #
+    # chain = ConversationalRetrievalChain.from_llm(
+    #     llm=ChatOpenAI(model="gpt-3.5-turbo", temperature=0),
+    #     retriever=index.vectorstore.as_retriever(search_kwargs={"k": 1}),
+    # )
+    #
+    # chat_history = []
+    #
+    # # message = request.json.get("message")
+    # # query = input("Prompt: ")
+    #
+    # result = chain({"question": prompt, "chat_history": chat_history})
+    # print(result)
+    #
+    # chat_history.append((query, result['answer']))
+    # query = None
 
-    loader = TextLoader("books/books.txt", encoding="utf-8")
+
+
+    if PERSIST and os.path.exists("persist"):
+        print("Reusing index...\n")
+        vectorstore = Chroma(persist_directory="persist", embedding_function=OpenAIEmbeddings())
+        index = VectorStoreIndexWrapper(vectorstore=vectorstore)
+    else:
+
+        loader = TextLoader("books/books.txt", encoding="utf-8")  # Use this line if you only need data.txt
         # loader = DirectoryLoader("data/")
-    index = VectorstoreIndexCreator().from_loaders([loader])
+        if PERSIST:
+            index = VectorstoreIndexCreator(vectorstore_kwargs={"persist_directory": "persist"}).from_loaders([loader])
+        else:
+            index = VectorstoreIndexCreator().from_loaders([loader])
 
     chain = ConversationalRetrievalChain.from_llm(
-        llm=ChatOpenAI(model="gpt-3.5-turbo", temperature=0),
+        llm=ChatOpenAI(temperature=0),
         retriever=index.vectorstore.as_retriever(search_kwargs={"k": 1}),
     )
 
     chat_history = []
 
-    # message = request.json.get("message")
-    # query = input("Prompt: ")
-
     result = chain({"question": prompt, "chat_history": chat_history})
-    print(result)
 
-    chat_history.append((query, result['answer']))
+    chat_history.append((prompt, result['answer']))
     query = None
+    print(result)
     return result
 @app.route("/requestH", methods=["POST"])
 def ChatWHistory():
@@ -111,6 +141,32 @@ def quiz_send():
 
 
     loader = TextLoader("books/books.txt", encoding="utf-8")
+    # loader = DirectoryLoader("data/")
+    index = VectorstoreIndexCreator().from_loaders([loader])
+
+    chain = ConversationalRetrievalChain.from_llm(
+        llm=ChatOpenAI(model="gpt-3.5-turbo", temperature=0),
+        retriever=index.vectorstore.as_retriever(search_kwargs={"k": 1}),
+    )
+
+    query = prompt
+
+    result = chain({"question": prompt, "chat_history": ""})
+    print(result)
+    r = ext(result["answer"])
+
+    query = None
+    return r
+@app.route("/quiz_requestH",methods=["POST"])
+def quizH_send():
+    quiz_number = request.form.get('quiz_number')
+    chapter = request.form.get('chapter')
+    subtopic = request.form.get('subtopic')
+    prompt = "generate a five conceptual and random question quiz from  the content having four choices a,b,c,d and answer letter and explanation  of the answer in json format"
+    PERSIST = False
+
+
+    loader = TextLoader("books/history.txt", encoding="utf-8")
     # loader = DirectoryLoader("data/")
     index = VectorstoreIndexCreator().from_loaders([loader])
 
