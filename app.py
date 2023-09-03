@@ -186,6 +186,9 @@ def quizH_send():
     r = ext(result["answer"])
 
     query = None
-    return r
+    if r == "fail":
+        render_template("hist-g9.html")
+    else:
+        return r
 if __name__ == "__main__":
     app.run(debug=True)
