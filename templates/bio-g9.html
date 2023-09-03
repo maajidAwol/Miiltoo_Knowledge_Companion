@@ -366,6 +366,11 @@
         headers: {
           "Content-Type": "application/json",
         },
+        body: JSON.stringify({
+          chapter: document.getElementById("chapter").value,
+          subtopic: document.getElementById("subtopic").value,
+          number: document.getElementById("number").value,
+        }),
       })
         .then((response) => response.json())
         .then((data) => {
