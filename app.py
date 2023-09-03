@@ -104,7 +104,7 @@ def ChatWHistory():
 @app.route("/quiz_request",methods=["POST"])
 def quiz_send():
 
-    prompt = "generate a five conceptual and random question quiz from  the content having four choices a,b,c,d and answer letter and explanation  of the answer in json format"
+    prompt = "generate a five conceptual and random question quiz from  the content specially from chapter 2:characteristics and subtopic 2.2 taxonomy of living things having four choices a,b,c,d and answer letter and explanation  of the answer in json format"
     PERSIST = False
 
 

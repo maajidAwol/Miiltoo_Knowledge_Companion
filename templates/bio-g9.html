@@ -339,7 +339,7 @@
 <!--  <button id="fetch-quiz">Fetch Quiz</button>-->
   <form id="quiz-form">
     <div id="quiz-container"></div>
-    <button type="button" id="submit-button" disabled>Submit Answers</button>
+    <button type="button" style="display: none;" id="submit-button" disabled>Submit Answers</button>
   </form>
   <div id="results" style="display: none;"></div>
 
@@ -351,8 +351,11 @@
 
     let quizData; // To store fetched quiz data
     let score = 0;
-
+    submitButton.style.display = "none";
     fetchQuizButton.addEventListener("click", function () {
+     submitButton.style.display = "none";
+     quizContainer.innerHTML = '';
+           fetchQuizButton.style.display = "none";
       fetch("/quiz_request", {
         method: "POST", // Assuming you're using a GET request to fetch quiz data
         headers: {
@@ -363,7 +366,9 @@
         .then((data) => {
           quizData = data.quiz;
           buildQuiz();
-          fetchQuizButton.disabled = true; // Disable the fetch button after fetching quiz data
+          submitButton.style.display = "block";
+           fetchQuizButton.style.display = "block";
+          //fetchQuizButton.disabled = true; // Disable the fetch button after fetching quiz data
         });
     });
 
@@ -381,7 +386,7 @@
           choiceLabel.innerHTML = `
             <input type="radio" name="question${index}" value="${choice}" required>
             ${choice}: ${choices[choice]}
-          `;
+          <br>`;
           questionElement.appendChild(choiceLabel);
         });
 
@@ -393,7 +398,8 @@
 
     submitButton.addEventListener('click', function () {
       showResults();
-      submitButton.disabled = true;
+    //  submitButton.disabled = true;
+    submitButton.style.display = "none";
     });
 
     function showResults() {
@@ -428,13 +434,13 @@
   </script>
             </div>
           </div>
-        
+
         </section>
         <div class="copy-select-undefined-parent">
           <i class="fa-solid fa-copy copy-select-undefined"></i>
-         
+
         </div>
-        
+
       </section>
 
     </main>
