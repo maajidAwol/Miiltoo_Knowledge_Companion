@@ -69,6 +69,7 @@ sendBtn.addEventListener("click", function(event) {
   event.preventDefault(); // Prevent the default form submission behavior
   sendMessage();
   sendBtn.style.visibility="hidden";
+  messageInput.value = "";
 });
 
 messageInput.addEventListener("keydown", function(event) {
