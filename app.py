@@ -42,10 +42,12 @@ def main():
     return render_template("index.html")
 @app.route("/history/")
 def history():
-    return render_template("hist-g9.html")
+    book='bk/History student textbook grade 9.pdf'
+    return render_template("book.html",book=book)
 @app.route("/biology/")
 def biology():
-    return render_template("bio-g9.html")
+    book='bk/Biology Student Textbook Grade 9.pdf'
+    return render_template("book.html",book=book)
 @app.route("/grade/")
 def grade():
     return render_template("grade.html")
