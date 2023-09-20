@@ -1,0 +1,66 @@
+.loading-anime {
+  margin: 2%;
+  width: 16%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  font-size: 20px;
+  letter-spacing: 4px;
+  font-weight: 600;
+  color: aqua;
+}
+.loading-overlay {
+  width: 100%;
+  height: 60vh;
+  background: black;
+}
+
+#logo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: fill 1s ease forwards 2s;
+}
+#logo path:nth-child(7) {
+  stroke-dasharray: 148;
+  stroke-dashoffset: 148;
+  animation: lin-anime 4s ease forwards infinite;
+}
+#logo path:nth-child(2) {
+  stroke-dasharray: 12;
+  stroke-dashoffset: 12;
+  animation: lin-anime 4s ease backwards infinite;
+}
+#logo path:nth-child(5) {
+  stroke-dasharray: 12;
+  stroke-dashoffset: 12;
+  animation: lin-anime 4s ease backwards infinite;
+}
+@keyframes lin-anime {
+  to {
+    stroke-dashoffset: 0;
+    background: transparent;
+  }
+}
+@keyframes fill {
+  from {
+    fill: transparent;
+    background: transparent;
+  }
+  to {
+    fill: rgba(0, 255, 255, 0.137);
+  }
+}
+.hidden {
+  display: none;
+}
+.blinker {
+  animation: blinker 1s linear infinite;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}

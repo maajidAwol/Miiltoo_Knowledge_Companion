@@ -1,37 +1,92 @@
+//const fetchQuizButton = document.getElementById("fetch-quiz");
+//    const quizContainer = document.getElementById('quiz-container');
+//    const submitButton = document.getElementById('submit-button');
+//    const resultsContainer = document.getElementById('results');
+//
+//    let quizData; // To store fetched quiz data
+//    let score = 0;
+//
+//    fetchQuizButton.addEventListener("click", function (event) {
+//    event.preventDefault();
+//      submitButton.style.display = "none";
+//      fetchQuizButton.style.display = "none";
+//      quizContainer.innerHTML = ''; // Clear the previous quiz content
+//      resultsContainer.style.display = "none"; // Hide the results
+//
+//      fetch("/quiz_requestH", {
+//        method: "POST",
+//        headers: {
+//          "Content-Type": "application/json",
+//        },
+//        body: JSON.stringify({
+//          chapter: document.getElementById("chapter").value,
+//          subtopic: document.getElementById("subtopic").value,
+//          number: document.getElementById("number").value,
+//        }),
+//      })
+//        .then((response) => response.json())
+//        .then((data) => {
+//          quizData = data.quiz;
+//          buildQuiz();
+//          submitButton.style.display = "block";
+//          fetchQuizButton.style.display = "block";
+//        });
+//    });
 const fetchQuizButton = document.getElementById("fetch-quiz");
-    const quizContainer = document.getElementById('quiz-container');
-    const submitButton = document.getElementById('submit-button');
-    const resultsContainer = document.getElementById('results');
+const quizContainer = document.getElementById('quiz-container');
+const submitButton = document.getElementById('submit-button');
+const resultsContainer = document.getElementById('results');
 
-    let quizData; // To store fetched quiz data
-    let score = 0;
+let quizData; // To store fetched quiz data
+let score = 0;
 
-    fetchQuizButton.addEventListener("click", function (event) {
-    event.preventDefault();
-      submitButton.style.display = "none";
-      fetchQuizButton.style.display = "none";
-      quizContainer.innerHTML = ''; // Clear the previous quiz content
-      resultsContainer.style.display = "none"; // Hide the results
+fetchQuizButton.addEventListener("click", function (event) {
+  event.preventDefault();
+  submitButton.style.display = "none";
+  fetchQuizButton.style.display = "none";
+  quizContainer.innerHTML = ''; // Clear the previous quiz content
+  resultsContainer.style.display = "none"; // Hide the results
 
-      fetch("/quiz_requestH", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          chapter: document.getElementById("chapter").value,
-          subtopic: document.getElementById("subtopic").value,
-          number: document.getElementById("number").value,
-        }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          quizData = data.quiz;
-          buildQuiz();
-          submitButton.style.display = "block";
-          fetchQuizButton.style.display = "block";
-        });
-    });
+  fetch("/quiz_requestH", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      chapter: document.getElementById("chapter").value,
+      subtopic: document.getElementById("subtopic").value,
+      number: document.getElementById("number").value,
+    }),
+  })
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
+  .then((data) => {
+    if (data && data.quiz) {
+      quizData = data.quiz;
+      buildQuiz();
+      submitButton.style.display = "block";
+      fetchQuizButton.style.display = "block";
+    } else {
+      // Handle the case where the response is empty or doesn't contain quiz data
+      // You can show an error message or take appropriate action here
+      fetchQuizButton.style.display = "block";
+      quizContainer.innerHTML = '<span style="color:red;">error generating quiz, please try again</span>';
+      console.error("Empty or invalid response from the server");
+    }
+  })
+  .catch((error) => {
+    // Handle network errors or other exceptions here
+    fetchQuizButton.style.display = "block";
+    quizContainer.innerHTML = '<span style="color:red;">error fetching data, please try again</span>';
+    console.error("Error fetching data:", error);
+  });
+
+  return false; // Prevent form submission
+});
 
     function buildQuiz() {
       score = 0;

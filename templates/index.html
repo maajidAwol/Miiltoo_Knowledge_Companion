@@ -22,9 +22,18 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
   </head>
-  <body>
+  <body class="bod">
     <div class="frammodify-1">
+      <div class="overlay-nav" id="overlay-nav"></div>
       <section class="hero-section" id="hero">
         <div class="hero">
           <img class="hero-child" alt="" src="../static/public/hero-bg.png" />
@@ -35,7 +44,7 @@
                 <img
                   class="untitled-13x-1-icon3"
                   alt=""
-                  src="../static/public/logo.png"
+                  src="../static/public/logo.svg"
                 />
                 Miiltoo
               </div>
@@ -46,7 +55,7 @@
                 <button class="wade-warren dropbtn">Grade</button>
                 <div class="dropdown-content">
                   <a href="/grade/">Grade-9</a>
-                  <a href="#">Grade-10(soon)</a><
+                  <a href="#">Grade-10(soon)</a>
                   <a href="#">Grade-11(soon)</a>
                   <a href="#">Grade-12(soon)</a>
                 </div>
@@ -55,31 +64,47 @@
               <a href=""><div class="wade-warren"></div></a>
             </nav>
             <div class="login-group">
-              <div class="login1">login</div>
+              <div class="login1"><a href="/login">Login</a></div>
               <button class="signup-container" autofocus id="btn-signup">
                 <div class="signup1">Signup</div>
               </button>
             </div>
-            <div class="hamb-menu">=</div>
+            <div class="hamb-menu" id="hamb-menu">
+              <i class="fa-solid fa-bars-staggered hamb-menu-icon"></i>
+            </div>
+            <div class="close-menu hidden">
+              <i class="fa-solid fa-x close-icon"></i>
+            </div>
           </header>
+          <div class="nav-dropdown hidden">
+            <nav class="nav-link">
+              <a href="/index/" class="link-item">Home</a>
+              <a href="/index/" class="link-item">Exam</a>
+              <a href="/index/" class="link-item">Contact</a>
+              <a href="/index/" class="link-item">About us</a>
+              <a href="/index/" class="link-item">
+                <button id="btn-login">login</button>
+              </a>
+              <a href="/index/" class="link-item">
+                <button class="signup-btn" id="btn-signup">Signup</button>
+              </a>
+            </nav>
+          </div>
           <div class="frame-parent16">
             <div class="frame-parent17">
-              <div class="bg-group">
-                <div class="headline1">Miltoo</div>
-                <div class="lorem-ipsum-dolor-container5">
-                  <p class="lorem-ipsum-dolor7">
-                    Elevate Education with AI-Powered Services
-                  </p>
-                  <p class="lorem-ipsum-dolor7">
-                    Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id es
-                  </p>
-                </div>
-                <div class="frame-wrapper">
-                  <button class="frame-button" autofocus>
-                    <div class="explore-now4">Explore now</div>
-                  </button>
-                </div>
+              <div class="headline1">
+                Elevate Education with AI-Powered Services
+              </div>
+              <div class="lorem-ipsum-dolor-container5">
+                <p class="lorem-ipsum-dolor7">
+                  " Excepteur sint occaecat cupidatat non proident, sunt in
+                  culpa qui officia deserunt mollit anim id es "
+                </p>
+              </div>
+              <div class="frame-wrapper">
+                <button class="frame-button" autofocus>
+                  <div class="explore-now4">Explore now</div>
+                </button>
               </div>
             </div>
             <img
@@ -90,26 +115,16 @@
           </div>
         </div>
       </section>
-      <img
-        class="frammodify-1-child"
-        alt=""
-        src="../static/public/rectangle-8.svg"
-      />
 
-      <img
-        class="frammodify-1-item"
-        alt=""
-        src="../static/public/robot-vector.svg"
-      />
+      
 
       <section class="frame-parent18" id="feature">
         <div class="features-group">
           <h1 class="features1">features</h1>
-          <img class="frame-child5" alt="" src="../static/public/line-14.svg" />
         </div>
         <div class="frame-parent19">
           <div class="rectangle-parent1">
-            <div class="frame-child6"></div>
+            <img class="frame-child6" src="/static/public/personalization.png">
             <h2 class="personalized-learning1">personalized learning</h2>
             <div class="this-feature-ensures1">
               This feature ensures that students receive tailored support and
@@ -117,7 +132,7 @@
             </div>
           </div>
           <div class="rectangle-parent1">
-            <div class="frame-child6" id="interactive"></div>
+            <img class="frame-child6" src="/static/public/conversation.png">
             <h2 class="personalized-learning1">interactive conversation</h2>
             <div class="promotes-active-learning1">
               promotes active learning and encourages students to actively
@@ -125,7 +140,7 @@
             </div>
           </div>
           <div class="rectangle-parent1">
-            <div class="frame-child6" id="resource"></div>
+            <img class="frame-child6" src="/static/public/resource.png">
             <h2 class="personalized-learning1">comprehensive Resource</h2>
             <div class="ensures-that-students1">
               ensures that students have access to comprehensive learning
@@ -147,8 +162,8 @@
           <button class="all-container">
             <div class="all1">All</div>
           </button>
-          <button class="study-guide-container">
-            <div class="study-guide2">study guide</div>
+          <button class="study-guide-container study-guide2">
+            study-Guide
           </button>
           <button class="study-guide-container">
             <div class="study-guide2">Textbook</div>
@@ -166,7 +181,7 @@
             />
 
             <div class="group-parent1">
-              <h3 class="history3">history</h3>
+              <h3 class="history3">Biology</h3>
               <button class="view-more-wrapper1">
                 <div class="view-more3">view more</div>
               </button>
@@ -174,7 +189,8 @@
             <div class="description-parent">
               <div class="description6">Description</div>
               <div class="lorem-ipsum-dolor8">
-                provides a comprehensive overview of the country's rich historical heritage and events.
+                provides a comprehensive overview of the country's rich
+                historical heritage and events.
               </div>
             </div>
           </div>
@@ -182,7 +198,7 @@
             <img
               class="frame-child10"
               alt=""
-              src="../static/public/BOOK-cover.svg"
+              src="../static/public/hist-g9-cover.svg"
             />
 
             <div class="group-parent1">
@@ -194,7 +210,8 @@
             <div class="description-parent">
               <div class="description6">Description</div>
               <div class="lorem-ipsum-dolor8">
-                provides a comprehensive overview of the country's rich historical heritage and events.
+                provides a comprehensive overview of the country's rich
+                historical heritage and events.
               </div>
             </div>
           </div>
@@ -214,13 +231,56 @@
             <div class="description-parent">
               <div class="description6">Description</div>
               <div class="lorem-ipsum-dolor8">
-                provides a comprehensive overview of the country's rich historical heritage and events.
+                provides a comprehensive overview of the country's rich
+                historical heritage and events.
+              </div>
+            </div>
+          </div>
+          <div class="vector-container">
+            <img
+              class="frame-child10"
+              alt=""
+              src="../static/public/coming-soon-bk-cover.svg"
+            />
+
+            <div class="group-parent1">
+              <h3 class="history3">history</h3>
+              <button class="view-more-wrapper1">
+                <div class="view-more3">view more</div>
+              </button>
+            </div>
+            <div class="description-parent">
+              <div class="description6">Description</div>
+              <div class="lorem-ipsum-dolor8">
+                provides a comprehensive overview of the country's rich
+                historical heritage and events.
+              </div>
+            </div>
+          </div>
+          <div class="vector-container">
+            <img
+              class="frame-child10"
+              alt=""
+              src="../static/public/coming-soon-bk-cover.svg"
+            />
+
+            <div class="group-parent1">
+              <h3 class="history3">history</h3>
+              <button class="view-more-wrapper1">
+                <div class="view-more3">view more</div>
+              </button>
+            </div>
+            <div class="description-parent">
+              <div class="description6">Description</div>
+              <div class="lorem-ipsum-dolor8">
+                provides a comprehensive overview of the country's rich
+                historical heritage and events.
               </div>
             </div>
           </div>
         </div>
 
-        <div class="frame-210">
+        <div class="frame-210 resource-slider">
           <div class="slide-indicator">
             <div class="ellipse-2"></div>
             <div class="rectangle-16"></div>
@@ -228,6 +288,7 @@
             <div class="ellipse-4"></div>
           </div>
         </div>
+       
       </section>
       <section class="frame-parent22">
         <div class="frame-parent23">
@@ -242,249 +303,113 @@
             />
           </div>
           <img
-            class="photo-2023-08-22-03-54-20-1-icon1"
+            class="frammodify-1-child"
             alt=""
-            src="../static/public/robot-2.png"
+            src="../static/public/rectangle-8.svg"
           />
         </div>
-        <div class="frame-parent24">
-          <div class="bg-container">
-            <img
-              class="bg-icon3"
+        <div class="frame-parent24" >
+            <div class="frame-parent17" id="headline-2">
+              <h2>
+                Knowledge is Power
+              </h2>
+              <div class="lorem-ipsum-dolor-container5">
+                <p class="lorem-ipsum-dolor7">
+                  " we provied Educational Advancement Through Innovative Generative
+                  AI Solutions: Transforming Learning Experiences "
+                </p>
+              </div>
+              <div class="frame-wrapper">
+                <div class="frame-parent25">
+                  <div class="search-resource-here-container">
+                    <div class="search-resource-here1">search resource ...</div>
+                  </div>
+                  <button class="search-container">
+                    <div class="search1">search</div>
+                  </button>
+                </div>
+              </div>
+            </div>
+           <!-- <div class="robot-box">
+              <img
+              class="frammodify-1-item"
               alt=""
-              src="../static/public/headline-2.svg"
+              src="../static/public/robot-2.png"
             />
-
-            <h1 class="headline-21">Knowledge is Power</h1>
-            <div class="lorem-ipsum-dolor12">
-             we provied Educational Advancement Through Innovative Generative AI Solutions: Transforming Learning Experiences
-            </div>
+                  <img
+              class="frammodify-1-item"
+              alt=""
+              src="../static/public/robot-vector.svg"
+            />
+            </div>-->
+          
           </div>
-          <div class="frame-parent25">
-            <div class="search-resource-here-container">
-              <div class="search-resource-here1">search resource here ..</div>
-            </div>
-            <button class="search-container">
-              <div class="search1">search</div>
-            </button>
-          </div>
+        
         </div>
       </section>
       <section class="frame-parent26">
         <div class="testimony-group">
           <h1 class="resource3">testimony</h1>
-          <img
-            class="frame-child34"
-            alt=""
-            src="../static/public/line-121.svg"
-          />
+         <div class="testimony-line"></div>
         </div>
-        <div class="frame-parent27">
-          <div class="frame-parent28">
-            <div class="union-parent1">
-              <div class="union3">
-                <div class="union-child5"></div>
-                <div class="union-inner3"></div>
-              </div>
-              <div class="lorem-ipsum-dolor-sit-amet-co-parent1">
-                <div class="lorem-ipsum-dolor-container6">
-                  <p class="lorem-ipsum-dolor7">
-                    For our educational institution, using the 
-                    generative AI solutions from this website has been a game-changer. 
-                    Learning is now interesting and catered to the needs of each student 
-                    thanks to the individualized material it produces.
-                  </p>
-                  <p class="lorem-ipsum-dolor7 par2">
-                    Our pupils work harder and produce better work.
-                    Any innovative educational program needs to have this platform, right?
-                  </p>
-                </div>
-                <div class="reviews-parent1">
-                  <div class="wade-warren">reviews</div>
-                  <div class="frame-parent29">
-                    <img
-                      class="frame-icon18"
-                      alt=""
-                      src="../static/public/yelow-star.png"
-                    />
+        <div class="review-item">
+          <div class="frame-parent17 review-box">
+            <div class="lorem-ipsum-dolor-container5">
+<p class="lorem-ipsum-dolor7">
+" For our educational institution, using the generative AI
+solutions from this website has been a game-changer.
+Learning is now interesting and catered to the needs of each
+student thanks to the individualized material it produces."
+</p>
+</div>
+<div class="reviews-parent1">
+<div class="wade-warren">reviews</div>
+<div class="frame-parent29">
+<img
+class="frame-icon18"
+alt=""
+src="../static/public/yelow-star.png"
+/>
 
-                    <img
-                      
-                      class="frame-icon18"
-                      alt=""
-                      src="../static/public/yelow-star.png"
-                    />
-                    <img
-                      class="frame-icon18"
-                      alt=""
-                      src="../static/public/yelow-star.png"
-                    />
-                    <img
-                      class="frame-icon18"
-                      alt=""
-                      src="../static/public/yelow-star.png"
-                    />
-                    <img
-                      class="frame-icon18"
-                      alt=""
-                      src="../static/public/black-star.png"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="vector-parent4">
-              <img
-                class="frame-child35"
-                alt=""
-                src="../static/public/person1.svg"
-              />
+<img
+class="frame-icon18"
+alt=""
+src="../static/public/yelow-star.png"
+/>
+<img
+class="frame-icon18"
+alt=""
+src="../static/public/yelow-star.png"
+/>
+<img
+class="frame-icon18"
+alt=""
+src="../static/public/yelow-star.png"
+/>
+<img
+class="frame-icon18"
+alt=""
+src="../static/public/black-star.png"
+/>
+</div>
+</div>
+</div>
+<div class="vector-parent4">
+<img
+class="frame-child35"
+alt=""
+src="../static/public/person1.svg"
+/>
 
-              <div class="wade-warren-wrapper">
-                <div class="wade-warren">Wade Warren</div>
-              </div>
-              <div class="profession-wrapper1">
-                <div class="wade-warren">profession : highschool teacher
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="frame-parent28">
-            <div class="union-parent1">
-              <div class="union3">
-                <div class="union-child5"></div>
-                <div class="union-inner3"></div>
-              </div>
-              <div class="lorem-ipsum-dolor-sit-amet-co-parent2">
-                <div class="lorem-ipsum-dolor-container6">
-                  <p class="lorem-ipsum-dolor7">
-                    These generative AI solutions have truly transformed my learning experience.
-                    The personalized content keeps me engaged and helps me understand complex topics better.
-                    It's like having a personal tutor at my fingertips
-                  </p>
-                  <p class="lorem-ipsum-dolor7">
-                    Thanks to this website, I'm more confident in my studies, and I'm acing my exams!
-                  </p>
-                </div>
-                <div class="reviews-parent2">
-                  <div class="wade-warren">reviews</div>
-                  <div class="frame-parent29">
-                    <img
-                      class="frame-icon18"
-                      alt=""
-                      src="../static/public/yelow-star.png"
-                    />
-
-                    <img
-                      
-                      class="frame-icon18"
-                      alt=""
-                      src="../static/public/yelow-star.png"
-                    />
-                    <img
-                      class="frame-icon18"
-                      alt=""
-                      src="../static/public/yelow-star.png"
-                    />
-                    <img
-                      class="frame-icon18"
-                      alt=""
-                      src="../static/public/yelow-star.png"
-                    />
-                    <img
-                      class="frame-icon18"
-                      alt=""
-                      src="../static/public/black-star.png"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="vector-parent4">
-              <img
-                class="frame-child35"
-                alt=""
-                src="../static/public/person-2.svg"
-              />
-
-              <div class="wade-warren-wrapper">
-                <div class="wade-warren">Esther Howard</div>
-              </div>
-              <div class="profession-wrapper1">
-                <div class="wade-warren">profession : student</div>
-              </div>
-            </div>
-          </div>
-          <div class="frame-parent28">
-            <div class="union-parent1">
-              <div class="union3">
-                <div class="union-child5"></div>
-                <div class="union-inner3"></div>
-              </div>
-              <div class="lorem-ipsum-dolor-sit-amet-co-parent1">
-                <div class="lorem-ipsum-dolor-container6">
-                  <p class="lorem-ipsum-dolor7">
-                    I can't thank this website enough for making studying fun and effective. 
-                    The AI-generated materials cater to my unique learning style, 
-                    and I've seen a significant improvement in my grades.
-                  </p>
-                  <p class="lorem-ipsum-dolor7">
-                    It's like having a study buddy who knows exactly what I need to succeed. 
-                    I recommend it to all my classmates!
-                  </p>
-                </div>
-                <div class="frame6">
-                  <div class="reviews-parent3">
-                    <div class="wade-warren">reviews</div>
-                    <div class="frame-parent29">
-                      <img
-                        class="frame-icon18"
-                        alt=""
-                        src="../static/public/yelow-star.png"
-                      />
-
-                      <img
-                        
-                        class="frame-icon18"
-                        alt=""
-                        src="../static/public/yelow-star.png"
-                      />
-                      <img
-                        class="frame-icon18"
-                        alt=""
-                        src="../static/public/yelow-star.png"
-                      />
-                      <img
-                        class="frame-icon18"
-                        alt=""
-                        src="../static/public/yelow-star.png"
-                      />
-                      <img
-                        class="frame-icon18"
-                        alt=""
-                        src="../static/public/black-star.png"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="vector-parent4">
-              <img
-                class="frame-child35"
-                alt=""
-                src="../static/public/person-3.svg"
-              />
-
-              <div class="wade-warren-wrapper">
-                <div class="wade-warren">Ralph Edwards</div>
-              </div>
-              <div class="profession-wrapper1">
-                <div class="wade-warren">profession :student and part time barista</div>
-              </div>
-            </div>
-          </div>
+<div class="wade-warren-wrapper">
+<div class="wade-warren">Weynishet Andargacew</div>
+</div>
+<div class="profession-wrapper1">
+<div class="wade-warren">profession : highschool teacher</div>
+</div>
+</div>
         </div>
+         
         <div class="frame-210">
           <div class="slide-indicator">
             <div class="ellipse-2"></div>
@@ -495,21 +420,17 @@
         </div>
       </section>
       <section class="frame-parent34">
+        <div class="contact-us-group">
+          <h1 class="resource3">contact us</h1>
+        </div>
         <div class="contact-box">
-          <div class="contact-us-group">
-            <h1 class="resource3">contact us</h1>
-            <img
-              class="frame-child34"
-              alt=""
-              src="../static/public/contact-line.svg"
-            />
-          </div>
+      
           <div class="fullname-box">
             <div class="frame-221">
               <div class="full-name">Full Name</div>
             </div>
             <div class="frame-222">
-              <div class="username-or-email">full name</div>
+              <input type="text" class="username-or-email"placeholder="fullname">
               <svg
                 class="icon-user"
                 width="21"
@@ -530,7 +451,8 @@
               <div class="email">email</div>
             </div>
             <div class="frame-222">
-              <div class="username-or-email">email</div>
+              <input type="text" class="username-or-email"placeholder="email">
+
               <svg
                 class="icon-envelope"
                 width="31"
@@ -551,7 +473,7 @@
               <div class="message">Message</div>
             </div>
             <div class="frame-2222">
-              <div class="username-or-email">message here</div>
+              <textarea name="message" class="username-or-email" id="" cols="30" rows="6" placeholder="meassage here .."></textarea>
             </div>
           </div>
           <div class="send-btn">
@@ -573,13 +495,13 @@
           </div>
         </div>
       </section>
-      <section class="footer1">
+      <footer class="footer1">
         <div class="top1">
           <div class="untitled-13x-1-container">
             <img
               class="untitled-13x-1-icon5"
               alt=""
-              src="../static/public/logo.png"
+              src="../static/public/logo.svg"
             />
 
             <div class="miiltoo3">Miiltoo</div>
@@ -601,17 +523,21 @@
         <div class="footer-child">
           <div class="frame-parent35">
             <div class="grade-group">
+            <div class="wade-warren top-tag" >Home</div>
+
               <div class="wade-warren">Grade</div>
               <div class="wade-warren">Subject</div>
               <div class="wade-warren">Chatbot</div>
             </div>
             <div class="grade-group">
+              <div class="wade-warren top-tag">Resources</div>
               <div class="wade-warren">textbook</div>
               <div class="wade-warren">study guide</div>
               <div class="wade-warren">Quize</div>
               <div class="wade-warren">Test</div>
             </div>
             <div class="grade-9-group">
+              <div class="wade-warren top-tag">Grade</div>
               <div class="wade-warren">Grade-9</div>
               <div class="grade-102">
                 <p class="lorem-ipsum-dolor7">grade-10</p>
@@ -620,15 +546,17 @@
               <div class="wade-warren">grade-12</div>
             </div>
             <div class="grade-9-group">
+              <div class="wade-warren top-tag">Pages</div>
               <div class="wade-warren">About us</div>
               <div class="contact2">
                 <p class="lorem-ipsum-dolor7">Contact</p>
               </div>
-              <div class="wade-warren">FAQ</div>
+              <div class="wade-warren top-tag">FAQ</div>
               <div class="wade-warren">Privacy policy</div>
               <div class="wade-warren">Help</div>
             </div>
             <div class="grade-group">
+              <div class="wade-warren top-tag">Social media</div>
               <div class="wade-warren">Twitter</div>
               <div class="wade-warren">linkedIn</div>
               <div class="wade-warren">Facebook</div>
@@ -636,18 +564,35 @@
             </div>
           </div>
         </div>
-        <footer class="frame-footer">
+        <div class="frame-footer">
           <img
             class="untitled-13x-1-icon5"
             alt=""
-            src="../static/public/logo.png"
+            src="../static/public/logo.svg"
           />
 
           <div class="footer-text1">
             © 2023 Miiltoo ai-based chatbot. All rights reserved.
           </div>
-        </footer>
-      </section>
+        </div>
+      </footer>
     </div>
+    <script src="/static/js/new.js"></script>
+    <script>
+      var login = document.querySelector(".login1");
+      var signup = document.querySelector(".signup1");
+
+      var loggedIn = {{ session['logged_in'] }};
+
+      // Now you can use the 'loggedIn' JavaScript variable to manipulate information.
+      if (loggedIn) {
+        login.innerHTML = "<a href=\"/logout\">Logout</a>";
+        signup.innerHTML="{{session['name']}}";
+          console.log('User is logged in');
+      } else {
+          // User is not logged in, do something else.
+          console.log('User is not logged in');
+      }
+  </script>
   </body>
 </html>

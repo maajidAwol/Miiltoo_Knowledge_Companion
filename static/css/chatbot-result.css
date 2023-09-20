@@ -253,10 +253,10 @@
 }
 .frame-icon {
   position: absolute;
-  top: 3%;
-  left: 2%;
-  width: 44px;
-  height: 44px;
+  top: 2%;
+  left: 1%;
+  width: 33px;
+  height: 31px;
   overflow: hidden;
   flex-shrink: 0;
 }
@@ -289,6 +289,21 @@
   justify-content: flex-start;
   gap: var(--gap-5xs);
   z-index: 0;
+}
+.frame-parent1::-webkit-scrollbar {
+  width: 10px;
+  background: #202020;
+}
+.frame-parent1::-webkit-scrollbar-track {
+  width: 2px;
+  background: rgb(50, 63, 61);
+  border-radius: 18px;
+}
+.frame-parent1::-webkit-scrollbar-thumb {
+  width: 2px;
+  height: 10px;
+  background: rgb(13, 165, 165);
+  border-radius: 18px;
 }
 .rectangle-div {
   position: relative;

@@ -5,9 +5,8 @@ const resultsContainer = document.getElementById('results');
 
 let quizData; // To store fetched quiz data
 let score = 0;
-
 fetchQuizButton.addEventListener("click", function (event) {
-event.preventDefault();
+  event.preventDefault();
   submitButton.style.display = "none";
   fetchQuizButton.style.display = "none";
   quizContainer.innerHTML = ''; // Clear the previous quiz content
@@ -24,14 +23,40 @@ event.preventDefault();
       number: document.getElementById("number").value,
     }),
   })
-    .then((response) => response.json())
-    .then((data) => {
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
+  .then((data) => {
+    if (data && data.quiz) {
       quizData = data.quiz;
       buildQuiz();
       submitButton.style.display = "block";
       fetchQuizButton.style.display = "block";
-    });
+    } else {
+      // Handle the case where the response is empty or doesn't contain quiz data
+      // You can show an error message or take appropriate action here
+        fetchQuizButton.style.display = "block";
+        quizContainer.innerHTML = '<span style="color:red;">error generating quiz please re generate </span>';
+      console.error("Empty or invalid response from the server");
+      alert("Error: Empty or invalid response from the server");
+
+    }
+  })
+  .catch((error) => {
+    // Handle network errors or other exceptions here
+    quizContainer.innerHTML = '<span style="color:red;">error generating quiz please re generate </span>';
+
+      fetchQuizButton.style.display = "block";
+    console.error("Error fetching data:", error);
+    alert("Error fetching data: " + error.message);
+  });
+
+  return false; // Prevent form submission
 });
+
 
 function buildQuiz() {
   score = 0;
