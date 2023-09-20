@@ -1,3 +1,10 @@
+*{
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+}
+
 button {
   outline: none;
 }
@@ -7,7 +14,10 @@ h2 {
   text-wrap: nowrap;
 }
 body {
-  background-color: var(--color-azure);
+  position: relative;
+    background-color: var(--color-azure);
+    width: 100vw;
+    overflow-x: hidden;
 }
 .hero-child,
 .miiltoo2 {
@@ -109,6 +119,7 @@ a {
   font-family: var(--font-source-serif-pro);
 }
 .header1 {
+  position: relative;
   align-self: stretch;
   background-color: var(--color-gray-400);
   backdrop-filter: blur(16px);
@@ -197,6 +208,7 @@ a {
   width: 100%;
   flex-direction: row;
   padding: 2% 8%;
+  justify-content: center;
 }
 .frame-parent17 {
   border-radius: 52.89px 52.89px 0 52.89px;
@@ -207,7 +219,7 @@ a {
   flex-direction: column;
   position: absolute;
   left: 5%;
-  top: 10%;
+  top: 20%;
   z-index: 0;
   backdrop-filter: blur(5px);
 }
@@ -1061,6 +1073,7 @@ a {
 }
 .frammodify-1 {
   position: relative;
+  top: -64px;
   background-color: var(--color-azure);
   width: 100%;
   overflow: hidden;
@@ -1481,6 +1494,10 @@ a {
   .frame-parent35 {
     flex-direction: column;
   }
+  .frame-wrapper {
+   padding: 2% 0;
+    justify-content: flex-start;
+  }
 }
 @media only screen and (600px <width <=768pc) {
   .untitled-13x-1-icon4 {
@@ -1558,9 +1575,9 @@ a {
   }
   .untitled-13x-1-icon4 {
     top: 19%;
-    left: 60%;
-    width: 330px;
-    height: 542px;
+    left: 62%;
+    width: 300px;
+    height: 601px;
   }
   .frame-parent18 {
     height: 615px;

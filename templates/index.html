@@ -32,67 +32,53 @@
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
   </head>
   <body class="bod">
-    <div class="frammodify-1">
+    <header class="header1" id="header">
+      <div class="miiltoo-group">
+        <div class="miiltoo2">
+          <img
+            class="untitled-13x-1-icon3"
+            alt=""
+            src="../static/public/logo.svg"
+          />
+          Miiltoo
+        </div>
+      </div>
+      <nav class="home-group">
+        <a href="/index/"><div class="wade-warren">Home</div></a>
+        <div class="dropdown">
+          <button class="wade-warren dropbtn">Grade</button>
+          <div class="dropdown-content">
+            <a href="/grade/">Grade-9</a>
+            <a href="#">Grade-10(soon)</a>
+            <a href="#">Grade-11(soon)</a>
+            <a href="#">Grade-12(soon)</a>
+          </div>
+        </div>
+        <a href="/quiz/"><div class="wade-warren"></div></a>
+        <a href=""><div class="wade-warren"></div></a>
+      </nav>
+      <div class="login-group">
+        <div class="login1"><a href="/login">Login</a></div>
+        <button class="signup-container" autofocus id="btn-signup">
+          <div class="signup1">Signup</div>
+        </button>
+      </div>
+      <div class="hamb-menu" id="hamb-menu">
+       <!-- <i class="fa-solid fa-bars-staggered hamb-menu-icon"></i>-->
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+     
+    </header>
+    <main class="frammodify-1">
       <div class="overlay-nav" id="overlay-nav"></div>
       <section class="hero-section" id="hero">
         <div class="hero">
           <img class="hero-child" alt="" src="../static/public/hero-bg.png" />
 
-          <header class="header1" id="header">
-            <div class="miiltoo-group">
-              <div class="miiltoo2">
-                <img
-                  class="untitled-13x-1-icon3"
-                  alt=""
-                  src="../static/public/logo.svg"
-                />
-                Miiltoo
-              </div>
-            </div>
-            <nav class="home-group">
-              <a href="/index/"><div class="wade-warren">Home</div></a>
-              <div class="dropdown">
-                <button class="wade-warren dropbtn">Grade</button>
-                <div class="dropdown-content">
-                  <a href="/grade/">Grade-9</a>
-                  <a href="#">Grade-10(soon)</a>
-                  <a href="#">Grade-11(soon)</a>
-                  <a href="#">Grade-12(soon)</a>
-                </div>
-              </div>
-              <a href="/quiz/"><div class="wade-warren"></div></a>
-              <a href=""><div class="wade-warren"></div></a>
-            </nav>
-            <div class="login-group">
-              <div class="login1"><a href="/login">Login</a></div>
-              <button class="signup-container" autofocus id="btn-signup">
-                <div class="signup1">Signup</div>
-              </button>
-            </div>
-            <div class="hamb-menu" id="hamb-menu">
-             <!-- <i class="fa-solid fa-bars-staggered hamb-menu-icon"></i>-->
-              <div class="line"></div>
-              <div class="line"></div>
-              <div class="line"></div>
-            </div>
-            <div class="close-menu hidden">
-              <i class="fa-solid fa-x close-icon"></i>
-            </div>
-          </header>
-          <div class="nav-dropdown hidden">
-            <nav class="nav-link hidden">
-              <a href="/index/" class="link-item">Home</a>
-              <a href="/index/" class="link-item">Exam</a>
-              <a href="/index/" class="link-item">Contact</a>
-              <a href="/index/" class="link-item">About us</a>
-              <a href="/index/" class="link-item">
-                <button id="btn-login">login</button>
-              </a>
-              <a href="/index/" class="link-item">
-                <button class="signup-btn" id="btn-signup">Signup</button>
-              </a>
-            </nav>
-          </div>
+        
+         
           <div class="frame-parent16">
             <div class="frame-parent17">
               <div class="headline1">
@@ -118,9 +104,6 @@
           </div>
         </div>
       </section>
-
-      
-
       <section class="frame-parent18" id="feature">
         <div class="features-group">
           <h1 class="features1">features</h1>
@@ -498,6 +481,7 @@ src="../static/public/person1.svg"
           </div>
         </div>
       </section>
+      </main>
       <footer class="footer1">
         <div class="top1">
           <div class="untitled-13x-1-container">
@@ -585,7 +569,7 @@ src="../static/public/person1.svg"
       var login = document.querySelector(".login1");
       var signup = document.querySelector(".signup1");
 
-      var loggedIn = {{ session['logged_in'] }};
+      var loggedIn =  session['logged_in'];
 
       // Now you can use the 'loggedIn' JavaScript variable to manipulate information.
       if (loggedIn) {
