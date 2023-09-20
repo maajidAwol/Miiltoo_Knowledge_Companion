@@ -2,7 +2,7 @@ const fetchQuizButton = document.getElementById("fetch-quiz");
 const quizContainer = document.getElementById('quiz-container');
 const submitButton = document.getElementById('submit-button');
 const resultsContainer = document.getElementById('results');
-
+const bk_choice = document.getElementById("book_choice");
 let quizData; // To store fetched quiz data
 let score = 0;
 fetchQuizButton.addEventListener("click", function (event) {
@@ -21,6 +21,7 @@ fetchQuizButton.addEventListener("click", function (event) {
       chapter: document.getElementById("chapter").value,
       subtopic: document.getElementById("subtopic").value,
       number: document.getElementById("number").value,
+      book_choice: document.getElementById("book_choice").value,
     }),
   })
   .then((response) => {

@@ -80,11 +80,11 @@ def quiz_function(prompt, path):
     else:
         return r
 
-os.environ["OPENAI_API_KEY"]="sk-"
+os.environ["OPENAI_API_KEY"]=""
 
 app = Flask(__name__)
 app.static_folder = 'static'
-
+app.secret_key= "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"
 @app.route("/")
 def main():
     return render_template("index.html")
@@ -94,7 +94,7 @@ def history():
     return render_template("book.html",book=book)
 @app.route("/biology/")
 def biology():
-    book='bk/Biology Student Textbook Grade 9.pdf'
+    book = 'bk/Biology Student Textbook Grade 9.pdf'
     return render_template("book.html",book=book)
 @app.route("/grade/")
 def grade():
@@ -102,12 +102,18 @@ def grade():
 @app.route("/request", methods=["POST"])
 def send():
     prompt = request.json.get("prompt")
+    choice = request.json.get("book_choice")
+    print(choice)
+    path = ""
+    if choice == "bk/Biology Student Textbook Grade 9.pdf":
+        path = "books/biology.txt"
+    elif choice == "bk/History student textbook grade 9.pdf":
+        path = "books/history.txt"
     # path = "books/biology.txt"
     # result = chat_function(prompt, path)
     time.sleep(10)
     if "bio" not in session:
         session["bio"] = []
-
     chat_history = session["bio"]
     mock_text = "I am your dedicated study companion, here to empower you in your academic journey. My mission is to assist you in comprehending your course materials and ultimately, helping you achieve better grades. With a wealth of knowledge and insightful analysis at my disposal, I'll break down complex concepts into digestible pieces, provide summaries, answer your questions, and offer valuable insights. Whether it's literature, science, history, or any other subject, I'm here to be your study buddy."
 
@@ -122,44 +128,53 @@ def send():
     print(session["bio"])
     return jsonify(result)
 
-@app.route("/requestH", methods=["POST"])
-def ChatWHistory():
-    # prompt = request.json.get("prompt")
-    # path = "books/history.txt"
-    # result = chat_function(prompt, path)
-    time.sleep(10)
-    chat_history = session["bio"]
-    mock_text = "I am your dedicated study companion, here to empower you in your academic journey. My mission is to assist you in comprehending your course materials and ultimately, helping you achieve better grades. With a wealth of knowledge and insightful analysis at my disposal, I'll break down complex concepts into digestible pieces, provide summaries, answer your questions, and offer valuable insights. Whether it's literature, science, history, or any other subject, I'm here to be your study buddy."
-
-    result = {"answer": mock_text}  # Mocking the result
-
-    # Append the current conversation turn to the chat history in the session
-    chat_history.append(("kk", result['answer']))
-    session["bio"] = chat_history  # Update the chat history in the session
-
-    query = None
-    print(result)
-    print(session["bio"])
-    return jsonify(result)
+# @app.route("/requestH", methods=["POST"])
+# def ChatWHistory():
+#     # prompt = request.json.get("prompt")
+#     # path = "books/history.txt"
+#     # result = chat_function(prompt, path)
+#     time.sleep(10)
+#     chat_history = session["bio"]
+#     mock_text = "I am your dedicated study companion, here to empower you in your academic journey. My mission is to assist you in comprehending your course materials and ultimately, helping you achieve better grades. With a wealth of knowledge and insightful analysis at my disposal, I'll break down complex concepts into digestible pieces, provide summaries, answer your questions, and offer valuable insights. Whether it's literature, science, history, or any other subject, I'm here to be your study buddy."
+#
+#     result = {"answer": mock_text}  # Mocking the result
+#
+#     # Append the current conversation turn to the chat history in the session
+#     chat_history.append(("kk", result['answer']))
+#     session["bio"] = chat_history  # Update the chat history in the session
+#
+#     query = None
+#     print(result)
+#     print(session["bio"])
+#     return jsonify(result)
 @app.route("/quiz_request",methods=["POST"])
 def quiz_send():
     quiz_number = request.json.get('number')
     chapter = request.json.get('chapter')
     subtopic = request.json.get('subtopic')
+    choice = request.json.get("book_choice")
     prompt = f'generate a {quiz_number} conceptual and random question quiz from  the content specially from {chapter}:characteristics and subtopic {subtopic} having four choices a,b,c,d and answer letter and explanation  of the answer in json format'
-    path = "books/biology.txt"
+    path = ""
+
+
+    print(choice)
+    path = ""
+    if choice == "bk/Biology Student Textbook Grade 9.pdf":
+        path = "books/biology.txt"
+    elif choice == "bk/History student textbook grade 9.pdf":
+        path = "books/history.txt"
     result = quiz_function(prompt, path)
     return result
 
 
-@app.route("/quiz_requestH",methods=["POST"])
-def quizH_send():
-    quiz_number = request.json.get('number')
-    chapter = request.json.get('chapter')
-    subtopic = request.json.get('subtopic')
-    prompt = f'generate a {quiz_number} conceptual and random question quiz from  the content specially from {chapter}:characteristics and subtopic {subtopic} having four choices a,b,c,d and answer letter and explanation  of the answer in json format'
-    path = "books/history.txt"
-    result = quiz_function(prompt, path)
+# @app.route("/quiz_requestH",methods=["POST"])
+# def quizH_send():
+#     quiz_number = request.json.get('number')
+#     chapter = request.json.get('chapter')
+#     subtopic = request.json.get('subtopic')
+#     prompt = f'generate a {quiz_number} conceptual and random question quiz from  the content specially from {chapter}:characteristics and subtopic {subtopic} having four choices a,b,c,d and answer letter and explanation  of the answer in json format'
+#     path = "books/history.txt"
+#     result = quiz_function(prompt, path)
 
     return result
 if __name__ == "__main__":

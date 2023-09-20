@@ -4,7 +4,8 @@ var lastChild = parentContainer.lastElementChild;
 
 const messageInput = document.querySelector("#aaa");
 const sendBtn = document.querySelector("#bbb");
-
+const bk_choice = document.getElementById("book_choice");
+alert (book_choice)
 function addMessage(message, isUserMessage) {
   const messageDiv = document.createElement("div");
   messageDiv.classList.add("mt-3", "p-3", "rounded");
@@ -37,6 +38,7 @@ function addMessage(message, isUserMessage) {
 }
 function sendMessage() {
   const message = messageInput.value.trim();
+  const book_choice = bk_choice.value.trim();
 
   if (message !== "") {
     addMessage(message, true);
@@ -46,7 +48,7 @@ function sendMessage() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ prompt: message }),
+      body: JSON.stringify({ prompt: message , book_choice: book_choice}),
     })
       .then((response) => response.json())
       .then((data) => {
