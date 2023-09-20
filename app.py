@@ -35,7 +35,7 @@ def ext(text):
     print("No JSON-like pattern found in the text.")
 def chat_function(prompt,path):
     loader = TextLoader(path, encoding="utf-8")  # Use this line if you only need data.txt
-
+    print(path)
     index = VectorstoreIndexCreator().from_loaders([loader])
 
     chain = ConversationalRetrievalChain.from_llm(
@@ -60,6 +60,7 @@ def chat_function(prompt,path):
 def quiz_function(prompt, path):
 
     loader = TextLoader(path, encoding="utf-8")
+    print(path)
     # loader = DirectoryLoader("data/")
     index = VectorstoreIndexCreator().from_loaders([loader])
 
@@ -80,7 +81,7 @@ def quiz_function(prompt, path):
     else:
         return r
 
-os.environ["OPENAI_API_KEY"]=""
+os.environ["OPENAI_API_KEY"]="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"
 
 app = Flask(__name__)
 app.static_folder = 'static'
@@ -106,17 +107,27 @@ def grade():
 @app.route("/request", methods=["POST"])
 def send():
     prompt = request.json.get("prompt")
+    book = request.args.get('book')
     choice = request.json.get("book_choice")
     print(choice)
     path = ""
-    if choice == "bk/Biology Student Textbook Grade 9.pdf":
-        path = "books/biology.txt"
-    elif choice == "bk/History student textbook grade 9.pdf":
-        path = "books/history.txt"
-    else:
-        print("tired")
-    # path = "books/biology.txt"
+
+    # if choice == "bk/Biology Student Textbook Grade 9.pdf":
+    #     path = "books/Biology Student Textbook Grade 9.txt"
+    # elif choice == "bk/History student textbook grade 9.pdf":
+    #     path = "books/History student textbook grade 9.txt"
+    # else:
+    #     print("tired")
+    # path = "books/Biology Student Textbook Grade 9.txt"
+    url = choice
+
+    # Replace "bk" with "books"
+    path = url.replace("bk/", "books/")
+    path = path[:-4] + ".txt"
+    print(path)
+
     # result = chat_function(prompt, path)
+    # return result
     time.sleep(10)
     if "bio" not in session:
         session["bio"] = []
@@ -137,7 +148,7 @@ def send():
 # @app.route("/requestH", methods=["POST"])
 # def ChatWHistory():
 #     # prompt = request.json.get("prompt")
-#     # path = "books/history.txt"
+#     # path = "books/History student textbook grade 9.txt"
 #     # result = chat_function(prompt, path)
 #     time.sleep(10)
 #     chat_history = session["bio"]
@@ -164,11 +175,18 @@ def quiz_send():
 
 
     print(choice)
-    path = ""
-    if choice == "bk/Biology Student Textbook Grade 9.pdf":
-        path = "books/biology.txt"
-    elif choice == "bk/History student textbook grade 9.pdf":
-        path = "books/history.txt"
+
+    url = choice
+
+    # Replace "bk" with "books"
+    path = url.replace("bk/", "books/")
+    path = path[:-4] + ".txt"
+    print(path)
+    # if choice == "bk/Biology Student Textbook Grade 9.pdf":
+    #     path = "books/Biology Student Textbook Grade 9.txt"
+    # elif choice == "bk/History student textbook grade 9.pdf":
+    #     path = "books/History student textbook grade 9.txt"
+
     result = quiz_function(prompt, path)
     return result
 
@@ -179,7 +197,7 @@ def quiz_send():
 #     chapter = request.json.get('chapter')
 #     subtopic = request.json.get('subtopic')
 #     prompt = f'generate a {quiz_number} conceptual and random question quiz from  the content specially from {chapter}:characteristics and subtopic {subtopic} having four choices a,b,c,d and answer letter and explanation  of the answer in json format'
-#     path = "books/history.txt"
+#     path = "books/History student textbook grade 9.txt"
 #     result = quiz_function(prompt, path)
 
     return result
