@@ -1344,6 +1344,13 @@ a {
   .header1 {
     padding: 4px 10%;
   }
+    .home-group{
+      position: absolute;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(-70%);
+  }
+
   .hero-section {
     height: 75vh;
   }
@@ -1555,12 +1562,13 @@ a {
   .hamb-menu {
     display: block;
   }
-  .home-group,
-  .login-group {
-    display: none;
-  }
+ 
   .header1 {
     justify-content: space-between;
+  }
+  .login-group {
+    display: none;
+
   }
 }
 
