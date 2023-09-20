@@ -88,17 +88,21 @@ app.secret_key= "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"
 @app.route("/")
 def main():
     return render_template("index.html")
-@app.route("/history/")
-def history():
-    book='bk/History student textbook grade 9.pdf'
-    return render_template("book.html",book=book)
-@app.route("/biology/")
-def biology():
-    book = 'bk/Biology Student Textbook Grade 9.pdf'
-    return render_template("book.html",book=book)
+# @app.route("/history/")
+# def history():
+#     book='bk/History student textbook grade 9.pdf'
+#     return render_template("book.html",book=book)
+# @app.route("/biology/")
+# def biology():
+#     book = 'bk/Biology Student Textbook Grade 9.pdf'
+#     return render_template("book.html",book=book)
 @app.route("/grade/")
 def grade():
-    return render_template("grade.html")
+    book = request.args.get('book')
+    if book:
+       return render_template("book.html",book=book)
+    else:
+        return render_template("grade.html")
 @app.route("/request", methods=["POST"])
 def send():
     prompt = request.json.get("prompt")
