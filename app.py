@@ -113,6 +113,8 @@ def send():
         path = "books/biology.txt"
     elif choice == "bk/History student textbook grade 9.pdf":
         path = "books/history.txt"
+    else:
+        print("tired")
     # path = "books/biology.txt"
     # result = chat_function(prompt, path)
     time.sleep(10)
