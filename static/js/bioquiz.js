@@ -3,6 +3,7 @@ const quizContainer = document.getElementById('quiz-container');
 const submitButton = document.getElementById('submit-button');
 const resultsContainer = document.getElementById('results');
 const bk_choice = document.getElementById("book_choice");
+alert("ertyuio")
 let quizData; // To store fetched quiz data
 let score = 0;
 fetchQuizButton.addEventListener("click", function (event) {
@@ -173,6 +174,9 @@ var biology = {
       "6.2: Ecological relationships": [],
     },
   };
+  alert("wertyuiop[");
+  var ado = document.getElementById("book_choice");
+  alert(ado);
   window.onload = function () {
     var chapter = document.getElementById("chapter");
     var section = document.getElementById("subtopic");

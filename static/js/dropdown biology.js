@@ -5,7 +5,7 @@ let biology ={
         "1.2:Why do we study Biology?",
         "1.3:The scientific method",
         "1.4:Tools of a Biologist",[
-            "1.4.1 Laboratory tools", 
+            "1.4.1 Laboratory tools",
             "1.4.2 Field tools "
         ],
         "1.5: Handling and using of light Microscope ",[
@@ -22,7 +22,7 @@ let biology ={
             "2.2: Taxonomy of living things",[
                 "2.2.1. Principles of classification",
                "2.2.2. Taxonomic hierarchies in biological classification "
- 
+
             ],
             "2.3: Relevance of classification",
             "2.4: Linnaean system of nomenclature",
@@ -80,7 +80,7 @@ let biology ={
                 "5.8.2. Non-infectious  diseases "
                 ],
             "5.9: Renowned Nutritionists in Ethiopia"
-            
+
         ]
     },
     "chapter 6:Ecology":{
@@ -96,6 +96,6 @@ let biology ={
         ]
     }
 
-         
-    
+
+
 }
