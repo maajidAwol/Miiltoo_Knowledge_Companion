@@ -106,16 +106,26 @@ def register():
         full_name = request.form['full_name']
         username = request.form['username']
         password = request.form['password']
-        # Get other form data as needed
+
+        # Check if the username already exists
+        existing_user = User.query.filter_by(username=username).first()
+
+        if existing_user:
+            # Username already exists, display an error message
+            all_users = User.query.all()
+
+            error_message = "Username already exists. Please choose a different username."
+            return render_template('sign_disp.html', users=all_users, error_message=error_message)
 
         # Create a new user and add it to the database
         new_user = User(full_name=full_name, username=username, password=password)
         db.session.add(new_user)
         db.session.commit()
 
-        return 'Registration Successful!'
-    return render_template('registration_form.html')  # You can create an HTML template for the form
+    # Retrieve all users from the database
+    all_users = User.query.all()
 
+    return render_template('sign_disp.html', users=all_users)
 @app.route("/")
 def main():
     return render_template("index.html")
