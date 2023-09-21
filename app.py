@@ -15,6 +15,9 @@ from langchain.indexes import VectorstoreIndexCreator
 from langchain.indexes.vectorstore import VectorStoreIndexWrapper
 from langchain.llms import OpenAI
 from langchain.vectorstores import Chroma
+from flask import Flask, request, render_template
+from flask_sqlalchemy import SQLAlchemy
+
 def ext(text):
   json_pattern = r'\{.*\}'
 
@@ -86,6 +89,33 @@ os.environ["OPENAI_API_KEY"]="sk-Mh8hBUonLBCncspv6CdcT3BlbkFJTg5cvU8lRyCRRmNGuFt
 app = Flask(__name__)
 app.static_folder = 'static'
 app.secret_key= "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"
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///profile.db'  # SQLite database
+db = SQLAlchemy(app)
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    full_name = db.Column(db.String(120), nullable=False)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    password = db.Column(db.String(80), nullable=False)
+
+with app.app_context():
+   db.create_all()
+    # Add more fields as needed
+@app.route('/register', methods=['POST', 'GET'])
+def register():
+    if request.method == 'POST':
+        full_name = request.form['full_name']
+        username = request.form['username']
+        password = request.form['password']
+        # Get other form data as needed
+
+        # Create a new user and add it to the database
+        new_user = User(full_name=full_name, username=username, password=password)
+        db.session.add(new_user)
+        db.session.commit()
+
+        return 'Registration Successful!'
+    return render_template('registration_form.html')  # You can create an HTML template for the form
+
 @app.route("/")
 def main():
     return render_template("index.html")
@@ -200,6 +230,12 @@ def quiz_send():
 #     path = "books/History student textbook grade 9.txt"
 #     result = quiz_function(prompt, path)
 
-    return result
+    # return result
+@app.route("/login")
+def login():
+    return render_template("login.html")
+@app.route("/signup")
+def signup():
+    return render_template("signup.html")
 if __name__ == "__main__":
     app.run(debug=True)
