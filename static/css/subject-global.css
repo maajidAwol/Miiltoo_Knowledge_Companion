@@ -2,10 +2,6 @@ body {
   margin: 0;
   line-height: normal;
 }
-header {
-  width: 100%;
-  position: fixed;
-}
 .popup-overlay {
   display: flex;
   flex-direction: column;

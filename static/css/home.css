@@ -1689,8 +1689,6 @@ a {
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (width >= 992px) {
-  element.style {
-  }
   a {
     width: auto;
   }
@@ -1788,6 +1786,9 @@ a {
   .frame-parent20 {
     padding-bottom: 2%;
     gap: 3%;
+  }
+  .login1 {
+    width: 32%;
   }
   .frame-221 {
     width: 15%;
