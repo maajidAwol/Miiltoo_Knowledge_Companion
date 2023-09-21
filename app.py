@@ -115,7 +115,7 @@ def register():
             all_users = User.query.all()
 
             error_message = "Username already exists. Please choose a different username."
-            return render_template('registration_form.html', users=all_users, error_message=error_message)
+            return render_template('sign_disp.html', users=all_users, error_message=error_message)
 
         # Create a new user and add it to the database
         new_user = User(full_name=full_name, username=username, password=password)
@@ -125,7 +125,7 @@ def register():
     # Retrieve all users from the database
     all_users = User.query.all()
 
-    return render_template('registration_form.html', users=all_users)# You can create an HTML template for the form
+    return render_template('sign_disp.html', users=all_users)# You can create an HTML template for the form
 @app.route('/auth',methods=['POST','GET'])
 def auth():
     allUser = User.query.all()
