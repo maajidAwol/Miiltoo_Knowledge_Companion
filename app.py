@@ -1,6 +1,6 @@
 import time
 
-from flask import Flask, render_template, session, jsonify
+from flask import Flask, redirect, render_template, session, jsonify
 from flask import Flask, render_template, request
 import os
 import sys
@@ -115,7 +115,17 @@ def register():
 
         return 'Registration Successful!'
     return render_template('registration_form.html')  # You can create an HTML template for the form
-
+@app.route('/auth',methods=['POST','GET'])
+def auth():
+    allUser = User.query.all()
+    username=request.form['username'] 
+    password= request.form['password']
+    loggedin ='loggedIn'
+    for user in allUser:
+        if user.username==username:
+            if user.password==password:
+                return render_template('index.html',loggedin=loggedin )
+    return redirect('/login') 
 @app.route("/")
 def main():
     return render_template("index.html")

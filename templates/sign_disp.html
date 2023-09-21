@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,3 +26,32 @@
     </ul>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+</head>
+<body>
+    <h1>Registration Form</h1>
+
+    <form action="/register" method="POST">
+        <input name="full_name" type="text" placeholder="Full Name" required>
+        <input name="username" type="text" placeholder="Username" required>
+        <input name="password" type="password" placeholder="Password" required>
+        <input type="submit" value="Register">
+    </form>
+
+    {% if error_message %}
+    <p>{{ error_message }}</p>
+    {% endif %}
+
+    <h2>List of Users</h2>
+    <ul>
+        {% for user in users %}
+            <li>{{ user.full_name }} - {{ user.username }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+>>>>>>> e98fb199606656644b7fc00468cc920f62bcfbc8
