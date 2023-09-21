@@ -1,5 +1,6 @@
 import time
 
+import PyPDF2
 from flask import Flask, redirect, render_template, session, jsonify
 from flask import Flask, render_template, request
 import os
@@ -17,6 +18,8 @@ from langchain.llms import OpenAI
 from langchain.vectorstores import Chroma
 from flask import Flask, request, render_template
 from flask_sqlalchemy import SQLAlchemy
+from werkzeug.utils import secure_filename
+
 
 def ext(text):
   json_pattern = r'\{.*\}'
@@ -91,6 +94,21 @@ app.static_folder = 'static'
 app.secret_key= "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"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///profile.db'  # SQLite database
 db = SQLAlchemy(app)
+
+
+app.config['UPLOAD_FOLDER'] = 'my_books'
+
+if not os.path.exists(app.config['UPLOAD_FOLDER']):
+    os.makedirs(app.config['UPLOAD_FOLDER'])
+
+def pdf_to_text(pdf_path):
+    text = ''
+    with open(pdf_path, 'rb') as pdf_file:
+        pdf_reader = PyPDF2.PdfReader(pdf_file)
+        for page in pdf_reader.pages:
+            text += page.extract_text()
+    return text
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     full_name = db.Column(db.String(120), nullable=False)
@@ -195,26 +213,6 @@ def send():
     print(result)
     print(session["bio"])
     return jsonify(result)
-
-# @app.route("/requestH", methods=["POST"])
-# def ChatWHistory():
-#     # prompt = request.json.get("prompt")
-#     # path = "books/History student textbook grade 9.txt"
-#     # result = chat_function(prompt, path)
-#     time.sleep(10)
-#     chat_history = session["bio"]
-#     mock_text = "I am your dedicated study companion, here to empower you in your academic journey. My mission is to assist you in comprehending your course materials and ultimately, helping you achieve better grades. With a wealth of knowledge and insightful analysis at my disposal, I'll break down complex concepts into digestible pieces, provide summaries, answer your questions, and offer valuable insights. Whether it's literature, science, history, or any other subject, I'm here to be your study buddy."
-#
-#     result = {"answer": mock_text}  # Mocking the result
-#
-#     # Append the current conversation turn to the chat history in the session
-#     chat_history.append(("kk", result['answer']))
-#     session["bio"] = chat_history  # Update the chat history in the session
-#
-#     query = None
-#     print(result)
-#     print(session["bio"])
-#     return jsonify(result)
 @app.route("/quiz_request",methods=["POST"])
 def quiz_send():
     quiz_number = request.json.get('number')
@@ -233,30 +231,86 @@ def quiz_send():
     path = url.replace("bk/", "books/")
     path = path[:-4] + ".txt"
     print(path)
-    # if choice == "bk/Biology Student Textbook Grade 9.pdf":
-    #     path = "books/Biology Student Textbook Grade 9.txt"
-    # elif choice == "bk/History student textbook grade 9.pdf":
-    #     path = "books/History student textbook grade 9.txt"
+
 
     result = quiz_function(prompt, path)
     return result
 
 
-# @app.route("/quiz_requestH",methods=["POST"])
-# def quizH_send():
-#     quiz_number = request.json.get('number')
-#     chapter = request.json.get('chapter')
-#     subtopic = request.json.get('subtopic')
-#     prompt = f'generate a {quiz_number} conceptual and random question quiz from  the content specially from {chapter}:characteristics and subtopic {subtopic} having four choices a,b,c,d and answer letter and explanation  of the answer in json format'
-#     path = "books/History student textbook grade 9.txt"
-#     result = quiz_function(prompt, path)
-
-    # return result
 @app.route("/login")
 def login():
     return render_template("login.html")
 @app.route("/signup")
 def signup():
     return render_template("signup.html")
+@app.route("/abcdef")
+def abcdef():
+    return render_template("custom_book.html")
+# @app.route('/upload', methods=['POST'])
+# def upload_file():
+#     if 'file' not in request.files:
+#         return 'No file part'
+#
+#     file = request.files['file']
+#
+#     if file.filename == '':
+#         return 'No selected file'
+#
+#     if file and file.filename.endswith('.pdf'):
+#         # Save the uploaded file to the UPLOAD_FOLDER
+#         filename = secure_filename(file.filename)
+#         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+#         file.save(file_path)
+#
+#         # Convert the PDF to a text file and save it
+#         text_filename = os.path.splitext(filename)[0] + '.txt'
+#         text_file_path = os.path.join(app.config['UPLOAD_FOLDER'], text_filename)
+#
+#         # Use PyPDF2 to extract text from the PDF and save it to the text file
+#         pdf_text = pdf_to_text(file_path)
+#         with open(text_file_path, 'w', encoding='utf-8') as text_file:
+#             text_file.write(pdf_text)
+#
+#         return 'PDF file uploaded and converted to text successfully'
+#
+#     return 'Error: Please upload a PDF file'
+@app.route('/upload', methods=['POST'])
+def upload_file():
+    if 'file' not in request.files:
+        return 'No file part'
+
+    file = request.files['file']
+
+    if file.filename == '':
+        return 'No selected file'
+
+    if file and file.filename.endswith('.pdf'):
+        # Save the uploaded PDF file to the "bk" folder in the static directory
+        filename = secure_filename(file.filename)
+        pdf_file_path = os.path.join(app.static_folder, 'bk', filename)
+        file.save(pdf_file_path)
+
+        # Convert the PDF to a text file and save it
+        text_filename = os.path.splitext(filename)[0] + '.txt'
+        text_file_path = os.path.join('books', text_filename)  # Save in "books" folder
+
+        # Use PyPDF2 to extract text from the PDF and save it to the text file
+        pdf_text = pdf_to_text(pdf_file_path)
+        with open(text_file_path, 'w', encoding='utf-8') as text_file:
+            text_file.write(pdf_text)
+
+        # Calculate the relative path from the "bk" folder including the "bk/" prefix
+        relative_pdf_path = os.path.relpath(pdf_file_path, os.path.join(app.static_folder, 'bk'))
+
+        # Render the "books.html" template and pass the relative PDF file path
+        print(relative_pdf_path)
+        bkr = "bk/"+relative_pdf_path
+        print(bkr)
+        return render_template("book.html", book=bkr)
+
+    return 'Error: Please upload a PDF file'
+
+
+
 if __name__ == "__main__":
     app.run(debug=True)
