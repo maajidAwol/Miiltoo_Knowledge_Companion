@@ -44,9 +44,19 @@
         </div>
       </div>
       <nav class="home-group">
-        <a href="/index/"><div class="wade-warren">Home</div></a>
+          <a href="/index/"><div class="wade-warren">
+            
+          <span class="nav-icons"><i class="fa-solid fa-house"></i></span>
+            
+            Home</div></a>
         <div class="dropdown">
-          <button class="wade-warren dropbtn">Grade</button>
+          <button class="wade-warren dropbtn">
+          <span class="nav-icons">
+            <i class="fa-solid fa-book-open-reader"></i>
+          </span>
+            Grade 
+            <span class="drop-icon"><i class="fa-solid fa-caret-down"></i></span>
+          </button>
           <div class="dropdown-content">
             <a href="/grade/">Grade-9</a>
             <a href="#">Grade-10(soon)</a>
@@ -54,16 +64,37 @@
             <a href="#">Grade-12(soon)</a>
           </div>
         </div>
-        <a href="/quiz/"><div class="wade-warren">Exam</div></a>
-        <a href=""><div class="wade-warren">Pages</div></a>
+        <a href="/quiz/"><div class="wade-warren">
+          <span class="nav-icons exam-icon"><img src="/static/public/exam-icon.svg" alt=""></span>
+          
+          Exam</div></a>
         <a href=""><div class="wade-warren">
-          <button></button>
+          <span class="nav-icons"><i class="fa-solid fa-file-circle-plus"></i></span>
+          
+          Pages</div></a>
+        
+        <a href=""class='login-btns' >
+          <div class="wade-warren" >
+         <div class="login1">
+          Login
+        </div>
         </div></a>
+<<<<<<< Updated upstream
         <a href=""><div class="wade-warren">Pages</div></a>
           <div class="login1"><a href="/login">Login</a></div>
           <button class="signup-container" autofocus id="btn-signup">
             <div class="signup1"><a href="/signup">Signup</a></div>
           </button>
+=======
+        <a href=""class='login-btns' >
+          <div class="wade-warren" >
+         <div class="login1">
+          Signup
+        </div>
+        </div></a>
+        
+        
+>>>>>>> Stashed changes
       </nav>
       <div class="login-group">
         <h1>{{ loggedin }}</h1>
@@ -81,7 +112,6 @@
      
     </header>
     <main class="frammodify-1">
-      <div class="overlay-nav" id="overlay-nav"></div>
       <section class="hero-section" id="hero">
         <div class="hero">
           <img class="hero-child" alt="" src="../static/public/hero-bg.png" />

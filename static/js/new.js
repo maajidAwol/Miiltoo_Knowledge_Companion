@@ -1,27 +1,18 @@
 const hamb_btn = document.getElementById("hamb-menu");
-const nav_drop = document.querySelector(".nav-dropdown");
-const overlay = document.getElementById("overlay-nav");
-const close_hamb = document.querySelector(".close-menu");
-const body = document.querySelector(".bod");
+const line = document.querySelector(".line");
+const nav_drop = document.querySelector(".home-group");
+const btn_drop = document.querySelector(".dropdown");
+const drop_content = document.querySelector(".dropdown-content");
+const icon_drop = document.querySelector(".drop-icon");
 hamb_btn.addEventListener("click", function () {
-  hamb_btn.style.display = "none";
-  console.log("hamb");
-  overlay.classList.remove("hidden");
-  nav_drop.classList.remove("hidden");
-  close_hamb.classList.remove("hidden");
-  body.classList.add("overflow-hid");
+  nav_drop.classList.toggle("slide");
+  hamb_btn.classList.toggle("active");
 });
-close_hamb.addEventListener("click", function () {
-  close_hamb.classList.add("hidden");
-  hamb_btn.style.display = "block";
-  nav_drop.classList.add("hidden");
-  overlay.classList.add("hidden");
-  body.classList.remove("overflow-hid");
+btn_drop.addEventListener("click", () => {
+  icon_drop.classList.toggle("up");
+  drop_content.classList.toggle("visibility");
+  icon_drop.classList.toggle("i-rotate");
 });
-overlay.addEventListener("click", function () {
-  close_hamb.classList.add("hidden");
-  hamb_btn.style.display = "block";
-  nav_drop.classList.add("hidden");
-  overlay.classList.add("hidden");
-  body.classList.remove("overflow-hid");
+window.addEventListener("load", function () {
+  window.scrollTo(0, 0);
 });
