@@ -70,14 +70,14 @@ a {
   color: var(--color-white);
   font-family: var(--font-source-serif-pro);
 }
-.home-group :nth-child(5) {
+.home-group :nth-child(6) {
   border: 1px solid;
   border-radius: 24px;
   width: 64%;
   display: flex;
   align-items: center;
 }
-.home-group :nth-child(6) {
+.home-group :nth-child(7) {
   border-radius: 24px;
   width: 64%;
   display: flex;
@@ -97,7 +97,8 @@ a {
   flex-shrink: 0;
   cursor: pointer;
 }
-.signup1 {
+.signup1,
+#signup2 {
   font-size: var(--font-size-mini-5);
   font-weight: 600;
   font-family: var(--font-outfit);
@@ -105,11 +106,14 @@ a {
   text-align: left;
   outline: none;
 }
+.signup2 {
+  color: black;
+}
 .signup-container {
   cursor: pointer;
   border: 1px solid var(--color-black);
   padding: var(--padding-5xs);
-  background-color: var(--color-whitesmoke);
+  background-color: white;
   border-radius: var(--br-base-5);
   box-sizing: border-box;
   width: 86px;
@@ -118,6 +122,26 @@ a {
 }
 .signup-container:hover {
   background-color: #65fffc;
+}
+.profile-group {
+  display: flex;
+  flex-direction: column;
+}
+.profile {
+  display: flex;
+  flex-direction: column;
+}
+.profile img {
+  width: 46px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid;
+}
+.profile .username {
+  font-size: 16px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 .header1,
 .login-group,
@@ -1722,10 +1746,8 @@ a {
   .hamb-menu {
     display: none;
   }
-  .home-group :nth-child(5) {
-    display: none;
-  }
-  .home-group :nth-child(6) {
+  .home-group :nth-child(6),
+  .home-group :nth-child(7) {
     display: none;
   }
   .home-group,
