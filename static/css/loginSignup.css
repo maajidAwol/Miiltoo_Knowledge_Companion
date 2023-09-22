@@ -39,7 +39,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   border-radius: 13.644px;
   border: 1.706px solid rgba(101, 255, 252, 0.39);
   background: rgba(0, 0, 0, 0.76);
@@ -76,9 +76,10 @@ body {
   align-self: stretch;
 }
 .btn-login {
+  cursor: pointer;
   width: 100%;
   display: flex;
-  padding: 8.812px 0px;
+  padding: 12px;
   justify-content: center;
   align-items: center;
   color: var(--wireframe-color-white, #fff);
@@ -86,8 +87,9 @@ body {
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 12.507px; /* 89.339% */
+  line-height: 12.507px;
   gap: 4.548px;
+  border: none;
   align-self: stretch;
   border-radius: 13.644px;
   background: linear-gradient(
@@ -96,7 +98,23 @@ body {
     rgba(0, 163, 255, 0.76) 145.42%
   );
 }
+.btn-login:hover {
+  background: linear-gradient(
+    93deg,
+    #00fffa 26.65%,
+    rgba(0, 163, 255, 0.76) 78.88%
+  );
+}
+.or-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 24px;
+}
 .btn-or {
+  position: absolute;
+  top: 0;
+  left: 90px;
   display: inline-flex;
   padding: 4px 6px;
   justify-content: center;
@@ -104,21 +122,26 @@ body {
   gap: 5.685px;
   border-radius: 12px;
   border: 2px solid #65fffc;
+  background: #191414;
   color: #65fffc;
   font-family: Roboto;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: 12.507px; /* 104.228% */
+  z-index: 1;
 }
 .btn-or-line {
   width: 218.88px;
   height: 0px;
-  flex-shrink: 0;
-  stroke-width: 1.137px;
-  stroke: #65fffc;
+  border: 2px solid #65fffc;
+  border-radius: 10px;
+  z-index: 0;
 }
 .btn-noAcc {
+  cursor: pointer;
+
+  position: relative;
   color: #65fffc;
   font-family: Roboto;
   font-size: 14px;
@@ -131,6 +154,20 @@ body {
   font-size: 16px;
   color: var(--wireframe-color-white, #fff);
 }
+.icon-link svg {
+  cursor: pointer;
+
+  position: absolute;
+  top: -6px;
+  right: -15px;
+  width: 12px;
+  height: 12px;
+  fill: #65fffc;
+}
+.link-other svg :hover {
+  cursor: pointer;
+  fill: #00d0ff;
+}
 label {
   color: var(--wireframe-color-white, #fff);
   font-family: Roboto;
@@ -142,13 +179,13 @@ label {
 .email-field,
 .password-field {
   display: flex;
-  padding: 9.096px;
+  padding: 12px;
   justify-content: center;
   align-items: center;
   gap: 200.118px;
   font-size: 16px;
   align-self: stretch;
-  border-radius: 4.548px;
+  border-radius: 8px;
   border: 1.137px solid rgba(0, 0, 0, 0.05);
   color: #65fffc;
   background: rgba(255, 255, 255, 0.15);
@@ -177,6 +214,7 @@ label {
 }
 .icon-pass {
   top: 40%;
+  cursor: pointer;
 }
 .icon-email i,
 .icon-pass i {
@@ -200,8 +238,8 @@ label {
   align-items: center;
   gap: 9.096px;
 }
-.link-other span {
-  width: 15.815px;
-  height: 15.815px;
+.link-other span svg {
+  width: 24px;
+  height: 24px;
   fill: #65fffc;
 }
