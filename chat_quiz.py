@@ -80,7 +80,5 @@ def quiz_function(prompt, path):
     r = ext(result["answer"])
 
     query = None
-    if r== "fail":
-        render_template("bio-g9.html")
-    else:
-        return r
+
+    return r

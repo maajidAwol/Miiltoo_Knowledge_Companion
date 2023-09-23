@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a021dfe7-68d4-4b1d-abb5-4977c00b5367" name="Changes" comment="rt" />
+    <list default="true" id="a021dfe7-68d4-4b1d-abb5-4977c00b5367" name="Changes" comment="rt">
+      <change afterPath="$PROJECT_DIR$/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/my_view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat_quiz.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat_quiz.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instance/profile.db" beforeDir="false" afterPath="$PROJECT_DIR$/instance/profile.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/user.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>

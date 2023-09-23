@@ -22,8 +22,8 @@ from werkzeug.utils import secure_filename
 
 from chat_quiz import quiz_function,chat_function
 from custom_process import pdf_to_text
-
-
+from user import register_user,db,User,bcrypt, login_auth
+from admin import admin
 
 os.environ["OPENAI_API_KEY"]="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"
 
@@ -31,61 +31,57 @@ app = Flask(__name__)
 app.static_folder = 'static'
 app.secret_key= "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"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///profile.db'  # SQLite database
-db = SQLAlchemy(app)
+# db = SQLAlchemy(app)
 
-
+db.init_app(app)
+bcrypt.init_app(app)
 app.config['UPLOAD_FOLDER'] = 'my_books'
 
 if not os.path.exists(app.config['UPLOAD_FOLDER']):
     os.makedirs(app.config['UPLOAD_FOLDER'])
 
 
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    full_name = db.Column(db.String(120), nullable=False)
-    username = db.Column(db.String(80), unique=True, nullable=False)
-    password = db.Column(db.String(80), nullable=False)
-
-with app.app_context():
-   db.create_all()
-    # Add more fields as needed
+# class User(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     full_name = db.Column(db.String(120), nullable=False)
+#     username = db.Column(db.String(80), unique=True, nullable=False)
+#     password = db.Column(db.String(80), nullable=False)
+#
+# with app.app_context():
+#    db.create_all()
+#     # Add more fields as needed
 @app.route('/register', methods=['POST', 'GET'])
 def register():
     if request.method == 'POST':
-        full_name = request.form['full_name']
+        # full_name = request.form['full_name']
         username = request.form['username']
         password = request.form['password']
 
-        # Check if the username already exists
-        existing_user = User.query.filter_by(username=username).first()
+        # Call the register_user function
+        registration_result = register_user(username, password)
 
-        if existing_user:
-            # Username already exists, display an error message
-            all_users = User.query.all()
-
+        if not registration_result:
+            # Registration failed, username already exists
             error_message = "Username already exists. Please choose a different username."
+            all_users = User.query.all()
             return render_template('sign_disp.html', users=all_users, error_message=error_message)
-
-        # Create a new user and add it to the database
-        new_user = User(full_name=full_name, username=username, password=password)
-        db.session.add(new_user)
-        db.session.commit()
 
     # Retrieve all users from the database
     all_users = User.query.all()
 
-    return render_template('sign_disp.html', users=all_users)# You can create an HTML template for the form
-@app.route('/auth',methods=['POST','GET'])
+    return render_template('sign_disp.html', users=all_users)
+@app.route('/auth', methods=['POST', 'GET'])
 def auth():
-    allUser = User.query.all()
-    username=request.form['username'] 
-    password= request.form['password']
-    loggedin ='loggedIn'
-    for user in allUser:
-        if user.username==username:
-            if user.password==password:
-                return render_template('index.html',loggedin=loggedin )
-    return redirect('/login') 
+    username = request.form['username']
+    password = request.form['password']
+    print(username)
+    print(password)
+    if login_auth(username, password):
+        loggedin = 'loggedIn'
+        return render_template('index.html', loggedin=loggedin)
+
+    return redirect('/login')
+
 @app.route("/")
 def main():
     return render_template("index.html")
@@ -206,4 +202,5 @@ def upload_file():
 
 
 if __name__ == "__main__":
+    admin.init_app(app)
     app.run(debug=True)
