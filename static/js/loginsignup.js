@@ -3,6 +3,7 @@ const text_btn_signup = document.querySelector(".text-btn-signup");
 const eye_icon = document.querySelector(".icon-pass i");
 const password_field = document.getElementById("password-field");
 const btn_login = document.querySelector(".btn-login");
+const btn_close = document.querySelector(".btn-close");
 eye_icon.addEventListener("click", () => {
   if (password_field.type == "password") {
     password_field.type = "text";
@@ -19,4 +20,8 @@ forget.addEventListener("click", (event) => {
 text_btn_signup.addEventListener("click", (event) => {
   event.preventDefault();
   window.location.href = "http://127.0.0.1:5500/templates/signup.html";
+});
+btn_close.addEventListener("click", (event) => {
+  event.preventDefault();
+  window.location.href = "http://127.0.0.1:5500/templates/index.html";
 });
