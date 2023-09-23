@@ -43,7 +43,8 @@ body {
     0px 2.27407px 54.00925px 0px rgba(142, 235, 255, 0.84);
   backdrop-filter: blur(2.274073600769043px);
 }
-.login-container-inner {
+.login-container-inner,
+.signup-container-inner {
   position: relative;
   display: flex;
   width: 328.604px;
@@ -57,6 +58,18 @@ body {
   border: 1.706px solid rgba(101, 255, 252, 0.39);
   background: rgba(0, 0, 0, 0.76);
   backdrop-filter: blur(2.558332681655884px);
+}
+.signup-container-inner {
+  height: 534px;
+  gap: 12px;
+}
+.shape {
+  width: 24px;
+  height: 19px;
+  transform: rotate(-0.247deg);
+  position: absolute;
+  left: -15.5px;
+  top: -27.909px;
 }
 .btn-close i {
   position: absolute;
@@ -83,7 +96,9 @@ body {
   flex-shrink: 0;
   background: no-repeat url(/static/public/logo.svg);
 }
-.text-welcome {
+.text-welcome,
+.text-quote-signup {
+  position: relative;
   color: var(--wireframe-color-white, #fff);
   font-family: Roboto;
   font-size: 22px;
@@ -92,11 +107,21 @@ body {
   line-height: 12.507px; /* 56.852% */
   letter-spacing: 0.88px;
 }
-.text-back {
+.text-quote-signup {
+  font-weight: 500;
+}
+.text-quote-signup {
+  text-align: center;
+  font-size: 18px;
+  line-height: 136%; /* 29.92px */
+}
+.text-back,
+.text-miiltoo {
   color: var(--wireframe-color-white, #65fffc);
 }
 .email-container,
-.password-container {
+.password-container,
+.confirm-container {
   position: relative;
   width: 100%;
   height: 86px;
@@ -107,7 +132,8 @@ body {
   gap: 8px;
   align-self: stretch;
 }
-.btn-login {
+.btn-login,
+.btn-signup {
   cursor: pointer;
   width: 100%;
   display: flex;
@@ -130,7 +156,8 @@ body {
     rgba(0, 163, 255, 0.76) 145.42%
   );
 }
-.btn-login:hover {
+.btn-login:hover,
+.btn-signup:hover {
   background: linear-gradient(
     93deg,
     #00fffa 26.65%,
@@ -187,7 +214,6 @@ body {
   border: none;
 }
 .btn-noAcc button :hover {
-  font-weight: 500;
   color: #00d0ff;
   cursor: pointer;
 }
@@ -209,7 +235,8 @@ label {
   line-height: 12.507px; /* 89.339% */
 }
 .email-field,
-.password-field {
+.password-field,
+.confirm-field {
   display: flex;
   padding: 12px;
   justify-content: center;
@@ -223,7 +250,8 @@ label {
   background: rgba(255, 255, 255, 0.15);
 }
 .email-field::placeholder,
-.password-field::placeholder {
+.password-field::placeholder,
+.confirm-field::placeholder {
   color: #65fffc;
   font-family: Roboto;
   font-size: 14px;
@@ -233,23 +261,33 @@ label {
   text-transform: lowercase;
 }
 .email-field:focus,
-.password-field:focus {
+.password-field:focus,
+.confirm-field:focus {
   outline: none;
   border: 1px solid #65fffc;
   background: #191414;
 }
 .icon-email,
-.icon-pass {
+.icon-pass,
+.icon-confirm {
   position: absolute;
   top: 50%;
   left: 90%;
 }
-.icon-pass {
-  top: 40%;
+.icon-pass,
+.icon-confirm {
   cursor: pointer;
+  top: 53%;
+}
+.icon-pass {
+  top: 42%;
+}
+.icon-pass.reg {
+  top: 50%;
 }
 .icon-email i,
-.icon-pass i {
+.icon-pass i,
+.icon-confirm i {
   font-weight: 600;
   font-size: 16px;
   color: #65fffc;
@@ -296,4 +334,7 @@ label {
 }
 .link-other svg :hover {
   fill: #00d0ff;
+}
+.hidden {
+  display: none;
 }
