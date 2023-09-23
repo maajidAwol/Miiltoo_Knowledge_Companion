@@ -69,7 +69,7 @@ def register():
     # Retrieve all users from the database
     all_users = User.query.all()
 
-    return render_template('sign_disp.html', users=all_users)
+    return render_template('index.html', users=all_users)
 @app.route('/auth', methods=['POST', 'GET'])
 def auth():
     username = request.form['username']
