@@ -1,76 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page</title>
-  <link rel="stylesheet" href="admin.css">
-  <style>
-.login-body {
-  font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="admin.css" />
+    <link rel="stylesheet" href="/static/css/loginSignup.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  </head>
+  <body class="login-body">
+    <img src="/static/public/login-bg2.jpg" class="login-bg" alt="" />
+    <div class="login-container">
+      <form action="/auth" method="POST" class="login-container-inner">
+        <div class="btn-close">
+          <i class="fa-solid fa-x"></i>
+        </div>
+        <div class="logo-login"></div>
+        <h2 class="text-welcome">
+          welcome &nbsp;<span class="text-back">back</span>🖐️
+        </h2>
+        <div class="email-container">
+          <label for="username" class="label-email">Email</label>
+          <input
+            name="username"
+            type="text"
+            placeholder="email"
+            class="email-field"
+          />
+          <span class="icon-email"><i class="fa-solid fa-envelope"></i></span>
+        </div>
+        <div class="password-container">
+          <label for="password" class="label-pass">Password</label>
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            class="password-field"
+            id="password-field"
+            required
+          />
+          <span class="icon-pass"><i class="fa-solid fa-eye-slash"></i></span>
+          <span class="icon-confirm hidden"
+            ><i class="fa-solid fa-eye-slash"></i
+          ></span>
+          <button href="#forget" class="link-forget">
+            <span>forget password ?</span>
+          </button>
+        </div>
 
-.login-container {
-  background-color: #ffffff;
-  border-radius: 5px;
-  padding: 35px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  width: 90%;
-}
-
-.login-container h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.login-container input[type="text"],
-.login-container input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  margin-bottom: 15px;
-}
-
-.login-container input[type="submit"] {
-  width: 100%;
-  padding: 10px;
-  background-color: rgb(72, 119, 156);
-
-  color: #fff;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.login-container input[type="submit"]:hover {
-  background-color: rgb(55, 92, 122);
-}
-
-.login-container p {
-  text-align: center;
-  margin-top: 10px;
-}
-
-  </style>
-</head>
-<body class="login-body">
-  <div class="login-container">
-    <h2>MIILTOO LOGIN</h2>
-    <form action="/auth" method="POST">
-      <input  name="username" type="text" placeholder="Username" required>
-      <input name="password" type="password" placeholder="Password" required>
-      <input type="submit" value="Login">
-    </form>
-
-  </div>
-</body>
+        <input type="submit" value="Login" class="btn-login" />
+        <div class="or-container">
+          <div class="btn-or">Or</div>
+          <div class="btn-or-line"></div>
+        </div>
+        <div class="link-other">
+          <button class="link-google">
+            <svg
+              class="icon-google"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.43492 0.195435C4.06768 0.195435 0.527344 3.73577 0.527344 8.10301C0.527344 12.4702 4.06768 16.0106 8.43492 16.0106C12.8022 16.0106 16.3425 12.4702 16.3425 8.10301C16.3425 3.73577 12.8022 0.195435 8.43492 0.195435ZM10.297 6.14585C10.4343 6.34553 10.5419 6.57174 10.6199 6.82447H12.389C12.3172 6.35333 12.1659 5.92276 11.935 5.53275C11.7041 5.14274 11.4093 4.80577 11.0505 4.52184C10.6948 4.23791 10.2876 4.0195 9.82897 3.86662C9.37031 3.71061 8.87578 3.63261 8.34536 3.63261C7.71822 3.63261 7.13788 3.74493 6.60435 3.96958C6.07081 4.19111 5.60591 4.5156 5.20966 4.94305C4.81341 5.36738 4.50452 5.88376 4.28299 6.49218C4.06459 7.1006 3.95538 7.7917 3.95538 8.56548C3.95538 9.57639 4.14103 10.45 4.51232 11.1864C4.88673 11.9196 5.40623 12.4859 6.07081 12.8853C6.73851 13.2815 7.51385 13.4796 8.39684 13.4796C9.18935 13.4796 9.89137 13.3189 10.5029 12.9976C11.1144 12.6731 11.5949 12.2113 11.9444 11.6123C12.2938 11.0132 12.4686 10.3034 12.4686 9.48279V8.33148H8.57937V9.68872H10.7878C10.7797 10.1282 10.6832 10.5136 10.4982 10.8447C10.3048 11.1879 10.0287 11.4531 9.66984 11.6403C9.31415 11.8275 8.89294 11.9211 8.4062 11.9211C7.86954 11.9211 7.39841 11.7917 6.9928 11.5327C6.58719 11.2706 6.2705 10.8884 6.04273 10.3861C5.81496 9.88372 5.70108 9.27062 5.70108 8.54676C5.70108 7.82914 5.81496 7.22072 6.04273 6.72151C6.27362 6.21917 6.59031 5.83852 6.9928 5.57955C7.39529 5.32058 7.85394 5.1911 8.36876 5.1911C8.65581 5.1911 8.92102 5.22854 9.16439 5.30342C9.40775 5.37518 9.62304 5.48283 9.81024 5.62635C10.0006 5.76988 10.1628 5.94304 10.297 6.14585Z"
+                fill="#65FFFC"
+              />
+            </svg>
+          </button>
+          <button class="link-linkedin">
+            <svg
+              class="icon-linkedin"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+            >
+              <g clip-path="url(#clip0_273_524)">
+                <path
+                  d="M13.7898 0.89325H1.50208C0.913463 0.89325 0.4375 1.35795 0.4375 1.93248V14.2709C0.4375 14.8454 0.913463 15.3129 1.50208 15.3129H13.7898C14.3784 15.3129 14.8572 14.8454 14.8572 14.2737V1.93248C14.8572 1.35795 14.3784 0.89325 13.7898 0.89325ZM4.71553 13.181H2.57511V6.29782H4.71553V13.181ZM3.64532 5.35998C2.95813 5.35998 2.40331 4.80515 2.40331 4.12078C2.40331 3.43641 2.95813 2.88159 3.64532 2.88159C4.32969 2.88159 4.88451 3.43641 4.88451 4.12078C4.88451 4.80234 4.32969 5.35998 3.64532 5.35998ZM12.7252 13.181H10.5876V9.83515C10.5876 9.03812 10.5735 8.01016 9.47516 8.01016C8.3627 8.01016 8.19372 8.88041 8.19372 9.77882V13.181H6.05893V6.29782H8.10923V7.23848H8.13739C8.42184 6.69774 9.1203 6.12602 10.1595 6.12602C12.3253 6.12602 12.7252 7.55109 12.7252 9.40425V13.181V13.181Z"
+                  fill="#65FFFC"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_273_524">
+                  <rect
+                    width="14.4197"
+                    height="14.4197"
+                    fill="white"
+                    transform="translate(0.438477 0.893188)"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
+          </button>
+        </div>
+        <div class="btn-noAcc">
+          Don’t have Account yet ? &nbsp;
+          <button class="text-btn-signup">
+            <span class="icon-link">
+              Signup
+              <i class="fa-solid fa-up-right-from-square"></i>
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+    <script src="/static/js/loginsignup.js"></script>
+  </body>
 </html>

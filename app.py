@@ -161,6 +161,9 @@ def login():
 @app.route("/signup")
 def signup():
     return render_template("signup.html")
+@app.route("/forget")
+def forget():
+    return render_template("forget.html")
 @app.route("/abcdef")
 def abcdef():
     return render_template("custom_book.html")
