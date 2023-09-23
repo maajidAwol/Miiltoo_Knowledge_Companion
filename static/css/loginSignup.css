@@ -11,13 +11,25 @@ body {
 }
 
 .login-body {
-  background: url(/static/public/login-bg2.jpg);
-  background-position: center;
-  background-size: contain;
   z-index: -1;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: black; /*
+  background: url(/static/public/login-bg2.jpg);
+  background-position: center;
+  background-size: contain;*/
+}
+
+.login-bg {
+  position: absolute;
+  top: 0;
+  left: 12%;
+  width: 80%;
+  height: 100vh;
+  background: no-repeat url(/static/public/login-bg2.jpg);
+  background-position: center;
+  background-size: contain;
 }
 .login-container {
   display: flex;
@@ -32,6 +44,7 @@ body {
   backdrop-filter: blur(2.274073600769043px);
 }
 .login-container-inner {
+  position: relative;
   display: flex;
   width: 328.604px;
   height: 471px;
@@ -44,6 +57,25 @@ body {
   border: 1.706px solid rgba(101, 255, 252, 0.39);
   background: rgba(0, 0, 0, 0.76);
   backdrop-filter: blur(2.558332681655884px);
+}
+.btn-close i {
+  position: absolute;
+  top: 2%;
+  right: 4px;
+  display: flex;
+  padding: 6.732px;
+  justify-content: flex-end;
+  align-items: center;
+  color: #65fffc;
+  gap: 6.732px;
+  position: absolute;
+  right: 9.915px;
+  top: 10.66px;
+  border-radius: 20.195px;
+}
+.btn-close i:hover {
+  cursor: pointer;
+  color: #00d0ff;
 }
 .logo-login {
   width: 54px;
@@ -139,8 +171,6 @@ body {
   z-index: 0;
 }
 .btn-noAcc {
-  cursor: pointer;
-
   position: relative;
   color: #65fffc;
   font-family: Roboto;
@@ -149,25 +179,27 @@ body {
   font-weight: 600;
   line-height: 12.507px; /* 89.339% */
 }
-.btn-noAcc span {
+.btn-noAcc button {
   margin-left: 1px;
   font-size: 16px;
-  color: var(--wireframe-color-white, #fff);
+  color: white;
+  background: transparent;
+  border: none;
 }
-.icon-link svg {
+.btn-noAcc button :hover {
+  font-weight: 500;
+  color: #00d0ff;
   cursor: pointer;
+}
 
+.icon-link i {
+  cursor: pointer;
   position: absolute;
   top: -6px;
   right: -15px;
-  width: 12px;
-  height: 12px;
-  fill: #65fffc;
+  font-size: 12px;
 }
-.link-other svg :hover {
-  cursor: pointer;
-  fill: #00d0ff;
-}
+
 label {
   color: var(--wireframe-color-white, #fff);
   font-family: Roboto;
@@ -231,6 +263,14 @@ label {
   font-style: normal;
   font-weight: 500;
   line-height: 12.507px; /* 89.339% */
+  text-decoration: none;
+  background: transparent;
+  border: none;
+}
+.link-forget :hover {
+  cursor: pointer;
+  color: #00d0ff;
+  text-decoration: underline;
 }
 .link-other {
   display: flex;
@@ -238,8 +278,22 @@ label {
   align-items: center;
   gap: 9.096px;
 }
-.link-other span svg {
+.link-other button {
+  position: relative;
   width: 24px;
   height: 24px;
+  background: transparent;
+  border: none;
+}
+.link-other button svg {
+  width: 100%;
+  height: 100%;
   fill: #65fffc;
+}
+
+.link-other button :hover {
+  cursor: pointer;
+}
+.link-other svg :hover {
+  fill: #00d0ff;
 }

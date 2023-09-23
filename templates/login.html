@@ -16,8 +16,12 @@
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
   </head>
   <body class="login-body">
+    <img src="/static/public/login-bg2.jpg" class="login-bg" alt="" />
     <div class="login-container">
       <form action="/auth" method="POST" class="login-container-inner">
+        <div class="btn-close">
+          <i class="fa-solid fa-x"></i>
+        </div>
         <div class="logo-login"></div>
         <h2 class="text-welcome">
           welcome &nbsp;<span class="text-back">back</span>🖐️
@@ -39,10 +43,13 @@
             type="password"
             placeholder="Password"
             class="password-field"
+            id="password-field"
             required
           />
           <span class="icon-pass"><i class="fa-solid fa-eye-slash"></i></span>
-          <div class="link-forget">forget password ?</div>
+          <button href="#forget" class="link-forget">
+            <span>forget password ?</span>
+          </button>
         </div>
 
         <input type="submit" value="Login" class="btn-login" />
@@ -51,7 +58,7 @@
           <div class="btn-or-line"></div>
         </div>
         <div class="link-other">
-          <span class="link-google">
+          <button class="link-google">
             <svg
               class="icon-google"
               xmlns="http://www.w3.org/2000/svg"
@@ -67,8 +74,8 @@
                 fill="#65FFFC"
               />
             </svg>
-          </span>
-          <span class="link-linkedin">
+          </button>
+          <button class="link-linkedin">
             <svg
               class="icon-linkedin"
               xmlns="http://www.w3.org/2000/svg"
@@ -94,28 +101,19 @@
                 </clipPath>
               </defs>
             </svg>
-          </span>
+          </button>
         </div>
         <div class="btn-noAcc">
-          Don’t have Account yet ? &nbsp;<span class="text-btn-signup"
-            >Signup
-          </span>
-          <span class="icon-link">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="7"
-              height="7"
-              viewBox="0 0 7 7"
-              fill="none"
-            >
-              <path
-                d="M3.92629 0.845886C3.72975 0.845886 3.57096 1.00467 3.57096 1.20121C3.57096 1.39775 3.72975 1.55653 3.92629 1.55653H4.84458L2.60937 3.79285C2.47057 3.93165 2.47057 4.15706 2.60937 4.29586C2.74817 4.43466 2.97357 4.43466 3.11237 4.29586L5.34758 2.05954V2.97783C5.34758 3.17437 5.50637 3.33315 5.70291 3.33315C5.89945 3.33315 6.05823 3.17437 6.05823 2.97783V1.20121C6.05823 1.00467 5.89945 0.845886 5.70291 0.845886H3.92629ZM1.26136 1.20121C0.770566 1.20121 0.373047 1.59873 0.373047 2.08952V5.64276C0.373047 6.13355 0.770566 6.53107 1.26136 6.53107H4.8146C5.30539 6.53107 5.70291 6.13355 5.70291 5.64276V4.39913C5.70291 4.20259 5.54412 4.0438 5.34758 4.0438C5.15104 4.0438 4.99226 4.20259 4.99226 4.39913V5.64276C4.99226 5.74047 4.91231 5.82042 4.8146 5.82042H1.26136C1.16364 5.82042 1.08369 5.74047 1.08369 5.64276V2.08952C1.08369 1.99181 1.16364 1.91186 1.26136 1.91186H2.50499C2.70153 1.91186 2.86032 1.75307 2.86032 1.55653C2.86032 1.36 2.70153 1.20121 2.50499 1.20121H1.26136Z"
-                fill="#65FFFC"
-              />
-            </svg>
-          </span>
+          Don’t have Account yet ? &nbsp;
+          <button class="text-btn-signup">
+            <span class="icon-link">
+              Signup
+              <i class="fa-solid fa-up-right-from-square"></i>
+            </span>
+          </button>
         </div>
       </form>
     </div>
+    <script src="/static/js/loginsignup.js"></script>
   </body>
 </html>
