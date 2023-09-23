@@ -20,72 +20,10 @@ from flask import Flask, request, render_template
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 
+from chat_quiz import quiz_function,chat_function
+from custom_process import pdf_to_text
 
-def ext(text):
-  json_pattern = r'\{.*\}'
 
-  # Search for the JSON-like pattern in the text
-  match = re.search(json_pattern, text, re.DOTALL)
-
-  if match:
-    json_string = match.group()  # Get the matched JSON-like string
-    try:
-      # Parse JSON-like string into a Python dictionary
-      json_object = json.loads(json_string)
-      print("Extracted JSON-like object:")
-      print(json.dumps(json_object, indent=4))
-      return json_object
-    except json.JSONDecodeError:
-      print("Found a JSON-like pattern, but it's not valid JSON.")
-  else:
-    print("No JSON-like pattern found in the text.")
-def chat_function(prompt,path):
-    loader = TextLoader(path, encoding="utf-8")  # Use this line if you only need data.txt
-    print(path)
-    index = VectorstoreIndexCreator().from_loaders([loader])
-
-    chain = ConversationalRetrievalChain.from_llm(
-        llm=ChatOpenAI(model="gpt-3.5-turbo", temperature=0),
-        retriever=index.vectorstore.as_retriever(search_kwargs={"k": 1}),
-    )
-    # session.pop("hist", None)
-    if "bio" not in session:
-        session["bio"] = []
-
-    chat_history = session["bio"]
-    result = chain({"question": prompt, "chat_history": chat_history})
-
-    # Append the current conversation turn to the chat history in the session
-    chat_history.append((prompt, result['answer']))
-    session["bio"] = chat_history  # Update the chat history in the session
-
-    query = None
-    print(result)
-    print(session["bio"])
-    return result
-def quiz_function(prompt, path):
-
-    loader = TextLoader(path, encoding="utf-8")
-    print(path)
-    # loader = DirectoryLoader("data/")
-    index = VectorstoreIndexCreator().from_loaders([loader])
-
-    chain = ConversationalRetrievalChain.from_llm(
-        llm=ChatOpenAI(model="gpt-3.5-turbo", temperature=0),
-        retriever=index.vectorstore.as_retriever(search_kwargs={"k": 1}),
-    )
-
-    query = prompt
-
-    result = chain({"question": prompt, "chat_history": ""})
-    print(result)
-    r = ext(result["answer"])
-
-    query = None
-    if r== "fail":
-        render_template("bio-g9.html")
-    else:
-        return r
 
 os.environ["OPENAI_API_KEY"]="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"
 
@@ -101,13 +39,6 @@ app.config['UPLOAD_FOLDER'] = 'my_books'
 if not os.path.exists(app.config['UPLOAD_FOLDER']):
     os.makedirs(app.config['UPLOAD_FOLDER'])
 
-def pdf_to_text(pdf_path):
-    text = ''
-    with open(pdf_path, 'rb') as pdf_file:
-        pdf_reader = PyPDF2.PdfReader(pdf_file)
-        for page in pdf_reader.pages:
-            text += page.extract_text()
-    return text
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -158,14 +89,7 @@ def auth():
 @app.route("/")
 def main():
     return render_template("index.html")
-# @app.route("/history/")
-# def history():
-#     book='bk/History student textbook grade 9.pdf'
-#     return render_template("book.html",book=book)
-# @app.route("/biology/")
-# def biology():
-#     book = 'bk/Biology Student Textbook Grade 9.pdf'
-#     return render_template("book.html",book=book)
+
 @app.route("/grade/")
 def grade():
     book = request.args.get('book')
@@ -181,13 +105,7 @@ def send():
     print(choice)
     path = ""
 
-    # if choice == "bk/Biology Student Textbook Grade 9.pdf":
-    #     path = "books/Biology Student Textbook Grade 9.txt"
-    # elif choice == "bk/History student textbook grade 9.pdf":
-    #     path = "books/History student textbook grade 9.txt"
-    # else:
-    #     print("tired")
-    # path = "books/Biology Student Textbook Grade 9.txt"
+
     url = choice
 
     # Replace "bk" with "books"
@@ -246,34 +164,6 @@ def signup():
 @app.route("/abcdef")
 def abcdef():
     return render_template("custom_book.html")
-# @app.route('/upload', methods=['POST'])
-# def upload_file():
-#     if 'file' not in request.files:
-#         return 'No file part'
-#
-#     file = request.files['file']
-#
-#     if file.filename == '':
-#         return 'No selected file'
-#
-#     if file and file.filename.endswith('.pdf'):
-#         # Save the uploaded file to the UPLOAD_FOLDER
-#         filename = secure_filename(file.filename)
-#         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-#         file.save(file_path)
-#
-#         # Convert the PDF to a text file and save it
-#         text_filename = os.path.splitext(filename)[0] + '.txt'
-#         text_file_path = os.path.join(app.config['UPLOAD_FOLDER'], text_filename)
-#
-#         # Use PyPDF2 to extract text from the PDF and save it to the text file
-#         pdf_text = pdf_to_text(file_path)
-#         with open(text_file_path, 'w', encoding='utf-8') as text_file:
-#             text_file.write(pdf_text)
-#
-#         return 'PDF file uploaded and converted to text successfully'
-#
-#     return 'Error: Please upload a PDF file'
 @app.route('/upload', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:

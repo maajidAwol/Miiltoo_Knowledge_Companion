@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish Profile Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .profile-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        .profile-info {
+            margin-top: 20px;
+        }
+        .edit-button {
+            background-color: #0366d6;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .exam-progress {
+            margin-top: 30px;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #ddd;
+            border-radius: 10px;
+            position: relative;
+        }
+        .progress-indicator {
+            width: 0;
+            height: 100%;
+            background-color: #0366d6;
+            border-radius: 10px;
+            position: absolute;
+        }
+        .exam-list {
+            margin-top: 20px;
+        }
+        .exam {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .exam-name {
+            font-weight: bold;
+        }
+        .exam-score {
+            color: #0366d6;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <h1>Your Stylish Profile</h1>
+        <img src="profile-picture.jpg" alt="Profile Picture" class="profile-image">
+        <div class="profile-info">
+            <h2>Username: <span id="username">yourusername</span></h2>
+            <h3>Name: <span id="name">John Doe</span></h3>
+            <p>Email: <span id="email">johndoe@example.com</span></p>
+            <p>Location: <span id="location">New York, USA</span></p>
+            <p>Company: <span id="company">Example Inc.</span></p>
+            <p>Bio: <span id="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span></p>
+        </div>
+        <button class="edit-button" onclick="editProfile()">Edit Profile</button>
+        <div class="exam-progress">
+            <h2>Exam Progress</h2>
+            <div class="progress-bar">
+                <div class="progress-indicator"></div>
+            </div>
+        </div>
+        <div class="exam-list">
+            <h2>Exams</h2>
+            <div class="exam">
+                <span class="exam-name">Exam 1:</span>
+                <span class="exam-score">Score: 85%</span>
+            </div>
+            <div class="exam">
+                <span class="exam-name">Exam 2:</span>
+                <span class="exam-score">Score: 92%</span>
+            </div>
+            <div class="exam">
+                <span class="exam-name">Exam 3:</span>
+                <span class="exam-score">Score: 78%</span>
+            </div>
+            <!-- Add more exams dynamically from the database -->
+        </div>
+        <div class="book-list">
+            <h2>Book List</h2>
+            <ul id="book-list-container">
+                <li class="book-list-item">Book 1</li>
+                <li class="book-list-item">Book 2</li>
+                <li class="book-list-item">Book 3</li>
+                <!-- Add more mock books as needed -->
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        // Function to enable profile editing
+        function editProfile() {
+            const editableFields = ['username', 'name', 'email', 'location', 'company', 'bio'];
+
+            editableFields.forEach(field => {
+                const element = document.getElementById(field);
+                const value = element.textContent.trim();
+                const input = document.createElement('input');
+                input.value = value;
+                element.innerHTML = '';
+                element.appendChild(input);
+            });
+        }
+
+        // Function to update the progress indicator based on exam scores (0-100%)
+        function updateProgress(score) {
+            const progressIndicator = document.querySelector('.progress-indicator');
+            progressIndicator.style.width = `${score}%`;
+        }
+
+        // Example: Update progress with a score of 75% (replace with actual data)
+        updateProgress(75);
+    </script>
+</body>
+</html>
