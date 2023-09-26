@@ -4,14 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a021dfe7-68d4-4b1d-abb5-4977c00b5367" name="Changes" comment="rt">
-      <change afterPath="$PROJECT_DIR$/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/my_view.html" afterDir="false" />
+    <list default="true" id="a021dfe7-68d4-4b1d-abb5-4977c00b5367" name="Changes" comment="separated the python files and added hashing to the password">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/books/Biology_Teachers_Guide_Grade_9.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/books/Chemistry_student_textbook_grade_9.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/books/Citizenship_education_student_textbook_grade_9.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/books/ENGLISH_FOR_ETHIOPIA_STUDENT_TEXTBOOK_GRADE_9.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/chat_quiz.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat_quiz.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instance/profile.db" beforeDir="false" afterPath="$PROJECT_DIR$/instance/profile.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bk/Biology_Teachers_Guide_Grade_9.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bk/Chemistry_student_textbook_grade_9.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bk/Citizenship_education_student_textbook_grade_9.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bk/ENGLISH_FOR_ETHIOPIA_STUDENT_TEXTBOOK_GRADE_9.pdf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +146,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695487246668</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="separated the python files and added hashing to the password">
+      <option name="closed" value="true" />
+      <created>1695502263008</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1695502263008</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -164,6 +176,7 @@
     <MESSAGE value="login" />
     <MESSAGE value="signup" />
     <MESSAGE value="rt" />
-    <option name="LAST_COMMIT_MESSAGE" value="rt" />
+    <MESSAGE value="separated the python files and added hashing to the password" />
+    <option name="LAST_COMMIT_MESSAGE" value="separated the python files and added hashing to the password" />
   </component>
 </project>

@@ -25,7 +25,7 @@ from custom_process import pdf_to_text
 from user import register_user,db,User,bcrypt, login_auth
 from admin import admin
 
-os.environ["OPENAI_API_KEY"]="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"
+os.environ["OPENAI_API_KEY"]=""
 
 app = Flask(__name__)
 app.static_folder = 'static'

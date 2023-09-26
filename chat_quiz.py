@@ -51,7 +51,7 @@ def chat_function(prompt,path):
         session["bio"] = []
 
     chat_history = session["bio"]
-    result = chain({"question": prompt, "chat_history": chat_history})
+    result = chain({"question": prompt, "chat_history": ""})
 
     # Append the current conversation turn to the chat history in the session
     chat_history.append((prompt, result['answer']))
