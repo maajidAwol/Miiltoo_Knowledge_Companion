@@ -8,6 +8,7 @@ import sys
 import re
 import json
 import openai
+from flask_migrate import Migrate
 from langchain.chains import ConversationalRetrievalChain, RetrievalQA
 from langchain.chat_models import ChatOpenAI
 from langchain.document_loaders import DirectoryLoader, TextLoader
@@ -20,9 +21,9 @@ from flask import Flask, request, render_template
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 
-from chat_quiz import quiz_function,chat_function
+from chat_quiz import quiz_function, chat_function
 from custom_process import pdf_to_text
-from user import register_user,db,User,bcrypt, login_auth
+from user import register_user,db,User,bcrypt, login_auth,migrate
 from admin import admin
 
 os.environ["OPENAI_API_KEY"]=""
@@ -34,6 +35,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///profile.db'  # SQLite databas
 # db = SQLAlchemy(app)
 
 db.init_app(app)
+migrate.init_app(app, db)
 bcrypt.init_app(app)
 app.config['UPLOAD_FOLDER'] = 'my_books'
 
