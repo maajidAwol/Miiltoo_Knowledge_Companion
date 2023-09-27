@@ -247,7 +247,7 @@ def profile():
         return render_template('profile.html', user=first_user)
     else:
         # Handle the case where no user is found in the database
-        return render_template('error.html', message='No user found')
+        return "no user found"
 
 
 @app.route('/add_book', methods=['POST'])
