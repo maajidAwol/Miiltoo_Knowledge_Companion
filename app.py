@@ -135,7 +135,7 @@ def send():
     else:
         ref =session["username"]+path
     print(ref)
-    pr
+
     if ref not in session:
         session[ref] = []
     chat_history = session[ref]
