@@ -1,7 +1,7 @@
 import time
 
 import PyPDF2
-from flask import Flask, redirect, render_template, session, jsonify
+from flask import Flask, redirect, render_template, session, jsonify, flash, url_for
 from flask import Flask, render_template, request
 import os
 import sys
@@ -23,10 +23,10 @@ from werkzeug.utils import secure_filename
 
 from chat_quiz import quiz_function, chat_function
 from custom_process import pdf_to_text
-from user import register_user,db,User,bcrypt, login_auth,migrate
+from user import register_user,db,User,bcrypt, login_auth,migrate,Books,mail
 from admin import admin
 
-os.environ["OPENAI_API_KEY"]=""
+os.environ["OPENAI_API_KEY"] = ""
 
 app = Flask(__name__)
 app.static_folder = 'static'
@@ -34,10 +34,26 @@ app.secret_key= "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"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///profile.db'  # SQLite database
 # db = SQLAlchemy(app)
 
+app.config['MAIL_SERVER']='smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = 'miltooknowledgecompanion@gmail.com'
+app.config['MAIL_PASSWORD'] = 'kyrmubuougusrlfu'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+
+
 db.init_app(app)
 migrate.init_app(app, db)
 bcrypt.init_app(app)
+mail.init_app(app)
 app.config['UPLOAD_FOLDER'] = 'my_books'
+
+
+
+
+
+
+
 
 if not os.path.exists(app.config['UPLOAD_FOLDER']):
     os.makedirs(app.config['UPLOAD_FOLDER'])
@@ -114,20 +130,22 @@ def send():
     # result = chat_function(prompt, path)
     # return result
     time.sleep(10)
-    if "bio" not in session:
-        session["bio"] = []
-    chat_history = session["bio"]
+    ref =session["username"]+path
+    print(ref)
+    if ref not in session:
+        session[ref] = []
+    chat_history = session[ref]
     mock_text = "I am your dedicated study companion, here to empower you in your academic journey. My mission is to assist you in comprehending your course materials and ultimately, helping you achieve better grades. With a wealth of knowledge and insightful analysis at my disposal, I'll break down complex concepts into digestible pieces, provide summaries, answer your questions, and offer valuable insights. Whether it's literature, science, history, or any other subject, I'm here to be your study buddy."
 
     result = {"answer": mock_text}  # Mocking the result
 
     # Append the current conversation turn to the chat history in the session
     chat_history.append((prompt, result['answer']))
-    session["bio"] = chat_history  # Update the chat history in the session
+    session[ref] = chat_history  # Update the chat history in the session
 
     query = None
     print(result)
-    print(session["bio"])
+    print(session[ref])
     return jsonify(result)
 @app.route("/quiz_request",methods=["POST"])
 def quiz_send():
@@ -202,7 +220,87 @@ def upload_file():
     return 'Error: Please upload a PDF file'
 
 
+@app.route('/profile', methods=['GET', 'POST'])
+def profile():
+    # Query the database to get the first user's data
+    first_user = User.query.first()
 
+    if request.method == 'POST':
+        # Handle form submission for saving changes
+        first_user.username = request.form['username']
+        first_user.full_name = request.form['full_name']
+        first_user.email = request.form['email']
+        first_user.school_level = request.form['school_level']
+        first_user.age = request.form['age']
+        first_user.school_name = request.form['school_name']
+        first_user.profile_pic = request.form['profile_pic']
+        db.session.commit()
+
+        # Redirect back to the profile page after saving changes
+        return redirect('/profile')
+
+    if first_user:
+        return render_template('profile.html', user=first_user)
+    else:
+        # Handle the case where no user is found in the database
+        return render_template('error.html', message='No user found')
+
+
+@app.route('/add_book', methods=['POST'])
+def add_book():
+    book_url = request.form['book_url']
+
+    # Create a new book entry for the user
+    new_book = Books(user_id=1, book_url=book_url)  # Assuming user_id=1 for the first user
+    db.session.add(new_book)
+    db.session.commit()
+
+    # Redirect back to the profile page after adding the book
+    return redirect('/profile')
+@app.route('/save_profile', methods=['POST'])
+def save_profile():
+    # Retrieve the first user from the database
+    first_user = User.query.first()
+
+    if first_user:
+        if request.method == 'POST':
+            # Update user's profile information with data from the form
+            first_user.username = request.form['username']
+            first_user.full_name = request.form['full_name']
+            first_user.email = request.form['email']
+            first_user.school_level = request.form['school_level']
+            first_user.age = request.form['age']
+            first_user.school_name = request.form['school_name']
+            first_user.profile_pic = request.form['profile_pic']
+            db.session.commit()
+            flash('Profile changes saved successfully', 'success')
+        return redirect('/profile')
+    else:
+        # Handle the case where no user is found in the database
+        return render_template('error.html', message='No user found')
+
+@app.route('/logout')
+def logout():
+    session['logged_in'] = False
+    session.pop('username', None)
+    return redirect(url_for('main'))
+# @app.route('/confirm_email', methods=['GET', 'POST'])
+# def confirm_email():
+#     if request.method == 'POST':
+#         entered_code = request.form.get('verification_code')
+#         user = User.query.filter_by(email=session['email']).first()
+#
+#         if user and entered_code == user.verification_code:
+#             # Codes match, complete the registration
+#             user.verified = True
+#             db.session.commit()
+#             return 'Registration successful!'
+#         else:
+#             return 'Invalid verification code. Please try again.'
+#
+#     return render_template('confirm_email.html')
 if __name__ == "__main__":
+    # with app.app_context():
+    #     db.create_all()
     admin.init_app(app)
     app.run(debug=True)

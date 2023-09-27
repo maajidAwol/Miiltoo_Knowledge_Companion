@@ -1,0 +1,509 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Stylish Profile Page</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            background-color: #f0f0f0;-->
+<!--            margin: 0;-->
+<!--            padding: 0;-->
+<!--        }-->
+<!--        .profile-container {-->
+<!--            max-width: 800px;-->
+<!--            margin: 0 auto;-->
+<!--            padding: 20px;-->
+<!--            background-color: #fff;-->
+<!--            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);-->
+<!--            border-radius: 10px;-->
+<!--        }-->
+<!--        .profile-image {-->
+<!--            width: 150px;-->
+<!--            height: 150px;-->
+<!--            border-radius: 50%;-->
+<!--            object-fit: cover;-->
+<!--            margin-bottom: 20px;-->
+<!--        }-->
+<!--        .profile-info {-->
+<!--            margin-top: 20px;-->
+<!--        }-->
+<!--        .edit-button {-->
+<!--            background-color: #0366d6;-->
+<!--            color: #fff;-->
+<!--            padding: 10px 20px;-->
+<!--            border: none;-->
+<!--            cursor: pointer;-->
+<!--            margin-right: 10px;-->
+<!--        }-->
+<!--        .exam-progress {-->
+<!--            margin-top: 30px;-->
+<!--        }-->
+<!--        .progress-bar {-->
+<!--            width: 100%;-->
+<!--            height: 20px;-->
+<!--            background-color: #ddd;-->
+<!--            border-radius: 10px;-->
+<!--            position: relative;-->
+<!--        }-->
+<!--        .progress-indicator {-->
+<!--            width: 0;-->
+<!--            height: 100%;-->
+<!--            background-color: #0366d6;-->
+<!--            border-radius: 10px;-->
+<!--            position: absolute;-->
+<!--        }-->
+<!--        .exam-list {-->
+<!--            margin-top: 20px;-->
+<!--        }-->
+<!--        .exam {-->
+<!--            display: flex;-->
+<!--            justify-content: space-between;-->
+<!--            margin-bottom: 10px;-->
+<!--        }-->
+<!--        .exam-name {-->
+<!--            font-weight: bold;-->
+<!--        }-->
+<!--        .exam-score {-->
+<!--            color: #0366d6;-->
+<!--        }-->
+<!--        /* Add styles for editable fields */-->
+<!--        .editable-field input {-->
+<!--            border: none;-->
+<!--            border-bottom: 1px solid #0366d6;-->
+<!--            font-size: inherit;-->
+<!--            margin-top: 5px;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div class="profile-container">-->
+<!--        <h1>Your Stylish Profile</h1>-->
+<!--        <img src="{{ user.profile_pic }}" alt="Profile Picture" class="profile-image">-->
+<!--        <div class="profile-info">-->
+<!--            <h2>Username: <span class="editable-field" id="username">{{ user.username }}</span></h2>-->
+<!--            <h3>Name: <span class="editable-field" id="full_name">{{ user.full_name }}</span></h3>-->
+<!--            <p>Email: <span class="editable-field" id="email">{{ user.email }}</span></p>-->
+<!--            <p>Location: <span class="editable-field" id="school_level">{{ user.school_level }}</span></p>-->
+<!--            <p>Company: <span class="editable-field" id="age">{{ user.age }}</span></p>-->
+<!--            <p>Bio: <span class="editable-field" id="school_name">{{ user.school_name }}</span></p>-->
+<!--        </div>-->
+<!--        <button class="edit-button" onclick="editProfile()">Edit Profile</button>-->
+<!--        <div class="exam-progress">-->
+<!--            <h2>Exam Progress</h2>-->
+<!--            <div class="progress-bar">-->
+<!--                <div class="progress-indicator"></div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="exam-list">-->
+<!--            <h2>Exams</h2>-->
+<!--            <div class="exam">-->
+<!--                <span class="exam-name">Exam 1:</span>-->
+<!--                <span class="exam-score">Score: 85%</span>-->
+<!--            </div>-->
+<!--            <div class="exam">-->
+<!--                <span class="exam-name">Exam 2:</span>-->
+<!--                <span class="exam-score">Score: 92%</span>-->
+<!--            </div>-->
+<!--            <div class="exam">-->
+<!--                <span class="exam-name">Exam 3:</span>-->
+<!--                <span class="exam-score">Score: 78%</span>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; Add more exams dynamically from the database &ndash;&gt;-->
+<!--        </div>-->
+<!--        <div class="book-list">-->
+<!--            <h2>Book List</h2>-->
+<!--            <ul id="book-list-container">-->
+<!--                {% for book in user.books %}-->
+<!--                <li class="book-list-item">{{ book.book_url }}</li>-->
+<!--                {% endfor %}-->
+<!--                &lt;!&ndash; Add more books dynamically from the database &ndash;&gt;-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <script>-->
+<!--        // Function to enable profile editing-->
+<!--        function editProfile() {-->
+<!--            const editableFields = ['username', 'full_name', 'email', 'school_level', 'age', 'school_name'];-->
+
+<!--            editableFields.forEach(field => {-->
+<!--                const element = document.getElementById(field);-->
+<!--                const value = element.textContent.trim();-->
+<!--                const input = document.createElement('input');-->
+<!--                input.value = value;-->
+<!--                element.innerHTML = '';-->
+<!--                element.appendChild(input);-->
+<!--            });-->
+<!--        }-->
+
+<!--        // Function to update the progress indicator based on exam scores (0-100%)-->
+<!--        function updateProgress(score) {-->
+<!--            const progressIndicator = document.querySelector('.progress-indicator');-->
+<!--            progressIndicator.style.width = `${score}%`;-->
+<!--        }-->
+
+<!--        // Example: Update progress with a score of 75% (replace with actual data)-->
+<!--        updateProgress(75);-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Stylish Profile Page</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            background-color: #f0f0f0;-->
+<!--            margin: 0;-->
+<!--            padding: 0;-->
+<!--        }-->
+<!--        .profile-container {-->
+<!--            max-width: 800px;-->
+<!--            margin: 0 auto;-->
+<!--            padding: 20px;-->
+<!--            background-color: #fff;-->
+<!--            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);-->
+<!--            border-radius: 10px;-->
+<!--        }-->
+<!--        .profile-image {-->
+<!--            width: 150px;-->
+<!--            height: 150px;-->
+<!--            border-radius: 50%;-->
+<!--            object-fit: cover;-->
+<!--            margin-bottom: 20px;-->
+<!--        }-->
+<!--        .profile-info {-->
+<!--            margin-top: 20px;-->
+<!--        }-->
+<!--        .edit-button {-->
+<!--            background-color: #0366d6;-->
+<!--            color: #fff;-->
+<!--            padding: 10px 20px;-->
+<!--            border: none;-->
+<!--            cursor: pointer;-->
+<!--            margin-right: 10px;-->
+<!--        }-->
+<!--        .editable-field input {-->
+<!--            border: none;-->
+<!--            border-bottom: 1px solid #0366d6;-->
+<!--            font-size: inherit;-->
+<!--            margin-top: 5px;-->
+<!--        }-->
+<!--        .exam-progress {-->
+<!--            margin-top: 30px;-->
+<!--        }-->
+<!--        .progress-bar {-->
+<!--            width: 100%;-->
+<!--            height: 20px;-->
+<!--            background-color: #ddd;-->
+<!--            border-radius: 10px;-->
+<!--            position: relative;-->
+<!--        }-->
+<!--        .progress-indicator {-->
+<!--            width: 0;-->
+<!--            height: 100%;-->
+<!--            background-color: #0366d6;-->
+<!--            border-radius: 10px;-->
+<!--            position: absolute;-->
+<!--        }-->
+<!--        .exam-list {-->
+<!--            margin-top: 20px;-->
+<!--        }-->
+<!--        .exam {-->
+<!--            display: flex;-->
+<!--            justify-content: space-between;-->
+<!--            margin-bottom: 10px;-->
+<!--        }-->
+<!--        .exam-name {-->
+<!--            font-weight: bold;-->
+<!--        }-->
+<!--        .exam-score {-->
+<!--            color: #0366d6;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div class="profile-container">-->
+<!--        <h1>Your Stylish Profile</h1>-->
+<!--        <img src="static/public/{{ user.profile_pic }}" alt="Profile Picture" class="profile-image">-->
+<!--        <div class="profile-info">-->
+<!--            <h2>Username: <span class="editable-field" id="username">{{ user.username }}</span></h2>-->
+<!--            <h3>Name: <span class="editable-field" id="full_name">{{ user.full_name }}</span></h3>-->
+<!--            <p>Email: <span class="editable-field" id="email">{{ user.email }}</span></p>-->
+<!--            <p>School level: <span class="editable-field" id="school_level">{{ user.school_level }}</span></p>-->
+<!--            <p>age: <span class="editable-field" id="age">{{ user.age }}</span></p>-->
+<!--            <p>school name: <span class="editable-field" id="school_name">{{ user.school_name }}</span></p>-->
+<!--            <p>profile: <span class="editable-field" id="profile_pic">{{ user.profile_pic }}</span></p>-->
+<!--        </div>-->
+<!--        <button class="edit-button" onclick="editProfile()">Edit Profile</button>-->
+<!--        <form id="profile-form" style="display: none;" action="/save_profile" method="post">-->
+<!--            &lt;!&ndash; Input fields for editing profile &ndash;&gt;-->
+<!--            <h5>username</h5>-->
+<!--            <input type="text" name="username" value="{{ user.username }}" class="editable-field">-->
+<!--            <h5>full name</h5>-->
+<!--            <input type="text" name="full_name" value="{{ user.full_name }}" class="editable-field">-->
+<!--            <h5>email</h5>-->
+<!--            <input type="text" name="email" value="{{ user.email }}" class="editable-field">-->
+<!--            <h5>school level</h5>-->
+<!--            <input type="text" name="school_level" value="{{ user.school_level }}" class="editable-field">-->
+<!--            <h5>age</h5>-->
+<!--            <input type="text" name="age" value="{{ user.age }}" class="editable-field">-->
+<!--            <h5>school name</h5>-->
+<!--            <input type="text" name="school_name" value="{{ user.school_name }}" class="editable-field">-->
+<!--            <input type="text" name="profile_pic" value="{{ user.profile_pic }}" class="editable-field">-->
+<!--            <button type="submit">Save Changes</button>-->
+<!--        </form>-->
+<!--        <div class="exam-progress">-->
+<!--            <h2>Exam Progress</h2>-->
+<!--            <div class="progress-bar">-->
+<!--                <div class="progress-indicator"></div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="exam-list">-->
+<!--            <h2>Exams</h2>-->
+<!--            &lt;!&ndash; Your exam list goes here &ndash;&gt;-->
+<!--        </div>-->
+<!--        <div class="book-list">-->
+<!--            <h2>Book List</h2>-->
+<!--            <ul id="book-list-container">-->
+<!--                {% for book in user.books %}-->
+<!--                <li class="book-list-item">{{ book.book_url }}</li>-->
+<!--                {% endfor %}-->
+<!--            </ul>-->
+<!--            <form id="add-book-form" action="/add_book" method="post">-->
+<!--                <input type="text" name="book_url" placeholder="Enter book URL">-->
+<!--                <button type="submit">Add Book</button>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <script>-->
+<!--        // Function to enable profile editing-->
+<!--        function editProfile() {-->
+<!--            const form = document.getElementById('profile-form');-->
+<!--            form.style.display = 'block';-->
+
+<!--            const editableFields = document.querySelectorAll('.editable-field');-->
+
+<!--            editableFields.forEach(field => {-->
+<!--                const input = document.createElement('input');-->
+<!--                input.value = field.textContent.trim();-->
+<!--                input.setAttribute('name', field.id);-->
+<!--                field.innerHTML = '';-->
+<!--                field.appendChild(input);-->
+<!--            });-->
+<!--        }-->
+
+<!--        // Function to update the progress indicator based on exam scores (0-100%)-->
+<!--        function updateProgress(score) {-->
+<!--            const progressIndicator = document.querySelector('.progress-indicator');-->
+<!--            progressIndicator.style.width = `${score}%`;-->
+<!--        }-->
+
+<!--        // Example: Update progress with a score of 75% (replace with actual data)-->
+<!--        updateProgress(75);-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish Profile Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .profile-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        .profile-info {
+            margin-top: 20px;
+        }
+        .edit-button {
+            background-color: #0366d6;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .editable-field input {
+            border: none;
+            border-bottom: 1px solid #0366d6;
+            font-size: inherit;
+            margin-top: 5px;
+        }
+        .exam-progress {
+            margin-top: 30px;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #ddd;
+            border-radius: 10px;
+            position: relative;
+        }
+        .progress-indicator {
+            width: 0;
+            height: 100%;
+            background-color: #0366d6;
+            border-radius: 10px;
+            position: absolute;
+        }
+        .exam-list {
+            margin-top: 20px;
+        }
+        .exam {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .exam-name {
+            font-weight: bold;
+        }
+        .exam-score {
+            color: #0366d6;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <h1>Your Stylish Profile</h1>
+        <img src="static/public/{{ user.profile_pic }}" alt="Profile Picture" class="profile-image">
+        <div class="profile-info">
+            <h2>Username: <span class="editable" id="username">{{ user.username }}</span></h2>
+            <h3>Name: <span class="editable" id="full_name">{{ user.full_name }}</span></h3>
+            <p>Email: <span class="editable" id="email">{{ user.email }}</span></p>
+            <p>School level: <span class="editable" id="school_level">{{ user.school_level }}</span></p>
+            <p>age: <span class="editable" id="age">{{ user.age }}</span></p>
+            <p>school name: <span class="editable" id="school_name">{{ user.school_name }}</span></p>
+            <p>profile: <span class="editable" id="profile_pic">{{ user.profile_pic }}</span></p>
+        </div>
+        <button class="edit-button" onclick="editProfile()">Edit Profile</button>
+        <form id="profile-form" style="display: none;" action="/save_profile" method="post">
+            <!-- Input fields for editing profile -->
+            <h5>username</h5>
+            <input type="text" name="username" value="{{ user.username }}" class="editable-field">
+            <h5>full name</h5>
+            <input type="text" name="full_name" value="{{ user.full_name }}" class="editable-field">
+            <h5>email</h5>
+            <input type="text" name="email" value="{{ user.email }}" class="editable-field">
+            <h5>school level</h5>
+            <input type="text" name="school_level" value="{{ user.school_level }}" class="editable-field">
+            <h5>age</h5>
+            <input type="text" name="age" value="{{ user.age }}" class="editable-field">
+            <h5>school name</h5>
+            <input type="text" name="school_name" value="{{ user.school_name }}" class="editable-field">
+            <input type="text" name="profile_pic" value="{{ user.profile_pic }}" class="editable-field">
+            <button type="submit">Save Changes</button>
+        </form>
+<!--        <div class="exam-progress">-->
+<!--            <h2>Exam Progress</h2>-->
+<!--            <div class="progress-bar">-->
+<!--                <div class="progress-indicator"></div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="exam-list">-->
+<!--            <h2>Exams</h2>-->
+<!--            &lt;!&ndash; Your exam list goes here &ndash;&gt;-->
+<!--        </div>-->
+        <div class="book-list">
+            <h2>Book List</h2>
+            <ul id="book-list-container">
+                {% for book in user.books %}
+                <li class="book-list-item">{{ book.book_url }}</li>
+                {% endfor %}
+            </ul>
+            <form id="add-book-form" action="/add_book" method="post">
+                <input type="text" name="book_url" placeholder="Enter book URL">
+                <button type="submit">Add Book</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Function to enable profile editing
+        function editProfile() {
+            const form = document.getElementById('profile-form');
+            form.style.display = 'block';
+
+
+
+    </script>
+</body>
+</html>
+
