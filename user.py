@@ -20,7 +20,7 @@ class User(db.Model):
 
     def __init__(self, username, password, full_name=None, profile_pic=None, school_level=None, age=None, school_name=None):
         self.username = username
-        self.password = bcrypt.generate_password_hash(password).decode('utf-8')
+        self.password = password
         self.full_name = full_name
         self.profile_pic = profile_pic
         self.school_level = school_level
