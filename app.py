@@ -27,7 +27,7 @@ from custom_process import pdf_to_text
 from user import register_user,db,User,bcrypt, login_auth,migrate,Books,mail
 from admin import admin
 
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = ""
 
 app = Flask(__name__)
 app.static_folder = 'static'
@@ -38,7 +38,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///profile.db'  # SQLite databas
 app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USERNAME'] = 'miltooknowledgecompanion@gmail.com'
-app.config['MAIL_PASSWORD'] = 'kyrmubuougusrlfu'
+app.config['MAIL_PASSWORD'] = ''
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_DEBUG'] = True
