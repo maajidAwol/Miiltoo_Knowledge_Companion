@@ -21,8 +21,10 @@ class User(db.Model):
     school_level = db.Column(db.String(50))
     age = db.Column(db.Integer)
     school_name = db.Column(db.String(100))
+    verification_code = db.Column(db.String(4))
+    verified = db.Column(db.Boolean)
 
-    def __init__(self, username, password, full_name=None, profile_pic=None, school_level=None, age=None, school_name=None):
+    def __init__(self, username, password, full_name=None, profile_pic=None, school_level=None, age=None, school_name=None, verified=False,verification_code =None):
         self.username = username
         self.password = password
         self.full_name = full_name
@@ -30,7 +32,8 @@ class User(db.Model):
         self.school_level = school_level
         self.age = age
         self.school_name = school_name
-
+        self.verified = verified
+        self.verification_code = verification_code
 class Books(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
@@ -69,9 +72,16 @@ class Books(db.Model):
 #
 #     # Return True to indicate successful registration
 #     return True
+# def generate_verification_code():
+#     return ''.join(random.choice(string.digits) for _ in range(4))
 def generate_verification_code():
-    return ''.join(random.choice(string.digits) for _ in range(4))
-
+    first_digit = random.choice(string.digits[1:])  # Choose a digit from 1 to 9
+    rest_of_digits = ''.join(random.choice(string.digits) for _ in range(3))
+    return first_digit + rest_of_digits
+def generate_random_password():
+    first_digit = random.choice(string.digits[1:])  # Choose a digit from 1 to 9
+    rest_of_digits = ''.join(random.choice(string.digits) for _ in range(5))
+    return first_digit + rest_of_digits
 def register_user(username, password):
     # Check if the username already exists
     existing_user = User.query.filter_by(username=username).first()
@@ -87,12 +97,13 @@ def register_user(username, password):
     hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
 
     # Create a new user and add it to the database
-    new_user = User(username=username, password=hashed_password)
+    send_verification_email(username, verification_code)
+    new_user = User(username=username, password=hashed_password, verification_code = verification_code)
     db.session.add(new_user)
     db.session.commit()
 
     # Send the verification code to the user's email
-    send_verification_email(username, verification_code)
+
 
     # Return True to indicate successful registration
     return True
@@ -101,11 +112,15 @@ def send_verification_email(email, verification_code):
     msg = Message('Email Confirmation Code', sender='your_email@gmail.com', recipients=[email])
     msg.body = f'Your verification code is: {verification_code}'
     mail.send(msg)
+def send_(email, verification_code):
+    msg = Message('Email Confirmation Code', sender='your_email@gmail.com', recipients=[email])
+    msg.body = f'Your verification code is: {verification_code}'
+    mail.send(msg)
 
 def login_auth(username, password):
     user = User.query.filter_by(username=username).first()
 
-    if user and bcrypt.check_password_hash(user.password, password):
+    if user and bcrypt.check_password_hash(user.password, password) and user.verified:
         # Password is correct, allow login
         session['logged_in'] = True
         session['username'] = username
@@ -114,6 +129,25 @@ def login_auth(username, password):
 
     # Password is incorrect
     return False
+def send_password(email):
+    existing_user = User.query.filter_by(username=email).first()
+
+    if existing_user and existing_user.verified:
+        # Username already exists, return False to indicate registration failure
+        print()
+        password = generate_random_password()
+        hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+        existing_user.password = hashed_password
+        db.session.commit()
+        print("after"+existing_user.password)
+        msg = Message('Email Confirmation Code', sender='miltooknowledgecompanion@gmail.com', recipients=[email])
+        msg.body = f'Your new password is: {password}'
+        mail.send(msg)
+        return True
+    else:
+        return False
+
+
 
 
 

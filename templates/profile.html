@@ -454,10 +454,10 @@
             <p>profile: <span class="editable" id="profile_pic">{{ user.profile_pic }}</span></p>
         </div>
         <button class="edit-button" onclick="editProfile()">Edit Profile</button>
-        <form id="profile-form" style="display: none;" action="/save_profile" method="post">
+        <form id="profile-form" style="display: none;" action="/save_changes" method="post">
             <!-- Input fields for editing profile -->
-            <h5>username</h5>
-            <input type="text" name="username" value="{{ user.username }}" class="editable-field">
+<!--            <h5>username</h5>-->
+<!--            <input type="text" name="username" value="{{ user.username }}" class="editable-field">-->
             <h5>full name</h5>
             <input type="text" name="full_name" value="{{ user.full_name }}" class="editable-field">
             <h5>email</h5>
@@ -468,6 +468,7 @@
             <input type="text" name="age" value="{{ user.age }}" class="editable-field">
             <h5>school name</h5>
             <input type="text" name="school_name" value="{{ user.school_name }}" class="editable-field">
+            <h5>profile</h5>
             <input type="text" name="profile_pic" value="{{ user.profile_pic }}" class="editable-field">
             <button type="submit">Save Changes</button>
         </form>
@@ -500,7 +501,7 @@
         function editProfile() {
             const form = document.getElementById('profile-form');
             form.style.display = 'block';
-
+}
 
 
     </script>

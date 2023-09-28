@@ -8,8 +8,8 @@
 <body>
     <h1>Email Confirmation</h1>
     <p>Enter the 4-digit verification code sent to your email:</p>
-    <form method="POST">
-        <input type="text" name="verification_code" required>
+    <form action="/confirm_email" method="POST">
+        <input type="number" name="verification_code" required>
         <button type="submit">Confirm</button>
     </form>
 </body>
