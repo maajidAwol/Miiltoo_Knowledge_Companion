@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo-container">
+        <img src="asset/logo.svg" alt="logo" />
+        <h3 class="logo-name">Miilt<span class="oo">oo</span></h3>
+      </div>
+      <nav class="nav-links">
+        <a href="" class="home-link underline"
+          >Home
+          <span class="nav-links-underline"> </span>
+        </a>
+        <a href="" class="home-link">Grade</a
+        ><a href="" class="home-link">Exam</a>
+        <a href="" class="home-link">My books</a>
+      </nav>
+      <div class="login-container">
+        <button class="login-btn1">login</button>
+        <button class="signup-btn1">signup</button>
+      </div>
+      <div class="hamb-menu hidden" id="hamb-menu">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="profile-group hidden">
+        <div class="profile">
+          <img src="/static/public/profile-pic.jpg" alt="" />
+        </div>
+        <div class="profile-detail"></div>
+      </div>
+    </header>
+    <div class="hero-bg"></div>
+
+    <div class="resource-bg"></div>
+    <main>
+      <section class="hero-sec">
+
+        <div class="headline-container">
+          <h1>
+            Elevate <span class="anime-text">Education</span> with Ai
+            powered-services
+          </h1>
+          <p class="headline-quatation">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore m dolore eu fugiat nulla
+          </p>
+          <button class="explore-btn">
+            <span class="explore-icon">
+              <i class="fa-brands fa-safari"></i>
+            </span>
+            explore now
+          </button>
+        </div>
+        <img class="robot-pic" src="/asset/robot 2.png" alt="" />
+        <img src="/asset/robot-shape-1.svg" class="mesh-shape" />
+      </section>
+      <section class="feature-sec">
+        <div class="feat-headline">
+          feature
+          <span class="feat-line"></span>
+        </div>
+        <div class="feat-container">
+          <div class="feat-box">
+            <div class="box-icon">
+              <i class="fa-solid fa-person-dots-from-line"></i>
+            </div>
+            Personalization
+            <div class="desc-container">
+              <span class="desc-icon"><i class="fa-solid fa-feather"></i></span>
+              <p class="desc-content">
+                This feature ensures that students receive tailored support and
+                resources that align with their individual learning needs.
+              </p>
+            </div>
+          </div>
+          <div class="feat-box">
+            <div class="box-icon">
+              <img
+                class="conve-icon"
+                src="/asset/conversation-icon.svg"
+                alt=""
+              />
+            </div>
+            Interactive Conversation
+            <div class="desc-container">
+              <span class="desc-icon"><i class="fa-solid fa-feather"></i></span>
+              <p class="desc-content">
+                Promotes Active Learning And Encourages Students To Actively
+                Participate In Their Educational Journey.
+              </p>
+            </div>
+          </div>
+          <div class="feat-box">
+            <div class="box-icon">
+              <img class="res-icon" src="/asset/resource-icon.svg" alt="" />
+            </div>
+            Comprehensive Resource
+            <div class="desc-container">
+              <span class="desc-icon"><i class="fa-solid fa-feather"></i></span>
+              <p class="desc-content">
+                Ensures That Students Have Access To Comprehensive Learning
+                Materials That Support Their Academic Progress
+              </p>
+            </div>
+          </div>
+          <div class="feat-box">
+            <div class="box-icon">
+              <i class="fa-solid fa-upload"></i>
+            </div>
+            Custom Upload
+            <div class="desc-container">
+              <span class="desc-icon"><i class="fa-solid fa-feather"></i></span>
+              <p class="desc-content">
+                This feature ensures that students receive tailored support and
+                resources that align with their individual learning needs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="resource-sec">
+        <div class="resrc-headline">
+          resource
+          <span class="resrc-line"></span>
+        </div>
+        <div class="resrc-btns">
+          <button class="active-btn">All</button>
+          <button class="other-btns">Study guide</button>
+          <button class="other-btns">textbook</button>
+          <button class="other-btns">test</button>
+        </div>
+        <div class="resrc-nav-container">
+          <button class="left-btn">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="right-btn">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="resrc-slider-indicator">
+          <span class="dots active"></span>
+          <span class="dots"></span>
+          <span class="dots"></span>
+        </div>
+        <div class="resrc-slider">
+          <div class="resrc-container" id="resrc-container">
+            <div class="resrc-box">
+              <div class="resrc-cover-container">
+                <img src="/asset/bio-g10-cover.svg" class="resrc-cover-item" />
+                <div class="resrc-cover-overlay">
+                  grade-10
+                  <span class="resrc-cover-overlay-icon">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="resrc-tittle-container">
+                <span class="resrc-tittle-icon"
+                  ><i class="fa-solid fa-book"></i
+                ></span>
+                Biology-1
+              </div>
+              <div class="resrc-desc-container">
+                <div class="resrc-desc-tittle">
+                  <span class="resc-desc-tittle-icon"
+                    ><i class="fa-solid fa-feather"></i
+                  ></span>
+                  description
+                </div>
+                <div class="resrc-desc-content">
+                  <p class="resrc-desc-text">
+                    ensures that students have access to comprehensive learning
+                    materials that support their academic progress.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="resrc-box">
+              <div class="resrc-cover-container">
+                <img src="/asset/bio-g10-cover.svg" class="resrc-cover-item" />
+                <div class="resrc-cover-overlay">
+                  grade-10
+                  <span class="resrc-cover-overlay-icon">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="resrc-tittle-container">
+                <span class="resrc-tittle-icon"
+                  ><i class="fa-solid fa-book"></i
+                ></span>
+                Biology-2
+              </div>
+              <div class="resrc-desc-container">
+                <div class="resrc-desc-tittle">
+                  <span class="resc-desc-tittle-icon"
+                    ><i class="fa-solid fa-feather"></i
+                  ></span>
+                  description
+                </div>
+                <div class="resrc-desc-content">
+                  <p class="resrc-desc-text">
+                    ensures that students have access to comprehensive learning
+                    materials that support their academic progress.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="resrc-box">
+              <div class="resrc-cover-container">
+                <img src="/asset/bio-g10-cover.svg" class="resrc-cover-item" />
+              <div class="resrc-cover-overlay">
+                grade-10
+                <span class="resrc-cover-overlay-icon">
+                  <i class="fa-solid fa-book-open-reader"></i>
+                </span>
+              </div>
+            </div>
+
+              <div class="resrc-tittle-container">
+                <span class="resrc-tittle-icon"
+                  ><i class="fa-solid fa-book"></i
+                ></span>
+                Biology-3
+              </div>
+              <div class="resrc-desc-container">
+                <div class="resrc-desc-tittle">
+                  <span class="resc-desc-tittle-icon"
+                    ><i class="fa-solid fa-feather"></i
+                  ></span>
+                  description
+                </div>
+                <div class="resrc-desc-content">
+                  <p class="resrc-desc-text">
+                    ensures that students have access to comprehensive learning
+                    materials that support their academic progress.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="resrc-box">
+              <div class="resrc-cover-container">
+                <img src="/asset/bio-g10-cover.svg" class="resrc-cover-item" />
+              <div class="resrc-cover-overlay">
+                grade-10
+                <span class="resrc-cover-overlay-icon">
+                  <i class="fa-solid fa-book-open-reader"></i>
+                </span>
+              </div>
+            </div>
+              <div class="resrc-tittle-container">
+                <span class="resrc-tittle-icon"
+                  ><i class="fa-solid fa-book"></i
+                ></span>
+                Biology-4
+              </div>
+              <div class="resrc-desc-container">
+                <div class="resrc-desc-tittle">
+                  <span class="resc-desc-tittle-icon"
+                    ><i class="fa-solid fa-feather"></i
+                  ></span>
+                  description
+                </div>
+                <div class="resrc-desc-content">
+                  <p class="resrc-desc-text">
+                    ensures that students have access to comprehensive learning
+                    materials that support their academic progress.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="resrc-box">
+              <div class="resrc-cover-container">
+                <img src="/asset/bio-g10-cover.svg" class="resrc-cover-item" />
+              <div class="resrc-cover-overlay">
+                grade-10
+                <span class="resrc-cover-overlay-icon">
+                  <i class="fa-solid fa-book-open-reader"></i>
+                </span>
+              </div>
+            </div>
+              <div class="resrc-tittle-container">
+                <span class="resrc-tittle-icon"
+                  ><i class="fa-solid fa-book"></i
+                ></span>
+                Biology-5
+              </div>
+              <div class="resrc-desc-container">
+                <div class="resrc-desc-tittle">
+                  <span class="resc-desc-tittle-icon"
+                    ><i class="fa-solid fa-feather"></i
+                  ></span>
+                  description
+                </div>
+                <div class="resrc-desc-content">
+                  <p class="resrc-desc-text">
+                    ensures that students have access to comprehensive learning
+                    materials that support their academic progress.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="resrc-box">
+              <div class="resrc-cover-container">
+                <img src="/asset/bio-g10-cover.svg" class="resrc-cover-item" />
+              <div class="resrc-cover-overlay">
+                grade-10
+                <span class="resrc-cover-overlay-icon">
+                  <i class="fa-solid fa-book-open-reader"></i>
+                </span>
+              </div>
+            </div>
+
+              <div class="resrc-tittle-container">
+                <span class="resrc-tittle-icon"
+                  ><i class="fa-solid fa-book"></i
+                ></span>
+                Biology-6
+              </div>
+              <div class="resrc-desc-container">
+                <div class="resrc-desc-tittle">
+                  <span class="resc-desc-tittle-icon"
+                    ><i class="fa-solid fa-feather"></i
+                  ></span>
+                  description
+                </div>
+                <div class="resrc-desc-content">
+                  <p class="resrc-desc-text">
+                    ensures that students have access to comprehensive learning
+                    materials that support their academic progress.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="resrc-box">
+              <div class="resrc-cover-container">
+                <img src="/asset/bio-g10-cover.svg" class="resrc-cover-item" />
+              <div class="resrc-cover-overlay">
+                grade-10
+                <span class="resrc-cover-overlay-icon">
+                  <i class="fa-solid fa-book-open-reader"></i>
+                </span>
+              </div>
+            </div>
+              <div class="resrc-tittle-container">
+                <span class="resrc-tittle-icon"
+                  ><i class="fa-solid fa-book"></i
+                ></span>
+                Biology-7
+              </div>
+              <div class="resrc-desc-container">
+                <div class="resrc-desc-tittle">
+                  <span class="resc-desc-tittle-icon"
+                    ><i class="fa-solid fa-feather"></i
+                  ></span>
+                  description
+                </div>
+                <div class="resrc-desc-content">
+                  <p class="resrc-desc-text">
+                    ensures that students have access to comprehensive learning
+                    materials that support their academic progress.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="resrc-box">
+              <div class="resrc-cover-container">
+                <img src="/asset/bio-g10-cover.svg" class="resrc-cover-item" />
+              <div class="resrc-cover-overlay">
+                grade-10
+                <span class="resrc-cover-overlay-icon">
+                  <i class="fa-solid fa-book-open-reader"></i>
+                </span>
+              </div>
+            </div>
+              <div class="resrc-tittle-container">
+                <span class="resrc-tittle-icon"
+                  ><i class="fa-solid fa-book"></i
+                ></span>
+                Biology-8
+              </div>
+              <div class="resrc-desc-container">
+                <div class="resrc-desc-tittle">
+                  <span class="resc-desc-tittle-icon"
+                    ><i class="fa-solid fa-feather"></i
+                  ></span>
+                  description
+                </div>
+                <div class="resrc-desc-content">
+                  <p class="resrc-desc-text">
+                    ensures that students have access to comprehensive learning
+                    materials that support their academic progress.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="resrc-box">
+              <div class="resrc-cover-container">
+                <img src="/asset/bio-g10-cover.svg" class="resrc-cover-item" />
+              <div class="resrc-cover-overlay">
+                grade-10
+                <span class="resrc-cover-overlay-icon">
+                  <i class="fa-solid fa-book-open-reader"></i>
+                </span>
+              </div>
+            </div>
+              <div class="resrc-tittle-container">
+                <span class="resrc-tittle-icon"
+                  ><i class="fa-solid fa-book"></i
+                ></span>
+                Biology-9
+              </div>
+              <div class="resrc-desc-container">
+                <div class="resrc-desc-tittle">
+                  <span class="resc-desc-tittle-icon"
+                    ><i class="fa-solid fa-feather"></i
+                  ></span>
+                  description
+                </div>
+                <div class="resrc-desc-content">
+                  <p class="resrc-desc-text">
+                    ensures that students have access to comprehensive learning
+                    materials that support their academic progress.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+<script src="slider.js"></script>
+  </body>
+</html>
