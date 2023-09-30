@@ -260,7 +260,10 @@
             </div>
           </div>
         </div>
-        
+        <script>
+  var biology = {{ json_data | default('null') | tojson | safe }};
+</script>
+
         
         <div class="container">
          
