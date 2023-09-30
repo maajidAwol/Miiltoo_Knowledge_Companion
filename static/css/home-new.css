@@ -1034,4 +1034,8 @@ h1 span {
   gap: 2%;
   border-radius: 24px 38px 38px 24px;
 }
+.resrc-cover-overlay {
+  width: 81%;
+  top: 51.5%;
+}
 }
