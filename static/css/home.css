@@ -215,13 +215,12 @@ a {
 }
 .hamb-menu {
   font-size: 28px;
-  color: white;
   cursor: pointer;
 }
 .line {
   width: 24px;
   height: 4px;
-  background: white;
+  background: var(--color-ac);
   margin: 6px;
   border-radius: 2px;
   transition: 0.5s ease-in;
