@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="../static/css/global.css" />
     <link rel="stylesheet" href="../static/css/home.css" />
+    <link rel="stylesheet" href="../static/css/upload-popup.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Pacifico:wght@400&display=swap"
@@ -68,10 +69,10 @@
           <span class="nav-icons exam-icon"><img src="/static/public/exam-icon.svg" alt=""></span>
           
           Exam</div></a>
-          <a href="/abcdef"><div class="wade-warren">
+          <button href="/abcdef" id="mypdf"><div class="wade-warren">
             <span class="nav-icons"><i class="fa-solid fa-file-circle-plus"></i></span>
             
-            Pages(My pdf)</div></a>
+            Pages(My pdf)</div></button>
         <a href=""><div class="wade-warren">
           <span class="nav-icons"><i class="fa-solid fa-file-circle-plus"></i></span>
           Pages</div></a>
@@ -184,6 +185,41 @@
             </div>
           </div>
         </div>
+      </section>
+      <section>
+        <div class="overlay hidden"></div>
+        <div class="upload-popup hidden">
+         <div class="upload-container">
+             <span class="close-btn"><i class="fa-solid fa-x"></i></span>
+             <div id="drop-area">
+               <form
+                 class="my-form"
+                 action="/upload"
+                 method="POST"
+                 enctype="multipart/form-data"
+               >
+                 <span class="cloud-icon"
+                   ><i class="fa-solid fa-cloud-arrow-up"></i
+                 ></span>
+                 <p>Drag and drop a file here, or</p>
+                 
+                 <input
+                   type="file"
+                   id="fileElem"
+                   name="file"
+                   accept="application/pdf"
+                 />
+                 <button class="file-label" id="upload-button" 
+                   onclick="uploadForm()">
+
+                     <span class="file-label-text">upload</span>
+                   </button>
+               </form>
+               <div id="gallery"></div>
+             </div>
+       
+             <!-- Move the upload button outside the drop area -->
+           </div>
       </section>
       <section class="resource2">
         <div class="resource-group">
@@ -615,6 +651,7 @@ src="../static/public/person1.svg"
       </footer>
     </div>
     <script src="/static/js/new.js"></script>
+    <script src="/static/js/upload.js"></script>
     <script>
       var login = document.querySelector(".login1");
       var signup = document.querySelector(".signup1");
