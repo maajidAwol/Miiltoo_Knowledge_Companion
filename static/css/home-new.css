@@ -87,7 +87,7 @@ nav {
 .underline {
   margin-top: 10px;
   height: 32px;
-  background: no-repeat url(/asset/nav-link-underline.svg);
+  background: no-repeat url(/static/asset/nav-link-underline.svg);
   object-fit: contain;
   background-position: bottom;
 }
@@ -183,7 +183,7 @@ main {
   position: absolute;
   width: 100%;
   height: 92vh;
-  background: no-repeat url(/asset/hero-bg.png);
+  background: no-repeat url(/static/asset/hero-bg.png);
   background-position: revert;
   background-size: cover;
   opacity: 0.2;
@@ -194,7 +194,7 @@ main {
     top: 223vh;
     width: 100%;
     height: 114vh;
-    background: no-repeat url(/asset/resource-bg.svg);
+    background: no-repeat url(/static/asset/resource-bg.svg);
     background-position: top;
     background-size: cover;
     z-index: -1;
@@ -1036,5 +1036,9 @@ h1 span {
 .resrc-cover-overlay {
   width: 81%;
   top: 51.5%;
+}
+.resource-bg {
+  top: 1672px;
+  height: 856px;
 }
 }
