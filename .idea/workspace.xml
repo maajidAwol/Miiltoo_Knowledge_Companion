@@ -7,10 +7,8 @@
     <list default="true" id="a021dfe7-68d4-4b1d-abb5-4977c00b5367" name="Changes" comment="removed api keys">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/books/History_student_textbook_grade_9.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/instance/profile.db" beforeDir="false" afterPath="$PROJECT_DIR$/instance/profile.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bk/History_student_textbook_grade_9.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/bioquiz.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/bioquiz.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup_files/col.py" beforeDir="false" afterPath="$PROJECT_DIR$/backup_files/col.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/dropdown.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/dropdown.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/book.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,17 +38,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/abelb/PycharmProjects/semi_finals&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/abelb/PycharmProjects/semi_finals/static/bk"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\abelb\PycharmProjects\semi_finals\static\bk" />
       <recent name="C:\Users\abelb\PycharmProjects\semi_finals" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -220,7 +219,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696068029982</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="removed api keys">
+      <option name="closed" value="true" />
+      <created>1696103266289</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1696103266289</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -248,16 +255,5 @@
     <MESSAGE value="forget password and email confirmation" />
     <MESSAGE value="removed api keys" />
     <option name="LAST_COMMIT_MESSAGE" value="removed api keys" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/app.py</url>
-          <line>261</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -27,7 +27,7 @@ from custom_process import pdf_to_text
 from user import register_user,db,User,bcrypt, login_auth,migrate,Books,mail
 from admin import admin
 
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = ""
 
 app = Flask(__name__)
 app.static_folder = 'static'
@@ -119,8 +119,9 @@ def main():
 
 @app.route("/grade/")
 def grade():
+    print("kkk")
     book = request.args.get('book')
-    print("i")
+    print("ijjjjjjjjjjjjjjjjjjjjjjjjjj")
     print(book)
     print("j")
     if book:
@@ -184,6 +185,7 @@ def grade():
 }
            return render_template("book.html", book=book, json_data = json_data)
        elif book == "bk/History student textbook grade 9.pdf":
+           print("rand")
            json_data = {
         "chapter 1: The Discipline of History and Human Evolution": {
         "1.1: Meaning of Prehistory and History": [],
@@ -261,21 +263,17 @@ def grade():
       },
     }
            return render_template("book.html", book=book, json_data = json_data)
-       elif book != "bk/History student textbook grade 9.pdf" and book != "bk/History student textbook grade 9.pdf":
+       else:
+           print("lonely")
            json_data = {
-        "chapter 1: The Discipline of History and Human Evolution": {
-        "1.1: Meaning of Prehistory and History": [],
-        "1.2: The Discipline of History": [],
-        "1.3: The Evolution of Human Beings": [],
-        "1.4: Theories of Human Evolution": [],
-        "1.5: Africa and Human Evolution": [],
-        "1.6: The Stone Age": [],
-        "1.7: The Emergence of States": [],
-      },
+        "None": {
+            "none": [],
+        }
     }
-           return render_template("book.html", book=book, json_data=json_data)
+           return render_template("book.html", book=book)
 
     else:
+        print("oo")
         return render_template("grade.html")
 @app.route("/request", methods=["POST"])
 def send():
@@ -323,7 +321,7 @@ def quiz_send():
     chapter = request.json.get('chapter')
     subtopic = request.json.get('subtopic')
     choice = request.json.get("book_choice")
-    prompt = f'generate a {quiz_number} conceptual and random question quiz from  the content specially from {chapter}:characteristics and subtopic {subtopic} having four choices a,b,c,d and answer letter and explanation  of the answer in json format'
+
     path = ""
 
 
@@ -336,7 +334,10 @@ def quiz_send():
     path = path[:-4] + ".txt"
     print(path)
 
-
+    if path == "books/Biology Student Textbook Grade 9.txt" or path == "books/History Student Textbook Grade 9.txt":
+        prompt = f'generate  {quiz_number} conceptual and random question quiz from  the content specially from {chapter} and subtopic {subtopic} having four choices a,b,c,d and answer letter and explanation  of the answer in json format'
+    else:
+        prompt = f'generate a {quiz_number} conceptual and random question quiz from  the whole content  having four choices a,b,c,d and answer letter and explanation  of the answer in json format'
     result = quiz_function(prompt, path)
     return result
 
@@ -392,7 +393,11 @@ def upload_file():
         print(relative_pdf_path)
         bkr = "bk/"+relative_pdf_path
         print(bkr)
-        return render_template("book.html", book=bkr)
+
+        json_data = {
+
+        }
+        return render_template("book.html", book=bkr,json_data=json_data ,)
 
     return 'Error: Please upload a PDF file'
 

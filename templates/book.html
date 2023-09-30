@@ -262,6 +262,7 @@
         </div>
         <script>
   var biology = {{ json_data | default('null') | tojson | safe }};
+
 </script>
 
         
@@ -292,9 +293,9 @@
               <div class="chapter">
                 <div class="frame-134">
                  <select name="" id="chapter">
-                  <option value="Introduction">
+                  <option  value="Introduction">
 
-                  <div class="please-choose-chapter">Introduction to Biology</div>
+                  <div class="please-choose-chapter">Choose Chapter</div>
 
                   </option>
                  </select>
@@ -303,8 +304,8 @@
               <div class="part-section">
                 <div class="frame-134">
                   <select name="" id="subtopic">
-                    <option value="Definition of Biology ">
-                  <div class="please-choose-section">Definition of Biology </div>
+                    <option  value="Definition of Biology ">
+                  <div class="please-choose-section">Choose subtopic</div>
 
                     </option>
                   </select>
@@ -331,7 +332,7 @@
         </form>  </div>
 
         </div>
-        
+
         <div class="group-container">
           <img class="frame-inner" alt="" src="../static/public/group-131.svg" />
 
