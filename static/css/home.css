@@ -939,6 +939,14 @@ a {
   text-transform: capitalize;
   font-weight: 600;
 }
+.wade-warren:hover,#mypdf:hover{
+  cursor: pointer;
+  color: #00ffe9;
+}
+.dropdown .dropbtn:hover {
+  cursor: pointer;
+  color: #00ffe9;
+}
 .profession-wrapper1,
 .wade-warren-wrapper {
   position: absolute;
@@ -958,6 +966,7 @@ a {
   color: var(--color-lightgray);
 }
 .vector-parent4 {
+  margin-top: 8%;
   position: relative;
   width: 386.04px;
   height: 147.24px;
@@ -1135,6 +1144,16 @@ a {
   font-size: 31.99px;
   color: var(--color-white);
   font-family: var(--font-pacifico);
+}
+.review-item{
+  display: flex;
+    padding: 0 7%;
+}
+.review-container{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 46%;
 }
 .frammodify-1 {
   position: relative;
@@ -1397,10 +1416,10 @@ a {
 }
 .review-box {
   border-radius: 24px;
-  width: 80%;
-  height: 24%;
+  width: 84%;
+  height: 40%;
   background: #202124;
-  padding: 8% 4%;
+  padding: 8% 6%;
   top: 0;
   left: 0;
 }
@@ -1780,13 +1799,27 @@ a {
   }
 
   .frame-parent21 {
-    width: 100%;
-    justify-content: center;
+    width: 60%;
+    margin: 0 20%;
+    justify-content: flex-start;
     padding: 0;
+    overflow-x: hidden;
   }
-
+  .resrc-nav-container{
+    position: absolute;
+    display: flex;
+    top: 53%;
+    gap: 66vw;
+  }
+  .left-btn,.right-btn{
+    padding: 12px 20px;
+    font-size: 25px;
+    color: white;
+    background: #0a81b8;
+    border-radius: 50%;
+  }
   .vector-container {
-    width: 280px;
+    min-width: 280px;
     height: 436px;
     padding: 1%;
     border-radius: 16px;
