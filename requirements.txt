@@ -81,7 +81,6 @@ jsonschema
 jsonschema-specifications
 kiwisolver
 langchain
-langsmith
 layoutparser
 littleutils
 lxml
