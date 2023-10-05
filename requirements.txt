@@ -78,7 +78,7 @@ itsdangerous==2.1.2
 Jinja2==3.1.2
 joblib==1.3.2
 jsonschema
-jsonschema-specifications==2023.7.1
+jsonschema-specifications
 kiwisolver==1.4.4
 langchain==0.0.271
 langsmith==0.0.26
