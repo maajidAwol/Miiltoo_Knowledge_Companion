@@ -105,7 +105,7 @@ oauth2
 oauthlib
 omegaconf
 onnxruntime
-openai
+openai==0.27.9
 opencv-python
 overrides
 packaging
