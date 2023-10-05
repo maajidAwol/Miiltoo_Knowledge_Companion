@@ -348,7 +348,7 @@ h1 span {
   text-transform: capitalize;
 }
 .feat-line,
-.resrc-line {
+.resrc-line,.testimoney {
   width: 120px;
   border: 2px solid var(--color-accent);
   border-radius: 10px;
