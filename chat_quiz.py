@@ -40,6 +40,7 @@ def ext(text):
 def chat_function(prompt,path):
 
     loader = TextLoader(path, encoding="utf-8")  # Use this line if you only need data.txt
+
     print(path)
     index = VectorstoreIndexCreator().from_loaders([loader])
 
