@@ -52,9 +52,10 @@
         <div class="profile-detail"></div>
       </div>
     </header>
-    <div class="hero-bg"></div>
-
+    <!--<div class="hero-bg"></div>
     <div class="resource-bg"></div>
+    <div class="testimoney-bg"></div>
+    <div class="team-bg"></div>-->
     <main>
       <section class="hero-sec">
         <div class="headline-container">
@@ -163,11 +164,7 @@
             <i class="fa-solid fa-chevron-right"></i>
           </button>
         </div>
-        <div class="resrc-slider-indicator">
-          <span class="dots active"></span>
-          <span class="dots"></span>
-          <span class="dots"></span>
-        </div>
+
         <div class="resrc-slider">
           <div class="resrc-container" id="resrc-container">
             <div class="resrc-box">
@@ -480,6 +477,11 @@
             </div>
           </div>
         </div>
+        <div class="resrc-slider-indicator">
+          <span class="dots active"></span>
+          <span class="dots"></span>
+          <span class="dots"></span>
+        </div>
       </section>
       <section class="how-does-sec">
         <div class="how-does-headline">
@@ -491,47 +493,105 @@
             <img src="/static/asset/robot-2.svg" alt="" alt="robot-2" />
           </div>
           <div class="how-does-step-container">
-            <div class="step">
-              <span class="step-1"></span>
-              <span class="circle-dot">
-                <img src="" alt="" />
-              </span>
+            <div class="step-container">
+              <div class="step">
+                <div class="step-1">1</div>
+                <span class="circle-dot">
+                  <img src="/static/asset/circle-dots.svg" alt="" />
+                </span>
+              </div>
+              <div class="how-does-reg">
+                <div class="reg-icon">
+                  <i class="fa-solid fa-user-plus"></i>
+                </div>
+                registration
+                <div class="reg-desc">create account with us</div>
+              </div>
             </div>
-            <div class="how-does-reg"></div>
-            <div class="step">
-              <span class="step-1"></span>
-              <span class="circle-dot">
-                <img src="" alt="" />
-              </span>
+            <div class="step-container">
+              <div class="step">
+                <div class="step-1">2</div>
+                <span class="circle-dot">
+                  <img src="/static/asset/circle-dots.svg" alt="" />
+                </span>
+              </div>
+              <div class="how-does-reg">
+                <div class="reg-icon">
+                  <i class="fa-solid fa-user-plus"></i>
+                </div>
+                registration
+                <div class="reg-desc">create account with us</div>
+              </div>
             </div>
-            <div class="how-does-reg"></div>
-            <div class="step">
-              <span class="step-1"></span>
-              <span class="circle-dot">
-                <img src="" alt="" />
-              </span>
+            <div class="step-container">
+              <div class="step">
+                <div class="step-1">3</div>
+                <span class="circle-dot">
+                  <img src="/static/asset/circle-dots.svg" alt="" />
+                </span>
+              </div>
+              <div class="how-does-reg">
+                <div class="reg-icon">
+                  <i class="fa-solid fa-user-plus"></i>
+                </div>
+                registration
+                <div class="reg-desc">create account with us</div>
+              </div>
             </div>
-            <div class="how-does-reg"></div>
           </div>
         </div>
       </section>
       <section class="testimony-sec">
         <div class="testi-headline">
-          <h2 class="testi-text"></h2>
+          <h2 class="testi-text">testimony</h2>
           <div class="testi-line"></div>
         </div>
-        <div class="testimoney-content"></div>
+        <div class="testimoney-content">
+          <div class="person-container">
+            <div class="person-item">
+              <div class="person-profile"></div>
+              <div class="person-comment-container">
+                <div class="person-name">Cody Fisher</div>
+                <div class="person-comment">
+                  miiltoo has completely transformed the way I learn. The
+                  AI-powered services provide personalized recommendations and
+                  insights tailored to my specific needs, helping me excel in my
+                  studies like never before." cody, High School Student
+                </div>
+                <div class="review-container">
+                  review
+
+                  <div class="star-container"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-frame">
+            <div class="shape-collection">
+              <div class="ellipse"></div>
+              <div class="ellipse"></div>
+              <div class="ellipse"></div>
+              <div class="ellipse"></div>
+              <div class="ellipse"></div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-slider-indicator">
+          <span class="dots active"></span>
+          <span class="dots"></span>
+          <span class="dots"></span>
+        </div>
       </section>
       <section class="ad-sec">
         <div class="ad-container">
           <div class="robot-3">
-            <img src="" alt="" />
+            <img src="/static/asset/robot-3.png" alt="" />
           </div>
           <div class="ad-content-container">
-            <h2 class="ad-text">
+            <h3 class="ad-headline-3">
               <span class="harness-text">Harnessing</span> the Power of AI for
               Next-Level Education
-            </h2>
+            </h3>
             <p class="miiltoo-desc">
               miiltoo has been developed since Aug, 2023. Lorem ipsum dolor sit
               amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -539,7 +599,9 @@
               adipiscing elit, sed do eiusmod tempor incididunt ut labore
             </p>
             <button class="try-it-btn">
-              <span class="try-it-icon"></span>
+              <span class="try-it-icon"
+                ><img src="/static/asset/sparkels-icon.svg" alt=""
+              /></span>
               try it’s free
             </button>
           </div>
