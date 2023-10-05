@@ -681,7 +681,7 @@ h1 span {
   line-height: normal;
   text-transform: lowercase;
 }
-.resrc-nav-container {
+.resrc-nav-container,.testi-nav-container {
   display: flex;
   width: 76%;
   justify-content: center;
@@ -690,8 +690,15 @@ h1 span {
   position: absolute;
   top: 46%;
 }
+.testi-nav-container {
+  width: 31.5%;
+    top: 44%;
+    left: 20.5%;
+    z-index: 3;
+}
 .left-btn,
-.right-btn {
+.right-btn,.testi-left-btn,
+.testi-right-btn {
   display: flex;
   padding: 18px 26px;
   justify-content: center;
@@ -703,11 +710,29 @@ h1 span {
   font-size: 28px;
   color: var(--color-white);
 }
+.testi-left-btn,
+.testi-right-btn{
+  display: flex;
+padding: 12px 16px;
+justify-content: center;
+align-items: center;
+gap: 5.474px;
+font-size: 24px;
+color: var(--color-accent);
+border-radius: 24.633px;
+border: 2.5px solid var(--secondary, #1E206F);
+background: rgba(30, 32, 111, 0.57);
+}
 .left-btn:hover,
-.right-btn:hover {
+.right-btn:hover{
   cursor: pointer;
   font-size: 32px;
   color: var(--color-accent);
+}
+.testi-left-btn:hover,
+.testi-right-btn:hover {
+  cursor: pointer;
+  font-size: 28px;
 }
 .how-does-sec,
 .testimony-sec,
@@ -871,23 +896,46 @@ h1 span {
 }
 
 .testimoney-content {
+  width: 100%;
+  position: relative;
   display: flex;
   padding: 0px 160px;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   gap: 64px;
-  align-self: stretch;
 }
-.person-container {
-  width: 588px;
-  height: 336.5px;
-  flex-shrink: 0;
+.slider-testimoney {
+  position: relative;
+  width: 592px;
+  height: 478px;
+  padding: 0 48px;
+  overflow: hidden;
+  padding-right: 0px;
+  margin-left: -81px;
+}
+.slider-testimoney :nth-child(1) .person-profile {
+  background: url(/static/asset/ellipse-3.png);
+  background-size: contain;
+}
+.slider-testimoney :nth-child(2) .person-profile {
+  background: url(/static/asset/wade-waren.png);
+  background-size: contain;
+}
+.slider-testimoney :nth-child(3) .person-profile {
+  background: url(/static/asset/Esther\ Howard.png);
+  background-size: contain;
+}
+.slider-testimoney :nth-child(4) .person-profile {
+  background: url(/static/asset/Jenny\ wilson.png);
+  background-size: contain;
 }
 .person-item {
-  position: relative;
-  width: 588px;
+  position: absolute;
+  top: 0;
+  width: 666px;
   height: 336.5px;
-  flex-shrink: 0;
+  margin-left: 6px;
+  transition: transform 0.5s ease-in-out;
 }
 .person-profile {
   position: relative;
@@ -903,6 +951,10 @@ h1 span {
   border: 4px solid var(--secondary, #1e206f);
   background: red;
   z-index: 1;
+}
+
+.person-profile :last-of-type {
+  background: blanchedalmond;
 }
 .person-comment-container {
   display: flex;
@@ -944,6 +996,7 @@ h1 span {
 .star-container {
 }
 .shape-collection {
+  position: relative;
   width: 363px;
   height: 422px;
 }
@@ -951,15 +1004,13 @@ h1 span {
 .testi-frame {
   position: relative;
   display: flex;
-  width: 364px;
-  height: 422px;
-  padding: 32px 40.5px;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  border-radius: 118px;
-  border: 6px solid var(--secondary, #1e206f);
-  background: rgba(30, 32, 111, 0.1);
+padding: 32px 40.5px;
+justify-content: center;
+align-items: center;
+gap: 8px;
+border-radius: 118px;
+border: 6px solid var(--secondary, #1E206F);
+background: rgba(30, 32, 111, 0.10);
 }
 .shape-collection :nth-child(n) {
   position: absolute;
@@ -969,37 +1020,42 @@ h1 span {
 .shape-collection :nth-child(1) {
   width: 171px;
   height: 171px;
-  top: 33px;
-  left: 43px;
-  background-color: #21dbe3;
+  top: 0;
+  left: 0px;
+  background:url(/static/asset/ellipse-1.png);
+  background-size: contain;
 }
 .shape-collection :nth-child(2) {
   width: 100px;
   height: 100px;
-  top: 62px;
-  left: 236px;
-  background-color: #21dbe3;
+  top: 46px;
+  left: 179px;
+  background:url(/static/asset/ellipse-2.png);
+  background-size: contain;
 }
 .shape-collection :nth-child(3) {
   width: 98px;
   height: 96px;
-  top: 228px;
-  left: 66px;
-  background-color: #21dbe3;
+  top: 193px;
+  left: 6px;
+  background:url(/static/asset/ellipse-3.png);
+  background-size: contain;
 }
 .shape-collection :nth-child(4) {
   width: 167px;
   height: 173px;
-  top: 194px;
-  left: 220px;
-  background-color: #21dbe3;
+  top: 173px;
+  left: 171px;
+  background:url(/static/asset/ellipse-4.png);
+  background-size: contain;
 }
 .shape-collection :nth-child(5) {
   width: 87px;
   height: 86px;
-  top: 343px;
-  left: 151px;
-  background-color: #21dbe3;
+  top: 324px;
+  left: 86px;
+  background:url(/static/asset/ellipse-5.png);
+  background-size: contain;
 }
 
 .ad-sec {
@@ -1075,6 +1131,24 @@ h1 span {
   line-height: normal;
   text-transform: uppercase;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media only screen and (width < 600px) {
   nav {

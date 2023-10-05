@@ -547,16 +547,78 @@
           <div class="testi-line"></div>
         </div>
         <div class="testimoney-content">
-          <div class="person-container">
+          <div class="testi-nav-container">
+            <button class="testi-left-btn">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="testi-right-btn">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+          <div class="slider-testimoney">
             <div class="person-item">
               <div class="person-profile"></div>
               <div class="person-comment-container">
                 <div class="person-name">Cody Fisher</div>
                 <div class="person-comment">
-                  miiltoo has completely transformed the way I learn. The
+                  "miiltoo has completely transformed the way I learn. The
                   AI-powered services provide personalized recommendations and
                   insights tailored to my specific needs, helping me excel in my
                   studies like never before." cody, High School Student
+                </div>
+                <div class="review-container">
+                  review
+
+                  <div class="star-container"></div>
+                </div>
+              </div>
+            </div>
+            <div class="person-item">
+              <div class="person-profile"></div>
+              <div class="person-comment-container">
+                <div class="person-name">Wade Warren</div>
+                <div class="person-comment">
+                  "As a teacher, miiltoo has become an invaluable tool in my
+                  classroom. It helps me analyze student performance, identify
+                  areas of improvement, and provide targeted support, ultimately
+                  leading to better academic outcomes for all my students."
+                </div>
+                <div class="review-container">
+                  review
+
+                  <div class="star-container"></div>
+                </div>
+              </div>
+            </div>
+            <div class="person-item">
+              <div class="person-profile"></div>
+              <div class="person-comment-container">
+                <div class="person-name">Esther Howard</div>
+                <div class="person-comment">
+                  "Being a parent, I always want the best for my child's
+                  education. miiltoo has been a game-changer for us. It offers a
+                  comprehensive platform with AI-driven resources that
+                  supplement my child's learning journey and ensure they receive
+                  a well-rounded education." -Esther howard , Parent
+                </div>
+                <div class="review-container">
+                  review
+
+                  <div class="star-container"></div>
+                </div>
+              </div>
+            </div>
+            <div class="person-item">
+              <div class="person-profile"></div>
+              <div class="person-comment-container">
+                <div class="person-name">Jenny Wilson</div>
+                <div class="person-comment">
+                  "As a university professor, miiltoo has enhanced my teaching
+                  methods and made the learning experience more engaging for my
+                  students. The AI-powered services provide interactive content,
+                  real-time feedback, and adaptive learning pathways, making
+                  education a dynamic and rewarding process for everyone
+                  involved." - Dr. jenny, University Professor
                 </div>
                 <div class="review-container">
                   review
@@ -578,6 +640,7 @@
         </div>
         <div class="testi-slider-indicator">
           <span class="dots active"></span>
+          <span class="dots"></span>
           <span class="dots"></span>
           <span class="dots"></span>
         </div>
@@ -611,5 +674,71 @@
     <footer></footer>
     <script src="/static/js/slider.js"></script>
     <script src="/static/js/menu.js"></script>
+    <script>
+      const slider_testimoney = document.querySelector(".slider-testimoney");
+      const slide_content = document.querySelectorAll(".person-item");
+      const testi_indicator = document.querySelectorAll(
+        ".testi-slider-indicator .dots"
+      );
+      const testi_left_btn = document.querySelector(".testi-left-btn");
+      const testi_right_btn = document.querySelector(".testi-right-btn");
+      slide_content.forEach(
+        (s, i) => (s.style.transform = `translateX(${100 * i}%)`)
+      );
+      let currentSlide = 0;
+      const maxSlide = slide_content.length - 1;
+      function slideToNext() {
+        if (currentSlide === maxSlide) {
+          currentSlide = 0;
+        } else {
+          currentSlide++;
+        }
+        slide_content.forEach(
+          (s, i) =>
+            (s.style.transform = `translateX(${100 * (i - currentSlide)}%)`)
+        );
+        stopAutoSlide();
+      }
+      function slideToPrev() {
+        if (currentSlide === 0) {
+          currentSlide = maxSlide;
+        } else {
+          currentSlide--;
+        }
+        slide_content.forEach(
+          (s, i) =>
+            (s.style.transform = `translateX(${100 * (i - currentSlide)}%)`)
+        );
+        stopAutoSlide();
+      }
+
+      let intervalId;
+
+      function startAutoSlide() {
+        intervalId = setInterval(slideToNext, 4000); // Adjust the interval duration as needed
+        testi_indicator.forEach((testi_indicator) => {
+          testi_indicator.classList.remove("active");
+        });
+        const dots = document.querySelector(
+          `.testi-slider-indicator :nth-child(${currentSlide + 1})`
+        );
+        dots.classList.add("active");
+      }
+      function stopAutoSlide() {
+        clearInterval(intervalId);
+        startAutoSlide(); // Restart auto-slide timer
+      }
+
+      startAutoSlide();
+
+      testi_right_btn.addEventListener("click", slideToNext);
+      testi_left_btn.addEventListener("click", slideToPrev);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") {
+          slideToNext();
+        }
+        e.key==='ArrowLeft' && slideToPrev();
+      });
+    </script>
   </body>
 </html>
