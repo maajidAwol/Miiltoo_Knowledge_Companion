@@ -1,3 +1,4 @@
+pip==23.2.1
 accelerate
 aiofiles==23.1.0
 aiogram
