@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -24,6 +24,7 @@
   --color-primary: #080d27;
   --color-secondary: #1e206f;
   --color-accent: #22fbf9;
+  font-family: var(--font-roboto);
 }
 body {
   position: relative;
@@ -1281,40 +1282,48 @@ h1 span {
   gap: 12px;
   align-self: stretch;
 }
-.fullname-box,
-.email-box,
 .message-box {
+  position: relative;
   align-items: flex-start;
 }
 .name-container,
 .email-container,
 .message-container {
+  width: 300px;
+  height: 48px;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 10.5px;
-  border: 2px solid var(--secondary, #1e206f);
-  background: rgba(30, 32, 111, 0.42);
-}
-.contact-name,
-.contact-email,
-#message-area {
-  width: 300px;
-  height: 100%;
-  padding: 16px;
-  border-radius: 10.5px;
-  color: var(--color-white);
   background: transparent;
   border: none;
 }
-input :focus,
-#message-area :focus {
-  outline: none;
-  background: #ff0000;
+.message-container {
+  height: 135px;
 }
-#message-area ::placeholder {
-  color: black;
+.contact-name,
+.contact-email,
+.message-area {
+  width: 268px;
+  padding: 16px;
+  border-radius: 10.5px;
+  color: var(--color-white);
+  font-size: 16px;
+  border: 2px solid var(--secondary, #1e206f);
+  background: rgba(30, 32, 111, 0.42);
+}
+.contact-name:focus,
+.contact-email:focus,
+.message-area:focus {
+  outline: none;
+  border: 2px solid var(--color-accent);
+}
+.contact-name::placeholder,
+.contact-email::placeholder {
+  color: var(--color-white);
+  font-size: 14px;
+  opacity: 0.8;
 }
 .send-btn {
   display: flex;
@@ -1330,6 +1339,10 @@ input :focus,
   font-weight: 700;
   text-transform: capitalize;
   border: none;
+}
+.send-btn:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 .send-icon i {
   color: var(--color-secondary);
@@ -1353,6 +1366,94 @@ input :focus,
 }
 .contact-box-icon i {
   font-size: 52px;
+}
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  box-shadow: 0px -1.5px 109px 0px #1e206f;
+  color: var(--color-white);
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.footer-content {
+  display: flex;
+  padding: 0 160px;
+  padding-top: 32px;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+  box-shadow: 0px -1.5px 109px 0px #1e206f;
+}
+.footer-bottom {
+  width: 100%;
+  display: flex;
+  padding: 16px 160px;
+  justify-content: center;
+  align-items: center;
+  gap: 25.364px;
+  background: var(--primary, #080d27);
+  box-shadow: 0px -14.5px 170.5px 0px #1e206f;
+}
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 11px;
+  align-self: stretch;
+  color: var(--white, #fff);
+  font-family: var(--font-pacifico);
+  font-size: 31.989px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.footer-logo span {
+  color: var(--color-accent);
+  text-transform: lowercase;
+}
+.footer-link-container {
+  display: flex;
+  min-width: 546px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 88px;
+  flex: 1 0 0;
+}
+.link-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+}
+.link-container a {
+  text-decoration: none;
+  color: var(--color-white);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+  opacity: 0.78;
+}
+.social-icons {
+  text-decoration: none;
+  color: var(--color-white);
+  background: transparent;
+  border: none;
+}
+.social-icons i {
+  font-size: 25px;
+  color: var(--color-accent);
 }
 
 @media only screen and (width < 600px) {
