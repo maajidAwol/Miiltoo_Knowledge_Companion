@@ -1,3 +1,30 @@
+.pdfviewer ::-webkit-scrollbar-thumb{
+  background: red;
+}
+iframe ::-webkit-scrollbar-track{
+  background: black;
+}
+viewer-pdf-sidenav, viewer-toolbar {
+  --pdf-toolbar-text-color: rgb(0 255 234);
+}
+#toolbar {
+  align-items: center;
+  background-color: rgb(0 74 130);
+  color: #fff;
+  display: flex;
+  height: var(--viewer-pdf-toolbar-height);
+  padding: 0 16px;
+}
+#viewer{
+display: none;
+}
+:host {
+  --viewer-pdf-sidenav-width: 300px;
+  display: flex;
+  flex-direction: column;
+  /* height: 100%; */
+  width: 100%;
+}
 .grade-child,
 .grade-item {
   position: absolute;
