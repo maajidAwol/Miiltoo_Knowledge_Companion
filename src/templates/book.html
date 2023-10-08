@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/global.css" />
+    <link rel="stylesheet" href="/static/css/home.css" />
+    <link rel="stylesheet" href="../static/css/subject-global.css" />
+    <link rel="stylesheet" href="../static/css/subject.css" />
+    <link rel="stylesheet" href="../static/css/chatbot-global.css" />
+    <link rel="stylesheet" href="../static/css/chatbot.css" />
+    <link rel="stylesheet" href="../static/css/chatbot-result-global.css" />
+    <link rel="stylesheet" href="../static/css/chatbot-result.css" />
+    <link rel="stylesheet" href="/static/css/loading-style.css">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Source Serif Pro:wght@300;400;600&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  </head>
+  <body>
+    <header>
+
+    <div class="top-menu">
+      <div class="header-parent">
+        <div class="header">
+          <div class="header-child"></div>
+          <div class="miiltoo-parent">
+            <div class="miiltoo1">Miiltoo</div>
+            <img
+              class="untitled-13x-1-icon2"
+              alt=""
+              src="../static/public/logo.svg"
+            />
+          </div>
+          <nav class="home-group">
+            <a href="/"><div class="wade-warren">Home</div></a>
+            <div class="dropdown">
+              <button class="wade-warren dropbtn">Grade</button>
+              <div class="dropdown-content">
+                <a href="/grade/">Grade-9</a>
+                <a href="#">Grade-10(soon)</a>
+                <a href="#">Grade-11(soon)</a>
+                <a href="#">Grade-12(soon)</a>
+              </div>
+            </div>
+            <a href=""><div class="wade-warren"></div></a>
+            <a href=""><div class="wade-warren"></div></a>
+          </nav>
+          <div class="login-parent">
+            <div class="login">login</div>
+            <button class="signup-wrapper">
+              <div class="signup">Signup</div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div></header>
+    </div>
+    <main>
+    <iframe
+      src="{{ url_for('static', filename=book) }}"
+      frameborder="0"
+      width="90%"
+      height="900px"
+      class="pdf-section"
+    ></iframe>
+
+    <div class="side-bar">
+        
+        <button class="chatbot-btn">
+          <img
+            class="untitled-13x-1-icon3"
+            alt=""
+            src="../static/public/untitled13x-13@2x.png"
+          />
+        </button>
+        <div class="side-bar-inner">
+          <div class="bg-parent">
+            <img class="bg-icon" alt="" src="../static/public/bg.svg" />
+
+            <div class="what-can-i">what can i help ?</div>
+          </div>
+        </div>
+      </div>
+
+     <div class="overlay-wait hidden"></div>
+
+      <section class="result hidden">
+        <div class="frame-parent">
+          <div class="untitled-13x-1-parent">
+            <img
+              class="untitled-13x-1-icon"
+              alt=""
+              src="../static/public/untitled13x-1@2x.png"
+            />
+  
+            <h2 class="miiltoo">miiltoo</h2>
+            <button class="close-result">
+              <img class="union-icon" alt="" src="../static/public/union.svg" />
+            </button>
+          </div>
+          <div class="frame-group">
+            <div class="frame-wrapper">
+              <div class="frame-container">
+                <div class="frame-div">
+                  <div class="vector-parent">
+                    <img
+                      class="vector-icon"
+                      alt=""
+                      src="../static/public/vector.svg"
+                    />
+  
+                    <div class="chat">chat</div>
+                  </div>
+                  <div class="toggle-btn" id="toggle-btn">
+                    <div class="toggle-btn-child"></div>
+                    <div class="toggle-btn-item"></div>
+                  </div>
+                </div>
+                <div class="frame-child"></div>
+              </div>
+            </div>
+            <div class="group-parent">
+              <img
+                class="frame-item"
+                alt=""
+                src="../static/public/group-129.svg"
+              />
+  
+              <div class="subject-wrapper">
+                <div class="chat">subject :</div>
+              </div>
+              <div class="history-wrapper">
+                <div class="history">biology</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <fieldset class="result-inner">
+          <div class="vector-group">
+            <img class="vector-icon1" alt="" src="../static/public/vector1.svg" />
+            <form>
+                <textarea
+                  name="prompt"
+                  cols="30"
+                  rows="10"
+                  type="text"
+                  class="form-control promtTextArea"
+                  id="aaa"
+                  placeholder="ask anything here.. "
+                ></textarea>
+              <input id="book_choice" name="book_choice" type="hidden" value="{{book}}" >
+                <button type="submit" class="btn btn-primary" id="bbb">
+                  <img
+                    class="vector-icon2"
+                    alt=""
+                    src="../static/public/vector2.svg"
+                  />
+                  <div class="ask">Ask</div>
+                </button>
+<!--              <button class="btn-primary" id="wait_btn">-->
+<!--                  <img class="vector-icon2" alt="" src="../static/public/vector2.svg" />-->
+<!--                  <div class="ask">Wait</div>-->
+<!--              </button>-->
+            </form>
+          </div>
+        </fieldset>
+        
+  
+        <div class="group-container">
+          <img class="frame-inner" alt="" src="../static/public/group-131.svg" />
+  
+          <div class="chat">Result</div>
+        </div>
+        <section class="frame-section">
+          <div class="frame-parent1">
+            <img class="frame-icon" alt="" src="../static/public/frame.svg" />
+            <div class="loading-overlay hidden"></div>
+          
+          <div class="lorem-ipsum-dolor-container" id="ccc">
+            
+<!--              hello-->
+<!--              <form>-->
+
+<!--             <input id="aaa" name="prompt" type="text">-->
+<!--                <button id="bbb">prompt</button>-->
+<!--              <div id="ccc">jjj</div>-->
+<!--              </form>-->
+
+            </div>
+          </div>
+        
+        </section>
+        <div class="copy-select-undefined-parent">
+          <i class="fa-solid fa-copy copy-select-undefined"></i>
+         
+        </div>
+        <div class="copy-select-undefined-group">
+          <i class="fa-solid fa-copy copy-select-undefined"></i>
+          </div>
+      </section>
+
+      <section class="result quize hidden">
+        <div class="frame-parent">
+          
+          <div class="untitled-13x-1-parent">
+            <img
+            class="untitled-13x-1-icon"
+            alt=""
+            src="../static/public/untitled13x-1@2x.png"
+            />
+            
+            <h2 class="miiltoo">miiltoo</h2>
+            <button class="close-result"id="close-quize">
+              <img class="union-icon" alt="" src="../static/public/union.svg" />
+            </button>
+          </div>
+          <div class="frame-group">
+            <div class="frame-wrapper">
+              <div class="frame-container">
+                <div class="frame-div">
+                  <div class="vector-parent">
+                    <img
+                    class="vector-icon"
+                    alt=""
+                    src="../static/public/vector.svg"
+                    />
+                    
+                    <div class="chat">quize</div>
+                  </div>
+                  <div class="toggle-btn" id="quizeToggle">
+                    <div class="toggle-btn-child" id="quizeToggle-child"></div>
+                    <div class="toggle-btn-item" id="toggle-btn-item"></div>
+                  </div>
+                </div>
+                <div class="frame-child"></div>
+              </div>
+            </div>
+            <div class="group-parent">
+              <img
+              class="frame-item"
+              alt=""
+              src="../static/public/group-129.svg"
+              />
+              
+              <div class="subject-wrapper">
+                <div class="chat">subject :</div>
+              </div>
+              <div class="history-wrapper">
+                <div class="history">biology</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>
+  var biology = {{ json_data | default('null') | tojson | safe }};
+
+</script>
+
+        
+        <div class="container">
+         
+          <div class="frame-228">
+            <form>
+            <button id="fetch-quiz" class="btn-generate">
+              <div class="frame-146">
+                <svg
+                  class="vector2"
+                  width="26"
+                  height="25"
+                  viewBox="0 0 26 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10.9564 1.78158C10.9564 1.26283 10.5358 0.842285 10.0171 0.842285C9.49832 0.842285 9.07778 1.26283 9.07778 1.78158V2.72352C9.07778 3.5156 9.32288 4.25044 9.74139 4.85633C7.997 5.45625 6.71709 7.05471 6.58438 8.96902H6.27549L6.26384 8.96899C4.70758 8.96255 3.45119 7.69575 3.45763 6.13949L3.46532 4.27894C3.46746 3.76018 3.04868 3.33791 2.52992 3.33577C2.01117 3.33362 1.5889 3.75242 1.58676 4.27117L1.57906 6.13172C1.56834 8.72549 3.66231 10.8368 6.25608 10.8476L6.27549 10.8476H6.57299V12.7383H1.25033C0.731576 12.7383 0.311035 13.1589 0.311035 13.6776C0.311035 14.1963 0.731576 14.6169 1.25033 14.6169H6.57299V17.112H6.27549H6.25608C3.66231 17.1228 1.56834 19.2342 1.57906 21.8279L1.58676 23.6885C1.5889 24.2072 2.01117 24.626 2.52992 24.6239C3.04868 24.6218 3.46746 24.1995 3.46532 23.6807L3.45763 21.8202C3.45119 20.2639 4.70758 18.9971 6.26384 18.9906H6.27549H6.85645C7.65121 21.5365 10.0273 23.3843 12.835 23.3843C15.6426 23.3843 18.0187 21.5365 18.8135 18.9906H19.3944H19.406C20.9623 18.9971 22.2187 20.2639 22.2122 21.8202L22.2046 23.6807C22.2025 24.1995 22.6213 24.6218 23.14 24.6239C23.6587 24.626 24.0811 24.2072 24.0832 23.6885L24.0908 21.8279C24.1016 19.2342 22.0076 17.1228 19.4138 17.112H19.3944H19.0969V14.6169H24.4213C24.9401 14.6169 25.3606 14.1963 25.3606 13.6776C25.3606 13.1589 24.9401 12.7383 24.4213 12.7383H19.0969V10.8476H19.3944L19.4138 10.8476C22.0076 10.8368 24.1016 8.72549 24.0908 6.13172L24.0832 4.27117C24.0811 3.75242 23.6587 3.33362 23.14 3.33577C22.6213 3.33791 22.2025 3.76018 22.2046 4.27894L22.2122 6.13949C22.2187 7.69575 20.9623 8.96255 19.406 8.96899L19.3944 8.96902H19.0855C18.9528 7.05471 17.6729 5.45625 15.9285 4.85634C16.347 4.25046 16.5921 3.51562 16.5921 2.72352V1.78158C16.5921 1.26283 16.1716 0.842285 15.6528 0.842285C15.1341 0.842285 14.7135 1.26283 14.7135 1.78158V2.72352C14.7135 3.76103 13.8724 4.6021 12.835 4.6021C11.7975 4.6021 10.9564 3.76103 10.9564 2.72352V1.78158ZM8.45158 9.29861C8.45158 7.74234 9.71319 6.48073 11.2695 6.48073H14.4004C15.9567 6.48073 17.2183 7.74234 17.2183 9.29861V17.1223C17.2183 19.5432 15.2558 21.5057 12.835 21.5057C10.4141 21.5057 8.45158 19.5432 8.45158 17.1223V9.29861Z"
+                    fill="#212121"
+                  />
+                </svg>
+
+                <div class="generate">Generate Quiz</div>
+              </div>
+            </button>
+            <div class="selection-section">
+              <div class="chapter">
+                <div class="frame-134">
+                 <select name="" id="chapter">
+                  <option  value="Introduction">
+
+                  <div class="please-choose-chapter">Choose Chapter</div>
+
+                  </option>
+                 </select>
+                </div>
+              </div>
+              <div class="part-section">
+                <div class="frame-134">
+                  <select name="" id="subtopic">
+                    <option  value="Definition of Biology ">
+                  <div class="please-choose-section">Choose subtopic</div>
+
+                    </option>
+                  </select>
+
+                </div>
+              </div>
+              <div class="question">
+                <div class="frame-134">
+                 <select name="" id="number">
+<!--                  <option value="">-->
+<!--                  <div class="no-of-question">How many quistion</div>-->
+<!--                  </option>-->
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4" >4</option>
+                  <option value="5" selected>5</option>
+                  <option value="6">6</option>
+                 </select>
+
+                </div>
+              </div>
+            </div>
+        </form>  </div>
+
+        </div>
+
+        <div class="group-container">
+          <img class="frame-inner" alt="" src="../static/public/group-131.svg" />
+
+          <div class="chat">Result</div>
+        </div>
+        <section class="frame-section">
+          <div class="frame-parent1">
+            <img class="frame-icon" alt="" src="../static/public/frame.svg" />
+  
+            <div class="lorem-ipsum-dolor-container" id="response">
+
+<center><h1>GENERATED QUIZ</h1></center>
+
+<!--  <button id="fetch-quiz">Fetch Quiz</button>-->
+  <form id="quiz-form">
+    <div id="quiz-container"></div>
+    <button type="button" style="display: none;" id="submit-button" disabled>Submit Answers</button>
+  </form>
+  <div id="results" style="display: none;"></div>
+
+
+            </div>
+          </div>
+
+        </section>
+        <div class="copy-select-undefined-parent">
+          <i class="fa-solid fa-copy copy-select-undefined"></i>
+
+        </div>
+
+      </section>
+
+    </main>
+    <footer class="footer1">
+      <div class="top1">
+        <div class="untitled-13x-1-container">
+          <img
+            class="untitled-13x-1-icon5"
+            alt=""
+            src="../static/public/logo.svg"
+          />
+
+          <div class="miiltoo3">Miiltoo</div>
+        </div>
+        <div class="home-container">
+          <div class="wade-warren">home</div>
+          <div class="wade-warren">resource</div>
+          <div class="grade-container">
+            <div class="wade-warren">Grade</div>
+          </div>
+          <div class="pages-container">
+            <div class="wade-warren">pages</div>
+          </div>
+          <div class="social-media-container">
+            <div class="wade-warren">social media</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-child">
+        <div class="frame-parent35">
+          <div class="grade-group">
+          <div class="wade-warren top-tag" >Home</div>
+
+            <div class="wade-warren">Grade</div>
+            <div class="wade-warren">Subject</div>
+            <div class="wade-warren">Chatbot</div>
+          </div>
+          <div class="grade-group">
+            <div class="wade-warren top-tag">Resources</div>
+            <div class="wade-warren">textbook</div>
+            <div class="wade-warren">study guide</div>
+            <div class="wade-warren">Quize</div>
+            <div class="wade-warren">Test</div>
+          </div>
+          <div class="grade-9-group">
+            <div class="wade-warren top-tag">Grade</div>
+            <div class="wade-warren">Grade-9</div>
+            <div class="grade-102">
+              <p class="lorem-ipsum-dolor7">grade-10</p>
+            </div>
+            <div class="wade-warren">grade-11</div>
+            <div class="wade-warren">grade-12</div>
+          </div>
+          <div class="grade-9-group">
+            <div class="wade-warren top-tag">Pages</div>
+            <div class="wade-warren">About us</div>
+            <div class="contact2">
+              <p class="lorem-ipsum-dolor7">Contact</p>
+            </div>
+            <div class="wade-warren top-tag">FAQ</div>
+            <div class="wade-warren">Privacy policy</div>
+            <div class="wade-warren">Help</div>
+          </div>
+          <div class="grade-group">
+            <div class="wade-warren top-tag">Social media</div>
+            <div class="wade-warren">Twitter</div>
+            <div class="wade-warren">linkedIn</div>
+            <div class="wade-warren">Facebook</div>
+            <div class="wade-warren">Telegram</div>
+          </div>
+        </div>
+      </div>
+      <div class="frame-footer">
+        <img
+          class="untitled-13x-1-icon5"
+          alt=""
+          src="../static/public/logo.svg"
+        />
+
+        <div class="footer-text1">
+          © 2023 Miiltoo ai-based chatbot. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script src="../static/js/bioquiz.js"></script>
+    <script src="../static/js/script-loading.js"></script>
+    <script src="../static/js/chatbot.js"></script>
+  </body>
+</html>

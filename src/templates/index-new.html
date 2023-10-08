@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/home-new.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="body">
+    <header>
+      <div class="logo-container">
+        <img src="/static/asset/logo.svg" alt="logo" />
+        <h3 class="logo-name">Miilt<span class="oo">oo</span></h3>
+      </div>
+      <nav class="nav-links">
+        <a href="" class="home-link underline">
+          <span class="nav-icons"><i class="fa-solid fa-house"></i></span>
+          Home
+          <span class="nav-links-underline"> </span>
+        </a>
+        <a href="/templates/grade.html" class="home-link">Grade</a
+        ><a href="" class="home-link">Exam</a>
+        <a href="" class="home-link">My books</a>
+        <a href="" class="login-link"
+          ><button class="login-btn1">login</button></a
+        >
+        <a href="" class="signup-link">
+          <button class="signup-btn1">signup</button></a
+        >
+      </nav>
+      <div class="login-container">
+        <button class="login-btn1">login</button>
+        <button class="signup-btn1">signup</button>
+      </div>
+      <div class="overlay hidden"></div>
+      <div class="hamb-menu hidden" id="hamb-menu">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="profile-group hidden">
+        <div class="profile">
+          <img src="/static/public/profile-pic.jpg" alt="" />
+        </div>
+        <div class="profile-detail"></div>
+      </div>
+    </header>
+    <!--<div class="hero-bg"></div>
+    <div class="resource-bg"></div>
+    <div class="testimoney-bg"></div>
+    <div class="team-bg"></div>-->
+    <main>
+      <section class="hero-sec">
+        <div class="headline-container">
+          <h1>
+            Elevate <span class="anime-text">Education</span> with Ai
+            powered-services
+          </h1>
+          <p class="headline-quatation">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore m dolore eu fugiat nulla
+          </p>
+          <button class="explore-btn">
+            <span class="explore-icon">
+              <i class="fa-brands fa-safari"></i>
+            </span>
+            explore now
+          </button>
+        </div>
+        <img class="robot-pic" src="/static/asset/robot 2.png" alt="" />
+        <img src="/static/asset/robot-shape-1.svg" class="mesh-shape" />
+      </section>
+      <section class="feature-sec">
+        <div class="feat-headline">
+          feature
+          <span class="feat-line"></span>
+        </div>
+        <div class="feat-container">
+          <div class="feat-box">
+            <div class="box-icon">
+              <i class="fa-solid fa-person-dots-from-line"></i>
+            </div>
+            Personalization
+            <div class="desc-container">
+              <span class="desc-icon"><i class="fa-solid fa-feather"></i></span>
+              <p class="desc-content">
+                This feature ensures that students receive tailored support and
+                resources that align with their individual learning needs.
+              </p>
+            </div>
+          </div>
+          <div class="feat-box">
+            <div class="box-icon">
+              <img
+                class="conve-icon"
+                src="/static/asset/conversation-icon.svg"
+                alt=""
+              />
+            </div>
+            Interactive Conversation
+            <div class="desc-container">
+              <span class="desc-icon"><i class="fa-solid fa-feather"></i></span>
+              <p class="desc-content">
+                Promotes Active Learning And Encourages Students To Actively
+                Participate In Their Educational Journey.
+              </p>
+            </div>
+          </div>
+          <div class="feat-box">
+            <div class="box-icon">
+              <img
+                class="res-icon"
+                src="/static/asset/resource-icon.svg"
+                alt=""
+              />
+            </div>
+            Comprehensive Resource
+            <div class="desc-container">
+              <span class="desc-icon"><i class="fa-solid fa-feather"></i></span>
+              <p class="desc-content">
+                Ensures That Students Have Access To Comprehensive Learning
+                Materials That Support Their Academic Progress
+              </p>
+            </div>
+          </div>
+          <div class="feat-box">
+            <div class="box-icon">
+              <i class="fa-solid fa-upload"></i>
+            </div>
+            Custom Upload
+            <div class="desc-container">
+              <span class="desc-icon"><i class="fa-solid fa-feather"></i></span>
+              <p class="desc-content">
+                This feature ensures that students receive tailored support and
+                resources that align with their individual learning needs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="resource-sec">
+        <div class="resrc-headline">
+          resource
+          <span class="resrc-line"></span>
+        </div>
+        <div class="resrc-btns">
+          <button class="active-btn">All</button>
+          <button class="other-btns">Study guide</button>
+          <button class="other-btns">textbook</button>
+          <button class="other-btns">test</button>
+        </div>
+        <div class="resrc-nav-container">
+          <button class="left-btn">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="right-btn">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="resrc-slider">
+          <div class="resrc-container" id="resrc-container">
+            <div class="resrc-box">
+              <div class="resrc-cover-container">
+                <img
+                  src="/static/asset/bio-g10-cover.svg"
+                  class="resrc-cover-item"
+                />
+                <div class="resrc-cover-overlay">
+                  grade-10
+                  <span class="resrc-cover-overlay-icon">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="resrc-tittle-container">
+                <span class="resrc-tittle-icon"
+                  ><i class="fa-solid fa-book"></i
+                ></span>
+                Biology-1
+              </div>
+              <div class="resrc-desc-container">
+                <div class="resrc-desc-tittle">
+                  <span class="resc-desc-tittle-icon"
+                    ><i class="fa-solid fa-feather"></i
+                  ></span>
+                  description
+                </div>
+                <div class="resrc-desc-content">
+                  <p class="resrc-desc-text">
+                    ensures that students have access to comprehensive learning
+                    materials that support their academic progress.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="resrc-box">
+              <div class="resrc-cover-container">
+                <img
+                  src="/static/asset/bio-g10-cover.svg"
+                  class="resrc-cover-item"
+                />
+                <div class="resrc-cover-overlay">
+                  grade-10
+                  <span class="resrc-cover-overlay-icon">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="resrc-tittle-container">
+                <span class="resrc-tittle-icon"
+                  ><i class="fa-solid fa-book"></i
+                ></span>
+                Biology-2
+              </div>
+              <div class="resrc-desc-container">
+                <div class="resrc-desc-tittle">
+                  <span class="resc-desc-tittle-icon"
+                    ><i class="fa-solid fa-feather"></i
+                  ></span>
+                  description
+                </div>
+                <div class="resrc-desc-content">
+                  <p class="resrc-desc-text">
+                    ensures that students have access to comprehensive learning
+                    materials that support their academic progress.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="resrc-box">
+              <div class="resrc-cover-container">
+                <img
+                  src="/static/asset/bio-g10-cover.svg"
+                  class="resrc-cover-item"
+                />
+                <div class="resrc-cover-overlay">
+                  grade-10
+                  <span class="resrc-cover-overlay-icon">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                  </span>
+                </div>
+              </div>
+
+              <div class="resrc-tittle-container">
+                <span class="resrc-tittle-icon"
+                  ><i class="fa-solid fa-book"></i
+                ></span>
+                Biology-3
+              </div>
+              <div class="resrc-desc-container">
+                <div class="resrc-desc-tittle">
+                  <span class="resc-desc-tittle-icon"
+                    ><i class="fa-solid fa-feather"></i
+                  ></span>
+                  description
+                </div>
+                <div class="resrc-desc-content">
+                  <p class="resrc-desc-text">
+                    ensures that students have access to comprehensive learning
+                    materials that support their academic progress.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="resrc-box">
+              <div class="resrc-cover-container">
+                <img
+                  src="/static/asset/bio-g10-cover.svg"
+                  class="resrc-cover-item"
+                />
+                <div class="resrc-cover-overlay">
+                  grade-10
+                  <span class="resrc-cover-overlay-icon">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="resrc-tittle-container">
+                <span class="resrc-tittle-icon"
+                  ><i class="fa-solid fa-book"></i
+                ></span>
+                Biology-4
+              </div>
+              <div class="resrc-desc-container">
+                <div class="resrc-desc-tittle">
+                  <span class="resc-desc-tittle-icon"
+                    ><i class="fa-solid fa-feather"></i
+                  ></span>
+                  description
+                </div>
+                <div class="resrc-desc-content">
+                  <p class="resrc-desc-text">
+                    ensures that students have access to comprehensive learning
+                    materials that support their academic progress.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="resrc-box">
+              <div class="resrc-cover-container">
+                <img
+                  src="/static/asset/bio-g10-cover.svg"
+                  class="resrc-cover-item"
+                />
+                <div class="resrc-cover-overlay">
+                  grade-10
+                  <span class="resrc-cover-overlay-icon">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="resrc-tittle-container">
+                <span class="resrc-tittle-icon"
+                  ><i class="fa-solid fa-book"></i
+                ></span>
+                Biology-5
+              </div>
+              <div class="resrc-desc-container">
+                <div class="resrc-desc-tittle">
+                  <span class="resc-desc-tittle-icon"
+                    ><i class="fa-solid fa-feather"></i
+                  ></span>
+                  description
+                </div>
+                <div class="resrc-desc-content">
+                  <p class="resrc-desc-text">
+                    ensures that students have access to comprehensive learning
+                    materials that support their academic progress.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="resrc-box">
+              <div class="resrc-cover-container">
+                <img
+                  src="/static/asset/bio-g10-cover.svg"
+                  class="resrc-cover-item"
+                />
+                <div class="resrc-cover-overlay">
+                  grade-10
+                  <span class="resrc-cover-overlay-icon">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                  </span>
+                </div>
+              </div>
+
+              <div class="resrc-tittle-container">
+                <span class="resrc-tittle-icon"
+                  ><i class="fa-solid fa-book"></i
+                ></span>
+                Biology-6
+              </div>
+              <div class="resrc-desc-container">
+                <div class="resrc-desc-tittle">
+                  <span class="resc-desc-tittle-icon"
+                    ><i class="fa-solid fa-feather"></i
+                  ></span>
+                  description
+                </div>
+                <div class="resrc-desc-content">
+                  <p class="resrc-desc-text">
+                    ensures that students have access to comprehensive learning
+                    materials that support their academic progress.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="resrc-box">
+              <div class="resrc-cover-container">
+                <img
+                  src="/static/asset/bio-g10-cover.svg"
+                  class="resrc-cover-item"
+                />
+                <div class="resrc-cover-overlay">
+                  grade-10
+                  <span class="resrc-cover-overlay-icon">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="resrc-tittle-container">
+                <span class="resrc-tittle-icon"
+                  ><i class="fa-solid fa-book"></i
+                ></span>
+                Biology-7
+              </div>
+              <div class="resrc-desc-container">
+                <div class="resrc-desc-tittle">
+                  <span class="resc-desc-tittle-icon"
+                    ><i class="fa-solid fa-feather"></i
+                  ></span>
+                  description
+                </div>
+                <div class="resrc-desc-content">
+                  <p class="resrc-desc-text">
+                    ensures that students have access to comprehensive learning
+                    materials that support their academic progress.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="resrc-box">
+              <div class="resrc-cover-container">
+                <img
+                  src="/static/asset/bio-g10-cover.svg"
+                  class="resrc-cover-item"
+                />
+                <div class="resrc-cover-overlay">
+                  grade-10
+                  <span class="resrc-cover-overlay-icon">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="resrc-tittle-container">
+                <span class="resrc-tittle-icon"
+                  ><i class="fa-solid fa-book"></i
+                ></span>
+                Biology-8
+              </div>
+              <div class="resrc-desc-container">
+                <div class="resrc-desc-tittle">
+                  <span class="resc-desc-tittle-icon"
+                    ><i class="fa-solid fa-feather"></i
+                  ></span>
+                  description
+                </div>
+                <div class="resrc-desc-content">
+                  <p class="resrc-desc-text">
+                    ensures that students have access to comprehensive learning
+                    materials that support their academic progress.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="resrc-box">
+              <div class="resrc-cover-container">
+                <img
+                  src="/static/asset/bio-g10-cover.svg"
+                  class="resrc-cover-item"
+                />
+                <div class="resrc-cover-overlay">
+                  grade-10
+                  <span class="resrc-cover-overlay-icon">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="resrc-tittle-container">
+                <span class="resrc-tittle-icon"
+                  ><i class="fa-solid fa-book"></i
+                ></span>
+                Biology-9
+              </div>
+              <div class="resrc-desc-container">
+                <div class="resrc-desc-tittle">
+                  <span class="resc-desc-tittle-icon"
+                    ><i class="fa-solid fa-feather"></i
+                  ></span>
+                  description
+                </div>
+                <div class="resrc-desc-content">
+                  <p class="resrc-desc-text">
+                    ensures that students have access to comprehensive learning
+                    materials that support their academic progress.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="resrc-slider-indicator">
+          <span class="dots active"></span>
+          <span class="dots"></span>
+          <span class="dots"></span>
+        </div>
+      </section>
+      <section class="how-does-sec">
+        <div class="how-does-headline">
+          <h2 class="how-does-text">how does it <span>work</span> ?</h2>
+          <div class="how-does-line"></div>
+        </div>
+        <div class="how-does-content-container">
+          <div class="robot-2">
+            <img src="/static/asset/robot-2.svg" alt="" alt="robot-2" />
+          </div>
+          <div class="how-does-step-container">
+            <div class="step-container">
+              <div class="step">
+                <div class="step-1">1</div>
+                <span class="circle-dot">
+                  <img src="/static/asset/circle-dots.svg" alt="" />
+                </span>
+              </div>
+              <div class="how-does-reg">
+                <div class="reg-icon">
+                  <i class="fa-solid fa-user-plus"></i>
+                </div>
+                registration
+                <div class="reg-desc">create account with us</div>
+              </div>
+            </div>
+            <div class="step-container">
+              <div class="step">
+                <div class="step-1">2</div>
+                <span class="circle-dot">
+                  <img src="/static/asset/circle-dots.svg" alt="" />
+                </span>
+              </div>
+              <div class="how-does-reg">
+                <div class="reg-icon">
+                  <i class="fa-solid fa-user-plus"></i>
+                </div>
+                registration
+                <div class="reg-desc">create account with us</div>
+              </div>
+            </div>
+            <div class="step-container">
+              <div class="step">
+                <div class="step-1">3</div>
+                <span class="circle-dot">
+                  <img src="/static/asset/circle-dots.svg" alt="" />
+                </span>
+              </div>
+              <div class="how-does-reg">
+                <div class="reg-icon">
+                  <i class="fa-solid fa-user-plus"></i>
+                </div>
+                registration
+                <div class="reg-desc">create account with us</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="testimony-sec">
+        <div class="testi-headline">
+          <h2 class="testi-text">testimony</h2>
+          <div class="testi-line"></div>
+        </div>
+        <div class="testimoney-content">
+          <div class="testi-nav-container">
+            <button class="testi-left-btn">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="testi-right-btn">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+          <div class="slider-testimoney">
+            <div class="person-item">
+              <div class="person-profile"></div>
+              <div class="person-comment-container">
+                <div class="person-name">Cody Fisher</div>
+                <div class="person-comment">
+                  "miiltoo has completely transformed the way I learn. The
+                  AI-powered services provide personalized recommendations and
+                  insights tailored to my specific needs, helping me excel in my
+                  studies like never before." cody, High School Student
+                </div>
+                <div class="review-container">
+                  review
+
+                  <div class="star-container"></div>
+                </div>
+              </div>
+            </div>
+            <div class="person-item">
+              <div class="person-profile"></div>
+              <div class="person-comment-container">
+                <div class="person-name">Wade Warren</div>
+                <div class="person-comment">
+                  "As a teacher, miiltoo has become an invaluable tool in my
+                  classroom. It helps me analyze student performance, identify
+                  areas of improvement, and provide targeted support, ultimately
+                  leading to better academic outcomes for all my students."
+                </div>
+                <div class="review-container">
+                  review
+
+                  <div class="star-container"></div>
+                </div>
+              </div>
+            </div>
+            <div class="person-item">
+              <div class="person-profile"></div>
+              <div class="person-comment-container">
+                <div class="person-name">Esther Howard</div>
+                <div class="person-comment">
+                  "Being a parent, I always want the best for my child's
+                  education. miiltoo has been a game-changer for us. It offers a
+                  comprehensive platform with AI-driven resources that
+                  supplement my child's learning journey and ensure they receive
+                  a well-rounded education." -Esther howard , Parent
+                </div>
+                <div class="review-container">
+                  review
+
+                  <div class="star-container"></div>
+                </div>
+              </div>
+            </div>
+            <div class="person-item">
+              <div class="person-profile"></div>
+              <div class="person-comment-container">
+                <div class="person-name">Jenny Wilson</div>
+                <div class="person-comment">
+                  "As a university professor, miiltoo has enhanced my teaching
+                  methods and made the learning experience more engaging for my
+                  students. The AI-powered services provide interactive content,
+                  real-time feedback, and adaptive learning pathways, making
+                  education a dynamic and rewarding process for everyone
+                  involved." - Dr. jenny, University Professor
+                </div>
+                <div class="review-container">
+                  review
+
+                  <div class="star-container"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-frame">
+            <div class="shape-collection">
+              <div class="ellipse"></div>
+              <div class="ellipse"></div>
+              <div class="ellipse"></div>
+              <div class="ellipse"></div>
+              <div class="ellipse"></div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-slider-indicator">
+          <span class="dots active"></span>
+          <span class="dots"></span>
+          <span class="dots"></span>
+          <span class="dots"></span>
+        </div>
+      </section>
+      <section class="ad-sec">
+        <div class="ad-container">
+          <div class="robot-3">
+            <img src="/static/asset/robot-3.png" alt="" />
+          </div>
+          <div class="ad-content-container">
+            <h3 class="ad-headline-3">
+              <span class="harness-text">Harnessing</span> the Power of AI for
+              Next-Level Education
+            </h3>
+            <p class="miiltoo-desc">
+              miiltoo has been developed since Aug, 2023. Lorem ipsum dolor sit
+              amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit, sed do eiusmod tempor incididunt ut labore
+            </p>
+            <button class="try-it-btn">
+              <span class="try-it-icon"
+                ><img src="/static/asset/sparkels-icon.svg" alt=""
+              /></span>
+              try it’s free
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+    <script src="/static/js/slider.js"></script>
+    <script src="/static/js/menu.js"></script>
+    <script>
+      const slider_testimoney = document.querySelector(".slider-testimoney");
+      const slide_content = document.querySelectorAll(".person-item");
+      const testi_indicator = document.querySelectorAll(
+        ".testi-slider-indicator .dots"
+      );
+      const testi_left_btn = document.querySelector(".testi-left-btn");
+      const testi_right_btn = document.querySelector(".testi-right-btn");
+      slide_content.forEach(
+        (s, i) => (s.style.transform = `translateX(${100 * i}%)`)
+      );
+      let currentSlide = 0;
+      const maxSlide = slide_content.length - 1;
+      function slideToNext() {
+        if (currentSlide === maxSlide) {
+          currentSlide = 0;
+        } else {
+          currentSlide++;
+        }
+        slide_content.forEach(
+          (s, i) =>
+            (s.style.transform = `translateX(${100 * (i - currentSlide)}%)`)
+        );
+        stopAutoSlide();
+      }
+      function slideToPrev() {
+        if (currentSlide === 0) {
+          currentSlide = maxSlide;
+        } else {
+          currentSlide--;
+        }
+        slide_content.forEach(
+          (s, i) =>
+            (s.style.transform = `translateX(${100 * (i - currentSlide)}%)`)
+        );
+        stopAutoSlide();
+      }
+
+      let intervalId;
+
+      function startAutoSlide() {
+        intervalId = setInterval(slideToNext, 4000); // Adjust the interval duration as needed
+        testi_indicator.forEach((testi_indicator) => {
+          testi_indicator.classList.remove("active");
+        });
+        const dots = document.querySelector(
+          `.testi-slider-indicator :nth-child(${currentSlide + 1})`
+        );
+        dots.classList.add("active");
+      }
+      function stopAutoSlide() {
+        clearInterval(intervalId);
+        startAutoSlide(); // Restart auto-slide timer
+      }
+
+      startAutoSlide();
+
+      testi_right_btn.addEventListener("click", slideToNext);
+      testi_left_btn.addEventListener("click", slideToPrev);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") {
+          slideToNext();
+        }
+        e.key==='ArrowLeft' && slideToPrev();
+      });
+    </script>
+  </body>
+</html>
