@@ -638,9 +638,7 @@
             </div>
           </div>
         </div>
-        <div class="testi-slider-indicator">
-          
-        </div>
+        <div class="testi-slider-indicator"></div>
       </section>
       <section class="ad-sec">
         <div class="ad-container">
@@ -663,6 +661,115 @@
                 ><img src="/static/asset/sparkels-icon.svg" alt=""
               /></span>
               try it’s free
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="team-sec">
+        <div class="team-headline">
+          <h2 class="team-text">testimony</h2>
+          <div class="team-line"></div>
+        </div>
+        <div class="team-member">
+          <div class="team-nav-container">
+            <button class="team-left-btn">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="team-right-btn">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+          <div class="member-profile">
+            <div class="member-pic"></div>
+            <div class="member-name">
+              <span class="user-icon"
+                ><i class="fa-solid fa-user-tie"></i
+              ></span>
+              Abdulmegid Awol
+            </div>
+          </div>
+          <div class="team-content">
+            <div class="member-role">
+              <span class="role-icon"
+                ><i class="fa-solid fa-puzzle-piece"></i
+              ></span>
+              team lead & backend developer
+            </div>
+            <p class="member-bio">
+              "From Hollywood Blockbusters to Ethiopian Indies Our Movie and
+              Series Directory Has It All. Start Browsing Today!" "From
+              Hollywood Blockbusters to Ethiopian Indies Our Movie and Series
+              Directory Has It All. Start Browsing Today!" "From Hollywood
+              Blockbusters to Ethiopian Indies Our Movie and Series Directory
+              Has It All. Start Browsing Today!"
+            </p>
+            <div class="member-email">
+              <span class="email-icon"><i class="fa-solid fa-inbox"></i></span>
+              email :
+            </div>
+            <div class="member-phone">
+              <span class="phone-icon"
+                ><i class="fa-solid fa-phone-volume"></i
+              ></span>
+              phone :
+            </div>
+          </div>
+        </div>
+        <div class="testi-slider-indicator"></div>
+      </section>
+      <section class="contact-sec">
+        <div class="contact-headline">
+          <h2 class="contact-text">contact us</h2>
+          <div class="contact-line"></div>
+        </div>
+        <div class="contact-container">
+          <div class="robot-4">
+            <img src="/static/asset/robor-4.svg" alt="" />
+          </div>
+          <div class="contact-box">
+            <div class="contact-box-icon">
+              <i class="fa-solid fa-address-card"></i>
+            </div>
+            <div class="fullname-box">
+              Full Name
+              <div class="name-container">
+                <input
+                  type="text"
+                  class="contact-name"
+                  placeholder="fullname"
+                />
+                <span class="fullname-icon"></span>
+              </div>
+            </div>
+            <div class="email-box">
+              email
+              <div class="email-container">
+                <input
+                  type="email"
+                  class="contact-email"
+                  placeholder="fullname"
+                />
+                <span class="email-icon"></span>
+              </div>
+            </div>
+            <div class="message-box">
+              message
+              <div class="message-container">
+                <textarea
+                  name="meassage-area"
+                  id="message-area"
+                  cols="30"
+                  rows="4"
+                  placeholder="message here.."
+                >
+                </textarea>
+              </div>
+            </div>
+            <button class="send-btn">
+              <span class="send-icon"
+                ><i class="fa-solid fa-paper-plane"></i
+              ></span>
+              send message
             </button>
           </div>
         </div>
@@ -735,11 +842,11 @@
       }
 
       startAutoSlide();
-testi_indicator_container.addEventListener('click',function(e){
-if (e.target.classList.contain('dots')) {
-  const slide=e.target.data.slide;
-}
-})
+      testi_indicator_container.addEventListener("click", function (e) {
+        if (e.target.classList.contain("dots")) {
+          const slide = e.target.data.slide;
+        }
+      });
       testi_right_btn.addEventListener("click", slideToNext);
       testi_left_btn.addEventListener("click", slideToPrev);
       document.addEventListener("keydown", (e) => {
