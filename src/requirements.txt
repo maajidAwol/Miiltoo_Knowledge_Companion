@@ -25,7 +25,7 @@ itsdangerous==2.1.2
 Jinja2==3.1.2
 jsonpatch==1.33
 jsonpointer==2.4
-langchain==0.0.310
+langchain
 langsmith==0.0.43
 Mako==1.2.4
 MarkupSafe==2.1.3
