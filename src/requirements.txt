@@ -26,7 +26,7 @@ Jinja2==3.1.2
 jsonpatch==1.33
 jsonpointer==2.4
 langchain
-langsmith==0.0.43
+langsmith
 Mako==1.2.4
 MarkupSafe==2.1.3
 marshmallow==3.20.1
