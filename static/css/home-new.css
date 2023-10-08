@@ -1248,7 +1248,7 @@ h1 span {
   justify-content: center;
   align-items: center;
   gap: 16px;
-  height: 674px;
+  height: 532px;
   align-self: stretch;
   border-radius: 16px;
   border: 1.5px solid var(--secondary, #1e206f);
@@ -1258,7 +1258,7 @@ h1 span {
 }
 .contact-box {
   display: flex;
-  padding: 64px 32px;
+  padding: 32px;
   flex-direction: column;
   align-items: center;
   gap: 24px;
@@ -1301,7 +1301,6 @@ h1 span {
 .contact-email,
 #message-area {
   width: 300px;
-  height: 102px;
   height: 100%;
   padding: 16px;
   border-radius: 10.5px;
@@ -1319,17 +1318,18 @@ input :focus,
 }
 .send-btn {
   display: flex;
-  padding: 16px 32px;
+  padding: 12px 24px;
   justify-content: center;
   align-items: flex-start;
   gap: 8px;
-  border-radius: 40px;
+  border-radius: 24px;
   background: var(--action, #22fbf9);
   color: var(--secondary, #1e206f);
-  font-size: 18px;
+  font-size: 16px;
   font-family: var(--font-roboto);
   font-weight: 700;
   text-transform: capitalize;
+  border: none;
 }
 .send-icon i {
   color: var(--color-secondary);
