@@ -1,8 +1,4 @@
 accelerate
-aiofiles
-aiogram
-aiohttp
-aiosignal
 alembic
 altair
 annotated-types
@@ -27,7 +23,6 @@ chroma-hnswlib
 chromadb
 class-registry
 click
-codellama
 colorama
 coloredlogs
 contourpy
