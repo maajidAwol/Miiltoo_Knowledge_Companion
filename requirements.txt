@@ -35,8 +35,6 @@ mypy-extensions==1.0.0
 numpy
 openai==0.28.1
 packaging==23.2
-pydantic
-pydantic_core
 PyPDF2==3.0.1
 PyYAML==6.0.1
 requests==2.31.0
