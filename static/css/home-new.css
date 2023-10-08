@@ -1333,8 +1333,8 @@ h1 span {
   gap: 8px;
   border-radius: 24px;
   background: var(--action, #22fbf9);
-  color: var(--secondary, #1e206f);
-  font-size: 16px;
+  color: var(--color-primary);
+  font-size: 18px;
   font-family: var(--font-roboto);
   font-weight: 700;
   text-transform: capitalize;
