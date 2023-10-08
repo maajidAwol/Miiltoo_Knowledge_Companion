@@ -70,7 +70,6 @@ huggingface-hub
 humanfriendly
 idna
 importlib-metadata
-importiconfig==1.0.0
 iopath
 itsdangerous
 Jinja2
