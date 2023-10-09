@@ -20,14 +20,28 @@
         <h3 class="logo-name">Miilt<span class="oo">oo</span></h3>
       </div>
       <nav class="nav-links">
-        <a href="" class="home-link underline">
+        <span class="underline" id="underline">
+          <img src="/static/asset/nav-link-underline.svg" alt="" />
+        </span>
+        <a href="" class="home-link">
           <span class="nav-icons"><i class="fa-solid fa-house"></i></span>
           Home
-          <span class="nav-links-underline"> </span>
         </a>
-        <a href="/templates/grade.html" class="home-link">Grade</a
-        ><a href="" class="home-link">Exam</a>
-        <a href="" class="home-link">My books</a>
+        <a href="" class="home-link"
+          ><button class="grade-btn">
+            grade
+            <span class="grade-btn-icon">
+              <i class="fa-solid fa-caret-down"></i>
+            </span></button
+        ></a>
+        <a href="" class="home-link">competition</a>
+        <a href="" class="home-link"
+          ><button class="pages-btn">
+            pages
+            <span class="grade-btn-icon">
+              <i class="fa-solid fa-caret-down"></i>
+            </span></button
+        ></a>
         <a href="" class="login-link"
           ><button class="login-btn1">login</button></a
         >
@@ -538,6 +552,14 @@
                 <div class="reg-desc">create account with us</div>
               </div>
             </div>
+            <div class="vertical-dots">
+              <span class="circle-dot-vertical">
+                <img src="/static/asset/circle-dot-vertical.svg" alt="" />
+              </span>
+              <span class="circle-dot-vertical">
+                <img src="/static/asset/circle-dot-vertical.svg" alt="" />
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -814,6 +836,27 @@
       </div>
     </footer>
     <script src="/static/js/menu.js"></script>
+    <script>
+      const home_link = document.querySelectorAll(".home-link");
+      const underline = document.getElementById("underline");
+      let currentPosition = 0;
+      let n = 0;
+      for (let i = 0; i < home_link.length; i++) {
+        home_link[i].addEventListener("mouseover", () => {
+          if (i === 0 || i === 1) {
+            n = 78 * i;
+          } else if (i === 2) {
+            n = 95 * i;
+          } else {
+            n = 99 * i;
+          }
+          underline.style.transform = `translateX(${n}px)`;
+        });
+        home_link[i].addEventListener("mouseleave", function () {
+          underline.style.transform = `translateX(${currentPosition})`;
+        });
+      }
+    </script>
     <script>
       const slider_testimoney = document.querySelector(".slider-testimoney");
       const slide_content = document.querySelectorAll(".person-item");

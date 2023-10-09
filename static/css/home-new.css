@@ -115,11 +115,15 @@ nav {
   display: block;
 }
 .underline {
+  position: absolute;
+  top: 20px;
+  margin-left: -315px;
   margin-top: 10px;
   height: 32px;
-  background: no-repeat url(/static/asset/nav-link-underline.svg);
-  object-fit: contain;
-  background-position: bottom;
+  transition: 0.5s ease;
+}
+.underline img {
+  width: 58px;
 }
 .home-link:hover {
   color: var(--color-accent);
@@ -129,7 +133,9 @@ nav {
 }
 nav a,
 .login-btn1,
-.signup-btn1 {
+.signup-btn1,
+.grade-btn,
+.pages-btn {
   color: var(--color-white);
   font-family: var(--font-roboto);
   font-size: 18px;
@@ -139,6 +145,7 @@ nav a,
   text-transform: capitalize;
   text-decoration: none;
 }
+
 nav.slide {
   transform: translateX(0%);
   z-index: 4;
@@ -160,6 +167,26 @@ nav.slide {
   padding: 6px 24px;
   border-radius: 32px;
   border: 2px solid var(--color-accent);
+  color: var(--color-accent);
+}
+.grade-btn,
+.pages-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  color: var(--color-white);
+}
+.grade-btn:hover,
+.pages-btn:hover {
+  cursor: pointer;
+  color: var(--color-accent);
+}
+.grade-btn-icon i,
+.pages-btn-icon i {
+  font-size: 24px;
   color: var(--color-accent);
 }
 .signup-btn1 {
@@ -828,7 +855,20 @@ h1 span {
 .circle-dot img {
   position: absolute;
   width: 180px;
-  margin-left: -41px;
+  margin-left: -16px;
+  margin-top: -56px;
+}
+.vertical-dots {
+  position: absolute;
+  margin-left: -31px;
+  margin-top: 3px;
+  display: flex;
+  flex-direction: column;
+  gap: 52px;
+  z-index: -1;
+}
+.circle-dot-vertical img {
+  height: 130px;
 }
 .how-does-reg {
   display: flex;
@@ -848,6 +888,7 @@ h1 span {
   font-weight: 600;
   line-height: normal;
   text-transform: capitalize;
+  margin-left: 108px;
 }
 .reg-icon {
   width: 32px;
