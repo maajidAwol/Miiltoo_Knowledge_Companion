@@ -210,6 +210,7 @@ footer {
   height: 32px;
 }
 .func-item-icon {
+  position: relative;
   display: flex;
   padding: 4.465px;
   flex-direction: column;
@@ -221,6 +222,12 @@ footer {
   box-shadow: 0px 1.11623px 5.58116px 0px #080d27;
 }
 .func-item-icon i {
-  font-size: 16px;
+  font-size: 18px;
   color: var(--color-accent);
+}
+#quize-btn .func-item-icon :nth-child(2) {
+  font-size: 8px;
+  position: absolute;
+  top: 7px;
+  left: 11px;
 }
