@@ -162,31 +162,47 @@
                 <button class="right-arrow-btn">
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
+                <div class="chatbot-logo">
+                    <img src="/static/asset/logo.svg" alt="logo" />
+                </div>
                 <div class="chatbot-headline">
                     what can i <span>help</span> you ?
                 </div>
                 <div class="robot-say-hi">
                     <img src="/static/asset/robot-3.png" alt="" />
                 </div>
-                <btn class="chatbot-func-item  flashlight" id="chat-btn">
-                    <div class="active-state-shape">
-                        <img src="/static/asset/active-state-shape.svg" alt="">
-                    </div>
-                    <span class="func-item-icon"><i class="fa-brands fa-rocketchat"></i></span>
-                    chat
-                </btn>
-                <btn class="chatbot-func-item" id="quize-btn">
-                    <span class="func-item-icon"><i class="fa-brands fa-rocketchat"></i></span>
-                    quize
-                </btn>
-                <btn class="chatbot-func-item" id="custom-upload-btn">
-                    <span class="func-item-icon"><i class="fa-brands fa-rocketchat"></i></span>
-                    custom upload
-                </btn>
-                <btn class="chatbot-func-item" id="setting-btn">
-                    <span class="func-item-icon"><i class="fa-brands fa-rocketchat"></i></span>
-                    setting
-                </btn>
+                <div class="func-container">
+                    <btn class="chatbot-func-item  flashlight" id="chat-btn">
+                        <div class="active-state-shape">
+                            <img src="/static/asset/active-state-shape.svg" alt="">
+                        </div>
+                        <span class="func-item-icon"><i class="fa-brands fa-rocketchat"></i></span>
+    <p>
+        chat
+    </p>
+                    </btn>
+                    <btn class="chatbot-func-item" id="quize-btn">
+                        <span class="func-item-icon"><i class="fa-brands fa-rocketchat"></i></span>
+                    <p>
+                        quize
+    
+                    </p>
+                    </btn>
+                    <btn class="chatbot-func-item" id="custom-upload-btn">
+                        <span class="func-item-icon"><i class="fa-brands fa-rocketchat"></i></span>
+                    <p>
+                        custom upload
+    
+                    </p>
+                    </btn>
+                    <btn class="chatbot-func-item" id="setting-btn">
+                        <span class="func-item-icon"><i class="fa-brands fa-rocketchat"></i></span>
+                    <p>
+                        setting
+    
+                    </p>
+                    </btn>
+                </div>
             </div>
         </div>
       </section>
@@ -235,6 +251,29 @@
       </div>
     </footer>
     <script src="/static/js/menu.js"></script>
+    <script>
+
+        const chatbot_headline=document.querySelector('.chatbot-headline');
+        const chatbot_logo=document.querySelector('.chatbot-logo');
+        const robot=document.querySelector('.robot-say-hi');
+        const book_container=document.querySelector('.book-container');
+        const chatbot_var_1=document.querySelector('.chatbot-var-1');
+        const func_container=document.querySelector('.func-container');
+        const btn_text=document.querySelectorAll('.chatbot-func-item p');
+        const right_arrow_btn=document.querySelector('.right-arrow-btn');
+right_arrow_btn.addEventListener('click',()=>{
+    chatbot_logo.classList.toggle('visible');
+    right_arrow_btn.classList.toggle('rotate-btn');
+    book_container.classList.toggle('toWidth');
+robot.classList.toggle('toPosition');
+chatbot_headline.classList.toggle('toPosition');
+func_container.classList.toggle('toY');    
+for (let i = 0; i < btn_text.length; i++) {
+btn_text[i].classList.toggle('minWidth');    
+}
+chatbot_var_1.classList.toggle('width');    
+});
+    </script>
     <script>
       const home_link = document.querySelectorAll(".home-link");
       const underline = document.getElementById("underline");

@@ -38,6 +38,9 @@
   width: 80%;
   height: 100%;
 }
+.book-container.toWidth {
+  width: 90%;
+}
 .pdf-section {
   width: 100%;
   height: 100%;
@@ -66,6 +69,9 @@ footer {
   background: var(--primary, #080d27);
   overflow: hidden;
 }
+.chatbot-var-1.width {
+  width: 61px;
+}
 .right-arrow-btn {
   display: flex;
   padding: 7.566px;
@@ -81,12 +87,26 @@ footer {
   background: var(--primary, #080d27);
   box-shadow: 0px 0.77778px 6px 0px #22fbf9;
 }
+.right-arrow-btn.rotate-btn {
+  transform: rotate(180deg);
+}
 .right-arrow-btn i {
   font-size: 12px;
 }
 .right-arrow-btn:hover {
   cursor: pointer;
   color: var(--color-accent);
+}
+.chatbot-logo {
+  transform: translateX(120%);
+  opacity: 0;
+  transition: transform 0.8s ease;
+  display: none;
+}
+.chatbot-logo.visible {
+  display: block;
+  transform: translateX(0);
+  opacity: 1;
 }
 .chatbot-headline {
   display: flex;
@@ -106,9 +126,15 @@ footer {
   border-radius: 12px;
   background: rgba(30, 32, 111, 0.42);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  transform: translateX(0%);
+  transition: transform 0.5s ease;
 }
 .chatbot-headline span {
   color: var(--color-accent);
+}
+.chatbot-headline.toPosition {
+  transform: translateX(110%);
+  opacity: 0;
 }
 .robot-say-hi {
   display: flex;
@@ -117,12 +143,29 @@ footer {
   justify-content: center;
   align-items: center;
   gap: 8px;
+  transform: translateX(0%);
+  transition: transform 0.5s ease;
+}
+.robot-say-hi.toPosition {
+  transform: translateX(130%);
+  opacity: 0;
 }
 .robot-say-hi img {
   width: 202.5px;
   height: 162px;
   border-radius: 81px;
   box-shadow: 0px -7.5px 97.97px 0px rgba(20, 25, 231, 0.68);
+}
+.func-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.func-container.toY {
+  transform: translateY(-230px);
 }
 .chatbot-func-item {
   position: relative;
@@ -141,6 +184,11 @@ footer {
   background: rgba(30, 32, 111, 0.5);
   transition: transform 0.3s ease;
 }
+.chatbot-func-item p.minWidth {
+  min-width: 125px;
+  opacity: 0;
+}
+
 .chatbot-func-item.flashlight {
   border-radius: 8px;
   background: rgba(30, 32, 111, 0.5);
