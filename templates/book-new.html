@@ -157,7 +157,35 @@
             class="pdf-section"
           ></embed>
         </div>
-        <div class="chatbot-container"></div>
+        <div class="chatbot-container">
+            <div class="chatbot-var-1">
+                <button class="right-arrow-btn">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+                <div class="chatbot-headline">
+                    what can i <span>help</span> you ?
+                </div>
+                <div class="robot-say-hi">
+                    <img src="/static/asset/robot-3.png" alt="" />
+                </div>
+                <btn class="chatbot-func-item" id="chat-btn">
+                    <span class="func-item-icon"><i class="fa-brands fa-rocketchat"></i></span>
+                    chat
+                </btn>
+                <btn class="chatbot-func-item" id="quize-btn">
+                    <span class="func-item-icon"><i class="fa-brands fa-rocketchat"></i></span>
+                    quize
+                </btn>
+                <btn class="chatbot-func-item" id="custom-upload-btn">
+                    <span class="func-item-icon"><i class="fa-brands fa-rocketchat"></i></span>
+                    custom upload
+                </btn>
+                <btn class="chatbot-func-item" id="setting-btn">
+                    <span class="func-item-icon"><i class="fa-brands fa-rocketchat"></i></span>
+                    setting
+                </btn>
+            </div>
+        </div>
       </section>
     </main>
     <footer>
@@ -205,35 +233,6 @@
     </footer>
     <script src="/static/js/menu.js"></script>
     <script>
-      const how_does_sec = document.querySelector(".how-does-sec");
-      const circle_dot = document.querySelectorAll(".circle-dot");
-      const box = document.querySelectorAll(".how-does-reg");
-
-      for (let i = 0; i < circle_dot.length; i++) {
-        circle_dot[i].style.opacity = "0";
-      }
-
-      for (let i = 0; i < box.length; i++) {
-        box[i].style.opacity = "0";
-        box[i].style.transform = `translateX(160%)`;
-      }
-
-      how_does_sec.addEventListener("mouseenter", () => {
-        for (let i = 0; i < circle_dot.length; i++) {
-          let delay = i * 0.8; // Adjust the delay duration as needed
-          circle_dot[i].style.opacity = "1";
-          circle_dot[i].style.transitionDelay = `${delay}s`;
-        }
-
-        box.forEach((boxItem, index) => {
-          let delay = index * 0.8; // Adjust the delay duration as needed
-          boxItem.style.opacity = "1";
-          boxItem.style.transitionDelay = `${delay}s`;
-          boxItem.style.transform = "translateX(0)";
-        });
-      });
-    </script>
-    <script>
       const home_link = document.querySelectorAll(".home-link");
       const underline = document.getElementById("underline");
       let currentPosition = 0;
@@ -253,85 +252,6 @@
           underline.style.transform = `translateX(${currentPosition})`;
         });
       }
-    </script>
-    <script>
-      const slider_testimoney = document.querySelector(".slider-testimoney");
-      const slide_content = document.querySelectorAll(".person-item");
-      const testi_indicator_container = document.querySelector(
-        ".testi-slider-indicator"
-      );
-      const testi_indicator = document.querySelectorAll(
-        ".testi-slider-indicator .dots"
-      );
-      const testi_left_btn = document.querySelector(".testi-left-btn");
-      const testi_right_btn = document.querySelector(".testi-right-btn");
-      slide_content.forEach(
-        (s, i) => (s.style.transform = `translateX(${100 * i}%)`)
-      );
-      let currentSlide = 0;
-      const maxSlide = slide_content.length - 1;
-      function createDots() {
-        slide_content.forEach((_, i) => {
-          testi_indicator_container.insertAdjacentHTML(
-            "beforeend",
-            `<span class="dots" data-slide="${i}"></span>`
-          );
-        });
-      }
-      createDots();
-
-      function slideToNext() {
-        if (currentSlide === maxSlide) {
-          currentSlide = 0;
-        } else {
-          currentSlide++;
-        }
-        slide_content.forEach(
-          (s, i) =>
-            (s.style.transform = `translateX(${100 * (i - currentSlide)}%)`)
-        );
-        stopAutoSlide();
-      }
-      function slideToPrev() {
-        if (currentSlide === 0) {
-          currentSlide = maxSlide;
-        } else {
-          currentSlide--;
-        }
-        slide_content.forEach(
-          (s, i) =>
-            (s.style.transform = `translateX(${100 * (i - currentSlide)}%)`)
-        );
-        stopAutoSlide();
-      }
-
-      let intervalId;
-
-      function startAutoSlide() {
-        intervalId = setInterval(slideToNext, 4000); // Adjust the interval duration as needed
-        testi_indicator.forEach((testi_indicator) => {
-          testi_indicator.classList.remove("active");
-        });
-      }
-      function stopAutoSlide() {
-        clearInterval(intervalId);
-        startAutoSlide(); // Restart auto-slide timer
-      }
-
-      startAutoSlide();
-      testi_indicator_container.addEventListener("click", function (e) {
-        if (e.target.classList.contain("dots")) {
-          const slide = e.target.data.slide;
-        }
-      });
-      testi_right_btn.addEventListener("click", slideToNext);
-      testi_left_btn.addEventListener("click", slideToPrev);
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "ArrowRight") {
-          slideToNext();
-        }
-        e.key === "ArrowLeft" && slideToPrev();
-      });
     </script>
   </body>
 </html>
