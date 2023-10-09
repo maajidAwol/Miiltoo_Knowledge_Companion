@@ -246,14 +246,17 @@ main {
 }
 .hero-sec {
   display: flex;
-  height: 75vh;
+  height: 82vh;
   padding: 16px 12%;
-
   padding-top: 38px;
   align-items: flex-start;
   gap: -83.73px;
   flex-shrink: 0;
   align-self: stretch;
+  background: no-repeat url(/static/asset/hero-bg.svg);
+  background-position: top;
+  background-size: cover;
+  box-shadow: 0px 40.5px 82px 0px rgba(30, 32, 111, 0.48);
 }
 .hero-bg {
   position: absolute;
@@ -1442,6 +1445,7 @@ footer {
   gap: 25.364px;
   background: var(--primary, #080d27);
   box-shadow: 0px -14.5px 170.5px 0px #1e206f;
+  trasition
 }
 .footer-logo {
   display: flex;

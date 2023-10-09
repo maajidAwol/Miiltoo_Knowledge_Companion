@@ -837,6 +837,35 @@
     </footer>
     <script src="/static/js/menu.js"></script>
     <script>
+      const how_does_sec = document.querySelector(".how-does-sec");
+      const circle_dot = document.querySelectorAll(".circle-dot");
+      const box = document.querySelectorAll(".how-does-reg");
+
+      for (let i = 0; i < circle_dot.length; i++) {
+        circle_dot[i].style.opacity = "0";
+      }
+
+      for (let i = 0; i < box.length; i++) {
+        box[i].style.opacity = "0";
+        box[i].style.transform = `translateX(160%)`;
+      }
+
+      how_does_sec.addEventListener("mouseenter", () => {
+        for (let i = 0; i < circle_dot.length; i++) {
+          let delay = i * 0.8; // Adjust the delay duration as needed
+          circle_dot[i].style.opacity = "1";
+          circle_dot[i].style.transitionDelay = `${delay}s`;
+        }
+
+        box.forEach((boxItem, index) => {
+          let delay = index * 0.8; // Adjust the delay duration as needed
+          boxItem.style.opacity = "1";
+          boxItem.style.transitionDelay = `${delay}s`;
+          boxItem.style.transform = "translateX(0)";
+        });
+      });
+    </script>
+    <script>
       const home_link = document.querySelectorAll(".home-link");
       const underline = document.getElementById("underline");
       let currentPosition = 0;
