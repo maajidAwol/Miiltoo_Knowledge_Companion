@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/home-new.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="body">
+    <header>
+      <div class="logo-container">
+        <img src="/static/asset/logo.svg" alt="logo" />
+        <h3 class="logo-name">Miilt<span class="oo">oo</span></h3>
+      </div>
+      <nav class="nav-links">
+        <span class="underline" id="underline">
+          <img src="/static/asset/nav-link-underline.svg" alt="" />
+        </span>
+        <a href="" class="home-link">
+          <span class="nav-icons"><i class="fa-solid fa-house"></i></span>
+          Home
+        </a>
+        <a href="" class="home-link"
+          ><button class="grade-btn">
+            grade
+            <span class="grade-btn-icon">
+              <i class="fa-solid fa-caret-down"></i>
+            </span></button
+        ></a>
+        <a href="" class="home-link">competition</a>
+        <a href="" class="home-link"
+          ><button class="pages-btn">
+            pages
+            <span class="grade-btn-icon">
+              <i class="fa-solid fa-caret-down"></i>
+            </span></button
+        ></a>
+        <a href="" class="login-link"
+          ><button class="login-btn1">login</button></a
+        >
+        <a href="" class="signup-link">
+          <button class="signup-btn1">signup</button></a
+        >
+      </nav>
+      <div class="login-container hidden">
+        <button class="login-btn1">login</button>
+        <button class="signup-btn1">signup</button>
+      </div>
+      <div class="overlay hidden"></div>
+      <div class="hamb-menu hidden" id="hamb-menu">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="profile-container">
+        <button class="search-btn">
+          <span class="search-icon"
+            ><i class="fa-solid fa-magnifying-glass"></i
+          ></span>
+        </button>
+        <button class="notify-btn">
+          <span class="notify-icon"><i class="fa-solid fa-bell"></i></span>
+        </button>
+        <div class="profile-group">
+          <div class="separet-line"></div>
+          <span class="profile-pic">
+            <img src="/static/asset/profile-pic.png" alt="" />
+          </span>
+          <div class="self-desc-container">
+            <p>Dianne Russell</p>
+            <p>deanna.curtis@example.com</p>
+          </div>
+          <span class="profile-drop-icon"
+            ><i class="fa-solid fa-chevron-down"></i
+          ></span>
+        </div>
+        <div class="profile-detail"></div>
+      </div>
+    </header>
+    <div class="grade-menu hidden">
+      <div class="grade-menu-content">
+        <div class="grade-header">
+          <span class="grade-tittle-icon"
+            ><i class="fa-brands fa-elementor"></i
+          ></span>
+          <div class="grade-tittle">
+            <p>high school</p>
+            <p>Initial readiness for advancement.</p>
+          </div>
+        </div>
+        <a href="#" class="grade-menu-item">
+          <span class="grade-menu-item-icon"
+            ><i class="fa-solid fa-graduation-cap"></i
+          ></span>
+          grade-9
+        </a>
+        <a href="#" class="grade-menu-item">
+          <span class="grade-menu-item-icon"
+            ><i class="fa-solid fa-graduation-cap"></i
+          ></span>
+          grade-10
+        </a>
+        <a href="#" class="grade-menu-item">
+          <span class="grade-menu-item-icon"
+            ><i class="fa-solid fa-graduation-cap"></i
+          ></span>
+          grade-11 (soon)
+        </a>
+        <a href="#" class="grade-menu-item">
+          <span class="grade-menu-item-icon"
+            ><i class="fa-solid fa-graduation-cap"></i
+          ></span>
+          grade-12 (soon)
+        </a>
+      </div>
+    </div>
+    <div class="profile-menu hidden">
+      <div class="profile-menu-item">
+        <span class="profile-menu-item-icon"
+          ><i class="fa-solid fa-id-card-clip"></i
+        ></span>
+        account
+      </div>
+      <div class="profile-menu-item">
+        <span class="profile-menu-item-icon"
+          ><i class="fa-solid fa-book"></i>
+        </span>
+        my booklists
+      </div>
+      <div class="profile-menu-item">
+        <span class="profile-menu-item-icon"
+          ><i class="fa-solid fa-book"></i
+        ></span>
+        something
+      </div>
+      <div class="profile-menu-item">
+        <span class="profile-menu-item-icon"
+          ><i class="fa-solid fa-right-from-bracket"></i
+        ></span>
+        logout
+      </div>
+    </div>
+    <!--<div class="hero-bg"></div>
+    <div class="resource-bg"></div>
+    <div class="testimoney-bg"></div>
+    <div class="team-bg"></div>-->
+    <main></main>
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="/static/asset/logo.svg" alt="" />
+          <div>miilt<span class="oo">oo</span></div>
+        </div>
+        <div class="footer-link-container">
+          <div class="link-container">
+            Home
+            <a href="" class="link">grade</a>
+            <a href="" class="link">subject</a>
+            <a href="" class="link">chatbot</a>
+          </div>
+          <div class="link-container">
+            resource
+            <a href="" class="link">textbook</a>
+            <a href="" class="link">study guid</a>
+            <a href="" class="link">upload</a>
+          </div>
+          <div class="link-container">
+            grade
+            <a href="" class="link">grade-9</a>
+            <a href="" class="link">grade-10</a>
+            <a href="" class="link">grade-11</a>
+            <a href="" class="link">grade-12</a>
+          </div>
+          <div class="link-container">
+            pages
+            <a href="" class="link">About us</a>
+            <a href="" class="link">contact us</a>
+            <a href="" class="link">FAQ</a>
+            <a href="" class="link">help</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <a class="social-icons"><i class="fa-brands fa-square-twitter"></i></a>
+        <a class="social-icons"><i class="fa-brands fa-facebook"></i></a>
+        <a class="social-icons"><i class="fa-brands fa-linkedin"></i></a>
+        <a class="social-icons"><i class="fa-brands fa-github"></i></a>
+        <a class="social-icons"><i class="fa-brands fa-telegram"></i></a>
+      </div>
+    </footer>
+    <script src="/static/js/menu.js"></script>
+    <script>
+      const how_does_sec = document.querySelector(".how-does-sec");
+      const circle_dot = document.querySelectorAll(".circle-dot");
+      const box = document.querySelectorAll(".how-does-reg");
+
+      for (let i = 0; i < circle_dot.length; i++) {
+        circle_dot[i].style.opacity = "0";
+      }
+
+      for (let i = 0; i < box.length; i++) {
+        box[i].style.opacity = "0";
+        box[i].style.transform = `translateX(160%)`;
+      }
+
+      how_does_sec.addEventListener("mouseenter", () => {
+        for (let i = 0; i < circle_dot.length; i++) {
+          let delay = i * 0.8; // Adjust the delay duration as needed
+          circle_dot[i].style.opacity = "1";
+          circle_dot[i].style.transitionDelay = `${delay}s`;
+        }
+
+        box.forEach((boxItem, index) => {
+          let delay = index * 0.8; // Adjust the delay duration as needed
+          boxItem.style.opacity = "1";
+          boxItem.style.transitionDelay = `${delay}s`;
+          boxItem.style.transform = "translateX(0)";
+        });
+      });
+    </script>
+    <script>
+      const home_link = document.querySelectorAll(".home-link");
+      const underline = document.getElementById("underline");
+      let currentPosition = 0;
+      let n = 0;
+      for (let i = 0; i < home_link.length; i++) {
+        home_link[i].addEventListener("mouseover", () => {
+          if (i === 0 || i === 1) {
+            n = 78 * i;
+          } else if (i === 2) {
+            n = 95 * i;
+          } else {
+            n = 99 * i;
+          }
+          underline.style.transform = `translateX(${n}px)`;
+        });
+        home_link[i].addEventListener("mouseleave", function () {
+          underline.style.transform = `translateX(${currentPosition})`;
+        });
+      }
+    </script>
+    <script>
+      const slider_testimoney = document.querySelector(".slider-testimoney");
+      const slide_content = document.querySelectorAll(".person-item");
+      const testi_indicator_container = document.querySelector(
+        ".testi-slider-indicator"
+      );
+      const testi_indicator = document.querySelectorAll(
+        ".testi-slider-indicator .dots"
+      );
+      const testi_left_btn = document.querySelector(".testi-left-btn");
+      const testi_right_btn = document.querySelector(".testi-right-btn");
+      slide_content.forEach(
+        (s, i) => (s.style.transform = `translateX(${100 * i}%)`)
+      );
+      let currentSlide = 0;
+      const maxSlide = slide_content.length - 1;
+      function createDots() {
+        slide_content.forEach((_, i) => {
+          testi_indicator_container.insertAdjacentHTML(
+            "beforeend",
+            `<span class="dots" data-slide="${i}"></span>`
+          );
+        });
+      }
+      createDots();
+
+      function slideToNext() {
+        if (currentSlide === maxSlide) {
+          currentSlide = 0;
+        } else {
+          currentSlide++;
+        }
+        slide_content.forEach(
+          (s, i) =>
+            (s.style.transform = `translateX(${100 * (i - currentSlide)}%)`)
+        );
+        stopAutoSlide();
+      }
+      function slideToPrev() {
+        if (currentSlide === 0) {
+          currentSlide = maxSlide;
+        } else {
+          currentSlide--;
+        }
+        slide_content.forEach(
+          (s, i) =>
+            (s.style.transform = `translateX(${100 * (i - currentSlide)}%)`)
+        );
+        stopAutoSlide();
+      }
+
+      let intervalId;
+
+      function startAutoSlide() {
+        intervalId = setInterval(slideToNext, 4000); // Adjust the interval duration as needed
+        testi_indicator.forEach((testi_indicator) => {
+          testi_indicator.classList.remove("active");
+        });
+      }
+      function stopAutoSlide() {
+        clearInterval(intervalId);
+        startAutoSlide(); // Restart auto-slide timer
+      }
+
+      startAutoSlide();
+      testi_indicator_container.addEventListener("click", function (e) {
+        if (e.target.classList.contain("dots")) {
+          const slide = e.target.data.slide;
+        }
+      });
+      testi_right_btn.addEventListener("click", slideToNext);
+      testi_left_btn.addEventListener("click", slideToPrev);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") {
+          slideToNext();
+        }
+        e.key === "ArrowLeft" && slideToPrev();
+      });
+    </script>
+  </body>
+</html>
