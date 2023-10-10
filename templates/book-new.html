@@ -158,7 +158,10 @@
           ></embed>
         </div>
         <div class="chatbot-container">
-          <div class="chatbot-var-2">
+          <div class="chatbot-var-2 hidden">
+            <button class="arrow-btn chat-left-btn">
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
             <div class="chat-top-container">
               <div class="var2-logo">
                 <img src="/static/asset/logo.svg" alt="">
@@ -202,7 +205,7 @@
             </div>
           </div>
             <div class="chatbot-var-1">
-                <button class="right-arrow-btn">
+                <button class="arrow-btn right-arrow-btn">
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
                 <div class="chatbot-logo">
@@ -300,6 +303,26 @@
     </footer>
     <script src="/static/js/menu.js"></script>
     <script>
+        const chat_btn=document.querySelector('#chat-btn');
+        const left_btn=document.querySelector('.chat-left-btn');
+        const chat_sect=document.querySelector('.chatbot-var-2');
+        chat_btn.addEventListener('click',()=>{
+chat_sect.classList.remove('hidden');
+collapse();
+right_arrow_btn.classList.add('hidden');
+left_btn.classList.toggle('rotate-btn');
+
+
+//right_arrow_btn.style.opacity=0;
+        });
+        left_btn.addEventListener('click',()=>{
+chat_sect.classList.add('hidden');
+right_arrow_btn.classList.remove('hidden');
+
+        });
+
+    </script>
+    <script>
 
         const chatbot_headline=document.querySelector('.chatbot-headline');
         const chatbot_logo=document.querySelector('.chatbot-logo');
@@ -309,7 +332,7 @@
         const func_container=document.querySelector('.func-container');
         const btn_text=document.querySelectorAll('.chatbot-func-item p');
         const right_arrow_btn=document.querySelector('.right-arrow-btn');
-right_arrow_btn.addEventListener('click',()=>{
+function collapse() {
     chatbot_logo.classList.toggle('visible');
     right_arrow_btn.classList.toggle('rotate-btn');
     book_container.classList.toggle('toWidth');
@@ -320,7 +343,12 @@ for (let i = 0; i < btn_text.length; i++) {
 btn_text[i].classList.toggle('minWidth');    
 }
 chatbot_var_1.classList.toggle('width');    
-});
+}
+right_arrow_btn.addEventListener('click',()=>{
+collapse();
+right_arrow_btn.classList.toggle('toLeft');
+});  
+
     </script>
     <script>
       const home_link = document.querySelectorAll(".home-link");
