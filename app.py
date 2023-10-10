@@ -1,13 +1,20 @@
 import time
 
 import PyPDF2
-from flask import Flask, redirect, render_template, session, jsonify, flash, url_for
+from flask import Flask, redirect, render_template,abort,session, jsonify, flash, url_for
 from flask import Flask, render_template, request
 import os
 import sys
 import re
 import json
+from flask_session import Session
+from flask import session
 import openai
+import pathlib
+from google.oauth2 import id_token
+from google_auth_oauthlib.flow import Flow
+from pip._vendor import cachecontrol
+import google.auth.transport.requests
 from flask_migrate import Migrate
 from langchain.chains import ConversationalRetrievalChain, RetrievalQA
 from langchain.chat_models import ChatOpenAI
@@ -19,6 +26,8 @@ from langchain.llms import OpenAI
 from langchain.vectorstores import Chroma
 from flask import Flask, request, render_template
 from flask_sqlalchemy import SQLAlchemy
+import requests
+
 from werkzeug.utils import secure_filename
 import user
 from chat_quiz import quiz_function, chat_function
@@ -27,12 +36,22 @@ from user import register_user,db,User,bcrypt, login_auth,migrate,Books,mail
 from admin import admin
 
 os.environ["OPENAI_API_KEY"] = "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"
-
+os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1" 
+GOOGLE_CLIENT_ID = "929050329675-633eemlvju4gbm88m39qqql9kfm64p76.apps.googleusercontent.com"
+client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "client_secret.json")
+flow = Flow.from_client_secrets_file(
+    client_secrets_file=client_secrets_file,
+    scopes=["https://www.googleapis.com/auth/userinfo.profile", "https://www.googleapis.com/auth/userinfo.email", "openid"],
+    redirect_uri="http://127.0.0.1:5000/callback"
+)
 app = Flask(__name__)
+
+
 app.static_folder = 'static'
 app.secret_key= "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"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///profile.db'  # SQLite database
 # db = SQLAlchemy(app)
+
 
 app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
@@ -102,15 +121,21 @@ def register():
     return render_template('index.html', users=all_users)
 @app.route('/auth', methods=['POST', 'GET'])
 def auth():
-    username = request.form['username']
-    password = request.form['password']
-    print(username)
-    print(password)
-    if login_auth(username, password):
-        loggedin = 'loggedIn'
-        return render_template('index.html', loggedin=loggedin)
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        print(username)
+        print(password)
+        if login_auth(username, password):
+            loggedin = 'loggedIn'
+            return render_template('index.html', loggedin=loggedin)
 
-    return redirect('/login')
+        return redirect('/login')
+    
+    authorization_url, state = flow.authorization_url()
+    session["state"] = state
+    
+    return redirect(authorization_url)
 
 @app.route("/")
 def main():
@@ -478,7 +503,7 @@ def save_profile():
 
 @app.route('/logout')
 def logout():
-    session['logged_in'] = False
+    session['logged_in'] = "false"
     session.pop('username', None)
     return redirect(url_for('main'))
 @app.route('/confirm_email', methods=['GET', 'POST'])
@@ -501,6 +526,52 @@ def confirm_email():
             return render_template('confirm_email.html')
 
     return render_template('confirm_email.html')
+def login_is_required(function):
+    def wrapper(*args, **kwargs):
+        if "google_id" not in session:
+            return abort(401)  # Authorization required
+        else:
+            return function()
+
+    return wrapper
+
+@app.route("/login_with_google")
+def login_with_google():
+    authorization_url, state = flow.authorization_url()
+    session["state"] = state
+    
+    return redirect(authorization_url)
+
+
+@app.route("/callback")
+def callback():
+    flow.fetch_token(authorization_response=request.url)
+
+    if not session["state"] == request.args["state"]:
+        abort(500)  # State does not match!
+
+    credentials = flow.credentials
+    request_session = requests.session()
+    cached_session = cachecontrol.CacheControl(request_session)
+    token_request = google.auth.transport.requests.Request(session=cached_session)
+
+    id_info = id_token.verify_oauth2_token(
+        id_token=credentials._id_token,
+        request=token_request,
+        audience=GOOGLE_CLIENT_ID
+    )
+
+    session["google_id"] = id_info.get("sub")
+    session["name"] = id_info.get("name")
+    
+    return redirect("/protected_area")
+
+@app.route("/protected_area")
+@login_is_required
+def protected_area():
+    session['logged_in'] = "true"
+    return redirect("/")
+    
 if __name__ == "__main__":
     # with app.app_context():
     #     db.create_all()

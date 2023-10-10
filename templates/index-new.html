@@ -20,14 +20,28 @@
         <h3 class="logo-name">Miilt<span class="oo">oo</span></h3>
       </div>
       <nav class="nav-links">
-        <a href="" class="home-link underline">
+        <span class="underline" id="underline">
+          <img src="/static/asset/nav-link-underline.svg" alt="" />
+        </span>
+        <a href="" class="home-link">
           <span class="nav-icons"><i class="fa-solid fa-house"></i></span>
           Home
-          <span class="nav-links-underline"> </span>
         </a>
-        <a href="/templates/grade.html" class="home-link">Grade</a
-        ><a href="" class="home-link">Exam</a>
-        <a href="" class="home-link">My books</a>
+        <a href="" class="home-link"
+          ><button class="grade-btn">
+            grade
+            <span class="grade-btn-icon">
+              <i class="fa-solid fa-caret-down"></i>
+            </span></button
+        ></a>
+        <a href="" class="home-link">competition</a>
+        <a href="" class="home-link"
+          ><button class="pages-btn">
+            pages
+            <span class="grade-btn-icon">
+              <i class="fa-solid fa-caret-down"></i>
+            </span></button
+        ></a>
         <a href="" class="login-link"
           ><button class="login-btn1">login</button></a
         >
@@ -45,13 +59,94 @@
         <div class="line"></div>
         <div class="line"></div>
       </div>
-      <div class="profile-group hidden">
-        <div class="profile">
-          <img src="/static/public/profile-pic.jpg" alt="" />
+      <div class="profile-container hidden">
+        <button class="search-btn">
+          <span class="search-icon"
+            ><i class="fa-solid fa-magnifying-glass"></i
+          ></span>
+        </button>
+        <button class="notify-btn">
+          <span class="notify-icon"><i class="fa-solid fa-bell"></i></span>
+        </button>
+        <div class="profile-group">
+          <div class="separet-line"></div>
+          <span class="profile-pic">
+            <img src="/static/asset/profile-pic.png" alt="" />
+          </span>
+          <div class="self-desc-container">
+            <p>Dianne Russell</p>
+            <p>deanna.curtis@example.com</p>
+          </div>
+          <span class="profile-drop-icon"
+            ><i class="fa-solid fa-chevron-down"></i
+          ></span>
         </div>
         <div class="profile-detail"></div>
       </div>
     </header>
+    <div class="grade-menu hidden">
+      <div class="grade-menu-content">
+        <div class="grade-header">
+          <span class="grade-tittle-icon"
+            ><i class="fa-brands fa-elementor"></i
+          ></span>
+          <div class="grade-tittle">
+            <p>high school</p>
+            <p>Initial readiness for advancement.</p>
+          </div>
+        </div>
+        <a href="#" class="grade-menu-item">
+          <span class="grade-menu-item-icon"
+            ><i class="fa-solid fa-graduation-cap"></i
+          ></span>
+          grade-9
+        </a>
+        <a href="#" class="grade-menu-item">
+          <span class="grade-menu-item-icon"
+            ><i class="fa-solid fa-graduation-cap"></i
+          ></span>
+          grade-10
+        </a>
+        <a href="#" class="grade-menu-item">
+          <span class="grade-menu-item-icon"
+            ><i class="fa-solid fa-graduation-cap"></i
+          ></span>
+          grade-11 (soon)
+        </a>
+        <a href="#" class="grade-menu-item">
+          <span class="grade-menu-item-icon"
+            ><i class="fa-solid fa-graduation-cap"></i
+          ></span>
+          grade-12 (soon)
+        </a>
+      </div>
+    </div>
+    <div class="profile-menu hidden">
+      <div class="profile-menu-item">
+        <span class="profile-menu-item-icon"
+          ><i class="fa-solid fa-id-card-clip"></i
+        ></span>
+        account
+      </div>
+      <div class="profile-menu-item">
+        <span class="profile-menu-item-icon"
+          ><i class="fa-solid fa-book"></i>
+        </span>
+        my booklists
+      </div>
+      <div class="profile-menu-item">
+        <span class="profile-menu-item-icon"
+          ><i class="fa-solid fa-book"></i
+        ></span>
+        something
+      </div>
+      <div class="profile-menu-item">
+        <span class="profile-menu-item-icon"
+          ><i class="fa-solid fa-right-from-bracket"></i
+        ></span>
+        logout
+      </div>
+    </div>
     <!--<div class="hero-bg"></div>
     <div class="resource-bg"></div>
     <div class="testimoney-bg"></div>
@@ -538,6 +633,14 @@
                 <div class="reg-desc">create account with us</div>
               </div>
             </div>
+            <div class="vertical-dots">
+              <span class="circle-dot-vertical">
+                <img src="/static/asset/circle-dot-vertical.svg" alt="" />
+              </span>
+              <span class="circle-dot-vertical">
+                <img src="/static/asset/circle-dot-vertical.svg" alt="" />
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -547,14 +650,6 @@
           <div class="testi-line"></div>
         </div>
         <div class="testimoney-content">
-          <div class="testi-nav-container">
-            <button class="testi-left-btn">
-              <i class="fa-solid fa-chevron-left"></i>
-            </button>
-            <button class="testi-right-btn">
-              <i class="fa-solid fa-chevron-right"></i>
-            </button>
-          </div>
           <div class="slider-testimoney">
             <div class="person-item">
               <div class="person-profile"></div>
@@ -638,9 +733,15 @@
             </div>
           </div>
         </div>
-        <div class="testi-slider-indicator">
-          
+        <div class="testi-nav-container">
+          <button class="testi-left-btn">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="testi-right-btn">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
         </div>
+        <div class="testi-slider-indicator"></div>
       </section>
       <section class="ad-sec">
         <div class="ad-container">
@@ -667,9 +768,205 @@
           </div>
         </div>
       </section>
+      <section class="team-sec">
+        <div class="team-headline">
+          <h2 class="team-text">testimony</h2>
+          <div class="team-line"></div>
+        </div>
+        <div class="team-member">
+          <div class="member-profile">
+            <div class="member-pic"></div>
+            <div class="member-name">
+              <span class="user-icon"
+                ><i class="fa-solid fa-user-tie"></i
+              ></span>
+              Abdulmegid Awol
+            </div>
+          </div>
+          <div class="team-content">
+            <div class="member-role">
+              <span class="role-icon"
+                ><i class="fa-solid fa-puzzle-piece"></i
+              ></span>
+              team lead & backend developer
+            </div>
+            <p class="member-bio">
+              "From Hollywood Blockbusters to Ethiopian Indies Our Movie and
+              Series Directory Has It All. Start Browsing Today!" "From
+              Hollywood Blockbusters to Ethiopian Indies Our Movie and Series
+              Directory Has It All. Start Browsing Today!" "From Hollywood
+              Blockbusters to Ethiopian Indies Our Movie and Series Directory
+              Has It All. Start Browsing Today!"
+            </p>
+            <div class="member-email">
+              <span class="email-icon"><i class="fa-solid fa-inbox"></i></span>
+              email :
+            </div>
+            <div class="member-phone">
+              <span class="phone-icon"
+                ><i class="fa-solid fa-phone-volume"></i
+              ></span>
+              phone :
+            </div>
+          </div>
+        </div>
+        <div class="team-nav-container">
+          <button class="team-left-btn">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="team-right-btn">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="team-slider-indicator"></div>
+      </section>
+      <section class="contact-sec">
+        <div class="contact-headline">
+          <h2 class="contact-text">contact us</h2>
+          <div class="contact-line"></div>
+        </div>
+        <div class="contact-container">
+          <div class="robot-4">
+            <img src="/static/asset/robor-4.svg" alt="" />
+          </div>
+          <form action="#" method="" class="contact-box">
+            <div class="contact-box-icon">
+              <i class="fa-solid fa-address-card"></i>
+            </div>
+            <div class="fullname-box">
+              Full Name
+              <div class="name-container">
+                <input
+                  type="text"
+                  class="contact-name"
+                  placeholder="fullname"
+                />
+                <span class="fullname-icon"></span>
+              </div>
+            </div>
+            <div class="email-box">
+              email
+              <div class="email-container">
+                <input type="email" class="contact-email" placeholder="email" />
+                <span class="email-icon"></span>
+              </div>
+            </div>
+            <div class="message-box">
+              message
+              <div class="message-container">
+                <textarea
+                  class="message-area"
+                  cols="30"
+                  rows="8"
+                  placeholder="message-here"
+                >
+                </textarea>
+              </div>
+            </div>
+            <button class="send-btn">
+              <span class="send-icon"
+                ><i class="fa-solid fa-paper-plane"></i
+              ></span>
+              send message
+            </button>
+          </form>
+        </div>
+      </section>
     </main>
-    <footer></footer>
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="/static/asset/logo.svg" alt="" />
+          <div>miilt<span class="oo">oo</span></div>
+        </div>
+        <div class="footer-link-container">
+          <div class="link-container">
+            Home
+            <a href="" class="link">grade</a>
+            <a href="" class="link">subject</a>
+            <a href="" class="link">chatbot</a>
+          </div>
+          <div class="link-container">
+            resource
+            <a href="" class="link">textbook</a>
+            <a href="" class="link">study guid</a>
+            <a href="" class="link">upload</a>
+          </div>
+          <div class="link-container">
+            grade
+            <a href="" class="link">grade-9</a>
+            <a href="" class="link">grade-10</a>
+            <a href="" class="link">grade-11</a>
+            <a href="" class="link">grade-12</a>
+          </div>
+          <div class="link-container">
+            pages
+            <a href="" class="link">About us</a>
+            <a href="" class="link">contact us</a>
+            <a href="" class="link">FAQ</a>
+            <a href="" class="link">help</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <a class="social-icons"><i class="fa-brands fa-square-twitter"></i></a>
+        <a class="social-icons"><i class="fa-brands fa-facebook"></i></a>
+        <a class="social-icons"><i class="fa-brands fa-linkedin"></i></a>
+        <a class="social-icons"><i class="fa-brands fa-github"></i></a>
+        <a class="social-icons"><i class="fa-brands fa-telegram"></i></a>
+      </div>
+    </footer>
     <script src="/static/js/menu.js"></script>
+    <script>
+      const how_does_sec = document.querySelector(".how-does-sec");
+      const circle_dot = document.querySelectorAll(".circle-dot");
+      const box = document.querySelectorAll(".how-does-reg");
+
+      for (let i = 0; i < circle_dot.length; i++) {
+        circle_dot[i].style.opacity = "0";
+      }
+
+      for (let i = 0; i < box.length; i++) {
+        box[i].style.opacity = "0";
+        box[i].style.transform = `translateX(160%)`;
+      }
+
+      how_does_sec.addEventListener("mouseenter", () => {
+        for (let i = 0; i < circle_dot.length; i++) {
+          let delay = i * 0.8; // Adjust the delay duration as needed
+          circle_dot[i].style.opacity = "1";
+          circle_dot[i].style.transitionDelay = `${delay}s`;
+        }
+
+        box.forEach((boxItem, index) => {
+          let delay = index * 0.8; // Adjust the delay duration as needed
+          boxItem.style.opacity = "1";
+          boxItem.style.transitionDelay = `${delay}s`;
+          boxItem.style.transform = "translateX(0)";
+        });
+      });
+    </script>
+    <script>
+      const home_link = document.querySelectorAll(".home-link");
+      const underline = document.getElementById("underline");
+      let currentPosition = 0;
+      let n = 0;
+      for (let i = 0; i < home_link.length; i++) {
+        home_link[i].addEventListener("mouseover", () => {
+          if (i === 0 || i === 1) {
+            n = 78 * i;
+          } else if (i === 2) {
+            n = 95 * i;
+          } else {
+            n = 99 * i;
+          }
+          underline.style.transform = `translateX(${n}px)`;
+        });
+        home_link[i].addEventListener("mouseleave", function () {
+          underline.style.transform = `translateX(${currentPosition})`;
+        });
+      }
+    </script>
     <script>
       const slider_testimoney = document.querySelector(".slider-testimoney");
       const slide_content = document.querySelectorAll(".person-item");
@@ -735,11 +1032,11 @@
       }
 
       startAutoSlide();
-testi_indicator_container.addEventListener('click',function(e){
-if (e.target.classList.contain('dots')) {
-  const slide=e.target.data.slide;
-}
-})
+      testi_indicator_container.addEventListener("click", function (e) {
+        if (e.target.classList.contain("dots")) {
+          const slide = e.target.data.slide;
+        }
+      });
       testi_right_btn.addEventListener("click", slideToNext);
       testi_left_btn.addEventListener("click", slideToPrev);
       document.addEventListener("keydown", (e) => {

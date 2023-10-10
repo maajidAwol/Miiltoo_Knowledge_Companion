@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/home-new.css" />
+    <link rel="stylesheet" href="/static/css/book-new.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="body">
+    <header>
+      <div class="logo-container">
+        <img src="/static/asset/logo.svg" alt="logo" />
+        <h3 class="logo-name">Miilt<span class="oo">oo</span></h3>
+      </div>
+      <nav class="nav-links">
+        <span class="underline" id="underline">
+          <img src="/static/asset/nav-link-underline.svg" alt="" />
+        </span>
+        <a href="" class="home-link">
+          <span class="nav-icons"><i class="fa-solid fa-house"></i></span>
+          Home
+        </a>
+        <a href="" class="home-link"
+          ><button class="grade-btn">
+            grade
+            <span class="grade-btn-icon">
+              <i class="fa-solid fa-caret-down"></i>
+            </span></button
+        ></a>
+        <a href="" class="home-link">competition</a>
+        <a href="" class="home-link"
+          ><button class="pages-btn">
+            pages
+            <span class="grade-btn-icon">
+              <i class="fa-solid fa-caret-down"></i>
+            </span></button
+        ></a>
+        <a href="" class="login-link"
+          ><button class="login-btn1">login</button></a
+        >
+        <a href="" class="signup-link">
+          <button class="signup-btn1">signup</button></a
+        >
+      </nav>
+      <div class="login-container hidden">
+        <button class="login-btn1">login</button>
+        <button class="signup-btn1">signup</button>
+      </div>
+      <div class="overlay hidden"></div>
+      <div class="hamb-menu hidden" id="hamb-menu">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="profile-container">
+        <button class="search-btn">
+          <span class="search-icon"
+            ><i class="fa-solid fa-magnifying-glass"></i
+          ></span>
+        </button>
+        <button class="notify-btn">
+          <span class="notify-icon"><i class="fa-solid fa-bell"></i></span>
+        </button>
+        <div class="profile-group">
+          <div class="separet-line"></div>
+          <span class="profile-pic">
+            <img src="/static/asset/profile-pic.png" alt="" />
+          </span>
+          <div class="self-desc-container">
+            <p>Dianne Russell</p>
+            <p>deanna.curtis@example.com</p>
+          </div>
+          <span class="profile-drop-icon"
+            ><i class="fa-solid fa-chevron-down"></i
+          ></span>
+        </div>
+        <div class="profile-detail"></div>
+      </div>
+    </header>
+    <div class="grade-menu hidden">
+      <div class="grade-menu-content">
+        <div class="grade-header">
+          <span class="grade-tittle-icon"
+            ><i class="fa-brands fa-elementor"></i
+          ></span>
+          <div class="grade-tittle">
+            <p>high school</p>
+            <p>Initial readiness for advancement.</p>
+          </div>
+        </div>
+        <a href="#" class="grade-menu-item">
+          <span class="grade-menu-item-icon"
+            ><i class="fa-solid fa-graduation-cap"></i
+          ></span>
+          grade-9
+        </a>
+        <a href="#" class="grade-menu-item">
+          <span class="grade-menu-item-icon"
+            ><i class="fa-solid fa-graduation-cap"></i
+          ></span>
+          grade-10
+        </a>
+        <a href="#" class="grade-menu-item">
+          <span class="grade-menu-item-icon"
+            ><i class="fa-solid fa-graduation-cap"></i
+          ></span>
+          grade-11 (soon)
+        </a>
+        <a href="#" class="grade-menu-item">
+          <span class="grade-menu-item-icon"
+            ><i class="fa-solid fa-graduation-cap"></i
+          ></span>
+          grade-12 (soon)
+        </a>
+      </div>
+    </div>
+    <div class="profile-menu hidden">
+      <div class="profile-menu-item">
+        <span class="profile-menu-item-icon"
+          ><i class="fa-solid fa-id-card-clip"></i
+        ></span>
+        account
+      </div>
+      <div class="profile-menu-item">
+        <span class="profile-menu-item-icon"
+          ><i class="fa-solid fa-book"></i>
+        </span>
+        my booklists
+      </div>
+      <div class="profile-menu-item">
+        <span class="profile-menu-item-icon"
+          ><i class="fa-solid fa-book"></i
+        ></span>
+        something
+      </div>
+      <div class="profile-menu-item">
+        <span class="profile-menu-item-icon"
+          ><i class="fa-solid fa-right-from-bracket"></i
+        ></span>
+        logout
+      </div>
+    </div>
+    <main>
+      <section class="chat-sec">
+        <div class="book-container">
+            <embed
+            src="/static/bk/Biology Student Textbook Grade 9.pdf"
+            frameborder="0"
+            class="pdf-section"
+          ></embed>
+        </div>
+        <div class="chatbot-container">
+            <div class="chatbot-var-1">
+                <button class="right-arrow-btn">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+                <div class="chatbot-logo">
+                    <img src="/static/asset/logo.svg" alt="logo" />
+                </div>
+                <div class="chatbot-headline">
+                    what can i <span>help</span> you ?
+                </div>
+                <div class="robot-say-hi">
+                    <img src="/static/asset/robot-3.png" alt="" />
+                </div>
+                <div class="func-container">
+                    <btn class="chatbot-func-item  flashlight" id="chat-btn">
+                        <div class="active-state-shape">
+                            <img src="/static/asset/active-state-shape.svg" alt="">
+                        </div>
+                        <span class="func-item-icon"><i class="fa-brands fa-rocketchat"></i></span>
+    <p>
+        chat
+    </p>
+                    </btn>
+                    <btn class="chatbot-func-item" id="quize-btn">
+                        <span class="func-item-icon">
+                            <i class="fa-regular fa-message"></i>
+                            <i class="fa-solid fa-question"></i></span>
+                    <p>
+                        quize
+    
+                    </p>
+                    </btn>
+                    <btn class="chatbot-func-item" id="custom-upload-btn">
+                        <span class="func-item-icon">
+                            <i class="fa-solid fa-upload"></i>
+                        </span>
+                    <p>
+                        custom upload
+    
+                    </p>
+                    </btn>
+                    <btn class="chatbot-func-item" id="setting-btn">
+                        <span class="func-item-icon"><i class="fa-solid fa-gear"></i></span>
+                    <p>
+                        setting
+    
+                    </p>
+                    </btn>
+                </div>
+            </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="/static/asset/logo.svg" alt="" />
+          <div>miilt<span class="oo">oo</span></div>
+        </div>
+        <div class="footer-link-container">
+          <div class="link-container">
+            Home
+            <a href="" class="link">grade</a>
+            <a href="" class="link">subject</a>
+            <a href="" class="link">chatbot</a>
+          </div>
+          <div class="link-container">
+            resource
+            <a href="" class="link">textbook</a>
+            <a href="" class="link">study guid</a>
+            <a href="" class="link">upload</a>
+          </div>
+          <div class="link-container">
+            grade
+            <a href="" class="link">grade-9</a>
+            <a href="" class="link">grade-10</a>
+            <a href="" class="link">grade-11</a>
+            <a href="" class="link">grade-12</a>
+          </div>
+          <div class="link-container">
+            pages
+            <a href="" class="link">About us</a>
+            <a href="" class="link">contact us</a>
+            <a href="" class="link">FAQ</a>
+            <a href="" class="link">help</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <a class="social-icons"><i class="fa-brands fa-square-twitter"></i></a>
+        <a class="social-icons"><i class="fa-brands fa-facebook"></i></a>
+        <a class="social-icons"><i class="fa-brands fa-linkedin"></i></a>
+        <a class="social-icons"><i class="fa-brands fa-github"></i></a>
+        <a class="social-icons"><i class="fa-brands fa-telegram"></i></a>
+      </div>
+    </footer>
+    <script src="/static/js/menu.js"></script>
+    <script>
+
+        const chatbot_headline=document.querySelector('.chatbot-headline');
+        const chatbot_logo=document.querySelector('.chatbot-logo');
+        const robot=document.querySelector('.robot-say-hi');
+        const book_container=document.querySelector('.book-container');
+        const chatbot_var_1=document.querySelector('.chatbot-var-1');
+        const func_container=document.querySelector('.func-container');
+        const btn_text=document.querySelectorAll('.chatbot-func-item p');
+        const right_arrow_btn=document.querySelector('.right-arrow-btn');
+right_arrow_btn.addEventListener('click',()=>{
+    chatbot_logo.classList.toggle('visible');
+    right_arrow_btn.classList.toggle('rotate-btn');
+    book_container.classList.toggle('toWidth');
+robot.classList.toggle('toPosition');
+chatbot_headline.classList.toggle('toPosition');
+func_container.classList.toggle('toY');    
+for (let i = 0; i < btn_text.length; i++) {
+btn_text[i].classList.toggle('minWidth');    
+}
+chatbot_var_1.classList.toggle('width');    
+});
+    </script>
+    <script>
+      const home_link = document.querySelectorAll(".home-link");
+      const underline = document.getElementById("underline");
+      let currentPosition = 0;
+      let n = 0;
+      for (let i = 0; i < home_link.length; i++) {
+        home_link[i].addEventListener("mouseover", () => {
+          if (i === 0 || i === 1) {
+            n = 78 * i;
+          } else if (i === 2) {
+            n = 95 * i;
+          } else {
+            n = 99 * i;
+          }
+          underline.style.transform = `translateX(${n}px)`;
+        });
+        home_link[i].addEventListener("mouseleave", function () {
+          underline.style.transform = `translateX(${currentPosition})`;
+        });
+      }
+    </script>
+  </body>
+</html>
