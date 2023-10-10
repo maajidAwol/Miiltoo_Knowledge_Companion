@@ -57,6 +57,7 @@ footer {
   gap: 8px;
 }
 .chatbot-var-1 {
+  position: relative;
   display: flex;
   width: 254px;
   height: 95%;
