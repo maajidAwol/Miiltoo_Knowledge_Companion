@@ -158,8 +158,75 @@
           ></embed>
         </div>
         <div class="chatbot-container">
+          <div class="chatbot-var-2 hidden">
+            <button class="arrow-btn chat-left-btn">
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <div class="chat-top-container">
+              <div class="var2-logo">
+                <img src="/static/asset/logo.svg" alt="">
+                miilt<span>oo</span>
+              </div>
+              <div class="chat-top-headline">
+                <div class="chat-text">
+                  <span class="chat-text-icon"><i class="fa-brands fa-rocketchat"></i></span>
+                  chat
+                </div>
+                <div class="subject-text">
+                  <span class="subject-text-icon"><i class="fa-solid fa-book"></i></span>
+                  subject :
+                  <p class="subject-name">subject name</p>
+                </div>
+              </div> 
+            </div>
+            <form action="" class="ask-form">
+              <div class="text-input-container">
+                <span class="question-icon">?   
+                </span>
+                <textarea name="" id="" class="text-input" placeholder="what can i help you?"></textarea>
+              </div>
+              <button class="ask-btn">
+                <span class="ask-btn-icon">
+                  
+                  <i class="fa-solid fa-microchip"></i>
+                <span class="icon-text">ai</span>
+                </span>
+                ask
+              </button>
+            </form>
+            <div class="result-label">
+              <div class="result-label-item">
+                <span class="static-icon"><i class="fa-solid fa-square-poll-vertical"></i></span>
+                result
+              </div>
+            </div>
+            <div class="result-container">
+              
+              <div class="result-container-item">
+                <div class="user-message-container">
+                  <span class="user-message-icon">     
+                    <i class="fa-solid fa-user-tie"></i>
+                  </span>
+                  <div class="user-message-content">
+                    what is the book about ?
+                  </div>
+                </div>
+                <div class="chatbot-message-container">
+                  <span class="chatbot-icon">
+                    <img src="/static/asset/logo.svg" alt="">
+
+                  </span>
+                  <div class="chatbot-content">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam laborum iure laboriosam, eveniet iste itaque, quas dolorem sed quam veritatis commodi eum laudantium. Voluptatibus sapiente recusandae nemo ipsa illo expedita.
+                    Necessitatibus quasi error recusandae vitae ut cum accusantium quae delectus eius esse quibusdam aliquam sunt alias debitis consequatur vero laudantium nobis dolorum, sed tenetur obcaecati placeat asperiores voluptas iusto! Quia!
+                    Repudiandae assumenda dicta similique dolorem, eaque unde quas autem sit tempora. Nobis consequatur eaque assumenda nostrum molestias alias. Accusamus reprehenderit rem repellat unde necessitatibus esse error earum iste ratione beatae.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
             <div class="chatbot-var-1">
-                <button class="right-arrow-btn">
+                <button class="arrow-btn right-arrow-btn">
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
                 <div class="chatbot-logo">
@@ -172,7 +239,7 @@
                     <img src="/static/asset/robot-3.png" alt="" />
                 </div>
                 <div class="func-container">
-                    <btn class="chatbot-func-item  flashlight" id="chat-btn">
+                    <btn class="chatbot-func-item" id="chat-btn">
                         <div class="active-state-shape">
                             <img src="/static/asset/active-state-shape.svg" alt="">
                         </div>
@@ -208,6 +275,7 @@
                     </btn>
                 </div>
             </div>
+           
         </div>
       </section>
     </main>
@@ -256,6 +324,26 @@
     </footer>
     <script src="/static/js/menu.js"></script>
     <script>
+        const chat_btn=document.querySelector('#chat-btn');
+        const main_btn=document.querySelectorAll('chatbot-func-item');
+        const left_btn=document.querySelector('.chat-left-btn');
+        const chat_sect=document.querySelector('.chatbot-var-2');
+        chat_btn.addEventListener('click',()=>{
+chat_sect.classList.remove('hidden');
+collapse_2();
+right_arrow_btn.classList.add('hidden');
+left_btn.classList.toggle('rotate-btn');
+main_btn.classList.toggle('toShadow');
+//right_arrow_btn.style.opacity=0;
+        });
+        left_btn.addEventListener('click',()=>{
+chat_sect.classList.add('hidden');
+right_arrow_btn.classList.remove('hidden');
+
+        });
+
+    </script>
+    <script>
 
         const chatbot_headline=document.querySelector('.chatbot-headline');
         const chatbot_logo=document.querySelector('.chatbot-logo');
@@ -265,7 +353,7 @@
         const func_container=document.querySelector('.func-container');
         const btn_text=document.querySelectorAll('.chatbot-func-item p');
         const right_arrow_btn=document.querySelector('.right-arrow-btn');
-right_arrow_btn.addEventListener('click',()=>{
+function collapse() {
     chatbot_logo.classList.toggle('visible');
     right_arrow_btn.classList.toggle('rotate-btn');
     book_container.classList.toggle('toWidth');
@@ -276,7 +364,29 @@ for (let i = 0; i < btn_text.length; i++) {
 btn_text[i].classList.toggle('minWidth');    
 }
 chatbot_var_1.classList.toggle('width');    
-});
+}
+right_arrow_btn.addEventListener('click',()=>{
+collapse();
+for (let i = 0; i < main_btn.length; i++) {
+main_btn[i].classList.toggle('toShadow');    
+}
+
+});  
+function collapse_2(){
+  chatbot_logo.classList.add('visible');
+    right_arrow_btn.classList.add('rotate-btn');
+    book_container.classList.add('toWidth');
+robot.classList.add('toPosition');
+chat_btn.classList.toggle('toShadow');
+chatbot_headline.classList.add('toPosition');
+func_container.classList.add('toY');    
+for (let i = 0; i < btn_text.length; i++) {
+btn_text[i].classList.add('minWidth');    
+}
+chatbot_var_1.classList.add('width'); 
+
+}
+
     </script>
     <script>
       const home_link = document.querySelectorAll(".home-link");
