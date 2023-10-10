@@ -239,7 +239,7 @@
                     <img src="/static/asset/robot-3.png" alt="" />
                 </div>
                 <div class="func-container">
-                    <btn class="chatbot-func-item  flashlight" id="chat-btn">
+                    <btn class="chatbot-func-item" id="chat-btn">
                         <div class="active-state-shape">
                             <img src="/static/asset/active-state-shape.svg" alt="">
                         </div>
@@ -325,15 +325,15 @@
     <script src="/static/js/menu.js"></script>
     <script>
         const chat_btn=document.querySelector('#chat-btn');
+        const main_btn=document.querySelectorAll('chatbot-func-item');
         const left_btn=document.querySelector('.chat-left-btn');
         const chat_sect=document.querySelector('.chatbot-var-2');
         chat_btn.addEventListener('click',()=>{
 chat_sect.classList.remove('hidden');
-collapse();
+collapse_2();
 right_arrow_btn.classList.add('hidden');
 left_btn.classList.toggle('rotate-btn');
-
-
+main_btn.classList.toggle('toShadow');
 //right_arrow_btn.style.opacity=0;
         });
         left_btn.addEventListener('click',()=>{
@@ -367,8 +367,25 @@ chatbot_var_1.classList.toggle('width');
 }
 right_arrow_btn.addEventListener('click',()=>{
 collapse();
-right_arrow_btn.classList.toggle('toLeft');
+for (let i = 0; i < main_btn.length; i++) {
+main_btn[i].classList.toggle('toShadow');    
+}
+
 });  
+function collapse_2(){
+  chatbot_logo.classList.add('visible');
+    right_arrow_btn.classList.add('rotate-btn');
+    book_container.classList.add('toWidth');
+robot.classList.add('toPosition');
+chat_btn.classList.toggle('toShadow');
+chatbot_headline.classList.add('toPosition');
+func_container.classList.add('toY');    
+for (let i = 0; i < btn_text.length; i++) {
+btn_text[i].classList.add('minWidth');    
+}
+chatbot_var_1.classList.add('width'); 
+
+}
 
     </script>
     <script>
