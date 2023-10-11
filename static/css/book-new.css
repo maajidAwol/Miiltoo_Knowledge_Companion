@@ -190,7 +190,7 @@ footer {
   transition: transform 0.3s ease;
 }
 .chatbot-func-item p.minWidth {
-  min-width: 125px;
+  min-width: 160px;
   opacity: 0;
 }
 
