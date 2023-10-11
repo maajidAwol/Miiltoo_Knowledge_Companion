@@ -55,18 +55,32 @@
           >
           ."
         </h2>
-        <div class="email-container">
-          <label for="username" class="label-email">Email</label>
+         <div class="email-container">
+          <label for="username" class="label-email">Username</label>
           <input
+                  id="username"
             name="username"
             type="text"
+            placeholder="Username"
+            class="email-field"
+          />
+          <span class="icon-email"><i class="fa-solid fa-envelope"></i></span>
+        </div>
+        <div class="email-container">
+          <label for="email" class="label-email">Email</label>
+          <input
+                  id="email"
+            name="email"
+            type="email"
             placeholder="email"
             class="email-field"
           />
           <span class="icon-email"><i class="fa-solid fa-envelope"></i></span>
         </div>
+
+
         <div class="password-container">
-          <label for="password" class="label-pass">Password</label>
+          <label for="password-field" class="label-pass">Password</label>
           <input
             name="password"
             type="password"
@@ -83,8 +97,9 @@
           ></span>
         </div>
         <div class="confirm-container">
-          <label for="password" class="label-pass">Confirm</label>
+          <label for="confirm-field" class="label-pass">Confirm</label>
           <input
+
             name="confirm"
             type="password"
             placeholder="Password"

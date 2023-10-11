@@ -95,13 +95,14 @@ def register():
         # full_name = request.form['full_name']
         username = request.form['username']
         password = request.form['password']
+        email = request.form["email"]
 
         # Call the register_user function
-        registration_result = register_user(username, password)
+        registration_result = register_user(username, email, password)
 
         if not registration_result:
             # user = User.query.filter_by(username=session['email_before']).first()
-            check_ver = User.query.filter_by(username=username).first()
+            check_ver = User.query.filter_by(email=email).first()
             print(check_ver.verified)
             if check_ver.verified:
                 # Registration failed, username already exists
@@ -109,11 +110,11 @@ def register():
                 all_users = User.query.all()
                 return render_template('sign_disp.html', users=all_users, error_message=error_message)
             elif not check_ver.verified:
-                session["email_before"] = username
+                session["email_before"] = email
                 return render_template("confirm_email.html")
         elif registration_result:
             user_for_confirmation = User.query.filter_by(username=username).first()
-            session["email_before"]= username
+            session["email_before"]= email
             return render_template("confirm_email.html")
     # Retrieve all users from the database
     all_users = User.query.all()
@@ -121,12 +122,13 @@ def register():
     return render_template('index.html', users=all_users)
 @app.route('/auth', methods=['POST', 'GET'])
 def auth():
-    username = request.form['username']
+    email = request.form['email']
     password = request.form['password']
-    print(username)
+    print(email)
     print(password)
-    if login_auth(username, password):
+    if login_auth(email, password):
         session['logged_in'] = "true"
+
         return redirect('/')
 
     return redirect('/login')
@@ -512,7 +514,7 @@ def logout():
 def confirm_email():
     if request.method == 'POST':
         entered_code = request.form.get('verification_code')
-        user = User.query.filter_by(username=session['email_before']).first()
+        user = User.query.filter_by(email=session['email_before']).first()
         print(entered_code)
         print(user.verification_code)
         print(session["email_before"])
@@ -576,7 +578,7 @@ def protected_area():
     return redirect("/")
     
 if __name__ == "__main__":
-    # with app.app_context():
-    #     db.create_all()
+    with app.app_context():
+        db.create_all()
     admin.init_app(app)
     app.run(debug=True)
