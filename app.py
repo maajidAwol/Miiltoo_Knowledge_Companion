@@ -30,12 +30,12 @@ import requests
 
 from werkzeug.utils import secure_filename
 import user
-from chat_quiz import quiz_function, chat_function
+from chat_quiz import quiz_function, chat_function,ext
 from custom_process import pdf_to_text
 from user import register_user,db,User,bcrypt, login_auth,migrate,Books,mail
 from admin import admin
 
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "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"
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1" 
 GOOGLE_CLIENT_ID = "929050329675-633eemlvju4gbm88m39qqql9kfm64p76.apps.googleusercontent.com"
 client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "client_secret.json")
@@ -307,37 +307,39 @@ def send():
     path = path[:-4] + ".txt"
     print(path)
 
-    # result = chat_function(prompt, path)
-    # return result
+    result = chat_function(prompt, path)
+    return result
     # time.sleep(10)
-    if "username" not in session:
-        ref=path
-    else:
-        ref =session["username"]+path
-    print(ref)
-
-    if ref not in session:
-        session[ref] = []
-    chat_history = session[ref]
-    mock_text = "I am your dedicated study companion, here to empower you in your academic journey. My mission is to assist you in comprehending your course materials and ultimately, helping you achieve better grades. With a wealth of knowledge and insightful analysis at my disposal, I'll break down complex concepts into digestible pieces, provide summaries, answer your questions, and offer valuable insights. Whether it's literature, science, history, or any other subject, I'm here to be your study buddy."
-
-    result = {"answer": mock_text}  # Mocking the result
-
-    # Append the current conversation turn to the chat history in the session
-    chat_history.append((prompt, result['answer']))
-    session[ref] = chat_history  # Update the chat history in the session
-
-    query = None
-    print(result)
-    print(session[ref])
-    return jsonify(result)
+    # if "username" not in session:
+    #     ref=path
+    # else:
+    #     ref =session["username"]+path
+    # print(ref)
+    #
+    # if ref not in session:
+    #     session[ref] = []
+    # chat_history = session[ref]
+    # mock_text = "I am your dedicated study companion, here to empower you in your academic journey. My mission is to assist you in comprehending your course materials and ultimately, helping you achieve better grades. With a wealth of knowledge and insightful analysis at my disposal, I'll break down complex concepts into digestible pieces, provide summaries, answer your questions, and offer valuable insights. Whether it's literature, science, history, or any other subject, I'm here to be your study buddy."
+    #
+    # result = {"answer": mock_text}  # Mocking the result
+    #
+    # # Append the current conversation turn to the chat history in the session
+    # chat_history.append((prompt, result['answer']))
+    # session[ref] = chat_history  # Update the chat history in the session
+    #
+    # query = None
+    # print(result)
+    # print(session[ref])
+    # return jsonify(result)
 @app.route("/quiz_request",methods=["POST"])
 def quiz_send():
     quiz_number = request.json.get('number')
     chapter = request.json.get('chapter')
     subtopic = request.json.get('subtopic')
     choice = request.json.get("book_choice")
-
+    print(quiz_number)
+    print(chapter)
+    print(subtopic)
     path = ""
 
 
@@ -354,7 +356,9 @@ def quiz_send():
         prompt = f'generate  {quiz_number} conceptual and random question quiz from  the content specially from {chapter} and subtopic {subtopic} having four choices a,b,c,d and answer letter and explanation  of the answer in json format'
     else:
         prompt = f'generate a {quiz_number} conceptual and random question quiz from  the whole content  having four choices a,b,c,d and answer letter and explanation  of the answer in json format'
-    result = quiz_function(prompt, path)
+    # result = quiz_function(prompt, path)
+    r='''{\n  "quiz": [\n    {\n      "question": "What is the main function of the nucleus in a cell?",\n      "choices": {\n        "a": "To produce energy for the cell",\n        "b": "To store genetic material",\n        "c": "To control the movement of substances in and out of the cell",\n        "d": "To synthesize proteins"\n      },\n      "answer": "b",\n      "explanation": "The nucleus is responsible for storing the cell\'s genetic material, including DNA."\n    },\n    {\n      "question": "Which organelle is responsible for protein synthesis in a cell?",\n      "choices": {\n        "a": "Mitochondria",\n        "b": "Golgi apparatus",\n        "c": "Ribosomes",\n        "d": "Endoplasmic reticulum"\n      },\n      "answer": "c",\n      "explanation": "Ribosomes are the organelles where proteins are synthesized in a cell."\n    },\n    {\n      "question": "What is the function of the cell membrane?",\n      "choices": {\n        "a": "To provide structural support to the cell",\n        "b": "To control the movement of substances in and out of the cell",\n        "c": "To store genetic material",\n        "d": "To produce energy for the cell"\n      },\n      "answer": "b",\n      "explanation": "The cell membrane regulates the passage of substances into and out of the cell, maintaining homeostasis."\n    },\n    {\n      "question": "Which structure is common to both plant and animal cells?",\n      "choices": {\n        "a": "Chloroplast",\n        "b": "Cell wall",\n        "c": "Nucleus",\n        "d": "Vacuole"\n      },\n      "answer": "c",\n      "explanation": "Both plant and animal cells have a nucleus, which contains the cell\'s genetic material."\n    }\n  ]\n}'''
+    result= ext(r)
     return result
 
 

@@ -71,7 +71,7 @@ function buildQuiz() {
     Object.keys(choices).forEach((choice) => {
       const choiceLabel = document.createElement("label");
       choiceLabel.innerHTML = `
-        <input type="radio" name="question${index}" value="${choice}" required>
+        <input class="quize-choose " type="radio" name="question${index}" value="${choice}" required>
         ${choice}: ${choices[choice]}
       <br>`;
       questionElement.appendChild(choiceLabel);
