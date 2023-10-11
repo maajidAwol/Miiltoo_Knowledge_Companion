@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{%block title %}Base{%endblock%}</title>
+    
+    <link rel="stylesheet" href="/static/css/home-new.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    {% block head %}
+    {% endblock %}
+  </head>
+<body class="body">
+    <header>
+        <div class="logo-container">
+          <img src="/static/asset/logo.svg" alt="logo" />
+          <h3 class="logo-name">Miilt<span class="oo">oo</span></h3>
+        </div>
+        <nav class="nav-links">
+          <span class="underline" id="underline">
+            <img src="/static/asset/nav-link-underline.svg" alt="" />
+          </span>
+          <a href="/" class="home-link">
+            <span class="nav-icons"><i class="fa-solid fa-house"></i></span>
+            Home
+          </a>
+          <a href="/grade" class="home-link"
+            ><button class="grade-btn">
+              grade
+              <span class="grade-btn-icon">
+                <i class="fa-solid fa-caret-down"></i>
+              </span></button
+          ></a>
+          <a href="" class="home-link">competition</a>
+          <a href="" class="home-link"
+            ><button class="pages-btn">
+              pages
+              <span class="grade-btn-icon">
+                <i class="fa-solid fa-caret-down"></i>
+              </span></button
+          ></a>
+         
+         
+        </nav>
+        <div class="login-container">
+          <a href="/login"><button class="login-btn1">login</button></a>
+          <a href="/signup"><button class="signup-btn1">signup</button></a>
+        </div>
+        <div class="overlay hidden"></div>
+        <div class="hamb-menu hidden" id="hamb-menu">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+        <div class="profile-container hidden">
+          <button class="search-btn">
+            <span class="search-icon"
+              ><i class="fa-solid fa-magnifying-glass"></i
+            ></span>
+          </button>
+          <button class="notify-btn">
+            <span class="notify-icon"><i class="fa-solid fa-bell"></i></span>
+          </button>
+          <div class="profile-group">
+            <div class="separet-line"></div>
+            <span class="profile-pic">
+              <img src="/static/asset/profile-pic.png" alt="" />
+            </span>
+            <div class="self-desc-container">
+              <p>Dianne Russell</p>
+              <p>deanna.curtis@example.com</p>
+            </div>
+            <span class="profile-drop-icon"
+              ><i class="fa-solid fa-chevron-down"></i
+            ></span>
+          </div>
+          <div class="profile-detail"></div>
+        </div>
+      </header>
+      {% block body %}
+      
+      {% endblock %}
+      {%block footer%}
+      <footer>
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="/static/asset/logo.svg" alt="" />
+            <div>miilt<span class="oo">oo</span></div>
+          </div>
+          <div class="footer-link-container">
+            <div class="link-container">
+              Home
+              <a href="" class="link">grade</a>
+              <a href="" class="link">subject</a>
+              <a href="" class="link">chatbot</a>
+            </div>
+            <div class="link-container">
+              resource
+              <a href="" class="link">textbook</a>
+              <a href="" class="link">study guid</a>
+              <a href="" class="link">upload</a>
+            </div>
+            <div class="link-container">
+              grade
+              <a href="" class="link">grade-9</a>
+              <a href="" class="link">grade-10</a>
+              <a href="" class="link">grade-11</a>
+              <a href="" class="link">grade-12</a>
+            </div>
+            <div class="link-container">
+              pages
+              <a href="" class="link">About us</a>
+              <a href="" class="link">contact us</a>
+              <a href="" class="link">FAQ</a>
+              <a href="" class="link">help</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <a class="social-icons"><i class="fa-brands fa-square-twitter"></i></a>
+          <a class="social-icons"><i class="fa-brands fa-facebook"></i></a>
+          <a class="social-icons"><i class="fa-brands fa-linkedin"></i></a>
+          <a class="social-icons"><i class="fa-brands fa-github"></i></a>
+          <a class="social-icons"><i class="fa-brands fa-telegram"></i></a>
+        </div>
+      </footer>
+      {%endblock%}
+   
+</body>
+
+</html>
