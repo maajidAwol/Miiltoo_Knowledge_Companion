@@ -39,6 +39,7 @@
   display: flex;
   height: 87vh;
   padding: 8px 32px;
+  padding-left: 16px;
   align-items: flex-start;
   gap: 32px;
 }
