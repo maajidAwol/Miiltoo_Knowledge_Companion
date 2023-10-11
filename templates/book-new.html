@@ -14,11 +14,11 @@
     {%endblock%}
   {%block body%}
    
-    <main>
+    <main sty>
       <section class="chat-sec">
         <div class="book-container">
             <embed
-            src="/static/bk/Biology Student Textbook Grade 9.pdf"
+            src="/static/{{book}}"
             frameborder="0"
             class="pdf-section"
           ></embed>
@@ -69,9 +69,9 @@
                 result
               </div>
             </div>
-            <div class="result-container" id="ccc">
+            <div class="result-container" >
 
-
+<div class="result-container-item" id="ccc">
 <!--                <div class="user-message-container">-->
 <!--                  <span class="user-message-icon">-->
 <!--                    <i class="fa-solid fa-user-tie"></i>-->
@@ -100,7 +100,7 @@
 <!--&lt;!&ndash;                <button id="bbb">prompt</button>&ndash;&gt;-->
 <!--              <div id="ccc">jjj</div>-->
 <!--              </form>-->
-            </div></div>
+            </div></div></div>
           <div class="chatbot-var-3 hidden">
             <button class="arrow-btn chat-left-btn">
               <i class="fa-solid fa-arrow-right"></i>

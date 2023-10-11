@@ -13,15 +13,15 @@ function addMessage(message, isUserMessage) {
   } else {
     messageDiv.classList.add("chatbot-message-container");
   }
-
+alert(message);
   messageDiv.innerHTML = `
 
-<br>
+
                   <span class="user-message-icon">
                     <i class="fa-solid fa-user-tie"></i>
                   </span>
                   <div class="user-message-content">
-                   kkkk
+                   ${message}
                   </div>
 
     `;
@@ -49,7 +49,7 @@ function sendMessage() {
         messageInput.value = "";
         const messageDiv = document.createElement("div");
         messageDiv.classList.add("mt-3", "p-3", "rounded");
-        messageDiv.classList.add("bot-message");
+        messageDiv.classList.add("chatbot-message-container");
         sendBtn.style.visibility = "visible";
 
         const content = data.answer;
@@ -62,6 +62,7 @@ function sendMessage() {
             /```([\s\S]+?)```/g,
             "</p><pre><code>$1</code></pre><p>"
           );
+          alert(content);
 
           messageDiv.innerHTML = `
                   <span class="chatbot-icon">
@@ -69,18 +70,19 @@ function sendMessage() {
 
                   </span>
                   <div class="chatbot-content">
-                    {content}  </div>
+                    ${content}  </div>
                 </div>
               `;
         } else {
+        alert(content);
           messageDiv.innerHTML = `
                   <span class="chatbot-icon">
                     <img src="/static/asset/logo.svg" alt="">
 
                   </span>
                   <div class="chatbot-content">
-                    {content}   </div>
-                </div>
+                    ${content}   </div>
+
               `;
         }
         chatBox.appendChild(messageDiv);
