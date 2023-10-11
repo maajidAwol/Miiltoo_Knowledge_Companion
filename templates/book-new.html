@@ -13,69 +13,7 @@
     />
     {%endblock%}
   {%block body%}
-    <div class="grade-menu hidden">
-      <div class="grade-menu-content">
-        <div class="grade-header">
-          <span class="grade-tittle-icon"
-            ><i class="fa-brands fa-elementor"></i
-          ></span>
-          <div class="grade-tittle">
-            <p>high school</p>
-            <p>Initial readiness for advancement.</p>
-          </div>
-        </div>
-        <a href="#" class="grade-menu-item">
-          <span class="grade-menu-item-icon"
-            ><i class="fa-solid fa-graduation-cap"></i
-          ></span>
-          grade-9
-        </a>
-        <a href="#" class="grade-menu-item">
-          <span class="grade-menu-item-icon"
-            ><i class="fa-solid fa-graduation-cap"></i
-          ></span>
-          grade-10
-        </a>
-        <a href="#" class="grade-menu-item">
-          <span class="grade-menu-item-icon"
-            ><i class="fa-solid fa-graduation-cap"></i
-          ></span>
-          grade-11 (soon)
-        </a>
-        <a href="#" class="grade-menu-item">
-          <span class="grade-menu-item-icon"
-            ><i class="fa-solid fa-graduation-cap"></i
-          ></span>
-          grade-12 (soon)
-        </a>
-      </div>
-    </div>
-    <div class="profile-menu hidden">
-      <div class="profile-menu-item">
-        <span class="profile-menu-item-icon"
-          ><i class="fa-solid fa-id-card-clip"></i
-        ></span>
-        account
-      </div>
-      <div class="profile-menu-item">
-        <span class="profile-menu-item-icon"
-          ><i class="fa-solid fa-book"></i>
-        </span>
-        my booklists
-      </div>
-      <div class="profile-menu-item">
-        <span class="profile-menu-item-icon"
-          ><i class="fa-solid fa-book"></i
-        ></span>
-        something
-      </div>
-      <div class="profile-menu-item">
-        <span class="profile-menu-item-icon"
-          ><i class="fa-solid fa-right-from-bracket"></i
-        ></span>
-        logout
-      </div>
-    </div>
+   
     <main>
       <section class="chat-sec">
         <div class="book-container">
@@ -649,26 +587,5 @@ chatbot_var_1.classList.add('width');
 
 }
 
-    </script>
-    <script>
-      const home_link = document.querySelectorAll(".home-link");
-      const underline = document.getElementById("underline");
-      let currentPosition = 0;
-      let n = 0;
-      for (let i = 0; i < home_link.length; i++) {
-        home_link[i].addEventListener("mouseover", () => {
-          if (i === 0 || i === 1) {
-            n = 78 * i;
-          } else if (i === 2) {
-            n = 95 * i;
-          } else {
-            n = 99 * i;
-          }
-          underline.style.transform = `translateX(${n}px)`;
-        });
-        home_link[i].addEventListener("mouseleave", function () {
-          underline.style.transform = `translateX(${currentPosition})`;
-        });
-      }
     </script>
 {%endblock%}

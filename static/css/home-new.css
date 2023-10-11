@@ -191,9 +191,12 @@ nav.slide {
   font-size: 24px;
   color: var(--color-accent);
 }
+.grade-btn-icon.rotateTo{
+  transform: rotate(180deg);
+}
 .profile-menu{
   position: absolute;
-  top: .9%;
+  top: 8.9%;
   left: 73%;
   display: flex;
   width: 251px;
@@ -349,23 +352,20 @@ font-weight: 600;
   font-weight: 400;
   text-transform: lowercase;
 }
-
-
-
 .grade-menu{
   position: absolute;
-  top: .9%;
-  left: 39%;
-  display: inline-flex;
-  padding: 24px 8px;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  border-radius: 9.5px;
-  border: 1px solid var(--secondary, #1E206F);
-  background: rgba(8, 13, 39, 0.90);
-  backdrop-filter: blur(8.75px);
-  z-index: 4;
+    top: 8.9%;
+    left: 42%;
+    display: inline-flex;
+    padding: 24px 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    border-radius: 9.5px;
+    border: 1px solid var(--secondary, #1E206F);
+    background: rgba(8, 13, 39, 0.90);
+    backdrop-filter: blur(8.75px);
+    z-index: 4;
 }
 .grade-menu-content{
   display: flex;
