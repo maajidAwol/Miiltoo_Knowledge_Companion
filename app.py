@@ -306,31 +306,31 @@ def send():
     path = url.replace("bk/", "books/")
     path = path[:-4] + ".txt"
     print(path)
-
-    result = chat_function(prompt, path)
-    return result
+    #
+    # result = chat_function(prompt, path)
+    # return result
     # time.sleep(10)
-    # if "username" not in session:
-    #     ref=path
-    # else:
-    #     ref =session["username"]+path
-    # print(ref)
-    #
-    # if ref not in session:
-    #     session[ref] = []
-    # chat_history = session[ref]
-    # mock_text = "I am your dedicated study companion, here to empower you in your academic journey. My mission is to assist you in comprehending your course materials and ultimately, helping you achieve better grades. With a wealth of knowledge and insightful analysis at my disposal, I'll break down complex concepts into digestible pieces, provide summaries, answer your questions, and offer valuable insights. Whether it's literature, science, history, or any other subject, I'm here to be your study buddy."
-    #
-    # result = {"answer": mock_text}  # Mocking the result
-    #
-    # # Append the current conversation turn to the chat history in the session
-    # chat_history.append((prompt, result['answer']))
-    # session[ref] = chat_history  # Update the chat history in the session
-    #
-    # query = None
-    # print(result)
-    # print(session[ref])
-    # return jsonify(result)
+    if "username" not in session:
+        ref=path
+    else:
+        ref =session["username"]+path
+    print(ref)
+
+    if ref not in session:
+        session[ref] = []
+    chat_history = session[ref]
+    mock_text = "I am your dedicated study companion, here to empower you in your academic journey. My mission is to assist you in comprehending your course materials and ultimately, helping you achieve better grades. With a wealth of knowledge and insightful analysis at my disposal, I'll break down complex concepts into digestible pieces, provide summaries, answer your questions, and offer valuable insights. Whether it's literature, science, history, or any other subject, I'm here to be your study buddy."
+
+    result = {"answer": mock_text}  # Mocking the result
+
+    # Append the current conversation turn to the chat history in the session
+    chat_history.append((prompt, result['answer']))
+    session[ref] = chat_history  # Update the chat history in the session
+
+    query = None
+    print(result)
+    print(session[ref])
+    return jsonify(result)
 @app.route("/quiz_request",methods=["POST"])
 def quiz_send():
     quiz_number = request.json.get('number')
