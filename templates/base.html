@@ -131,7 +131,22 @@
         </div>
       </footer>
       {%endblock%}
-   
+      <script>
+        var login = document.querySelector(".login-btn1");
+        var signup = document.querySelector(".signup-btn1");
+  
+        let loggedIn = {{ session['logged_in'] }};
+  
+        // Now you can use the 'loggedIn' JavaScript variable to manipulate information.
+        if (loggedIn) {
+          login.innerHTML = "<a href=\"/logout\">Logout</a>";
+          signup.innerHTML="{{session['name']}}";
+            console.log('User is logged in');
+        } else {
+            // User is not logged in, do something else.
+            console.log('User is not logged in');
+        }
+    </script>
 </body>
 
 </html>
