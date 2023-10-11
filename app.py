@@ -121,33 +121,23 @@ def register():
     return render_template('index.html', users=all_users)
 @app.route('/auth', methods=['POST', 'GET'])
 def auth():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        print(username)
-        print(password)
-        if login_auth(username, password):
-            loggedin = 'loggedIn'
-            return render_template('index.html', loggedin=loggedin)
+    username = request.form['username']
+    password = request.form['password']
+    print(username)
+    print(password)
+    if login_auth(username, password):
+        session['logged_in'] = "true"
+        return redirect('/')
 
-        return redirect('/login')
-    
-    authorization_url, state = flow.authorization_url()
-    session["state"] = state
-    
-    return redirect(authorization_url)
-
+    return redirect('/login')
+       
 @app.route("/")
 def main():
-    return render_template("index.html")
+    return render_template("index-new.html")
 
 @app.route("/grade/")
 def grade():
-    print("kkk")
     book = request.args.get('book')
-    print("ijjjjjjjjjjjjjjjjjjjjjjjjjj")
-    print(book)
-    print("j")
     if book:
        if book == "bk/Biology Student Textbook Grade 9.pdf":
            json_data = {
@@ -207,9 +197,8 @@ def grade():
     "6.2: Ecological relationships": [],
   },
 }
-           return render_template("book.html", book=book, json_data = json_data)
+           return render_template("book-new.html", book=book, json_data = json_data)
        elif book == "bk/History student textbook grade 9.pdf":
-           print("rand")
            json_data = {
         "chapter 1: The Discipline of History and Human Evolution": {
         "1.1: Meaning of Prehistory and History": [],
@@ -286,7 +275,7 @@ def grade():
         "9.5: The Congress of Vienna": [],
       },
     }
-           return render_template("book.html", book=book, json_data = json_data)
+           return render_template("book-new.html", book=book, json_data = json_data)
        else:
            print("lonely")
            json_data = {
@@ -294,10 +283,10 @@ def grade():
             "none": [],
         }
     }
-           return render_template("book.html", book=book)
+           return render_template("book-new.html", book=book)
 
     else:
-        print("oo")
+        
         return render_template("grade.html")
 @app.route("/request", methods=["POST"])
 def send():
@@ -421,7 +410,7 @@ def upload_file():
         json_data = {
 
         }
-        return render_template("book.html", book=bkr,json_data=json_data ,)
+        return render_template("book-new.html", book=bkr,json_data=json_data ,)
 
     return 'Error: Please upload a PDF file'
 
@@ -562,7 +551,8 @@ def callback():
     )
 
     session["google_id"] = id_info.get("sub")
-    session["name"] = id_info.get("name")
+    session["google_name"] = id_info.get("name")
+    session["google_email"] = id_info.get("email")
     
     return redirect("/protected_area")
 

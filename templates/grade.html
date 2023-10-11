@@ -1,83 +1,30 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1, width=device-width" />
+{%extends "base.html"%}
+{%block title%}Grade{%endblock%}
+{%block head%}
+<link rel="stylesheet" href="../static/css/global.css" />
+   
+<link rel="stylesheet" href="../static/css/global-grade.css" />
+<link rel="stylesheet" href="../static/css/grade.css" />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Source Serif Pro:wght@600&display=swap"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Pacifico:wght@400&display=swap"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+/>
+{%endblock%}
 
-    <link rel="stylesheet" href="../static/css/global.css" />
-    <link rel="stylesheet" href="../static/css/home.css" />
-    <link rel="stylesheet" href="../static/css/global-grade.css" />
-    <link rel="stylesheet" href="../static/css/grade.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Source Serif Pro:wght@600&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Pacifico:wght@400&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
-    />
-  </head>
-  <body>
-    <header>
+{%block body%}
 
-      <div class="top-menu">
-        <div class="header-parent">
-          <div class="header">
-            <div class="header-child"></div>
-            <div class="miiltoo-parent">
-              <div class="miiltoo1">Miiltoo</div>
-              <img
-                class="untitled-13x-1-icon2"
-                alt=""
-                src="../static/public/untitled13x-12@2x.png"
-              />
-            </div>
-            <nav class="home-group">
-              <a href="/index/"><div class="wade-warren">Home</div></a>
-              <div class="dropdown">
-                <button class="wade-warren dropbtn">Grade</button>
-                <div class="dropdown-content">
-                  <a href="/grade/">Grade-9</a>
-                  <a href="#">Grade-10(soon)</a>
-                  <a href="#">Grade-11(soon)</a>
-                  <a href="#">Grade-12(soon)</a>
-                </div>
-              </div>
-              <a href="/quize/"><div class="wade-warren"></div></a>
-              <a href=""><div class="wade-warren"></div></a>
-            </nav>
-            <div class="login-parent">
-              <div class="login">login</div>
-              <div class="signup-wrapper">
-                <div class="signup">Signup</div>
-              </div>
-            </div>
-          </div>
-          <div class="search-bar">
-            <div class="group-container">
-              <img class="frame-child4" alt="" src="../static/public/group-131.svg" />
-
-              <div class="textbook-container">
-                <h2 class="history">Textbook/</h2>
-              </div>
-              <div class="grade-9-wrapper2">
-                <h3 class="grade-96">grade-9</h3>
-              </div>
-            </div>
-            <img class="search-bar-child" alt="" src="../static/public/frame-188.svg" />
-          </div>
-        </div>
-      </div>
-
-    </header>
     <main class="grade">
       <img class="grade-child" alt="" src="../static/public/rectangle-1@2x.png" />
 
@@ -476,87 +423,7 @@
       </main>
      
     </main>
-    <footer class="footer1">
-      <div class="top1">
-        <div class="untitled-13x-1-container">
-          <img
-            class="untitled-13x-1-icon5"
-            alt=""
-            src="../static/public/logo.svg"
-          />
-
-          <div class="miiltoo3">Miiltoo</div>
-        </div>
-        <div class="home-container">
-          <div class="wade-warren">home</div>
-          <div class="wade-warren">resource</div>
-          <div class="grade-container">
-            <div class="wade-warren">Grade</div>
-          </div>
-          <div class="pages-container">
-            <div class="wade-warren">pages</div>
-          </div>
-          <div class="social-media-container">
-            <div class="wade-warren">social media</div>
-          </div>
-        </div>
-      </div>
-      <div class="footer-child">
-        <div class="frame-parent35">
-          <div class="grade-group">
-          <div class="wade-warren top-tag" >Home</div>
-
-            <div class="wade-warren">Grade</div>
-            <div class="wade-warren">Subject</div>
-            <div class="wade-warren">Chatbot</div>
-          </div>
-          <div class="grade-group">
-            <div class="wade-warren top-tag">Resources</div>
-            <div class="wade-warren">textbook</div>
-            <div class="wade-warren">study guide</div>
-            <div class="wade-warren">Quize</div>
-            <div class="wade-warren">Test</div>
-          </div>
-          <div class="grade-9-group">
-            <div class="wade-warren top-tag">Grade</div>
-            <div class="wade-warren">Grade-9</div>
-            <div class="grade-102">
-              <p class="lorem-ipsum-dolor7">grade-10</p>
-            </div>
-            <div class="wade-warren">grade-11</div>
-            <div class="wade-warren">grade-12</div>
-          </div>
-          <div class="grade-9-group">
-            <div class="wade-warren top-tag">Pages</div>
-            <div class="wade-warren">About us</div>
-            <div class="contact2">
-              <p class="lorem-ipsum-dolor7">Contact</p>
-            </div>
-            <div class="wade-warren top-tag">FAQ</div>
-            <div class="wade-warren">Privacy policy</div>
-            <div class="wade-warren">Help</div>
-          </div>
-          <div class="grade-group">
-            <div class="wade-warren top-tag">Social media</div>
-            <div class="wade-warren">Twitter</div>
-            <div class="wade-warren">linkedIn</div>
-            <div class="wade-warren">Facebook</div>
-            <div class="wade-warren">Telegram</div>
-          </div>
-        </div>
-      </div>
-      <div class="frame-footer">
-        <img
-          class="untitled-13x-1-icon5"
-          alt=""
-          src="../static/public/logo.svg"
-        />
-
-        <div class="footer-text1">
-          © 2023 Miiltoo ai-based chatbot. All rights reserved.
-        </div>
-      </div>
-    </footer>
+    
 
     <script>
       var homeText1 = document.getElementById("homeText1");
@@ -566,5 +433,4 @@
         });
       }
     </script>
-  </body>
-</html>
+{%endblock%}

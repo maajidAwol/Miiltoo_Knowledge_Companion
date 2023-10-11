@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="en">
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <title>{% block title %}My Flask App{% endblock %}</title>
+    <title>{%block title %}Base{%endblock%}</title>
+    
     <link rel="stylesheet" href="/static/css/home-new.css" />
     <link
       rel="stylesheet"
@@ -12,191 +13,144 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    {% block head %}
+    {% endblock %}
   </head>
-
-<body>
-       <header>
-      <div class="logo-container">
-        <img src="/static/asset/logo.svg" alt="logo" />
-        <h3 class="logo-name">Miilt<span class="oo">oo</span></h3>
-      </div>
-      <nav class="nav-links">
-        <span class="underline" id="underline">
-          <img src="/static/asset/nav-link-underline.svg" alt="" />
-        </span>
-        <a href="" class="home-link">
-          <span class="nav-icons"><i class="fa-solid fa-house"></i></span>
-          Home
-        </a>
-        <a href="" class="home-link"
-          ><button class="grade-btn">
-            grade
-            <span class="grade-btn-icon">
-              <i class="fa-solid fa-caret-down"></i>
-            </span></button
-        ></a>
-        <a href="" class="home-link">competition</a>
-        <a href="" class="home-link"
-          ><button class="pages-btn">
-            pages
-            <span class="grade-btn-icon">
-              <i class="fa-solid fa-caret-down"></i>
-            </span></button
-        ></a>
-        <a href="" class="login-link"
-          ><button class="login-btn1">login</button></a
-        >
-        <a href="" class="signup-link">
-          <button class="signup-btn1">signup</button></a
-        >
-      </nav>
-      <div class="login-container">
-        <button class="login-btn1">login</button>
-        <button class="signup-btn1">signup</button>
-      </div>
-      <div class="overlay hidden"></div>
-      <div class="hamb-menu hidden" id="hamb-menu">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-      </div>
-      <div class="profile-container hidden">
-        <button class="search-btn">
-          <span class="search-icon"
-            ><i class="fa-solid fa-magnifying-glass"></i
-          ></span>
-        </button>
-        <button class="notify-btn">
-          <span class="notify-icon"><i class="fa-solid fa-bell"></i></span>
-        </button>
-        <div class="profile-group">
-          <div class="separet-line"></div>
-          <span class="profile-pic">
-            <img src="/static/asset/profile-pic.png" alt="" />
+<body class="body">
+    <header>
+        <div class="logo-container">
+          <img src="/static/asset/logo.svg" alt="logo" />
+          <h3 class="logo-name">Miilt<span class="oo">oo</span></h3>
+        </div>
+        <nav class="nav-links">
+          <span class="underline" id="underline">
+            <img src="/static/asset/nav-link-underline.svg" alt="" />
           </span>
-          <div class="self-desc-container">
-            <p>Dianne Russell</p>
-            <p>deanna.curtis@example.com</p>
-          </div>
-          <span class="profile-drop-icon"
-            ><i class="fa-solid fa-chevron-down"></i
-          ></span>
-        </div>
-        <div class="profile-detail"></div>
-      </div>
-    </header>
-    <div class="grade-menu hidden">
-      <div class="grade-menu-content">
-        <div class="grade-header">
-          <span class="grade-tittle-icon"
-            ><i class="fa-brands fa-elementor"></i
-          ></span>
-          <div class="grade-tittle">
-            <p>high school</p>
-            <p>Initial readiness for advancement.</p>
-          </div>
-        </div>
-        <a href="#" class="grade-menu-item">
-          <span class="grade-menu-item-icon"
-            ><i class="fa-solid fa-graduation-cap"></i
-          ></span>
-          grade-9
-        </a>
-        <a href="#" class="grade-menu-item">
-          <span class="grade-menu-item-icon"
-            ><i class="fa-solid fa-graduation-cap"></i
-          ></span>
-          grade-10
-        </a>
-        <a href="#" class="grade-menu-item">
-          <span class="grade-menu-item-icon"
-            ><i class="fa-solid fa-graduation-cap"></i
-          ></span>
-          grade-11 (soon)
-        </a>
-        <a href="#" class="grade-menu-item">
-          <span class="grade-menu-item-icon"
-            ><i class="fa-solid fa-graduation-cap"></i
-          ></span>
-          grade-12 (soon)
-        </a>
-      </div>
-    </div>
-    <div class="profile-menu hidden">
-      <div class="profile-menu-item">
-        <span class="profile-menu-item-icon"
-          ><i class="fa-solid fa-id-card-clip"></i
-        ></span>
-        account
-      </div>
-      <div class="profile-menu-item">
-        <span class="profile-menu-item-icon"
-          ><i class="fa-solid fa-book"></i>
-        </span>
-        my booklists
-      </div>
-      <div class="profile-menu-item">
-        <span class="profile-menu-item-icon"
-          ><i class="fa-solid fa-book"></i
-        ></span>
-        something
-      </div>
-      <div class="profile-menu-item">
-        <span class="profile-menu-item-icon"
-          ><i class="fa-solid fa-right-from-bracket"></i
-        ></span>
-        logout
-      </div>
-    </div>
-
-    <main>
-        <!-- Content of child templates will be inserted here -->
-        {% block content %}{% endblock %}
-        <p style="color:white;">lorem k</p>
-    </main>
-
- <footer>
-      <div class="footer-content">
-        <div class="footer-logo">
-          <img src="/static/asset/logo.svg" alt="" />
-          <div>miilt<span class="oo">oo</span></div>
-        </div>
-        <div class="footer-link-container">
-          <div class="link-container">
+          <a href="/" class="home-link">
+            <span class="nav-icons"><i class="fa-solid fa-house"></i></span>
             Home
-            <a href="" class="link">grade</a>
-            <a href="" class="link">subject</a>
-            <a href="" class="link">chatbot</a>
+          </a>
+          <a href="/grade" class="home-link"
+            ><button class="grade-btn">
+              grade
+              <span class="grade-btn-icon">
+                <i class="fa-solid fa-caret-down"></i>
+              </span></button
+          ></a>
+          <a href="" class="home-link">competition</a>
+          <a href="" class="home-link"
+            ><button class="pages-btn">
+              pages
+              <span class="grade-btn-icon">
+                <i class="fa-solid fa-caret-down"></i>
+              </span></button
+          ></a>
+         
+         
+        </nav>
+        <div class="login-container">
+          <a href="/login"><button class="login-btn1">login</button></a>
+          <a href="/signup"><button class="signup-btn1">signup</button></a>
+        </div>
+        <div class="overlay hidden"></div>
+        <div class="hamb-menu hidden" id="hamb-menu">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+        <div class="profile-container hidden">
+          <button class="search-btn">
+            <span class="search-icon"
+              ><i class="fa-solid fa-magnifying-glass"></i
+            ></span>
+          </button>
+          <button class="notify-btn">
+            <span class="notify-icon"><i class="fa-solid fa-bell"></i></span>
+          </button>
+          <div class="profile-group">
+            <div class="separet-line"></div>
+            <span class="profile-pic">
+              <img src="/static/asset/profile-pic.png" alt="" />
+            </span>
+            <div class="self-desc-container">
+              <p class="google_username"></p>
+              <p class="google_email"></p>
+            </div>
+            <span class="profile-drop-icon"
+              ><i class="fa-solid fa-chevron-down"></i
+            ></span>
           </div>
-          <div class="link-container">
-            resource
-            <a href="" class="link">textbook</a>
-            <a href="" class="link">study guid</a>
-            <a href="" class="link">upload</a>
+          <div class="profile-detail"></div>
+        </div>
+      </header>
+      {% block body %}
+      
+      {% endblock %}
+      {%block footer%}
+      <footer>
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="/static/asset/logo.svg" alt="" />
+            <div>miilt<span class="oo">oo</span></div>
           </div>
-          <div class="link-container">
-            grade
-            <a href="" class="link">grade-9</a>
-            <a href="" class="link">grade-10</a>
-            <a href="" class="link">grade-11</a>
-            <a href="" class="link">grade-12</a>
-          </div>
-          <div class="link-container">
-            pages
-            <a href="" class="link">About us</a>
-            <a href="" class="link">contact us</a>
-            <a href="" class="link">FAQ</a>
-            <a href="" class="link">help</a>
+          <div class="footer-link-container">
+            <div class="link-container">
+              Home
+              <a href="" class="link">grade</a>
+              <a href="" class="link">subject</a>
+              <a href="" class="link">chatbot</a>
+            </div>
+            <div class="link-container">
+              resource
+              <a href="" class="link">textbook</a>
+              <a href="" class="link">study guid</a>
+              <a href="" class="link">upload</a>
+            </div>
+            <div class="link-container">
+              grade
+              <a href="" class="link">grade-9</a>
+              <a href="" class="link">grade-10</a>
+              <a href="" class="link">grade-11</a>
+              <a href="" class="link">grade-12</a>
+            </div>
+            <div class="link-container">
+              pages
+              <a href="" class="link">About us</a>
+              <a href="" class="link">contact us</a>
+              <a href="" class="link">FAQ</a>
+              <a href="" class="link">help</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="footer-bottom">
-        <a class="social-icons"><i class="fa-brands fa-square-twitter"></i></a>
-        <a class="social-icons"><i class="fa-brands fa-facebook"></i></a>
-        <a class="social-icons"><i class="fa-brands fa-linkedin"></i></a>
-        <a class="social-icons"><i class="fa-brands fa-github"></i></a>
-        <a class="social-icons"><i class="fa-brands fa-telegram"></i></a>
-      </div>
-    </footer>
+        <div class="footer-bottom">
+          <a class="social-icons"><i class="fa-brands fa-square-twitter"></i></a>
+          <a class="social-icons"><i class="fa-brands fa-facebook"></i></a>
+          <a class="social-icons"><i class="fa-brands fa-linkedin"></i></a>
+          <a class="social-icons"><i class="fa-brands fa-github"></i></a>
+          <a class="social-icons"><i class="fa-brands fa-telegram"></i></a>
+        </div>
+      </footer>
+      {%endblock%}
+      <script>
+        var login_and_signup = document.querySelector('.login-container');
+        var profile = document.querySelector('.profile-container');
+        var username= document.querySelector('.google_username');
+        var email= document.querySelector('.google_email');
+        let loggedIn = {{ session['logged_in'] }};
+  
+        // Now you can use the 'loggedIn' JavaScript variable to manipulate information.
+        if (loggedIn) {
+         login_and_signup.classList.add('hidden');
+         
+         username.innerHTML = "{{ session['google_name'] }}";
+          email.innerHTML = "{{ session['google_email'] }}";
+          profile.classList.remove('hidden');
+         console.log('logged in');
+        } else {
+          login_and_signup.classList.remove('hidden');
+          profile.classList.add('hidden');
+        }
+    </script>
 </body>
+
 </html>
