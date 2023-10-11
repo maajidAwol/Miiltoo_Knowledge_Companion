@@ -26,6 +26,15 @@
   --color-accent: #22fbf9;
   font-family: var(--font-roboto);
 }
+.grade-menu,
+.profile-menu {
+  position: absolute;
+  top: 8.9%;
+  left: 43.5%;
+}
+.profile-menu {
+  left: 73.8%;
+}
 .chat-sec {
   display: flex;
   height: 87vh;
