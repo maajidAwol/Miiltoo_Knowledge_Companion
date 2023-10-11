@@ -46,7 +46,7 @@
   height: 100%;
   border-radius: 24px 24px 4px 4px;
 }
-footer{
+footer {
   display: none;
 }
 .chatbot-container {
@@ -194,11 +194,8 @@ footer{
   opacity: 0;
 }
 
-.chatbot-func-item.flashlight {
-  border-radius: 8px;
-  background: rgba(30, 32, 111, 0.5);
-  box-shadow: -256.5px 0px 17.5px 0px rgba(34, 251, 249, 0.9);
-  overflow: hidden;
+.flashlight {
+  box-shadow: -68.5px 0px 17.5px 0px rgba(34, 251, 249, 0.9);
 }
 .chatbot-func-item:hover {
   cursor: pointer;
