@@ -1,6 +1,131 @@
 {% extends "base.html" %} {%block title %}Account{%endblock%} {%block body%}
+<link rel="stylesheet" href="/static/css/home-new.css" />
+<link rel="stylesheet" href="/static/css/account.css" />
+<section class="account-sec">
+  <div class="account-sec-content">
+    <div class="acc-left-bar">
+      <button class="edit-btn">
+        edit
+        <span class="edit-icon"><i class="fa-solid fa-pen-to-square"></i></span>
+      </button>
+      <div class="profile-content">
+        <div class="profile-photo">
+          <img src="/static/asset/profile-pic.png" alt="" />
+        </div>
+        <div class="profile-desc">
+          <p class="person-username">Natty</p>
+          <p class="person-email">naejhhvgb@gnhvgvb.com</p>
+        </div>
+        <div class="blue-line"></div>
+      </div>
+      <div class="btns-container">
+        <button class="btn-func-item flashlight" id="profile-btn">
+          <span class="btns-icon">
+            <i class="fa-solid fa-id-card-clip"></i>
+          </span>
+          my profile
+          <span class="active-state-shape">
+            <img src="/static/asset/active-state-shape.svg" alt="" />
+          </span>
+        </button>
+        <button class="btn-func-item" id="profile-btn">
+          <span class="btns-icon"
+            ><i class="fa-solid fa-shield-halved"></i>
+          </span>
+          security
+          <span class="active-state-shape hidden">
+            <img src="/static/asset/active-state-shape.svg" alt="" />
+          </span>
+        </button>
+        <button class="btn-func-item" id="profile-btn">
+          <span class="btns-icon"> <i class="fa-solid fa-chart-line"></i></span>
+          my data
+          <span class="active-state-shape hidden">
+            <img src="/static/asset/active-state-shape.svg" alt="" />
+          </span>
+        </button>
+        <button class="btn-func-item" id="profile-btn">
+          <span class="btns-icon"> <i class="fa-solid fa-bell"></i></span>
+          notification
+          <span class="active-state-shape hidden">
+            <img src="/static/asset/active-state-shape.svg" alt="" />
+          </span>
+        </button>
+        <button class="btn-func-item" id="profile-btn">
+          <span class="btns-icon"> <i class="fa-solid fa-gear"></i></span>
+          setting
+          <span class="active-state-shape hidden">
+            <img src="/static/asset/active-state-shape.svg" alt="" />
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="acc-right-panel">
+      <div class="current-label">
+        <button class="left-btn">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        my profile
+      </div>
+      <div class="personal-info-container">
+        <div class="top-container">
+          personal information
+          <button class="edit-btn">
+            edit
+            <span class="edit-icon"
+              ><i class="fa-solid fa-pen-to-square"></i
+            ></span>
+          </button>
+        </div>
+        <div class="middle-container">
+          <div class="input-box">
+            username
+            <input type="text" id="username" value="@nattyleyo" disabled />
+          </div>
+          <div class="input-box">
+            firstname
+            <input type="text" id="fullname" value="natnael" disabled />
+          </div>
+        </div>
+        <div class="middle-container">
+          <div class="input-box">
+            email
+            <input
+              type="email"
+              id="email"
+              value="natgbgbbhb@gmail.com"
+              disabled
+            />
+          </div>
+          <div class="input-box">
+            phone
+            <input type="tel" id="phone" value="+2519*****75" disabled />
+          </div>
+        </div>
+      </div>
+      <div class="address-container">
+        <div class="top-container">
+          address
+          <button class="edit-btn">
+            edit
+            <span class="edit-icon"
+              ><i class="fa-solid fa-pen-to-square"></i
+            ></span>
+          </button>
+        </div>
+        <div class="middle-container">
+          <div class="input-box">
+            country
+            <input type="text" id="country" value="ethiopia" disabled />
+          </div>
+          <div class="input-box">
+            city/state
+            <input type="text" id="city-state" value="butajera" disabled />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-
-
-<h1>write the body here</h1>
 {%endblock%}
