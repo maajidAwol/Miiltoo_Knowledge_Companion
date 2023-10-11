@@ -153,6 +153,9 @@ nav.slide {
   z-index: 4;
   opacity: 1;
 }
+a{
+  text-decoration: none;
+}
 .login-container {
   margin-left: auto;
   display: flex;
