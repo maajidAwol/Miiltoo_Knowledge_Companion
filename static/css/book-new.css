@@ -185,6 +185,7 @@ footer {
   line-height: normal;
   text-transform: capitalize;
   border-radius: 8px;
+  border: none;
   background: rgba(30, 32, 111, 0.5);
   transition: transform 0.3s ease;
 }

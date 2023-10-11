@@ -398,40 +398,39 @@
                     <img src="/static/asset/robot-3.png" alt="" />
                 </div>
                 <div class="func-container">
-                    <btn class="chatbot-func-item" id="chat-btn">
-                        <div class="active-state-shape">
+                    <button class="chatbot-func-item" id="chat-btn">
+                        <div class="active-state-shape hidden">
                             <img src="/static/asset/active-state-shape.svg" alt="">
                         </div>
-                        <span class="func-item-icon"><i class="fa-brands fa-rocketchat"></i></span>
-    <p>
-        chat
-    </p>
-                    </btn>
-                    <btn class="chatbot-func-item" id="quize-btn">
+                        <span class="func-item-icon"><i class="fa-brands fa-rocketchat"></i>
+                        </span>
+                         <p>chat</p>
+                    </button>
+                    <button class="chatbot-func-item" id="quize-btn">
+                      <div class="active-state-shape hidden">
+                        <img src="/static/asset/active-state-shape.svg" alt="">
+                      </div>
                         <span class="func-item-icon">
                             <i class="fa-regular fa-message"></i>
                             <i class="fa-solid fa-question"></i></span>
-                    <p>
-                        quize
-    
-                    </p>
-                    </btn>
-                    <btn class="chatbot-func-item" id="custom-upload-btn">
-                        <span class="func-item-icon">
+                    <p>quize</p>
+                    </button>
+                    <button class="chatbot-func-item" id="custom-upload-btn">
+                      <div class="active-state-shape hidden">
+                        <img src="/static/asset/active-state-shape.svg" alt="">
+                      </div>  
+                      <span class="func-item-icon">
                             <i class="fa-solid fa-upload"></i>
                         </span>
-                    <p>
-                        custom upload
-    
-                    </p>
-                    </btn>
-                    <btn class="chatbot-func-item" id="setting-btn">
-                        <span class="func-item-icon"><i class="fa-solid fa-gear"></i></span>
-                    <p>
-                        setting
-    
-                    </p>
-                    </btn>
+                        <p>custom upload</p>
+                    </button>
+                    <button class="chatbot-func-item" id="setting-btn">
+                      <div class="active-state-shape hidden">
+                        <img src="/static/asset/active-state-shape.svg" alt="">
+                      </div>
+                      <span class="func-item-icon"><i class="fa-solid fa-gear"></i></span>
+                       <p>setting</p>
+                    </button>
                 </div>
             </div>
           
@@ -483,8 +482,8 @@
       </div>
     </footer>
     {%endblock%}
-    <script src="/static/js/menu.js"></script>
-    <script>
+    <!--<script src="/static/js/menu.js"></script>
+    --><script>
 
 const quize_choose = document.querySelectorAll(".quize-choose");
 const choiceOption = document.querySelectorAll(".choose-list");
@@ -534,38 +533,69 @@ document.getElementById("generated-quize-form").addEventListener("submit", funct
 
     </script>
     <script>
-        const chat_btn=document.querySelector('#chat-btn');
-        const quize_btn=document.querySelector('#quize-btn');
-        const main_btn=document.querySelectorAll('chatbot-func-item');
-        const left_btn=document.querySelectorAll('.chat-left-btn');
-        const chat_sect=document.querySelector('.chatbot-var-2');
-        const quize_sect=document.querySelector('.chatbot-var-3');
-        chat_btn.addEventListener('click',()=>{
-          if(!quize_sect.classList.contains('hidden')){
-quize_sect.classList.add('hidden');
-}
-chat_sect.classList.remove('hidden');
-collapse_2();
-right_arrow_btn.classList.add('hidden');
-for (let i = 0; i < left_btn.length; i++) {
-        left_btn[i].classList.toggle('rotate-btn');
-      }
-        });
+       const chat_btn = document.querySelector('#chat-btn');
+const quize_btn = document.querySelector('#quize-btn');
+const main_btn = document.querySelectorAll('.chatbot-func-item');
+const left_btn = document.querySelectorAll('.chat-left-btn');
+const chat_sect = document.querySelector('.chatbot-var-2');
+const quize_sect = document.querySelector('.chatbot-var-3');
 
-        quize_btn.addEventListener('click',()=>{
-          if(!chat_sect.classList.contains('hidden')){
-chat_sect.classList.add('hidden');
-}
-quize_sect.classList.remove('hidden');
-collapse_2();
-right_arrow_btn.classList.add('hidden');
-for (let i = 0; i < left_btn.length; i++) {
-        left_btn[i].classList.toggle('rotate-btn');
-      }
-        });
+function stateChanger() {
+  const active_shape = document.querySelectorAll('.active-state-shape');
 
+ for (let i = 0; i < main_btn.length; i++) {
+    main_btn[i].classList.remove("active");
+  }
+ 
+  event.target.classList.add("active");
+  for (let i = 0; i < active_shape.length; i++) {
+    if(!active_shape[i].classList.contains('hidden')){
+    active_shape[i].classList.add("hidden");}
+  }
+}
+
+chat_btn.addEventListener('click', () => {
+  stateChanger();
+chat_btn.querySelector('.active-state-shape').classList.remove('hidden');
+
+
+  if (!quize_sect.classList.contains('hidden')) {
+    quize_sect.classList.add('hidden');
+  }
+
+  chat_sect.classList.remove('hidden');
+  collapse_2();
+  
+  // Assuming right_arrow_btn is defined somewhere else
+  right_arrow_btn.classList.add('hidden');
+
+  for (let i = 0; i < left_btn.length; i++) {
+    left_btn[i].classList.toggle('rotate-btn');
+  }
+});
+
+quize_btn.addEventListener('click', () => {
+  stateChanger();
+quize_btn.querySelector('.active-state-shape').classList.remove('hidden');
+
+
+  if (!chat_sect.classList.contains('hidden')) {
+    chat_sect.classList.add('hidden');
+  }
+
+  quize_sect.classList.remove('hidden');
+  collapse_2();
+
+  // Assuming right_arrow_btn is defined somewhere else
+  right_arrow_btn.classList.add('hidden');
+
+  for (let i = 0; i < left_btn.length; i++) {
+    left_btn[i].classList.toggle('rotate-btn');
+  }
+});
         for (let i = 0; i < left_btn.length; i++) {
         left_btn[i].addEventListener('click',()=>{
+          stateChanger();
 chat_sect.classList.add('hidden');
 quize_sect.classList.add('hidden');
 console.log('clicke-'+i);
