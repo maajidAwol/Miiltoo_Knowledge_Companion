@@ -45,13 +45,13 @@
                 </div>
               </div> 
             </div>
-            <form action="" class="ask-form">
+            <form action="/request" method="post"  class="ask-form">
               <div class="text-input-container">
                 <span class="question-icon">?   
                 </span>
                 <textarea name="" id="" class="text-input" placeholder="what can i help you?"></textarea>
               </div>
-              <button class="ask-btn">
+              <button type="submit" id="ask-btn" class="ask-btn">
                 <span class="ask-btn-icon">
                   
                   <i class="fa-solid fa-microchip"></i>
@@ -421,7 +421,9 @@
     </footer>
     {%endblock%}
     <!--<script src="/static/js/menu.js"></script>
-    --><script>
+    -->
+
+<script>
 
 const quize_choose = document.querySelectorAll(".quize-choose");
 const choiceOption = document.querySelectorAll(".choose-list");
@@ -588,4 +590,8 @@ chatbot_var_1.classList.add('width');
 }
 
     </script>
+<script >
+    alert("lll")
+
+</script>
 {%endblock%}
