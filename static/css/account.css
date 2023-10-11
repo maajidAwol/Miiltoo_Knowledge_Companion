@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  /* fonts */
+  --font-pacifico: Pacifico;
+  --font-roboto: Roboto;
+
+  /* font sizes */
+  --font-size-mini-5: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 16px;
+  --font-size-Hb: 25px;
+  --font-size-Xl: 32px;
+  --font-size-XXl-sc: 48px;
+  --font-size-XXl-pr: 61px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-black: #000;
+  --color-primary: #080d27;
+  --color-secondary: #1e206f;
+  --color-accent: #22fbf9;
+  font-family: var(--font-roboto);
+  color: var(--color-white);
+}
+.account-sec {
+}
+.account-sec-content {
+}
+.acc-left-bar {
+  display: flex;
+  width: 254px;
+  height: 650px;
+  padding: 33.5px 16px;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  border-radius: 24px;
+  border: 1px solid var(--secondary, #1e206f);
+  background: var(--primary, #080d27);
+}
+.acc-right-panel {
+}
