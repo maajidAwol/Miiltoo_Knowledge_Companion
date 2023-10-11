@@ -134,6 +134,9 @@ def auth():
 @app.route("/")
 def main():
     return render_template("index-new.html")
+@app.route("/account/")
+def account():
+    return render_template("account.html")
 
 @app.route("/grade/")
 def grade():
