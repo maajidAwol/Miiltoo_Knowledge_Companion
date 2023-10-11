@@ -1042,6 +1042,10 @@ footer {
 .progress-icon i {
   font-size: 16px;
 }
+.trash-icon i {
+  font-size: 24px;
+  color: var(--color-white);
+}
 .hidden {
   display: none;
 }
