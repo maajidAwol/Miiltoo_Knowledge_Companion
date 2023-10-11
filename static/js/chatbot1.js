@@ -1,19 +1,29 @@
+
 const chatBox = document.querySelector("#ccc");
 const messageInput = document.querySelector("#aaa");
 const sendBtn = document.querySelector("#bbb");
+var oda = document.getElementById("book_choice");
 
 function addMessage(message, isUserMessage) {
   const messageDiv = document.createElement("div");
   messageDiv.classList.add("mt-3", "p-3", "rounded");
 
   if (isUserMessage) {
-    messageDiv.classList.add("user-message");
+    messageDiv.classList.add("user-message-container");
   } else {
-    messageDiv.classList.add("bot-message");
+    messageDiv.classList.add("chatbot-message-container");
   }
 
   messageDiv.innerHTML = `
-    <img src="../static/public/boy-studing.png" class="user-icon"><p>${message}</p>
+
+<br>
+                  <span class="user-message-icon">
+                    <i class="fa-solid fa-user-tie"></i>
+                  </span>
+                  <div class="user-message-content">
+                   kkkk
+                  </div>
+
     `;
 
   chatBox.appendChild(messageDiv);
@@ -21,16 +31,18 @@ function addMessage(message, isUserMessage) {
 }
 function sendMessage() {
   const message = messageInput.value.trim();
+     const book_choice = oda.value.trim();
 
   if (message !== "") {
+
     addMessage(message, true);
 
-    fetch("/requestH", {
+    fetch("/request", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ prompt: message }),
+      body: JSON.stringify({ prompt: message , book_choice: book_choice}),
     })
       .then((response) => response.json())
       .then((data) => {
@@ -51,9 +63,25 @@ function sendMessage() {
             "</p><pre><code>$1</code></pre><p>"
           );
 
-          messageDiv.innerHTML = `<img src="../static/public/logo.svg" class="bot-icon"><p>${codeContent}</p>`;
+          messageDiv.innerHTML = `
+                  <span class="chatbot-icon">
+                    <img src="/static/asset/logo.svg" alt="">
+
+                  </span>
+                  <div class="chatbot-content">
+                    {content}  </div>
+                </div>
+              `;
         } else {
-          messageDiv.innerHTML = `<img src="../static/public/logo.svg" class="bot-icon"><p>${content}</p>`;
+          messageDiv.innerHTML = `
+                  <span class="chatbot-icon">
+                    <img src="/static/asset/logo.svg" alt="">
+
+                  </span>
+                  <div class="chatbot-content">
+                    {content}   </div>
+                </div>
+              `;
         }
         chatBox.appendChild(messageDiv);
         chatBox.scrollTop = chatBox.scrollHeight;
@@ -63,17 +91,19 @@ function sendMessage() {
 }
 
 sendBtn.addEventListener("click", function (event) {
+
   event.preventDefault(); // Prevent the default form submission behavior
   sendMessage();
   sendBtn.style.visibility = "hidden";
   messageInput.value = "";
 });
 
-messageInput.addEventListener("keydown", function (event) {
-  if (event.keyCode === 13 && !event.shiftKey) {
-    event.preventDefault(); // Prevent the default Enter key behavior
-    sendMessage();
-    sendBtn.style.visibility = "hidden";
-    messageInput.value = "";
-  }
-});
+//messageInput.addEventListener("keydown", function (event) {
+//alert("hhh");
+//  if (event.keyCode === 13 && !event.shiftKey) {
+//    event.preventDefault(); // Prevent the default Enter key behavior
+//    sendMessage();
+//    sendBtn.style.visibility = "hidden";
+//    messageInput.value = "";
+//  }
+//});

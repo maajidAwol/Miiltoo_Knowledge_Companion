@@ -3,7 +3,7 @@ const parentContainer = document.querySelector(".frame-parent1");
 var lastChild = parentContainer.lastElementChild;
 alert("hekk")
 const messageInput = document.querySelector("#aaa");
-const sendBtn = document.querySelector("#ask-btn");
+const sendBtn = document.querySelector("#bbb");
 //var bk_choice = document.getElementById("book_choice");
 var oda = document.getElementById("book_choice");
 function addMessage(message, isUserMessage) {

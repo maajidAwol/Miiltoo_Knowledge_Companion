@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Your Chatbot</title>
+</head>
+<body>
+    <form action="" class="ask-form">
+        <div class="text-input-container">
+            <span class="question-icon">?
+            </span>
+            <textarea id="user-question" class="text-input" placeholder="What can I help you with?"></textarea>
+        </div>
+        <button id="ask-btn" class="ask-btn">
+            <span class="ask-btn-icon">
+                <i class="fa-solid fa-microchip"></i>
+                <span class="icon-text">AI</span>
+            </span>
+            Ask
+        </button>
+    </form>
+    <div class="result-label">
+        <div class="result-label-item">
+            <span class="static-icon"><i class="fa-solid fa-square-poll-vertical"></i></span>
+            Result
+        </div>
+    </div>
+    <div id="result-container" class="result-container"></div>
+    <script src="/static/js/menu.js"></script>
+</body>
+</html>

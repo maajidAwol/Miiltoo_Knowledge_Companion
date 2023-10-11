@@ -45,20 +45,23 @@
                 </div>
               </div> 
             </div>
-            <form action="" class="ask-form">
+            <form method="post" class="ask-form">
               <div class="text-input-container">
-                <span class="question-icon">?   
+                <span class="question-icon">?
                 </span>
-                <textarea name="" id="" class="text-input" placeholder="what can i help you?"></textarea>
+                <textarea name="" id="aaa" class="text-input" placeholder="what can i help you?"></textarea>
               </div>
-              <button class="ask-btn">
+
+
+              <button type="submit" id="bbb" class="ask-btn">
                 <span class="ask-btn-icon">
-                  
+
                   <i class="fa-solid fa-microchip"></i>
                 <span class="icon-text">ai</span>
                 </span>
                 ask
               </button>
+                <input id="book_choice" name="book_choice" type="hidden" value="{{book}}" >
             </form>
             <div class="result-label">
               <div class="result-label-item">
@@ -66,31 +69,38 @@
                 result
               </div>
             </div>
-            <div class="result-container">
-              
-              <div class="result-container-item">
-                <div class="user-message-container">
-                  <span class="user-message-icon">     
-                    <i class="fa-solid fa-user-tie"></i>
-                  </span>
-                  <div class="user-message-content">
-                    what is the book about ?
-                  </div>
-                </div>
-                <div class="chatbot-message-container">
-                  <span class="chatbot-icon">
-                    <img src="/static/asset/logo.svg" alt="">
+            <div class="result-container" id="ccc">
 
-                  </span>
-                  <div class="chatbot-content">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam laborum iure laboriosam, eveniet iste itaque, quas dolorem sed quam veritatis commodi eum laudantium. Voluptatibus sapiente recusandae nemo ipsa illo expedita.
-                    Necessitatibus quasi error recusandae vitae ut cum accusantium quae delectus eius esse quibusdam aliquam sunt alias debitis consequatur vero laudantium nobis dolorum, sed tenetur obcaecati placeat asperiores voluptas iusto! Quia!
-                    Repudiandae assumenda dicta similique dolorem, eaque unde quas autem sit tempora. Nobis consequatur eaque assumenda nostrum molestias alias. Accusamus reprehenderit rem repellat unde necessitatibus esse error earum iste ratione beatae.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+
+<!--                <div class="user-message-container">-->
+<!--                  <span class="user-message-icon">-->
+<!--                    <i class="fa-solid fa-user-tie"></i>-->
+<!--                  </span>-->
+<!--                  <div class="user-message-content">-->
+<!--                    what is the book about ?-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="chatbot-message-container">-->
+<!--                  <span class="chatbot-icon">-->
+<!--                    <img src="/static/asset/logo.svg" alt="">-->
+
+<!--                  </span>-->
+<!--                  <div class="chatbot-content">-->
+<!--                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam laborum iure laboriosam, eveniet iste itaque, quas dolorem sed quam veritatis commodi eum laudantium. Voluptatibus sapiente recusandae nemo ipsa illo expedita.-->
+<!--                    Necessitatibus quasi error recusandae vitae ut cum accusantium quae delectus eius esse quibusdam aliquam sunt alias debitis consequatur vero laudantium nobis dolorum, sed tenetur obcaecati placeat asperiores voluptas iusto! Quia!-->
+<!--                    Repudiandae assumenda dicta similique dolorem, eaque unde quas autem sit tempora. Nobis consequatur eaque assumenda nostrum molestias alias. Accusamus reprehenderit rem repellat unde necessitatibus esse error earum iste ratione beatae.-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+
+<!--                            hello-->
+<!--              <form>-->
+
+<!--&lt;!&ndash;             <input id="aaa" name="prompt" type="text">&ndash;&gt;-->
+<!--&lt;!&ndash;                <button id="bbb">prompt</button>&ndash;&gt;-->
+<!--              <div id="ccc">jjj</div>-->
+<!--              </form>-->
+            </div></div>
           <div class="chatbot-var-3 hidden">
             <button class="arrow-btn chat-left-btn">
               <i class="fa-solid fa-arrow-right"></i>
@@ -470,5 +480,5 @@ document.getElementById("generated-quize-form").addEventListener("submit", funct
 
 
     </script>
-      
+<script src="/static/js/chatbot1.js"></script>
 {%endblock%}
