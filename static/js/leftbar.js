@@ -1,9 +1,11 @@
 const chat_btn = document.querySelector("#chat-btn");
 const quize_btn = document.querySelector("#quize-btn");
+const upload_btn = document.querySelector("#custom-upload-btn");
 const main_btn = document.querySelectorAll(".chatbot-func-item");
 const left_btn = document.querySelectorAll(".chat-left-btn");
 const chat_sect = document.querySelector(".chatbot-var-2");
 const quize_sect = document.querySelector(".chatbot-var-3");
+const upload_sect = document.querySelector(".chatbot-var-4");
 
 function stateChanger() {
   const active_shape = document.querySelectorAll(".active-state-shape");
@@ -29,7 +31,13 @@ chat_btn.addEventListener("click", () => {
   chat_btn.classList.add("flashlight");
 
   if (!quize_sect.classList.contains("hidden")) {
+  }
+  if (
+    !quize_sect.classList.contains("hidden") ||
+    !upload_sect.classList.contains("hidden")
+  ) {
     quize_sect.classList.add("hidden");
+    upload_sect.classList.add("hidden");
   }
 
   chat_sect.classList.remove("hidden");
@@ -51,8 +59,12 @@ quize_btn.addEventListener("click", () => {
   }
   quize_btn.classList.add("flashlight");
 
-  if (!chat_sect.classList.contains("hidden")) {
+  if (
+    !chat_sect.classList.contains("hidden") ||
+    !upload_sect.classList.contains("hidden")
+  ) {
     chat_sect.classList.add("hidden");
+    upload_sect.classList.add("hidden");
   }
 
   quize_sect.classList.remove("hidden");
@@ -65,6 +77,34 @@ quize_btn.addEventListener("click", () => {
     left_btn[i].classList.toggle("rotate-btn");
   }
 });
+
+upload_btn.addEventListener("click", () => {
+  stateChanger();
+  upload_btn.querySelector(".active-state-shape").classList.remove("hidden");
+  for (let i = 0; i < main_btn.length; i++) {
+    main_btn[i].classList.remove("flashlight");
+  }
+  upload_btn.classList.add("flashlight");
+
+  if (
+    !chat_sect.classList.contains("hidden") ||
+    !quize_sect.classList.contains("hidden")
+  ) {
+    chat_sect.classList.add("hidden");
+    quize_sect.classList.add("hidden");
+  }
+
+  upload_sect.classList.remove("hidden");
+  collapse_2();
+
+  // Assuming right_arrow_btn is defined somewhere else
+  right_arrow_btn.classList.add("hidden");
+
+  for (let i = 0; i < left_btn.length; i++) {
+    left_btn[i].classList.toggle("rotate-btn");
+  }
+});
+
 for (let i = 0; i < left_btn.length; i++) {
   left_btn[i].addEventListener("click", () => {
     stateChanger();
@@ -73,6 +113,7 @@ for (let i = 0; i < left_btn.length; i++) {
     }
     chat_sect.classList.add("hidden");
     quize_sect.classList.add("hidden");
+    upload_sect.classList.add("hidden");
     console.log("clicke-" + i);
     right_arrow_btn.classList.remove("hidden");
   });
