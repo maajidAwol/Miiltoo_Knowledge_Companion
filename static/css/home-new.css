@@ -199,8 +199,8 @@ a{
 }
 .profile-menu{
   position: absolute;
-  top: 8.9%;
-  left: 73%;
+  top: .9%;
+  left: 74%;
   display: flex;
   width: 251px;
   padding: 16px 8px;
@@ -357,8 +357,8 @@ font-weight: 600;
 }
 .grade-menu{
   position: absolute;
-    top: 8.9%;
-    left: 42%;
+    top: .9%;
+    left: 43.8%;
     display: inline-flex;
     padding: 24px 8px;
     justify-content: center;
