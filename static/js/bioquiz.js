@@ -35,7 +35,7 @@ fetchQuizButton.addEventListener("click", function (event) {
       return response.json();
     })
     .then((data) => {
-    alert(data)
+
       if (data && data.quiz) {
 
         quizData = data.quiz;
@@ -66,20 +66,25 @@ fetchQuizButton.addEventListener("click", function (event) {
 });
 
 function buildQuiz() {
-alert("building")
+
   score = 0;
 
   quizData.forEach((question, index) => {
     const choices = question.choices;
     const questionElement = document.createElement("div");
-    questionElement.innerHTML = `<p>${index + 1}. ${question.question}</p>`;
+    questionElement.classList.add("quize-content-container");
+    questionElement.innerHTML = `<p class="quize-question-container"><span class="quize-no">${index + 1}</span><span class="quize-question"> ${question.question}</span></p>`;
 
     Object.keys(choices).forEach((choice) => {
       const choiceLabel = document.createElement("label");
+      choiceLabel.classList.add("quize-choose");
       choiceLabel.innerHTML = `
         <input type="radio" name="question${index}" value="${choice}" required>
-        ${choice}: ${choices[choice]}
+       <span class="choose-list"> ${choice}</span>: <p class="choose-item">
+               ${choices[choice]}
+              </p>
       <br>`;
+
       questionElement.appendChild(choiceLabel);
     });
 
@@ -97,6 +102,7 @@ submitButton.addEventListener("click", function () {
 function showResults() {
   score = 0; // Reset the score before evaluating user answers
   resultsContainer.innerHTML = ""; // Clear previous results
+  resultsContainer.classList.add("expln-content");
 
   quizData.forEach((question, index) => {
     const userAnswer = document.querySelector(
@@ -112,18 +118,25 @@ function showResults() {
 
       const explanation = question.explanation;
       const resultElement = document.createElement("div");
+            resultElement.classList.add("expln-item");
+
       resultElement.innerHTML = `
-        <p><strong>Question ${index + 1}:</strong> ${question.question}</p>
-        <p>Your answer: ${userChoice}</p>
-        <p>Correct answer: ${correctAnswer}</p>
-        <p>Explanation: ${explanation}</p>
+        <div class="question-container"><span class="quize-no"><strong>Question ${index + 1}:</strong></span><p class="question"> ${question.question}</p></div>
+       <div class="your-answer">Your answer: ${userChoice}</p>
+         <div class="correct-answer">Correct answer: ${correctAnswer}</p>
+        <p class="expln-detail">Explanation: ${explanation}</p>
       `;
       resultsContainer.appendChild(resultElement);
     }
   });
 
   resultsContainer.style.display = "block";
-  resultsContainer.innerHTML += `<p>Your score: ${score}/${quizData.length}</p>`;
+//  resultsContainer.innerHTML += `<p>Your score: ${score}/${quizData.length}</p>`;
+    resultsContainer.innerHTML += `           <div class="score-container">
+            <div class="score-board">
+              your score : <span class="score">${score}</span><span class="total-quize">/${quizData.length}</span>
+             </div>
+           </div>`;
 }
 var biology = {
   "chapter 1:Introduction to Biology": {
@@ -183,7 +196,7 @@ var biology = {
   },
 };
 
-alert("wertyuiop[");
+
 var ado = document.getElementById("book_choice");
 //alert(ado);
 window.onload = function () {
