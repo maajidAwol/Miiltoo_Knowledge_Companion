@@ -4,12 +4,9 @@ const submitButton = document.getElementById("submit-button");
 const resultsContainer = document.getElementById("results");
 const bk_choice = document.getElementById("book_choice");
 
-
-
 let quizData = []; // To store fetched quiz data
 let score = 0;
 fetchQuizButton.addEventListener("click", function (event) {
-
   event.preventDefault();
   submitButton.style.display = "none";
   fetchQuizButton.style.display = "none";
@@ -35,9 +32,7 @@ fetchQuizButton.addEventListener("click", function (event) {
       return response.json();
     })
     .then((data) => {
-
       if (data && data.quiz) {
-
         quizData = data.quiz;
         buildQuiz();
         submitButton.style.display = "block";
@@ -59,21 +54,23 @@ fetchQuizButton.addEventListener("click", function (event) {
 
       fetchQuizButton.style.display = "block";
       console.error("Error fetching data:", error);
-       alert("Error fetchinmmg data: " + error.message);
+      alert("Error fetchinmmg data: " + error.message);
     });
 
   return false; // Prevent form submission
 });
 
 function buildQuiz() {
-
   score = 0;
 
   quizData.forEach((question, index) => {
     const choices = question.choices;
     const questionElement = document.createElement("div");
     questionElement.classList.add("quize-content-container");
-    questionElement.innerHTML = `<p class="quize-question-container"><span class="quize-no">${index + 1}</span><span class="quize-question"> ${question.question}</span></p>`;
+    questionElement.innerHTML = `
+    <p class="quize-question-container"><span class="quize-no">${
+      index + 1
+    }</span><span class="quize-question"> ${question.question}</span></p>`;
 
     Object.keys(choices).forEach((choice) => {
       const choiceLabel = document.createElement("label");
@@ -101,7 +98,8 @@ submitButton.addEventListener("click", function () {
 
 function showResults() {
   score = 0; // Reset the score before evaluating user answers
-  resultsContainer.innerHTML = `  <div class="result-label2-container">
+  resultsContainer.innerHTML = ` 
+  <div class="result-label2-container">
             <div class="result-line"></div>
             <div class="result-label2">result</div>
            </div>
@@ -133,12 +131,23 @@ function showResults() {
 
       const explanation = question.explanation;
       const resultElement = document.createElement("div");
-            resultElement.classList.add("expln-item");
+      resultElement.classList.add("expln-item");
 
       resultElement.innerHTML = `
-        <div class="question-container"><span class="quize-no"><strong>Question ${index + 1}:</strong></span><p class="question"> ${question.question}</p></div>
-       <div class="your-answer">Your answer: ${userChoice}</div>
-         <div class="correct-answer">Correct answer: ${correctAnswer}</div>
+        <div class="question-container"><span class="quize-no"><strong>Question ${
+          index + 1
+        }:</strong></span><p class="question"> ${question.question}</p></div>
+       <div class="your-answer">Your answer: ${userChoice}
+       <span class="x-icon ${
+         userChoice === correctAnswer ? "hidden" : "other"
+       }"><i class="fa-solid fa-circle-xmark"></i></span>
+       <span class="correct-icon  ${
+         userChoice === correctAnswer ? "other" : "hidden"
+       } "><i class="fa-solid fa-circle-check"></i></span>
+       </div>
+         <div class="correct-answer">
+           <span class="correct-icon"><i class="fa-solid fa-circle-check"></i></span>  
+         Correct answer: ${correctAnswer}</div>
         <div class="expln-detail">Explanation: ${explanation}</div>
       `;
       resultsContainer.appendChild(resultElement);
@@ -146,8 +155,8 @@ function showResults() {
   });
 
   resultsContainer.style.display = "block";
-//  resultsContainer.innerHTML += `<p>Your score: ${score}/${quizData.length}</p>`;
-    resultsContainer.innerHTML += `           <div class="score-container">
+  //  resultsContainer.innerHTML += `<p>Your score: ${score}/${quizData.length}</p>`;
+  resultsContainer.innerHTML += `           <div class="score-container">
             <div class="score-board">
               your score : <span class="score">${score}</span><span class="total-quize">/${quizData.length}</span>
              </div>
@@ -210,7 +219,6 @@ function showResults() {
 //    "6.2: Ecological relationships": [],
 //  },
 //};
-
 
 var ado = document.getElementById("book_choice");
 //alert(ado);
