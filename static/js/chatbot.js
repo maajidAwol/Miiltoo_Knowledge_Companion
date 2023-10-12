@@ -1,7 +1,7 @@
 const chatBox = document.querySelector("#ccc");
 const parentContainer = document.querySelector(".frame-parent1");
 var lastChild = parentContainer.lastElementChild;
-alert("hekk")
+alert("hekk");
 const messageInput = document.querySelector("#aaa");
 const sendBtn = document.querySelector("#bbb");
 //var bk_choice = document.getElementById("book_choice");
@@ -48,7 +48,7 @@ function sendMessage() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ prompt: message , book_choice: book_choice}),
+      body: JSON.stringify({ prompt: message, book_choice: book_choice }),
     })
       .then((response) => response.json())
       .then((data) => {
@@ -74,7 +74,8 @@ function sendMessage() {
           messageDiv.innerHTML = `<img src="../static/public/logo.svg" class="bot-icon"><p>${codeContent}</p>`;
         } else {
           console.log(content);
-          messageDiv.innerHTML = `<span><img src="../static/public/logo.svg" class="bot-icon"></span><p class='response-text'></p>`;
+          messageDiv.innerHTML = `<span><img src="../static/public/logo.svg" class="bot-icon"></span>
+          <p class='response-text'></p>`;
         }
         chatBox.appendChild(messageDiv);
         const response_text = document.querySelector(".response-text");
