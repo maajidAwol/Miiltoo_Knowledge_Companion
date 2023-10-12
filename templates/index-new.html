@@ -773,6 +773,13 @@
     slide_content.forEach(
       (s, i) => (s.style.transform = `translateX(${100 * (i - currentSlide)}%)`)
     );
+    slide_content.forEach((slide_content) => {
+      if (slide_content.style.transform !== "translateX(0%)") {
+        slide_content.style.opacity = 0.7;
+      } else {
+        slide_content.style.opacity = 1;
+      }
+    });
 
     testi_indicator.forEach((testi_indicator) => {
       testi_indicator.classList.remove("active");
@@ -792,6 +799,13 @@
     slide_content.forEach(
       (s, i) => (s.style.transform = `translateX(${100 * (i - currentSlide)}%)`)
     );
+    slide_content.forEach((slide_content) => {
+      if (slide_content.style.transform !== "translateX(0%)") {
+        slide_content.style.opacity = 0.7;
+      } else {
+        slide_content.style.opacity = 1;
+      }
+    });
     testi_indicator.forEach((testi_indicator) => {
       testi_indicator.classList.remove("active");
     });
