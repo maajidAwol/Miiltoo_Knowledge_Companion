@@ -103,17 +103,20 @@ function showResults() {
             <div class="result-line"></div>
             <div class="result-label2">result</div>
            </div>
+           <div class="explanation-container">
+           <span class="chatbot-icon">
+   <img src="/static/asset/logo.svg" alt="">
 
+ </span>
+ </div>
            <div class="explanation-label">
             <span class="fether-icon">
               <i class="fa-solid fa-feather"></i>
             </span>
             explanation
           </div>
-                      <span class="chatbot-icon">
-              <img src="/static/asset/logo.svg" alt="">
-
-            </span>
+          
+           
            `;
   resultsContainer.classList.add("expln-content");
 
@@ -134,6 +137,7 @@ function showResults() {
       resultElement.classList.add("expln-item");
 
       resultElement.innerHTML = `
+     
         <div class="question-container"><span class="quize-no"><strong>Question ${
           index + 1
         }:</strong></span><p class="question"> ${question.question}</p></div>
@@ -148,7 +152,19 @@ function showResults() {
          <div class="correct-answer">
            <span class="correct-icon"><i class="fa-solid fa-circle-check"></i></span>  
          Correct answer: ${correctAnswer}</div>
-        <div class="expln-detail">Explanation: ${explanation}</div>
+        
+         <div class="expln-detail-container">
+        <div class="explanation-label expln-detail-label">
+        <span class="fether-icon">
+          <i class="fa-solid fa-feather"></i>
+      </span>
+        explanation
+    </div>
+    <p class="expln-detail">${explanation}
+</p>
+<div>  
+        </div>
+        </div>
       `;
       resultsContainer.appendChild(resultElement);
     }
