@@ -177,7 +177,9 @@
               <span class="static-icon"><i class="fa-solid fa-square-poll-vertical"></i></span>
               result
             </div>
-          </div>
+          </div>   <script>
+  var biology = {{ json_data | default('null') | tojson | safe }};
+</script>
               <!--result text-->
 <!--the generated quiz container-->
           <div class="result-container">
@@ -255,9 +257,9 @@
 <!--            </div>-->
 
                <div id="quiz-container"></div>
-        <div class="blue-line"></div>
+<!--        <div class="blue-line"></div>-->
 
-            <button  type="button" style="display: none;" id="submit-button" disabled>Submit Answers</button>
+            <button class="generate-btn" type="button" style="display: none;" id="submit-button" disabled>Submit Answers</button><br>
            </form>
            <div class="explanation-container" id="results"  style="display: none;"></div>
            </div>
