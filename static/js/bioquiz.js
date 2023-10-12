@@ -151,7 +151,7 @@ function showResults() {
             <div class="score-board">
               your score : <span class="score">${score}</span><span class="total-quize">/${quizData.length}</span>
              </div>
-           </div>`;
+           </div><br>`;
 }
 //var biology = {
 //  "chapter 1:Introduction to Biology": {
