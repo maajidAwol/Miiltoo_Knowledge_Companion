@@ -198,7 +198,7 @@ a{
   transform: rotate(180deg);
 }
 .profile-menu{
-  position: absolute;
+  position: fixed;
   top: 60px;
   left: 74%;
   display: flex;
@@ -356,10 +356,10 @@ font-weight: 600;
   text-transform: lowercase;
 }
 .grade-menu{
-  position: absolute;
+  position: fixed;
     top: 60px;
     left: 43.8%;
-    left: 43.8%;
+    left: 44.3%;
     display: inline-flex;
     padding: 24px 8px;
     justify-content: center;

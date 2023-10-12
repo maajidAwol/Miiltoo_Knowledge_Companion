@@ -26,14 +26,6 @@
   --color-accent: #22fbf9;
   font-family: var(--font-roboto);
 }
-.grade-menu,
-.profile-menu {
-  top: 2.1%;
-  left: 43.8%;
-}
-.profile-menu {
-  left: 73.8%;
-}
 .grade-menu-item:hover {
   color: var(--color-white);
 }
