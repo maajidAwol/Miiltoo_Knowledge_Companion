@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{%block title %}Base{%endblock%}</title>
-
+     <link rel="icon" href="/static/public/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/static/css/home-new.css" />
     <link
       rel="stylesheet"
@@ -125,12 +125,13 @@ position: sticky;
       </div>
     </div>
     <div class="profile-menu hidden">
+      <a href="/account">
       <div class="profile-menu-item">
         <span class="profile-menu-item-icon"
           ><i class="fa-solid fa-id-card-clip"></i
         ></span>
         account
-      </div>
+      </div></a>
       <div class="profile-menu-item">
         <span class="profile-menu-item-icon"
           ><i class="fa-solid fa-book"></i>
@@ -143,14 +144,16 @@ position: sticky;
         ></span>
         something
       </div>
+       <a href="/logout">
       <div class="profile-menu-item">
+
         <span class="profile-menu-item-icon"
           ><i class="fa-solid fa-right-from-bracket"></i
         ></span>
 
-        <a href="/logout">logout</a>
+        logout
         
-      </div>
+      </div></a>
     </div>
 
     {% block body %} {% endblock %} {%block footer%}
