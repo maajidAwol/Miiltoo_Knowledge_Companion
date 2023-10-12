@@ -98,6 +98,12 @@ def register():
         password = request.form['password']
         email = request.form["email"]
 
+        user_google = User.query.filter_by(email=email).first()
+
+        if user_google:
+            # Call the register_user function
+            if user_google.password == "google":
+                return render_template("signup.html")
         # Call the register_user function
         registration_result = register_user(username, email, password)
 
@@ -457,10 +463,22 @@ def callback():
         request=token_request,
         audience=GOOGLE_CLIENT_ID
     )
+    user = User.query.filter_by(email=id_info.get("email")).first()
 
-    session["google_id"] = id_info.get("sub")
-    session["google_name"] = id_info.get("name")
-    session["google_email"] = id_info.get("email")
+    if user:
+        # User exists, implement your logic here
+        session["google_name"] = user.username
+        session["google_email"] = user.email
+    else:
+        # User doesn't exist, implement your logic here
+        session["google_id"] = id_info.get("sub")
+        session["google_name"] = id_info.get("name")
+        session["google_email"] = id_info.get("email")
+        profile_url = "/static/asset/profile-pic.png"
+        new_user = User(username=session["google_name"], email=session["google_email"],password="google",profile_pic=profile_url)
+        db.session.add(new_user)
+        db.session.commit()
+
     
     return redirect("/protected_area")
 
