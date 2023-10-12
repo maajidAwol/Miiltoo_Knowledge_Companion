@@ -587,7 +587,12 @@
         <i class="fa-solid fa-chevron-right"></i>
       </button>
     </div>
-    <div class="testi-slider-indicator"></div>
+    <div class="testi-slider-indicator">
+      <span class="dots active"></span>
+      <span class="dots"></span>
+      <span class="dots"></span>
+      <span class="dots"></span>
+    </div>
   </section>
   <section class="ad-sec">
     <div class="ad-container">
@@ -758,15 +763,6 @@
   );
   let currentSlide = 0;
   const maxSlide = slide_content.length - 1;
-  function createDots() {
-    slide_content.forEach((_, i) => {
-      testi_indicator_container.insertAdjacentHTML(
-        "beforeend",
-        `<span class="dots" data-slide="${i}"></span>`
-      );
-    });
-  }
-  createDots();
 
   function slideToNext() {
     if (currentSlide === maxSlide) {
@@ -777,6 +773,14 @@
     slide_content.forEach(
       (s, i) => (s.style.transform = `translateX(${100 * (i - currentSlide)}%)`)
     );
+
+    testi_indicator.forEach((testi_indicator) => {
+      testi_indicator.classList.remove("active");
+    });
+    const dots = document.querySelector(
+      `.testi-slider-indicator :nth-child(${currentSlide + 1})`
+    );
+    dots.classList.add("active");
     stopAutoSlide();
   }
   function slideToPrev() {
@@ -788,6 +792,13 @@
     slide_content.forEach(
       (s, i) => (s.style.transform = `translateX(${100 * (i - currentSlide)}%)`)
     );
+    testi_indicator.forEach((testi_indicator) => {
+      testi_indicator.classList.remove("active");
+    });
+    const dots = document.querySelector(
+      `.testi-slider-indicator :nth-child(${currentSlide + 1})`
+    );
+    dots.classList.add("active");
     stopAutoSlide();
   }
 
@@ -795,9 +806,6 @@
 
   function startAutoSlide() {
     intervalId = setInterval(slideToNext, 4000); // Adjust the interval duration as needed
-    testi_indicator.forEach((testi_indicator) => {
-      testi_indicator.classList.remove("active");
-    });
   }
   function stopAutoSlide() {
     clearInterval(intervalId);
@@ -806,10 +814,22 @@
 
   startAutoSlide();
   testi_indicator_container.addEventListener("click", function (e) {
-    if (e.target.classList.contain("dots")) {
-      const slide = e.target.data.slide;
+    if (e.target.classList.contains("dots")) {
+      const { slide } = e.target.dataset;
+      slide_content.forEach(
+        (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
+      );
     }
   });
+  const dots = document.querySelectorAll(".dots");
+  for (let i = 0; i < dots.length; i++) {
+    dots[i].addEventListener(".click", () => {
+      let n = i;
+      slide_content.forEach(
+        (s, i) => (s.style.transform = `translateX(${100 * (i - n)}%)`)
+      );
+    });
+  }
   testi_right_btn.addEventListener("click", slideToNext);
   testi_left_btn.addEventListener("click", slideToPrev);
   document.addEventListener("keydown", (e) => {
