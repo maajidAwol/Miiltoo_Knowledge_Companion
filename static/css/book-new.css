@@ -566,7 +566,8 @@ footer {
 .chatbot-icon img {
   width: 24px;
 }
-.chatbot-content {
+.chatbot-content,
+.content-afterResponse {
   display: flex;
   width: 488px;
   color: rgba(255, 255, 255, 0.8);
