@@ -102,7 +102,8 @@ def register_user(username, email ,password):
 
     # Create a new user and add it to the database
     send_verification_email(email, verification_code)
-    new_user = User(username=username,email=email, password=hashed_password, verification_code = verification_code)
+    profile_url ="/static/asset/profile-pic.png"
+    new_user = User(username=username,email=email, password=hashed_password, verification_code = verification_code,profile_pic=profile_url)
     db.session.add(new_user)
     db.session.commit()
 

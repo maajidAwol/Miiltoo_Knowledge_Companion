@@ -372,7 +372,13 @@ def save_profile():
         if request.method == 'POST':
             # Update user's profile information with data from the form
             # user.username = request.form['username']
-
+            if 'profile_pic' in request.files:
+                file = request.files['profile_pic']
+                if file.filename != '':
+                    # Save the uploaded file to the "profile_pic" directory inside the "static" folder
+                    pic_url = 'static/profile_pic/' + file.filename
+                    file.save(pic_url)
+                    user.profile_pic = pic_url
             user.username = request.form['username']
             session["google_name"] = user.username
             # user.email = request.form['email']

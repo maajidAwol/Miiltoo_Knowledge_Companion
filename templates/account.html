@@ -4,13 +4,15 @@
 <section class="account-sec">
   <div class="account-sec-content">
     <div class="acc-left-bar">
-      <button class="edit-btn">
-        edit
+
+       <form action="/save_changes" method="post" enctype="multipart/form-data">
+         <button type="button" class="edit-btn">
+        <input type="file" name="profile_pic"  accept="image/*" >
         <span class="edit-icon"><i class="fa-solid fa-pen-to-square"></i></span>
-      </button>
+      </button >
       <div class="profile-content">
         <div class="profile-photo">
-          <img src="/static/asset/profile-pic.png" alt="" />
+          <img src="/{{ user.profile_pic }}" alt="" />
         </div>
         <div class="profile-desc">
 <!--          <p id="" class="person-username"></p>-->
@@ -72,7 +74,7 @@
         my profile
       </div>
 <!--    ooooooooooooo  -->
-      <form action="/save_changes" method="post">
+
       <div class="personal-info-container">
         <div class="top-container">
           personal information
