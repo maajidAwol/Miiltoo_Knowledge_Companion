@@ -33,3 +33,31 @@
 .grade-menu-item:hover :nth-child(1) {
   color: var(--color-accent);
 }
+.resrc-container {
+  margin-left: 12px;
+  gap: 0%;
+  width: 72vw;
+  height: 464px;
+}
+.resrc-box {
+  width: 260px;
+  transform: scale(0.9);
+}
+.resrc-slider {
+  width: 67vw;
+}
+.resrc-item {
+  position: absolute;
+  width: max-content;
+  display: flex;
+  gap: 8px;
+  transition: transform 0.6s ease;
+}
+
+.resrc-nav-container {
+  top: 53%;
+  width: 73%;
+}
+.resource-sec {
+  gap: 16px;
+}

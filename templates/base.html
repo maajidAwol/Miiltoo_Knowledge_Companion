@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{%block title %}Base{%endblock%}</title>
-     <link rel="icon" href="/static/public/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/public/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/static/css/home-new.css" />
     <link
       rel="stylesheet"
@@ -15,11 +15,10 @@
     />
     <style>
       .sticky-header {
-position: sticky;
-    top: 0;
-
-
-}</style>
+        position: sticky;
+        top: 0;
+      }
+    </style>
     {% block head %} {% endblock %}
   </head>
   <body class="body">
@@ -126,12 +125,13 @@ position: sticky;
     </div>
     <div class="profile-menu hidden">
       <a href="/account">
-      <div class="profile-menu-item">
-        <span class="profile-menu-item-icon"
-          ><i class="fa-solid fa-id-card-clip"></i
-        ></span>
-        account
-      </div></a>
+        <div class="profile-menu-item">
+          <span class="profile-menu-item-icon"
+            ><i class="fa-solid fa-id-card-clip"></i
+          ></span>
+          account
+        </div></a
+      >
       <div class="profile-menu-item">
         <span class="profile-menu-item-icon"
           ><i class="fa-solid fa-book"></i>
@@ -144,16 +144,15 @@ position: sticky;
         ></span>
         something
       </div>
-       <a href="/logout">
-      <div class="profile-menu-item">
+      <a href="/logout">
+        <div class="profile-menu-item">
+          <span class="profile-menu-item-icon"
+            ><i class="fa-solid fa-right-from-bracket"></i
+          ></span>
 
-        <span class="profile-menu-item-icon"
-          ><i class="fa-solid fa-right-from-bracket"></i
-        ></span>
-
-        logout
-        
-      </div></a>
+          logout
+        </div></a
+      >
     </div>
 
     {% block body %} {% endblock %} {%block footer%}
@@ -210,7 +209,7 @@ position: sticky;
       let loggedIn = "{{ session['logged_in'] }}";
 
       // Now you can use the 'loggedIn' JavaScript variable to manipulate information.
-      if (loggedIn=="true") {
+      if (loggedIn == "true") {
         login_and_signup.classList.add("hidden");
 
         username.innerHTML = "{{ session['google_name'] }}";
@@ -222,6 +221,5 @@ position: sticky;
         profile.classList.add("hidden");
       }
     </script>
-
   </body>
 </html>
