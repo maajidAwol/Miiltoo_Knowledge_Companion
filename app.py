@@ -192,7 +192,7 @@ def send():
     #
     # result = chat_function(prompt, path)
     # return result
-    # time.sleep(10)
+    time.sleep(10)
     if "username" not in session:
         ref=path
     else:

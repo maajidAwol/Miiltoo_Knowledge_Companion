@@ -164,6 +164,7 @@ function sendMessage() {
               document.getElementById("blinker").remove();
             }, 3000);
           }
+          parentContainer.scrollTop = parentContainer.scrollHeight;
         };
         typeWriter();
 
@@ -173,7 +174,6 @@ function sendMessage() {
         );
 
         // chatBox.scrollTop = chatBox.scrollHeight;
-        parentContainer.scrollTop = parentContainer.scrollHeight;
       })
       .catch((error) => console.error(error));
   }
