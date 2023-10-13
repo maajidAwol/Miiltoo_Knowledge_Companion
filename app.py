@@ -234,6 +234,7 @@ def quiz_send():
     path = url.replace("bk/", "books/")
     path = path[:-4] + ".txt"
     print(path)
+    time.sleep(10)
 
     if path == "books/Biology Student Textbook Grade 9.txt" or path == "books/History Student Textbook Grade 9.txt":
         prompt = f'generate  {quiz_number} conceptual and random question quiz from  the content specially from {chapter} and subtopic {subtopic} having four choices a,b,c,d and answer letter and explanation  of the answer in json format'

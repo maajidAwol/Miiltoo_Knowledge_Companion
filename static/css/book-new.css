@@ -915,6 +915,12 @@ footer {
   border-style: dashed 10px 5px;
   background: rgba(30, 32, 111, 0.1);
 }
+.drop-area-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
 .cloud-icon i {
   font-size: 42px;
   color: var(--color-accent);
