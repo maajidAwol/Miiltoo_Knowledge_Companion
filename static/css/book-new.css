@@ -899,7 +899,7 @@ footer {
 }
 .drop-area {
   display: flex;
-  padding: 56px 0px;
+  padding: 48px 0px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -967,6 +967,9 @@ input[type="file"]:hover {
   text-transform: lowercase;
 }
 #upload-button {
+  position: absolute;
+  top: 69%;
+  left: 79%;
   display: flex;
   padding: 8px 16px;
   font-size: 16px;
@@ -1007,7 +1010,6 @@ input[type="file"]:hover {
 }
 .file-item {
   display: flex;
-  height: 220px;
   flex-direction: column;
   align-items: center;
   gap: 8px;
@@ -1015,8 +1017,8 @@ input[type="file"]:hover {
 }
 .file-box {
   display: flex;
-  padding: 12px;
-  justify-content: center;
+  padding: 8px;
+  justify-content: flex-start;
   align-items: center;
   gap: 8px;
   align-self: stretch;
@@ -1070,6 +1072,11 @@ input[type="file"]:hover {
   opacity: 0.64;
 }
 .upload-status-container {
+  position: absolute;
+  top: 70%;
+  left: 25%;
+  color: var(--color-accent);
+  font-size: 13px;
   display: flex;
   padding: 8px 24px 8px 0;
   flex-direction: column;
