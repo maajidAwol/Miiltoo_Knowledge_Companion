@@ -386,8 +386,7 @@
 <!--            </div>-->
 <!--          </div>-->
 
-         <div class="drop-area">
-             <div id="drop-area">
+         <div class="drop-area"id="drop-area">
                <form
                  class="drop-area-form my-form"
                  action="/upload"
@@ -397,15 +396,24 @@
                  <span class="cloud-icon"
                    ><i class="fa-solid fa-cloud-arrow-up"></i
                  ></span>
-                 <p>Drag and drop a file here, or</p>
+                 <div style="display: flex; gap: 4px;">
+                  <p>Drag and drop a file here, or</p>
+                  <label for="fileElem" class="browse-button">browse</label>
+                 </div>
+                 
 
+                  <span id="fileName" class="sub-label">No file selected</span>
                  <input
                    type="file"
                    id="fileElem"
                    name="file"
                    class="button"
+                   
                    accept="application/pdf"
                  />
+
+
+                 
                  <button class="file-label button" id="upload-button"
                    onclick="uploadForm()">
 
@@ -413,7 +421,6 @@
                    </button>
                </form>
                <div id="gallery"></div>
-             </div>
 
              <!-- Move the upload button outside the drop area -->
            </div>
@@ -451,6 +458,17 @@ function unhighlight() {
   dropArea.classList.remove("highlight");
 }
 
+// function handleMyFile() {
+//   var fileInput = document.getElementById("fileElem");
+//   var fileName = document.getElementById("fileName");
+
+//   if (fileInput.files.length > 0) {
+//     fileName.textContent = fileInput.files[0].name;
+//   } else {
+//     fileName.textContent = "No file selected";
+//   }
+//   handleFiles(files);
+// }
 function handleDrop(e) {
   e.preventDefault();
   const dt = e.dataTransfer;
@@ -460,11 +478,19 @@ function handleDrop(e) {
   fileElem.files = files;
 
   // Handle the dropped files
-  handleFiles(files);
+  handleFilesFromInput();
 }
 
 function handleFilesFromInput() {
   const files = fileElem.files;
+  var fileInput = document.getElementById("fileElem");
+  var fileName = document.getElementById("fileName");
+
+  if (fileInput.files.length > 0) {
+    fileName.textContent = fileInput.files[0].name;
+  } else {
+    fileName.textContent = "No file selected";
+  }
   handleFiles(files);
 }
 
