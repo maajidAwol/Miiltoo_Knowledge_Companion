@@ -23,8 +23,10 @@ class User(db.Model):
     school_name = db.Column(db.String(100))
     verification_code = db.Column(db.String(4))
     verified = db.Column(db.Boolean)
+    country = db.Column(db.String(255))
+    city = db.Column(db.String(50))
 
-    def __init__(self, email, password, username=None, profile_pic=None, school_level=None, age=None, school_name=None, verified=False,verification_code =None):
+    def __init__(self, email, password, username=None, profile_pic=None, school_level=None, age=None, school_name=None, verified=False,verification_code =None,country=None,city=None):
         self.email = email
         self.password = password
         self.username = username
@@ -34,6 +36,8 @@ class User(db.Model):
         self.school_name = school_name
         self.verified = verified
         self.verification_code = verification_code
+        self.country=country
+        self.city=city
 class Books(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
@@ -98,7 +102,8 @@ def register_user(username, email ,password):
 
     # Create a new user and add it to the database
     send_verification_email(email, verification_code)
-    new_user = User(username=username,email=email, password=hashed_password, verification_code = verification_code)
+    profile_url ="/static/asset/profile-pic.png"
+    new_user = User(username=username,email=email, password=hashed_password, verification_code = verification_code,profile_pic=profile_url)
     db.session.add(new_user)
     db.session.commit()
 

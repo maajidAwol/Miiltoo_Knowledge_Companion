@@ -98,6 +98,12 @@ def register():
         password = request.form['password']
         email = request.form["email"]
 
+        user_google = User.query.filter_by(email=email).first()
+
+        if user_google:
+            # Call the register_user function
+            if user_google.password == "google":
+                return render_template("signup.html")
         # Call the register_user function
         registration_result = register_user(username, email, password)
 
@@ -137,9 +143,9 @@ def auth():
 @app.route("/")
 def main():
     return render_template("index-new.html")
-@app.route("/account/")
-def account():
-    return render_template("account.html")
+# @app.route("/account/")
+# def account():
+#     return render_template("account.html")
 
 @app.route("/grade/")
 def grade():
@@ -302,27 +308,36 @@ def upload_file():
     return 'Error: Please upload a PDF file'
 
 
-@app.route('/profile', methods=['GET', 'POST'])
+@app.route('/account/', methods=['GET', 'POST'])
 def profile():
     # Query the database to get the first user's data
 
-    user = User.query.filter_by(username=session['username']).first()
+    user = User.query.filter_by(email = session["google_email"]).first()
     if request.method == 'POST':
         # Handle form submission for saving changes
+        # user.username = request.form['username']
+        # user.full_name = request.form['full_name']
+        # user.email = request.form['email']
+        # user.school_level = request.form['school_level']
+        # user.age = request.form['age']
+        # user.school_name = request.form['school_name']
+        # # user.profile_pic = request.form['profile_pic']
+        # user.country = request.form['country']
+        # user.city = request.form['city']
+        # db.session.commit()
+
         user.username = request.form['username']
-        user.full_name = request.form['full_name']
-        user.email = request.form['email']
+        # user.email = request.form['email']
         user.school_level = request.form['school_level']
         user.age = request.form['age']
         user.school_name = request.form['school_name']
-        user.profile_pic = request.form['profile_pic']
-        db.session.commit()
-
+        user.country = request.form['country']
+        user.city = request.form['city']
         # Redirect back to the profile page after saving changes
-        return redirect('/profile')
+        return redirect('/account')
 
     if user:
-        return render_template('profile.html', user=user)
+        return render_template('account.html', user=user)
     else:
         # Handle the case where no user is found in the database
         return "no user found"
@@ -355,24 +370,33 @@ def add_book():
 def save_profile():
     # Retrieve the first user from the database
 
-    username = session["username"]
-
+    email = session["google_email"]
+    print(email)
     # Retrieve the user from the database using the username
-    user = User.query.filter_by(username=username).first()
+    user = User.query.filter_by(email=email).first()
     if user:
         if request.method == 'POST':
             # Update user's profile information with data from the form
             # user.username = request.form['username']
-
-            user.full_name = request.form['full_name']
-            user.email = request.form['email']
+            if 'profile_pic' in request.files:
+                file = request.files['profile_pic']
+                if file.filename != '':
+                    # Save the uploaded file to the "profile_pic" directory inside the "static" folder
+                    pic_url = 'static/profile_pic/' + file.filename
+                    file.save(pic_url)
+                    user.profile_pic = pic_url
+            user.username = request.form['username']
+            session["google_name"] = user.username
+            # user.email = request.form['email']
             user.school_level = request.form['school_level']
             user.age = request.form['age']
             user.school_name = request.form['school_name']
-            user.profile_pic = request.form['profile_pic']
+            user.country = request.form['country']
+            user.city = request.form['city']
+            # user.profile_pic = request.form['profile_pic']
             db.session.commit()
             flash('Profile changes saved successfully', 'success')
-        return redirect('/profile')
+        return redirect('/account')
     else:
         # Handle the case where no user is found in the database
         return render_template('error.html', message='No user found')
@@ -397,7 +421,10 @@ def confirm_email():
             # Codes match, complete the registration
             user.verified = True
             db.session.commit()
-            return render_template('index.html')
+            session['logged_in'] = "true"
+            session["google_name"] = user.username
+            session["google_email"] = user.email
+            return render_template('index-new.html')
         else:
             return render_template('confirm_email.html')
 
@@ -436,10 +463,22 @@ def callback():
         request=token_request,
         audience=GOOGLE_CLIENT_ID
     )
+    user = User.query.filter_by(email=id_info.get("email")).first()
 
-    session["google_id"] = id_info.get("sub")
-    session["google_name"] = id_info.get("name")
-    session["google_email"] = id_info.get("email")
+    if user:
+        # User exists, implement your logic here
+        session["google_name"] = user.username
+        session["google_email"] = user.email
+    else:
+        # User doesn't exist, implement your logic here
+        session["google_id"] = id_info.get("sub")
+        session["google_name"] = id_info.get("name")
+        session["google_email"] = id_info.get("email")
+        profile_url = "/static/asset/profile-pic.png"
+        new_user = User(username=session["google_name"], email=session["google_email"],password="google",profile_pic=profile_url)
+        db.session.add(new_user)
+        db.session.commit()
+
     
     return redirect("/protected_area")
 
