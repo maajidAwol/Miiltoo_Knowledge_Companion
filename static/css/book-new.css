@@ -359,7 +359,7 @@ footer {
 .text-input-container {
   position: relative;
   display: flex;
-  height: 56px;
+  height: 38px;
   padding: 8px 9.334px;
   flex-direction: column;
   align-items: flex-start;
@@ -376,7 +376,7 @@ footer {
   top: 0;
   left: 0;
   width: 96%;
-  height: 73%;
+  height: 63%;
   background: transparent;
   border: none;
   border-radius: inherit;
@@ -491,6 +491,7 @@ footer {
   border: 0.5px solid var(--secondary, #1e206f);
   background: rgba(30, 32, 111, 0.2);
   overflow-y: scroll;
+  overflow-wrap: anywhere;
 }
 .result-container::-webkit-scrollbar {
   width: 8px;
@@ -516,11 +517,15 @@ footer {
   flex: 1 0 0;
   align-self: stretch;
 }
-.user-message-container {
+.user-message-container,
+.user-message-container-my {
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  align-self: stretch;
+}
+.user-message-container {
+  min-width: 240px;
+  flex-direction: column;
 }
 .user-message-icon,
 .chatbot-icon {
@@ -549,6 +554,8 @@ footer {
   background: rgba(30, 32, 111, 0.2);
   color: var(--color-accent);
   font-size: 14px;
+  flex: 1 0 0;
+  flex-wrap: wrap;
   font-style: normal;
   font-weight: 500;
   line-height: normal;

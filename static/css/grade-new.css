@@ -26,6 +26,7 @@
   --color-accent: #22fbf9;
   font-family: var(--font-roboto);
 }
+
 .grade-menu-item:hover {
   color: var(--color-white);
 }
