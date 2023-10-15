@@ -77,6 +77,7 @@ header:hover::before {
   }
 }
 .logo-container {
+  width: 16%;
   min-width: 164px;
   margin-right: auto;
   display: flex;
@@ -120,11 +121,11 @@ nav {
 }
 .underline {
   position: absolute;
-  top: 20px;
-  margin-left: -315px;
-  margin-top: 10px;
-  height: 32px;
-  transition: 0.5s ease;
+    top: 20px;
+    margin-left: -439px;
+    margin-top: 10px;
+    height: 32px;
+    transition: 0.5s ease;
 }
 .underline img {
   width: 58px;
@@ -137,7 +138,7 @@ nav a,
 .login-btn1,
 .signup-btn1,
 .grade-btn,
-.pages-btn {
+.pages-btn,.upload-btn {
   color: var(--color-white);
   font-family: var(--font-roboto);
   font-size: 18px;
@@ -175,7 +176,7 @@ a{
   color: var(--color-accent);
 }
 .grade-btn,
-.pages-btn {
+.pages-btn,.upload-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -184,15 +185,32 @@ a{
   border: none;
   color: var(--color-white);
 }
+.upload-btn{
+  padding: 4px 12px;
+  border-radius: 24px;
+  border: 2px solid var(--color-secondary);
+  background: #1e206f47;
+  text-transform: lowercase;
+}
 .grade-btn:hover,
-.pages-btn:hover {
+.pages-btn:hover{
   cursor: pointer;
   color: var(--color-accent);
 }
 .grade-btn-icon i,
-.pages-btn-icon i {
+.pages-btn-icon i,.upload-btn-icon i {
   font-size: 24px;
   color: var(--color-accent);
+}
+.upload-btn:hover{
+  cursor: pointer;
+}
+.upload-btn:hover span i{
+  color: var(--color-accent);
+}
+.upload-btn-icon i {
+  color: var(--color-white);
+  font-size: 18px;
 }
 .grade-btn-icon.rotateTo{
   transform: rotate(180deg);
@@ -358,8 +376,7 @@ font-weight: 600;
 .grade-menu{
   position: fixed;
     top: 60px;
-    left: 43.8%;
-    left: 44.%;
+    left: 41.3%;
     display: inline-flex;
     padding: 24px 8px;
     justify-content: center;

@@ -26,15 +26,15 @@
   --color-accent: #22fbf9;
   font-family: var(--font-roboto);
 }
-.grade-menu,
+/*  .grade-menu,
 .profile-menu {
   position: absolute;
   top: 8.9%;
   left: 43.5%;
-}
+} 
 .profile-menu {
   left: 73.8%;
-}
+} */
 .chat-sec {
   display: flex;
   height: 87vh;
@@ -242,6 +242,20 @@ footer {
   position: absolute;
   top: 7px;
   left: 11px;
+}
+.upload-popup {
+  position: absolute;
+  top: 9vh;
+  left: 30%;
+  z-index: 4;
+}
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background: #1e206f1f;
+  backdrop-filter: blur(7px);
+  z-index: 3;
 }
 .chatbot-var-2,
 .chatbot-var-3,
@@ -968,7 +982,7 @@ input[type="file"]:hover {
 }
 #upload-button {
   position: absolute;
-  top: 69%;
+  top: 85%;
   left: 79%;
   display: flex;
   padding: 8px 16px;

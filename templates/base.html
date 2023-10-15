@@ -6,6 +6,8 @@
     <title>{%block title %}Base{%endblock%}</title>
     <link rel="icon" href="/static/public/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/static/css/home-new.css" />
+    <link rel="stylesheet" href="/static/css/book-new.css" />
+    <link rel="stylesheet" href="/static/css/loading-style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -43,6 +45,7 @@
             </span></button
         ></a>
         <a href="" class="home-link">competition</a>
+
         <a href="" class="home-link"
           ><button class="pages-btn">
             pages
@@ -50,6 +53,14 @@
               <i class="fa-solid fa-caret-down"></i>
             </span></button
         ></a>
+        <a href="" class=""
+          ><button class="upload-btn" id="upload-btn1">
+            <span class="upload-btn-icon">
+              <i class="fa-solid fa-upload"></i>
+            </span>
+            upload
+          </button></a
+        >
       </nav>
       <div class="login-container">
         <a href="/login"><button class="login-btn1">login</button></a>
@@ -154,6 +165,134 @@
         </div></a
       >
     </div>
+    <div class="upload-popup hidden">
+      <div class="chatbot-var-4 hidd">
+        <button class="arrow-btn close-popup">
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <div class="chat-top-container upload-top-container">
+          <div class="var2-logo">
+            <img src="/static/asset/logo.svg" alt="" />
+            miilt<span>oo</span>
+          </div>
+          <div class="chat-top-headline">
+            <div class="chat-text">
+              <span class="chat-text-icon">
+                <i class="fa-solid fa-upload"></i>
+              </span>
+              upload-file
+            </div>
+          </div>
+        </div>
+        <!-- the start of drop area -->
+        <!--          <div class="drop-area">-->
+        <!--            <span class="cloud-icon"><i class="fa-solid fa-cloud-arrow-up"></i>-->
+        <!--            </span>-->
+        <!--            <div class="drop-area-label">-->
+        <!--              Drop your pdf here or ,-->
+        <!--&lt;!&ndash;              <span>Browse</span>&ndash;&gt;-->
+        <!--                <input type="file" placeholder="Browse">-->
+        <!--            </div>-->
+        <!--            <div class="sub-label">-->
+        <!--              maximum file size 50mb-->
+        <!--            </div>-->
+        <!--          </div>-->
+
+        <div class="drop-area" id="drop-area">
+          <form
+            class="drop-area-form my-form"
+            action="/upload"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <span class="cloud-icon"
+              ><i class="fa-solid fa-cloud-arrow-up"></i
+            ></span>
+            <div style="display: flex; gap: 4px">
+              <p>Drag and drop a file here, or</p>
+              <label for="fileElem" class="browse-button">browse</label>
+            </div>
+
+            <span id="fileName" class="sub-label">No file selected</span>
+            <input
+              type="file"
+              id="fileElem"
+              name="file"
+              class="button"
+              accept="application/pdf"
+            />
+
+            <button
+              class="file-label button"
+              id="upload-button"
+              style="display: none"
+              onclick="uploadForm()"
+            >
+              <span class="file-label-text">open</span>
+            </button>
+          </form>
+          <div id="gallery"></div>
+
+          <!-- Move the upload button outside the drop area -->
+        </div>
+        <div class="recent-label">
+          <span class="recent-icon">
+            <i class="fa-solid fa-newspaper"></i>
+          </span>
+          recent
+        </div>
+        <div class="file-container">
+          <div class="file-item"></div>
+        </div>
+
+        <!-- the end of drop area -->
+
+        <!-- <div class="file-container">
+        <div class="file-item">
+          
+          <div class="file-box">
+            <span class="file-icon">
+              <i class="fa-solid fa-file"></i>
+            </span>
+            <div class="file-desc">
+              <span class="file-name">file name</span>
+              <span class="file-meta">
+                file type *
+                 <span class="file-size"></span>
+                 2mb
+              </span>
+            </div>
+            <div class="upload-status-container">
+              <div class="upload-progress-container hidden">
+                 <div class="progress-bar"></div>
+                 <div class="progress-percent">50%</div>
+                 <span class="progress-icon"><i class="fa-solid fa-xmark"></i></span>
+              </div>
+              <div class="upload-status">
+              <div class="uploading hidden">
+                <span class="upload-status-icon hidden">
+                  <i class="fa-solid fa-thermometer"></i>
+                </span>
+                uploading...
+              </div>
+                <div class="uploaded-label">
+                uploaded
+                <span class="upload-status-icon">
+                  <i class="fa-solid fa-circle-check"></i>
+                </span>
+
+                </div>
+              </div>
+              <div class="trash-icon">
+                <i class="fa-solid fa-trash-can"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      </div>
+    </div>
+    <div class="overlay hidden"></div>
 
     {% block body %} {% endblock %} {%block footer%}
     <footer>
@@ -201,6 +340,7 @@
     </footer>
     {%endblock%}
     <script src="/static/js/header.js"></script>
+    <script src="/static/js/upload.js"></script>
     <script>
       var login_and_signup = document.querySelector(".login-container");
       var profile = document.querySelector(".profile-container");
