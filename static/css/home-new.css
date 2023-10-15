@@ -1466,6 +1466,10 @@ h1 span {
   background:no-repeat url(/static/asset/ourTeam/ararsa-pic.png);
   background-size: cover;
 }
+.natty-pic{
+    background:no-repeat url(/static/asset/ourTeam/nati-pic.png);
+    background-size: cover;
+}
 .member-name {
   display: flex;
   padding: 15.5px 0px;
