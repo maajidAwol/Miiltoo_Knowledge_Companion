@@ -1,5 +1,4 @@
 import time
-
 import PyPDF2
 from flask import Flask, redirect, render_template,abort,session, jsonify, flash, url_for
 from flask import Flask, render_template, request
@@ -36,7 +35,7 @@ from user import register_user,db,User,bcrypt, login_auth,migrate,Books,mail
 from admin import admin
 from topics import biology,history,rt
 
-os.environ["OPENAI_API_KEY"] = ""
+os.environ["OPENAI_API_KEY"] = "sk-igBpfOaD5auACbyqgvvJT3Blb"
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1" 
 GOOGLE_CLIENT_ID = "929050329675-633eemlvju4gbm88m39qqql9kfm64p76.apps.googleusercontent.com"
 client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "client_secret.json")
@@ -143,9 +142,9 @@ def auth():
 @app.route("/")
 def main():
     return render_template("index-new.html")
-# @app.route("/account/")
-# def account():
-#     return render_template("account.html")
+@app.route("/contest/")
+def contest():
+    return render_template("contest.html")
 
 @app.route("/grade/")
 def grade():
@@ -162,7 +161,7 @@ def grade():
            print(history)
            return render_template("book-new.html", book=book, json_data = json_data)
        else:
-           print("lonely")
+
            json_data = {
         "None": {
             "none": [],
