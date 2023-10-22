@@ -1,6 +1,5 @@
 {% extends "base.html" %} {%block title %}Dashboard{%endblock%} {%block body%}
 
-
 <main>
   <section class="hero-sec">
     <div class="headline-container">
@@ -89,15 +88,16 @@
     </div>
   </section>
   <section class="resource-sec">
-    <div class="resrc-headline">
+    <div class="resrc-headline" id="grade">
       resources
       <span class="resrc-line"></span>
     </div>
     <div class="resrc-btns">
       <button class="active-btn">All</button>
-      <button class="other-btns">Study guide</button>
-      <button class="other-btns">textbook</button>
-      <button class="other-btns">test</button>
+      <button class="other-btns">grade-9</button>
+      <button class="other-btns">grade-10</button>
+      <button class="other-btns">grade-11</button>
+      <button class="other-btns">grade-12</button>
     </div>
     <div class="resrc-nav-container">
       <button class="left-btn">
@@ -111,7 +111,10 @@
     <div class="resrc-slider">
       <div class="resrc-container" id="resrc-container">
         <div class="resrc-item">
-          <div class="resrc-box">
+          <a
+            href="/grade/?book=bk/Biology Student Textbook Grade 9.pdf"
+            class="resrc-box"
+          >
             <div class="resrc-cover-container">
               <img
                 src="/static/asset/bio-g10-cover.svg"
@@ -144,8 +147,11 @@
                 </p>
               </div>
             </div>
-          </div>
-          <div class="resrc-box">
+          </a>
+          <a
+            href="/grade/?book=bk/History student textbook grade 9.pdf"
+            class="resrc-box"
+          >
             <div class="resrc-cover-container" style="background: #1aa751">
               <img
                 src="/static/asset/hist-g9-cover.svg"
@@ -178,7 +184,7 @@
                 </p>
               </div>
             </div>
-          </div>
+          </a>
           <div class="resrc-box">
             <div class="resrc-cover-container" style="background: #1aa751">
               <img
@@ -653,9 +659,11 @@
             team lead & backend developer
           </div>
           <p class="member-bio">
-            "I am an experienced and results-oriented Team Leader with a strong passion for leadership and a track record of guiding teams to success.
-             With a focus on fostering collaboration, mentorship, and achieving collective goals, 
-            I am dedicated to maximizing team productivity and ensuring every member's growth and development."
+            "I am an experienced and results-oriented Team Leader with a strong
+            passion for leadership and a track record of guiding teams to
+            success. With a focus on fostering collaboration, mentorship, and
+            achieving collective goals, I am dedicated to maximizing team
+            productivity and ensuring every member's growth and development."
           </p>
           <div class="member-email">
             <span class="email-icon"><i class="fa-solid fa-inbox"></i></span>
@@ -685,9 +693,13 @@
             backend developer
           </div>
           <p class="member-bio">
-            "I am a dedicated and detail-oriented Backend Developer with a strong passion for crafting efficient, scalable, and secure server-side solutions. 
-            My expertise lies in designing and implementing the backbone of web and mobile applications, ensuring that they operate flawlessly and provide exceptional performance.
-             I am committed to translating complex technical challenges into elegant, functional, and maintainable code."
+            "I am a dedicated and detail-oriented Backend Developer with a
+            strong passion for crafting efficient, scalable, and secure
+            server-side solutions. My expertise lies in designing and
+            implementing the backbone of web and mobile applications, ensuring
+            that they operate flawlessly and provide exceptional performance. I
+            am committed to translating complex technical challenges into
+            elegant, functional, and maintainable code."
           </p>
           <div class="member-email">
             <span class="email-icon"><i class="fa-solid fa-inbox"></i></span>
@@ -717,9 +729,11 @@
             front-end developer & Ui/Ux designer
           </div>
           <p class="member-bio">
-            "I am a passionate and highly creative UI/UX Designer dedicated to enhancing digital experiences through thoughtful and user-centric design.
-             With a deep appreciation for the intersection of aesthetics and functionality, 
-             I thrive on translating complex ideas into intuitive, visually stunning, and user-friendly interfaces."
+            "I am a passionate and highly creative UI/UX Designer dedicated to
+            enhancing digital experiences through thoughtful and user-centric
+            design. With a deep appreciation for the intersection of aesthetics
+            and functionality, I thrive on translating complex ideas into
+            intuitive, visually stunning, and user-friendly interfaces."
           </p>
           <div class="member-email">
             <span class="email-icon"><i class="fa-solid fa-inbox"></i></span>
@@ -749,11 +763,11 @@
             content creator and front-end developer
           </div>
           <p class="member-bio">
-            "I am a dedicated Content Curator with a passion for discovering, organizing, and sharing meaningful content. 
-            My role is to meticulously curate and manage digital content to engage and inform your target audience, 
-            while ensuring your brand's voice and message remain consistent and relevant.
-
-            "
+            "I am a dedicated Content Curator with a passion for discovering,
+            organizing, and sharing meaningful content. My role is to
+            meticulously curate and manage digital content to engage and inform
+            your target audience, while ensuring your brand's voice and message
+            remain consistent and relevant. "
           </p>
           <div class="member-email">
             <span class="email-icon"><i class="fa-solid fa-inbox"></i></span>
@@ -783,9 +797,13 @@
             content creator and project manager
           </div>
           <p class="member-bio">
-            "I am a results-driven and detail-oriented Project Manager with a proven track record of successfully leading and delivering complex projects from inception to completion. 
-            With a keen understanding of project management methodologies, a knack for team collaboration, 
-            and a focus on delivering value, I am dedicated to ensuring projects are executed on time, within scope, and to the highest quality standards."
+            "I am a results-driven and detail-oriented Project Manager with a
+            proven track record of successfully leading and delivering complex
+            projects from inception to completion. With a keen understanding of
+            project management methodologies, a knack for team collaboration,
+            and a focus on delivering value, I am dedicated to ensuring projects
+            are executed on time, within scope, and to the highest quality
+            standards."
           </p>
           <div class="member-email">
             <span class="email-icon"><i class="fa-solid fa-inbox"></i></span>
@@ -866,6 +884,7 @@
 
 <!--<script src="/static/js/menu.js"></script>-->
 <script src="/static/js/slider-new.js"></script>
+
 <script>
   const how_does_sec = document.querySelector(".how-does-sec");
   const circle_dot = document.querySelectorAll(".circle-dot");
