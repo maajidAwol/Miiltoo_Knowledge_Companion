@@ -507,6 +507,7 @@ footer {
   border: 0.5px solid var(--secondary, #1e206f);
   background: rgba(30, 32, 111, 0.2);
   overflow-y: scroll;
+  overflow-x: hidden;
   overflow-wrap: anywhere;
 }
 .result-container::-webkit-scrollbar {
