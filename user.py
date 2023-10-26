@@ -7,6 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 import random
 import string
 from flask_mail import Mail, Message
+from datetime import datetime
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -36,7 +37,7 @@ class User(db.Model):
         self.school_name = school_name
         self.verified = verified
         self.verification_code = verification_code
-        self.country=country
+        self.country= country
         self.city=city
 class Books(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -44,6 +45,22 @@ class Books(db.Model):
     book_url = db.Column(db.String(255), nullable=False)
 
     user = db.relationship('User', backref=db.backref('books', lazy=True))
+
+class Contest(db.Model):
+
+    id = db.Column(db.Integer, primary_key=True)
+    subject =db.Column(db.String)
+    contest_data = db.Column(db.String)  # Store JSON data as a string
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    is_approved = db.Column(db.Boolean, default=False)
+    active = db.Column(db.Boolean, default=False)
+
+    def __init__(self,subject, contest_data, is_approved=False, active=False):
+        self.subject =subject
+        self.contest_data = contest_data
+        self.is_approved = is_approved
+        self.active = active
+
 #
 # import bcrypt
 # from flask_bcrypt import Bcrypt

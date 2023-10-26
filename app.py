@@ -32,7 +32,7 @@ from werkzeug.utils import secure_filename
 import user
 from chat_quiz import quiz_function, chat_function,ext
 from custom_process import pdf_to_text
-from user import register_user,db,User,bcrypt, login_auth,migrate,Books,mail
+from user import register_user,db,User,bcrypt, login_auth,migrate,Books,mail,Contest
 from admin import admin
 from topics import biology,history,rt
 
@@ -244,7 +244,34 @@ def quiz_send():
     r =rt
     result= ext(r)
     return result
+@app.route("/contest_request",methods=["POST"])
+def contest_send():
+    r = ext(rt)
 
+    subject ="biology"
+    dict_contest= {subject: r}
+
+    dict_contest.update({"physics": r})
+    str_contest =json.dumps(dict_contest)
+    # result = ext(r)
+    # return result
+    # db.session.query(Contest).delete()
+    # db.session.commit()
+    print(r)
+    print(dict_contest)
+    sample_contest = Contest(
+        subject = subject,
+        contest_data=str_contest,
+        is_approved=True,
+        active=True
+    )
+
+    db.session.add(sample_contest)
+    db.session.commit()
+    contest_query = Contest.query.first()
+    result = ext(contest_query.contest_data)
+    print(result)
+    return result
 
 @app.route("/login")
 def login():
@@ -490,7 +517,7 @@ def protected_area():
     return redirect("/")
     
 if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()
+    # with app.app_context():
+    #     db.create_all()
     admin.init_app(app)
     app.run(debug=True)

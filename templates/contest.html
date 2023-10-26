@@ -1,197 +1,298 @@
-{% extends "base.html" %}  {%block body%}
+{% extends "base.html" %}
 
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz App</title>
-  <style>
-    label {
-      display: block;
-      margin-bottom: 10px;
+
+
+ {% block head %}
+ <link rel="stylesheet" href="/static/css/book-new.css" />
+    <style>
+      :root {
+    --primary-color: rgb(11, 78, 179);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Montserrat, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+
+  }
+  /* Global Stylings */
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  input {
+    display: block;
+    
+  
+  }
+
+  .width-50 {
+    width: 50%;
+  }
+
+  .ml-auto {
+    margin-left: auto;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  /* Progressbar */
+  .progressbar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    counter-reset: step;
+    margin: 2rem 0 4rem;
+  }
+
+  .progressbar::before,
+  .progress {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    background-color: #dcdcdc;
+    z-index: -1;
+  }
+
+  .progress {
+    background-color: var(--primary-color);
+    width: 0%;
+    transition: 0.3s;
+  }
+
+  .progress-step {
+    width: 2.1875rem;
+    height: 2.1875rem;
+    background-color: #dcdcdc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .progress-step::before {
+    counter-increment: step;
+    content: counter(step);
+  }
+
+  .progress-step::after {
+    content: attr(data-title);
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    font-size: 0.85rem;
+    color: #666;
+  }
+
+  .progress-step-active {
+    background-color: var(--primary-color);
+    color: #f3f3f3;
+  }
+
+  /* Form */
+  .form {
+    width: auto;
+    margin: 0 auto;
+    margin-top: 50px;
+    border: 1px solid #ccc;
+    border-radius: 0.35rem;
+    padding: 1.5rem;
+  }
+
+  .form-step {
+    display: none;
+    transform-origin: top;
+    animation: animate 0.5s;
+  }
+
+  .form-step-active {
+    display: block;
+  }
+
+  .input-group {
+    margin: 2rem 0;
+  }
+
+  @keyframes animate {
+    from {
+      transform: scale(1, 0);
+      opacity: 0;
     }
-  </style>
-</head>
- <body style="color:white">
-  <h1>Contest</h1>
-  <center>
-  <form id="quiz-form">
-    <div id="quiz-container"></div>
-    <div id="results" style="display: none;"></div>
-    <button type="button" id="submit-button">Submit Answers</button>
-  </form>
-</center>
-  <script>
-    const quizData = [
-      // Section 1
-      [
-        {
-          "question": "Question 1 (Section 1)",
-          "choices": {
-            "a": "Option A",
-            "b": "Option B",
-            "c": "Option C",
-            "d": "Option D"
-          },
-          "answer": "a",
-          "explanation": "Explanation for Question 1 (Section 1)"
-        },
-        {
-          "question": "Question 2 (Section 1)",
-          "choices": {
-            "a": "Option A",
-            "b": "Option B",
-            "c": "Option C",
-            "d": "Option D"
-          },
-          "answer": "b",
-          "explanation": "Explanation for Question 2 (Section 1)"
-        }
-      ],
-      // Section 2
-      [
-        {
-          "question": "Question 1 (Section 2)",
-          "choices": {
-            "a": "Option A",
-            "b": "Option B",
-            "c": "Option C",
-            "d": "Option D"
-          },
-          "answer": "c",
-          "explanation": "Explanation for Question 1 (Section 2)"
-        },
-        {
-          "question": "Question 2 (Section 2)",
-          "choices": {
-            "a": "Option A",
-            "b": "Option B",
-            "c": "Option C",
-            "d": "Option D"
-          },
-          "answer": "a",
-          "explanation": "Explanation for Question 2 (Section 2)"
-        }
-      ],[
-        {
-          "question": "Question 1 (Section 3)",
-          "choices": {
-            "a": "Option A",
-            "b": "Option B",
-            "c": "Option C",
-            "d": "Option D"
-          },
-          "answer": "c",
-          "explanation": "Explanation for Question 1 (Section 3)"
-        },
-        {
-          "question": "Question 2 (Section 3)",
-          "choices": {
-            "a": "Option A",
-            "b": "Option B",
-            "c": "Option C",
-            "d": "Option D"
-          },
-          "answer": "a",
-          "explanation": "Explanation for Question 2 (Section 3)"
-        }
-      ]
-    ];
-
-    const quizContainer = document.getElementById('quiz-container');
-    const resultsContainer = document.getElementById('results');
-    const submitButton = document.getElementById('submit-button');
-
-    function buildQuiz() {
-      quizContainer.innerHTML = '';
-      resultsContainer.style.display = 'none';
-
-      quizData.forEach((section, sectionIndex) => {
-        const sectionTitle = document.createElement('h2');
-        sectionTitle.innerText = `Section ${sectionIndex + 1}`;
-        quizContainer.appendChild(sectionTitle);
-
-        section.forEach((question, questionIndex) => {
-          const choices = Object.keys(question.choices);
-          const questionElement = document.createElement('div');
-          questionElement.innerHTML = `<p>${question.question}</p>`;
-
-          choices.forEach(choice => {
-            const choiceLabel = document.createElement('label');
-            choiceLabel.innerHTML = `
-              <input type="radio" name="question${sectionIndex}_${questionIndex}" value="${choice}" required>
-              ${choice}: ${question.choices[choice]}
-            `;
-            questionElement.appendChild(choiceLabel);
-          });
-
-          quizContainer.appendChild(questionElement);
-        });
-      });
-
-      submitButton.style.display = 'block';
+    to {
+      transform: scale(1, 1);
+      opacity: 1;
     }
+  }
 
-    function showResults() {
-      resultsContainer.innerHTML = '';
-      const sectionScores = [];
+  /* Button */
+  .btns-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
 
-      quizData.forEach((section, sectionIndex) => {
-        const sectionScore = {
-          section: `Section ${sectionIndex + 1}`,
-          correct: 0,
-          total: section.length,
-          results: []
-        };
+  .btn {
+    padding: 0.75rem;
+    display: block;
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: #f3f3f3;
+    text-align: center;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .btn:hover {
+    box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-color);
+  }
+    </style>
+  {% endblock %}
+  {%block body%}
+    <form action="#" class="form">
+      <h1 class="text-center">Contest</h1>
+      <!-- Progress bar -->
+      <div class="progressbar">
+        <div class="progress" id="progress"></div>
 
-        section.forEach((question, questionIndex) => {
-          const userAnswer = document.querySelector(`input[name="question${sectionIndex}_${questionIndex}"]:checked`);
-          const correctAnswer = question.answer;
+        <div
+          class="progress-step progress-step-active"
+          data-title="Bio"
+        ></div>
+        <div class="progress-step" data-title="Chem"></div>
+        <div class="progress-step" data-title="Hist"></div>
+        <div class="progress-step" data-title="Math"></div>
+        <div class="progress-step" data-title="Geo"></div>
+      </div>
 
-          if (userAnswer) {
-            const userChoice = userAnswer.value;
-            const explanation = question.explanation;
-            const isCorrect = userChoice === correctAnswer;
-            sectionScore.results.push({ question: question.question, isCorrect, explanation });
-            if (isCorrect) {
-              sectionScore.correct += 1;
-            }
-          }
-        });
+      <!-- Steps -->
+      <div class="form-step form-step-active">
+        
+       <div   id="biology-quiz-form">
+        <div  id="biology-quiz-container"></div>
+        
+        <div  id="biology-results" style="display: none;"></div>
+        <button type="button" class="btn" id="biology-submit-button">Submit Answers</button>
+       </div>
+       
+        
+        <div class="">
+          <a href="#" class="btn btn-next width-50 ml-auto">Next</a>
+        </div>
+      </div>
 
-        sectionScores.push(sectionScore);
-      });
 
-      sectionScores.forEach(sectionScore => {
-        const sectionTitle = document.createElement('h2');
-        sectionTitle.innerText = sectionScore.section;
-        resultsContainer.appendChild(sectionTitle);
+      <div class="form-step">
+        
+<h6>Chemistry</h6>
 
-        sectionScore.results.forEach(result => {
-          const resultElement = document.createElement('div');
-          resultElement.innerHTML = `
-            <p>${result.question}</p>
-            <p>${result.isCorrect ? "Correct" : "Incorrect"}</p>
-            <p>Explanation: ${result.explanation}</p>
-          `;
-          resultsContainer.appendChild(resultElement);
-        });
+<div id="physics-quiz-form">
+  <div id="physics-quiz-container"></div>
+  
+  <div id="physics-results" style="display: none;"></div>
+  <button type="button" class="btn" id="physics-submit-button">Submit Answers</button>
+</div>
+<h6>Chemistry</h6>
+        
+ 
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">Previous</a>
+          <a href="#" class="btn btn-next">Next</a>
+        </div>
+      </div>
+      <div class="form-step">
+        <div class="input-group">
+<h1>History</h1>
+        </div>
 
-        const sectionEvaluation = document.createElement('p');
-        sectionEvaluation.innerText = `Section Evaluation: ${sectionScore.correct} out of ${sectionScore.total}`;
-        resultsContainer.appendChild(sectionEvaluation);
-      });
+        <div class="btns-group">
+          <a href="#"  class="btn btn-prev">Previous</a>
+          <a href="#" style="display: none;" class="btn btn-prev">Submit</a>
+          <a href="#"  class="btn btn-next">Next</a>
+        </div>
+      </div>
+      <div class="form-step">
+        <div class="input-group">
+          <h1>MATH</h1>
+        </div>
 
-      resultsContainer.style.display = 'block';
-      submitButton.style.display = 'none';
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">Previous</a>
+          <a href="#" class="btn btn-next">Next</a>
+        </div>
+      </div>
+      <div class="form-step">
+
+        <div class="input-group">
+            <h1>Geography</h1>
+        </div>
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">Previous</a>
+          <input type="submit" value="Submit" class="btn" />
+        </div>
+      </div>
+    </form>
+    <script>
+        // Changing subjects
+        const prevBtns = document.querySelectorAll(".btn-prev");
+const nextBtns = document.querySelectorAll(".btn-next");
+const progress = document.getElementById("progress");
+const formSteps = document.querySelectorAll(".form-step");
+const progressSteps = document.querySelectorAll(".progress-step");
+
+let formStepsNum = 0;
+
+nextBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    formStepsNum++;
+    updateFormSteps();
+    updateProgressbar();
+  });
+});
+
+prevBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    formStepsNum--;
+    updateFormSteps();
+    updateProgressbar();
+  });
+});
+
+function updateFormSteps() {
+  formSteps.forEach((formStep) => {
+    formStep.classList.contains("form-step-active") &&
+      formStep.classList.remove("form-step-active");
+  });
+
+  formSteps[formStepsNum].classList.add("form-step-active");
+}
+
+function updateProgressbar() {
+  progressSteps.forEach((progressStep, idx) => {
+    if (idx < formStepsNum + 1) {
+      progressStep.classList.add("progress-step-active");
+    } else {
+      progressStep.classList.remove("progress-step-active");
     }
+  });
 
-    submitButton.addEventListener('click', () => {
-      showResults();
-    });
+  const progressActive = document.querySelectorAll(".progress-step-active");
 
-    buildQuiz();
-  </script>
-</body>
-</html>
+  progress.style.width =
+    ((progressActive.length - 1) / (progressSteps.length - 1)) * 100 + "%";
+}
+// changin subjects end here
+
+    </script>
+    <script src="/static/js/contest.js"></script>
+
 {%endblock%}
