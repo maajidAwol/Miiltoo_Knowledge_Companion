@@ -272,6 +272,7 @@ def contest_send():
     result = ext(contest_query.contest_data)
     print(result)
     return result
+
 @app.route("/login")
 def login():
     return render_template("login.html")
