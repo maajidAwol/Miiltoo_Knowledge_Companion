@@ -726,8 +726,9 @@ h1 span {
 .resrc-line {
 }
 
-.resrc-btns {
-  width: 100%;
+.resrc-btns,.resrc-btns-item {
+  margin: 0 5vw;
+  width: 86vw;
   display: flex;
   padding: 8px;
   justify-content: center;
@@ -735,14 +736,26 @@ h1 span {
   align-content: flex-start;
   gap: 16px;
   align-self: stretch;
+  background: #080d2789;
   flex-wrap: nowrap;
-  overflow-x: auto;
+  border-radius: 24px;
+  overflow-x: scroll;
+
+}
+.resrc-btns :nth-child(1) {
+  margin-left: 34%;
+}
+.resrc-btns-item{
+  width: max-content;
 }
 .resrc-btns::-webkit-scrollbar {
   display: none;
 }
+
+
 .active-btn,
 .other-btns {
+  min-width: max-content;
   display: flex;
   height: 45.076px;
   padding: 12px 24px;
@@ -780,7 +793,7 @@ h1 span {
   width: 68%;
   margin: 0 16%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
 }
 .resrc-slider-indicator,
 .testi-slider-indicator,.team-slider-indicator {
@@ -954,6 +967,7 @@ h1 span {
   gap: 94%;
   position: absolute;
   top: 46%;
+  z-index: 3;
 }
 .testi-nav-container {
   width: 41%;
@@ -1970,11 +1984,11 @@ footer {
     width: 64px;
   }
   .resrc-btns :nth-child(1) {
-    margin-left: 20%;
+    margin-left: 22%;
   }
-  .resrc-btns :last-child {
+  /* .resrc-btns :last-child {
     margin-right: 14%;
-  }
+  } */
   .resrc-slider-indicator {
     display: none;
   }
@@ -2041,9 +2055,15 @@ footer {
     min-width: 175px;
     max-width: 24vw;
   }
+  
+  .resrc-btns :nth-child(1){
+    margin-left: 10vw;
+  }
   .resrc-container {
-    gap: 28px;
-    margin-left: 2px;
+    margin-left: -16px;
+    gap: 0%;
+    width: 72vw;
+    height: 409px;
   }
   .resrc-nav-container {
     gap: 96%;
@@ -2109,13 +2129,12 @@ footer {
     position: absolute;
     width: 100%;
     left: 0;
-    top: 55px;
+    top: 66px;
     height: 45vh;
     display: flex;
     flex-direction: column;
     transform: translateX(-100%);
-    background: url(/static/asset/hero-bg.png);
-    background-position: -16px 703px;
+    background: var(--color-primary);
     opacity: 0.96;
     backdrop-filter: blur(131px);
     gap: 6%;
@@ -2169,19 +2188,32 @@ footer {
   .resrc-box {
     padding: 16px 34px;
     gap: 12px;
+    width: 260px;
+    transform: scale(0.78);
+    margin: 0px -3.05%;
   }
   .resrc-slider {
-    width: 71vw;
-    margin: 0;
+    width: 83vw;
+    height: 420px;
   }
   .resrc-nav-container {
-    gap: 96%;
-    top: 42%;
-  }
+    gap: 100.5%;
+    top: 49%;
+}
   .resrc-container {
-    margin-left: 12px;
-    gap: 2%;
+    width: 840px;
+    margin-left: 1%;
+
   }
+  .resrc-btns, .resrc-btns-item {
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    background: transparent;
+  }
+  .resrc-btns :nth-child(1) {
+    margin-left: 0%;
+}
   .resrc-cover-overlay {
     width: 81%;
     top: 51.5%;
@@ -2190,4 +2222,10 @@ footer {
     top: 1672px;
     height: 856px;
   }
+}
+@media only screen and (width >= 1200px) {
+  .resrc-nav-container {
+    gap: 78.5%;
+  }
+  
 }

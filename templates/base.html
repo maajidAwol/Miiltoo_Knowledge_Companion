@@ -6,7 +6,6 @@
     <title>{%block title %}Base{%endblock%}</title>
     <link rel="icon" href="/static/public/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/static/css/home-new.css" />
-    
 
     <link rel="stylesheet" href="/static/css/loading-style.css" />
     <link rel="stylesheet" href="/static/css/grade-new.css" />
@@ -350,28 +349,7 @@
     </footer>
     {%endblock%}
     <script src="/static/js/header.js"></script>
-    <script>
-      const resrc_btns = document.querySelectorAll(".resrc-btns button");
-      const grade_btns = document.querySelectorAll(".grade-menu-btn");
 
-      for (let i = 0; i < grade_btns.length; i++) {
-        grade_btns[i].addEventListener("click", function () {
-          for (let i = 0; i < resrc_btns.length; i++) {
-            resrc_btns[i].classList.replace("active-btn", "other-btns");
-            console.log("worked");
-          }
-          resrc_btns[i + 1].classList.replace("other-btns", "active-btn");
-        });
-      }
-      for (let i = 0; i < resrc_btns.length; i++) {
-        resrc_btns[i].addEventListener("click", () => {
-          for (let i = 0; i < resrc_btns.length; i++) {
-            resrc_btns[i].classList.replace("active-btn", "other-btns");
-          }
-          resrc_btns[i].classList.replace("other-btns", "active-btn");
-        });
-      }
-    </script>
     <script src="/static/js/upload.js"></script>
     <script>
       var login_and_signup = document.querySelector(".login-container");

@@ -1,5 +1,5 @@
 import time
-from decouple import config
+
 import PyPDF2
 from flask import Flask, redirect, render_template,abort,session, jsonify, flash, url_for
 from flask import Flask, render_template, request
@@ -36,10 +36,10 @@ from user import register_user,db,User,bcrypt, login_auth,migrate,Books,mail,Con
 from admin import admin
 from topics import biology,history,rt
 
-os.environ["OPENAI_API_KEY"] = config('API_KEY')
+os.environ["OPENAI_API_KEY"] = ""
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1" 
-GOOGLE_CLIENT_ID = config('GOOGLE_CLIENT_ID')
-client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "clientSecret.json")
+GOOGLE_CLIENT_ID = "929050329675-633eemlvju4gbm88m39qqql9kfm64p76.apps.googleusercontent.com"
+client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "client_secret.json")
 flow = Flow.from_client_secrets_file(
     client_secrets_file=client_secrets_file,
     scopes=["https://www.googleapis.com/auth/userinfo.profile", "https://www.googleapis.com/auth/userinfo.email", "openid"],
@@ -49,15 +49,15 @@ app = Flask(__name__)
 
 
 app.static_folder = 'static'
-app.secret_key= config('SECRET_KEY')
+app.secret_key= "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"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///profile.db'  # SQLite database
 # db = SQLAlchemy(app)
 
 
 app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = config('MAIL_USERNAME')
-app.config['MAIL_PASSWORD'] = config('MAIL_PASSWORD')
+app.config['MAIL_USERNAME'] = 'miltooknowledgecompanion@gmail.com'
+app.config['MAIL_PASSWORD'] = 'kyrmubuougusrlfu'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_DEBUG'] = True
@@ -143,9 +143,9 @@ def auth():
 @app.route("/")
 def main():
     return render_template("index-new.html")
-@app.route("/contest/")
-def contest():
-    return render_template("contest.html")
+# @app.route("/account/")
+# def account():
+#     return render_template("account.html")
 
 @app.route("/grade/")
 def grade():
@@ -162,7 +162,7 @@ def grade():
            print(history)
            return render_template("book-new.html", book=book, json_data = json_data)
        else:
-
+           print("lonely")
            json_data = {
         "None": {
             "none": [],
