@@ -1,3 +1,177 @@
+const slider_container = document.getElementById("resrc-container");
+const dots_container = document.querySelector(".resrc-slider-indicator");
+
+var resrc_btns = document.querySelectorAll(".resrc-btns button");
+var grade_btns = document.querySelectorAll(".grade-menu-btn");
+var grade_no = document.querySelectorAll(".grade_no");
+let currentImage = 9;
+let g_no = 9;
+let k = 0;
+var subj_Name = [
+  "biology",
+  "history",
+  "citizenship",
+  "chemistry",
+  "physics",
+  "geography",
+  "sth",
+  "we",
+];
+console.log(subj_Name[0]);
+createResrc(currentImage, "Et", subj_Name, k);
+sliderWithAuto(
+  ".resource-sec",
+  ".resrc-item",
+  ".resrc-slider-indicator",
+  ".left-btn",
+  ".right-btn",
+  ".resrc-nav-container"
+);
+handler();
+function handler() {
+  for (let i = 0; i < grade_btns.length; i++) {
+    grade_btns[i].addEventListener("click", function () {
+      slider_container.innerHTML = ``;
+      dots_container.innerHTML = ``;
+      for (let j = 0; j < resrc_btns.length; j++) {
+        resrc_btns[j].classList.replace("active-btn", "other-btns");
+      }
+      resrc_btns[i + 1].classList.replace("other-btns", "active-btn");
+      for (let j = 0; j < grade_no.length; j++) {
+        grade_no[j].innerHTML = `grade-${i + 9}`;
+      }
+      currentImage = i + 9;
+      createResrc(currentImage, "Et", subj_Name, k);
+      sliderWithAuto(
+        ".resource-sec",
+        ".resrc-item",
+        ".resrc-slider-indicator",
+        ".left-btn",
+        ".right-btn",
+        ".resrc-nav-container"
+      );
+    });
+  }
+  for (let i = 0; i < resrc_btns.length; i++) {
+    resrc_btns[i].addEventListener("click", function () {
+      slider_container.innerHTML = ``;
+      dots_container.innerHTML = ``;
+
+      for (let j = 0; j < resrc_btns.length; j++) {
+        resrc_btns[j].classList.replace("active-btn", "other-btns");
+      }
+      resrc_btns[i].classList.replace("other-btns", "active-btn");
+      for (let j = 0; j < grade_no.length; j++) {
+        grade_no[j].innerHTML = `grade-${i + 8}`;
+      }
+      if (i == 0) {
+        currentImage = 9;
+      } else {
+        currentImage = i + 8;
+      }
+      createResrc(currentImage, "Et", subj_Name, k);
+      sliderWithAuto(
+        ".resource-sec",
+        ".resrc-item",
+        ".resrc-slider-indicator",
+        ".left-btn",
+        ".right-btn",
+        ".resrc-nav-container"
+      );
+    });
+  }
+}
+window.addEventListener("resize", () => {
+  location.reload();
+});
+function createResrc(g_no, country_code, subj_Name, k) {
+  let length = 0;
+  const mediaFor_mob = window.matchMedia("(width < 768px)");
+  const mediaFor_tab = window.matchMedia("(768px <= width < 992px)");
+  const mediaFor_lap = window.matchMedia("(992px <= width)");
+  let p = 0;
+  let q = 0;
+  if (mediaFor_tab.matches) {
+    p = 2;
+  } else if (mediaFor_lap.matches) {
+    p = 3;
+    q = 1;
+  }
+  length = p;
+  for (let i = 0; i < q + Math.floor(subj_Name.length / p); i++) {
+    slider_container.insertAdjacentHTML(
+      "beforeend",
+      `  <div class="resrc-item"></div>`
+    );
+    if (i == 1) {
+      let dots = document.querySelector(".dots");
+      dots.classList.add("active");
+    }
+    dots_container.insertAdjacentHTML(
+      "beforeend",
+      `  <span class="dots"></span>`
+    );
+  }
+  var item_container = document.querySelectorAll(".resrc-item");
+  let left_length = subj_Name.length - p * Math.floor(subj_Name.length / p);
+  let diff = p - left_length;
+
+  for (let i = 0; i < item_container.length; i++) {
+    for (let j = 0; j < length; j++) {
+      if (
+        left_length > 0 &&
+        i == item_container.length - 1 &&
+        j > left_length - 1
+      ) {
+        k = 0;
+      }
+      item_container[i].insertAdjacentHTML(
+        "beforeend",
+        ` 
+<a
+href="/grade/?book=bk/Biology Student Textbook Grade 9.pdf"
+class="resrc-box"
+>
+<div class="resrc-cover-container">
+  <img
+    src="/static/asset/book-cover/${country_code}/${
+          subj_Name[k]
+        }-g${g_no}-cover.svg"
+    class="resrc-cover-item"
+  />
+  <div class="resrc-cover-overlay">
+    <p class='grade_no'>grade-${g_no}</p>
+    <span class="resrc-cover-overlay-icon">
+      <i class="fa-solid fa-book-open-reader"></i>
+    </span>
+  </div>
+</div>
+<div class="resrc-tittle-container">
+  <span class="resrc-tittle-icon"
+    ><i class="fa-solid fa-book"></i
+  ></span>
+  ${subj_Name[k++]}
+</div>
+<div class="resrc-desc-container">
+  <div class="resrc-desc-tittle">
+    <span class="resc-desc-tittle-icon"
+      ><i class="fa-solid fa-feather"></i
+    ></span>
+    description
+  </div>
+  <div class="resrc-desc-content">
+    <p class="resrc-desc-text">
+      ensures that students have access to comprehensive learning
+      materials that support their academic progress.
+    </p>
+  </div>
+</div>
+</a>
+`
+      );
+    }
+  }
+}
 function sliderWithAuto(section, item, indicator, left, right, sec_nav) {
   const slider_section = document.querySelector(`${section}`);
   const slide_content = document.querySelectorAll(`${item}`);
@@ -5,6 +179,7 @@ function sliderWithAuto(section, item, indicator, left, right, sec_nav) {
   const indicator_dots = document.querySelectorAll(`${indicator} .dots`);
   const left_btn = document.querySelector(`${sec_nav} ${left}`);
   const right_btn = document.querySelector(`${sec_nav} ${right}`);
+
   slide_content.forEach(
     (s, i) => (s.style.transform = `translateX(${100 * i}%)`)
   );
@@ -66,7 +241,6 @@ function sliderWithAuto(section, item, indicator, left, right, sec_nav) {
       stopAutoSlide();
     }
   }
-
   let intervalId;
 
   function startAutoSlide() {
@@ -105,14 +279,7 @@ function sliderWithAuto(section, item, indicator, left, right, sec_nav) {
     e.key === "ArrowLeft" && slideToPrev();
   });
 }
-sliderWithAuto(
-  ".resource-sec",
-  ".resrc-item",
-  ".resrc-slider-indicator",
-  ".left-btn",
-  ".right-btn",
-  ".resrc-nav-container"
-);
+
 sliderWithAuto(
   ".testimoney-sec",
   ".person-item",
