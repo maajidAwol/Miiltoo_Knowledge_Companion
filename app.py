@@ -1,7 +1,7 @@
 import time
-
+from decouple import config
 import PyPDF2
-from flask import Flask, redirect, render_template,abort,session, jsonify, flash, url_for
+from flask import Flask, redirect, render_template, abort, session, jsonify, flash, url_for
 from flask import Flask, render_template, request
 import os
 import sys
@@ -30,52 +30,44 @@ import requests
 
 from werkzeug.utils import secure_filename
 import user
-from chat_quiz import quiz_function, chat_function,ext
+from chat_quiz import quiz_function, chat_function, ext
 from custom_process import pdf_to_text
-from user import register_user,db,User,bcrypt, login_auth,migrate,Books,mail,Contest
+from user import register_user, db, User, bcrypt, login_auth, migrate, Books, mail, Contest
 from admin import admin
-from topics import biology,history,rt
+from topics import biology, history, rt
 
-os.environ["OPENAI_API_KEY"] = ""
-os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1" 
-GOOGLE_CLIENT_ID = "929050329675-633eemlvju4gbm88m39qqql9kfm64p76.apps.googleusercontent.com"
-client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "client_secret.json")
+os.environ["OPENAI_API_KEY"] = config('API_KEY')
+os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
+GOOGLE_CLIENT_ID = config('GOOGLE_CLIENT_ID')
+client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "clientSecret.json")
 flow = Flow.from_client_secrets_file(
     client_secrets_file=client_secrets_file,
-    scopes=["https://www.googleapis.com/auth/userinfo.profile", "https://www.googleapis.com/auth/userinfo.email", "openid"],
+    scopes=["https://www.googleapis.com/auth/userinfo.profile", "https://www.googleapis.com/auth/userinfo.email",
+            "openid"],
     redirect_uri="http://127.0.0.1:5000/callback"
 )
 app = Flask(__name__)
 
-
 app.static_folder = 'static'
-app.secret_key= "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"
+app.secret_key = config('SECRET_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///profile.db'  # SQLite database
 # db = SQLAlchemy(app)
 
 
-app.config['MAIL_SERVER']='smtp.gmail.com'
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = 'miltooknowledgecompanion@gmail.com'
-app.config['MAIL_PASSWORD'] = 'kyrmubuougusrlfu'
+app.config['MAIL_USERNAME'] = config('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = config('MAIL_PASSWORD')
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_DEBUG'] = True
 app.config['MAIL_SUPPRESS_SEND'] = False  # To see the email content in the console
-
 
 db.init_app(app)
 migrate.init_app(app, db)
 bcrypt.init_app(app)
 mail.init_app(app)
 app.config['UPLOAD_FOLDER'] = 'my_books'
-
-
-
-
-
-
-
 
 if not os.path.exists(app.config['UPLOAD_FOLDER']):
     os.makedirs(app.config['UPLOAD_FOLDER'])
@@ -121,12 +113,14 @@ def register():
                 return render_template("confirm_email.html")
         elif registration_result:
             user_for_confirmation = User.query.filter_by(username=username).first()
-            session["email_before"]= email
+            session["email_before"] = email
             return render_template("confirm_email.html")
     # Retrieve all users from the database
     all_users = User.query.all()
 
     return render_template('index-new.html', users=all_users)
+
+
 @app.route('/auth', methods=['POST', 'GET'])
 def auth():
     email = request.form['email']
@@ -139,40 +133,46 @@ def auth():
         return redirect('/')
 
     return redirect('/login')
-       
+
+
 @app.route("/")
 def main():
     return render_template("index-new.html")
-# @app.route("/account/")
-# def account():
-#     return render_template("account.html")
+
+
+@app.route("/contest/")
+def contest():
+    return render_template("contest.html")
+
 
 @app.route("/grade/")
 def grade():
     book = request.args.get('book')
 
     if book:
-       if book == "bk/Biology Student Textbook Grade 9.pdf":
-           json_data = biology
-           print(biology)
-           print(book)
-           return render_template("book-new.html", book=book, json_data = json_data)
-       elif book == "bk/History student textbook grade 9.pdf":
-           json_data =  history
-           print(history)
-           return render_template("book-new.html", book=book, json_data = json_data)
-       else:
-           print("lonely")
-           json_data = {
-        "None": {
-            "none": [],
-        }
-    }
-           return render_template("book-new.html", book=book)
+        if book == "bk/Biology Student Textbook Grade 9.pdf":
+            json_data = biology
+            print(biology)
+            print(book)
+            return render_template("book-new.html", book=book, json_data=json_data)
+        elif book == "bk/History student textbook grade 9.pdf":
+            json_data = history
+            print(history)
+            return render_template("book-new.html", book=book, json_data=json_data)
+        else:
+
+            json_data = {
+                "None": {
+                    "none": [],
+                }
+            }
+            return render_template("book-new.html", book=book)
 
     else:
-        
+
         return render_template("grade.html")
+
+
 @app.route("/request", methods=["POST"])
 def send():
     prompt = request.json.get("prompt")
@@ -181,7 +181,6 @@ def send():
     print(choice)
     print(prompt)
     path = ""
-
 
     url = choice
 
@@ -214,7 +213,9 @@ def send():
     # print(result)
     # print(session[ref])
     # return jsonify(result)
-@app.route("/quiz_request",methods=["POST"])
+
+
+@app.route("/quiz_request", methods=["POST"])
 def quiz_send():
     quiz_number = request.json.get('number')
     chapter = request.json.get('chapter')
@@ -224,7 +225,6 @@ def quiz_send():
     print(chapter)
     print(subtopic)
     path = ""
-
 
     print(choice)
 
@@ -241,18 +241,20 @@ def quiz_send():
     else:
         prompt = f'generate a {quiz_number} conceptual and random question quiz from  the whole content  having four choices a,b,c,d and answer letter and explanation  of the answer in json format'
     # result = quiz_function(prompt, path)
-    r =rt
-    result= ext(r)
+    r = rt
+    result = ext(r)
     return result
-@app.route("/contest_request",methods=["POST"])
+
+
+@app.route("/contest_request", methods=["POST"])
 def contest_send():
     r = ext(rt)
 
-    subject ="biology"
-    dict_contest= {subject: r}
+    subject = "biology"
+    dict_contest = {subject: r}
 
     dict_contest.update({"physics": r})
-    str_contest =json.dumps(dict_contest)
+    str_contest = json.dumps(dict_contest)
     # result = ext(r)
     # return result
     # db.session.query(Contest).delete()
@@ -260,7 +262,7 @@ def contest_send():
     print(r)
     print(dict_contest)
     sample_contest = Contest(
-        subject = subject,
+        subject=subject,
         contest_data=str_contest,
         is_approved=True,
         active=True
@@ -273,18 +275,27 @@ def contest_send():
     print(result)
     return result
 
+
 @app.route("/login")
 def login():
     return render_template("login.html")
+
+
 @app.route("/signup")
 def signup():
     return render_template("signup.html")
+
+
 @app.route("/explore")
 def explore():
     return render_template("explore.html")
+
+
 @app.route("/forget")
 def forget():
     return render_template("forget.html")
+
+
 @app.route("/change_password", methods=['POST'])
 def change_password():
     email = request.form['email']
@@ -292,9 +303,13 @@ def change_password():
         return render_template('login.html')
     elif not user.send_password(email):
         return "no user exist by that username"
+
+
 @app.route("/abcdef")
 def abcdef():
     return render_template("custom_book.html")
+
+
 @app.route('/upload', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
@@ -325,13 +340,13 @@ def upload_file():
 
         # Render the "books.html" template and pass the relative PDF file path
         print(relative_pdf_path)
-        bkr = "bk/"+relative_pdf_path
+        bkr = "bk/" + relative_pdf_path
         print(bkr)
 
         json_data = {
 
         }
-        return render_template("book-new.html", book=bkr,json_data=json_data ,)
+        return render_template("book-new.html", book=bkr, json_data=json_data, )
 
     return 'Error: Please upload a PDF file'
 
@@ -340,7 +355,7 @@ def upload_file():
 def profile():
     # Query the database to get the first user's data
 
-    user = User.query.filter_by(email = session["google_email"]).first()
+    user = User.query.filter_by(email=session["google_email"]).first()
     if request.method == 'POST':
         # Handle form submission for saving changes
         # user.username = request.form['username']
@@ -394,6 +409,8 @@ def add_book():
 
     # Redirect back to the profile page after adding the book
     return redirect('/profile')
+
+
 @app.route('/save_changes', methods=['POST'])
 def save_profile():
     # Retrieve the first user from the database
@@ -429,11 +446,14 @@ def save_profile():
         # Handle the case where no user is found in the database
         return render_template('error.html', message='No user found')
 
+
 @app.route('/logout')
 def logout():
     session['logged_in'] = "false"
     session.pop('username', None)
     return redirect(url_for('main'))
+
+
 @app.route('/confirm_email', methods=['GET', 'POST'])
 def confirm_email():
     if request.method == 'POST':
@@ -457,6 +477,8 @@ def confirm_email():
             return render_template('confirm_email.html')
 
     return render_template('confirm_email.html')
+
+
 def login_is_required(function):
     def wrapper(*args, **kwargs):
         if "google_id" not in session:
@@ -466,11 +488,12 @@ def login_is_required(function):
 
     return wrapper
 
+
 @app.route("/login_with_google")
 def login_with_google():
     authorization_url, state = flow.authorization_url()
     session["state"] = state
-    
+
     return redirect(authorization_url)
 
 
@@ -503,19 +526,21 @@ def callback():
         session["google_name"] = id_info.get("name")
         session["google_email"] = id_info.get("email")
         profile_url = "/static/asset/profile-pic.png"
-        new_user = User(username=session["google_name"], email=session["google_email"],password="google",profile_pic=profile_url)
+        new_user = User(username=session["google_name"], email=session["google_email"], password="google",
+                        profile_pic=profile_url)
         db.session.add(new_user)
         db.session.commit()
 
-    
     return redirect("/protected_area")
+
 
 @app.route("/protected_area")
 @login_is_required
 def protected_area():
     session['logged_in'] = "true"
     return redirect("/")
-    
+
+
 if __name__ == "__main__":
     # with app.app_context():
     #     db.create_all()
