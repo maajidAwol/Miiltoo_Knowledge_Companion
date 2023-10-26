@@ -16,7 +16,7 @@ charset-normalizer==3.3.0
 chroma-hnswlib==0.7.3
 chromadb==0.4.14
 click==8.1.7
-colorama==0.3.29
+colorama==0.3.3
 coloredlogs==15.0.1
 config==0.5.1
 dataclasses-json==0.6.1
