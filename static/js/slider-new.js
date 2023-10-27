@@ -27,7 +27,28 @@ sliderWithAuto(
   ".resrc-nav-container"
 );
 handler(country_code);
+function handleCountrySelection(country) {
+  const storedCountry = localStorage.getItem("selectedCountry");
 
+  // Check if a selected country is stored
+  if (storedCountry) {
+    const country = storedCountry.toLowerCase();
+
+    // Update the country button with the selected country
+    country_btn.innerHTML = `
+      <span class="country-menu-item-icon" style='display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;'>
+        <img src="/static/asset/${country}-flag.svg" alt="" />
+        - ${country_code}
+      </span>
+    `;
+
+    // Update the content and handle the selected country
+    changeContent(country, null);
+  }
+}
 function changeContent(country, event) {
   event.preventDefault();
   if (country === "ethiopia") {
@@ -41,6 +62,7 @@ function changeContent(country, event) {
     country_code = "SS";
   }
   var country_btn = document.getElementById("country-btn");
+
   country_btn.innerHTML = `
     <span class="country-menu-item-icon" style='display: flex;
     justify-content: center;
