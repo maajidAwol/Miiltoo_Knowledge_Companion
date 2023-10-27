@@ -1464,7 +1464,6 @@ h1 span {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  text-transform: lowercase;
 }
 .team-container{
   display: flex;
