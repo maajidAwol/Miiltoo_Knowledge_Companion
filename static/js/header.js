@@ -20,8 +20,8 @@ body.addEventListener("click", () => {
   });
   profile_drop_icon.style.transform = "rotate(0deg)";
 });
-const mediaQuery_768 = window.matchMedia("(min-width: 768px)");
-if (mediaQuery_768.matches) {
+const mediaQuery_992 = window.matchMedia("(min-width: 992px)");
+if (mediaQuery_992.matches) {
   for (let i = 0; i < home_link.length; i++) {
     home_link[i].addEventListener("mouseover", () => {
       if (i === 0) {
@@ -113,6 +113,10 @@ const hamb_btn = document.getElementById("hamb-menu");
 const line = document.querySelector(".line");
 const nav_links = document.querySelector(".nav-links");
 const drop_content = document.querySelector(".dropdown-content");
+var mediaQuery = window.matchMedia("(min-width: 768px)");
+if (mediaQuery.matches) {
+  hamb_btn.classList.toggle("hidden");
+}
 hamb_btn.addEventListener("click", function () {
   nav_links.classList.toggle("slide");
   hamb_btn.classList.toggle("active");

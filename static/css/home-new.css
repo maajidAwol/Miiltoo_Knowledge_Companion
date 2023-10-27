@@ -281,6 +281,10 @@ text-transform: capitalize;
 .hamb-menu {
   font-size: 28px;
   cursor: pointer;
+  display: none;
+}
+.hamb-menu.hidden{
+  display: block;
 }
 .line {
   width: 24px;
@@ -2302,15 +2306,21 @@ footer {
     width: 100%;
     left: 0;
     top: 66px;
-    height: 45vh;
+    padding-left: 12%;
+      height: 58vh;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     transform: translateX(-100%);
     background: var(--color-primary);
     opacity: 0.96;
     backdrop-filter: blur(131px);
     gap: 6%;
     opacity: 0;
+  }
+  .overlay{
+    padding: 0%;
+    height: 100%;
   }
   nav a {
     display: flex;
