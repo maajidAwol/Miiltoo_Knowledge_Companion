@@ -240,9 +240,9 @@ def quiz_send():
         prompt = f'generate  {quiz_number} conceptual and random question quiz from  the content specially from {chapter} and subtopic {subtopic} having four choices a,b,c,d and answer letter and explanation  of the answer in json format'
     else:
         prompt = f'generate a {quiz_number} conceptual and random question quiz from  the whole content  having four choices a,b,c,d and answer letter and explanation  of the answer in json format'
-    # result = quiz_function(prompt, path)
-    r = rt
-    result = ext(r)
+    result = quiz_function(prompt, path)
+    # r = rt
+    # result = ext(r)
     return result
 
 
@@ -274,7 +274,7 @@ def contest_send():
     db.session.commit()
     contest_query = Contest.query.first()
     if contest_query:
-        print("it is finding the contest data")
+        print("database found")
     result = ext(contest_query.contest_data)
     # print(result)
     return result
@@ -518,22 +518,22 @@ def callback():
         request=token_request,
         audience=GOOGLE_CLIENT_ID
     )
-    # user = User.query.filter_by(email=id_info.get("email")).first()
+    user = User.query.filter_by(email=id_info.get("email")).first()
 
-    # if user:
+    if user:
         # User exists, implement your logic here
-    # session["google_name"] = user.username
-    # session["google_email"] = user.email
-    # else:
+        session["google_name"] = user.username
+        session["google_email"] = user.email
+    else:
         # User doesn't exist, implement your logic here
-    session["google_id"] = id_info.get("sub")
-    session["google_name"] = id_info.get("name")
-    session["google_email"] = id_info.get("email")
-    # profile_url = "/static/asset/profile-pic.png"
-    #     new_user = User(username=session["google_name"], email=session["google_email"], password="google",
-    #                     profile_pic=profile_url)
-    #     db.session.add(new_user)
-    #     db.session.commit()
+        session["google_id"] = id_info.get("sub")
+        session["google_name"] = id_info.get("name")
+        session["google_email"] = id_info.get("email")
+        profile_url = "/static/asset/profile-pic.png"
+        new_user = User(username=session["google_name"], email=session["google_email"], password="google",
+                        profile_pic=profile_url)
+        db.session.add(new_user)
+        db.session.commit()
 
     return redirect("/protected_area")
 
