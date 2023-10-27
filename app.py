@@ -150,12 +150,14 @@ def grade():
     book = request.args.get('book')
 
     if book:
-        if book == "bk/ETH/biology_g-9.pdf":
+        if book == "/bk/ETH/biology_g-9.pdf":
             json_data = biology
             print(biology)
+            book="static/bk/ETH/biology_g-9.pdf"
             print(book)
             return render_template("book-new.html", book=book, json_data=json_data)
-        elif book == "bk/ETH/history_g-9.pdf":
+        elif book == "static/bk/ETH/history_g-9.pdf":
+            book = "static/bk/ETH/history_g-9.pdf"
             json_data = history
             print(history)
             return render_template("book-new.html", book=book, json_data=json_data)
@@ -188,6 +190,7 @@ def send():
     path = url.replace("bk/", "books/")
     path = path[:-4] + ".txt"
     print(path)
+    path ="static/"+path
     #
     result = chat_function(prompt, path)
     return result
@@ -233,13 +236,16 @@ def quiz_send():
     # Replace "bk" with "books"
     path = url.replace("bk/", "books/")
     path = path[:-4] + ".txt"
-    print(path)
-    time.sleep(10)
 
-    if path == "books/ETH/biology_g-9.txt" or path == "books/ETH/history_g-9.txt":
+
+    path = "static/" + path
+    print(path)
+    if path == "static/books/ETH/biology_g-9.txt" or path == "static/books/ETH/history_g-9.txt":
+
         prompt = f'generate  {quiz_number} conceptual and random question quiz from  the content specially from {chapter} and subtopic {subtopic} having four choices a,b,c,d and answer letter and explanation  of the answer in json format'
     else:
         prompt = f'generate a {quiz_number} conceptual and random question quiz from  the whole content  having four choices a,b,c,d and answer letter and explanation  of the answer in json format'
+
     result = quiz_function(prompt, path)
     # r = rt
     # result = ext(r)
