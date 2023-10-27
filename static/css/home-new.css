@@ -2024,6 +2024,7 @@ footer {
   }
   .headline-quatation {
     font-size: 20px;
+    max-width: 437px;
   }
   .explore-btn {
     padding: 12px 24px;
