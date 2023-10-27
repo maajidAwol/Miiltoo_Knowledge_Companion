@@ -113,10 +113,10 @@ const hamb_btn = document.getElementById("hamb-menu");
 const line = document.querySelector(".line");
 const nav_links = document.querySelector(".nav-links");
 const drop_content = document.querySelector(".dropdown-content");
-var mediaQuery = window.matchMedia("(min-width: 768px)");
-if (mediaQuery.matches) {
-  hamb_btn.classList.toggle("hidden");
-}
+// var mediaQuery = window.matchMedia("(min-width: 768px)");
+// if (mediaQuery.matches) {
+//   hamb_btn.classList.toggle("hidden");
+// }
 hamb_btn.addEventListener("click", function () {
   nav_links.classList.toggle("slide");
   hamb_btn.classList.toggle("active");
@@ -126,7 +126,7 @@ hamb_btn.addEventListener("click", function () {
 overlay[0].addEventListener("click", () => {
   nav_links.classList.toggle("slide");
   hamb_btn.classList.toggle("active");
-  overlay.classList.toggle("hidden");
+  overlay[0].classList.toggle("hidden");
   body.classList.toggle("overflow-hidden");
 });
 window.addEventListener("load", function () {

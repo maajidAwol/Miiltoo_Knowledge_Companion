@@ -130,8 +130,28 @@ nav {
 .underline img {
   width: 58px;
 }
-.home-link:hover {
-  color: var(--color-accent);
+.underlineT{
+  width: 93%;
+    height: 4px;
+    position: absolute;
+    top: 23px;
+    left: 0;
+    margin-left: 10%;
+    margin-top: 9px;
+    border-radius: 24px;
+    transition: 0.5s ease;
+    z-index: 5;
+    background: var(--color-accent);
+    display: none;
+  }
+  .home-link{
+    position: relative;
+  }
+  .home-link:hover{
+    color: var(--color-accent);
+  }
+.home-link:hover .underlineT{
+  display: block;
 }
 
 nav a,
@@ -165,12 +185,12 @@ a{
   align-items: center;
   gap: 12.5px;
 }
-.login-btn1 {
+.login-btn1,.login-btn-mob {
   font-size: 16px;
   flex-shrink: 0;
   background: transparent;
   border: none;
-  padding: 6px 24px;
+  padding: 8px 32px;
   border-radius: 32px;
   border: 2px solid var(--color-accent);
   color: var(--color-accent);
@@ -186,7 +206,8 @@ a{
   color: var(--color-white);
 }
 .upload-btn{
-  padding: 4px 12px;
+  padding: 8px 16px;
+  font-size: 16px;
   border-radius: 24px;
   border: 2px solid var(--color-secondary);
   background: #1e206f47;
@@ -209,7 +230,7 @@ a{
 }
 .upload-btn-icon i {
   color: var(--color-white);
-  font-size: 18px;
+  font-size: 16px;
 }
 .grade-btn-icon.rotateTo{
   transform: rotate(180deg);
@@ -254,14 +275,15 @@ text-transform: capitalize;
 .profile-menu-item:hover .profile-menu-item-icon i{
   color: var(--color-accent);
 }
-.signup-btn1 {
+.signup-btn1,.signup-btn-mob {
   display: flex;
-  padding: 8px 24px;
+  padding: 8px 32px;
+
   min-width: 72px;
   justify-content: center;
   align-items: center;
   color: var(--color-primary);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   gap: 16px;
   border-radius: 32px;
@@ -269,12 +291,12 @@ text-transform: capitalize;
   box-shadow: 0px 2px 7px 0px rgba(101, 255, 252, 0.4);
   border: none;
 }
-.login-btn1:hover {
+.login-btn1:hover ,.login-btn-mob:hover{
   cursor: pointer;
   border: 2px solid var(--color-accent);
   background: var(--color-primary);
 }
-.signup-btn1:hover {
+.signup-btn1:hover,.sighup-btn-mob:hover {
   cursor: pointer;
 }
 
@@ -283,9 +305,9 @@ text-transform: capitalize;
   cursor: pointer;
   display: none;
 }
-.hamb-menu.hidden{
+/* .hamb-menu.hidden{
   display: block;
-}
+} */
 .line {
   width: 24px;
   height: 4px;
@@ -379,7 +401,7 @@ font-weight: 600;
 .grade-menu,.country-menu,.page-menu{
   position: fixed;
     top: 60px;
-    left: 36%;
+    left: 31%;
     display: inline-flex;
     padding: 24px 8px;
     justify-content: center;
@@ -392,11 +414,11 @@ font-weight: 600;
     z-index: 4;
 }
 .country-menu{
-  left: 54.3%;
+  left: 61.3%;
   backdrop-filter: blur(38.75px);
 }
 .page-menu{
-    left: 50%;
+    left: 45%;
 }
 .grade-menu-content,.country-menu-content,.page-menu-content{
   display: flex;
@@ -540,7 +562,6 @@ h1 {
   font-style: normal;
   font-weight: 800;
   line-height: normal;
-  text-transform: capitalize;
 }
 h1 span {
   color: var(--color-accent);
@@ -1952,6 +1973,7 @@ footer {
   nav {
     display: none;
   }
+
   .login-container {
     display: none;
   }
@@ -2306,8 +2328,7 @@ footer {
     width: 100%;
     left: 0;
     top: 66px;
-    padding-left: 12%;
-      height: 58vh;
+      height: 69vh;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -2315,7 +2336,7 @@ footer {
     background: var(--color-primary);
     opacity: 0.96;
     backdrop-filter: blur(131px);
-    gap: 6%;
+    gap: 0%;
     opacity: 0;
   }
   .overlay{
@@ -2323,11 +2344,19 @@ footer {
     height: 100%;
   }
   nav a {
+    width: 100%;
+    padding: 0 8%;
+    height: 53px;
     display: flex;
+    align-items: center;
     gap: 24px;
   }
+  
   .home-link.underline {
     background-position: 51px bottom;
+  }
+  .login-btn-mob,.signup-btn-mob{
+    display: block;
   }
   .overlay {
     width: 100%;
@@ -2366,6 +2395,9 @@ footer {
     display: none;
   }
   .nav-icons {
+    display: none;
+  }
+  .login-btn-mob,.signup-btn-mob{
     display: none;
   }
   .resrc-box {
