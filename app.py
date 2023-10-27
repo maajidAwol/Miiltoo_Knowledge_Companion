@@ -150,15 +150,17 @@ def grade():
     book = request.args.get('book')
 
     if book:
-        if book == "/bk/ETH/biology_g-9.pdf":
+        book = "static/" + book
+        if book == "static/bk/ETH/biology_g-9.pdf":
             json_data = biology
             print(biology)
-            book="static/bk/ETH/biology_g-9.pdf"
+            book="bk/ETH/biology_g-9.pdf"
             print(book)
             return render_template("book-new.html", book=book, json_data=json_data)
         elif book == "static/bk/ETH/history_g-9.pdf":
-            book = "static/bk/ETH/history_g-9.pdf"
+            book = "bk/ETH/history_g-9.pdf"
             json_data = history
+
             print(history)
             return render_template("book-new.html", book=book, json_data=json_data)
         else:
