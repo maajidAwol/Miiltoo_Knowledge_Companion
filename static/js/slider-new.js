@@ -38,7 +38,7 @@ function changeContent(country, event) {
     country_code = "KEN";
     newContent = "Content for Kenya";
   } else if (country === "south-sudan") {
-    country_code = "SSDN";
+    country_code = "SS";
   }
   var country_btn = document.getElementById("country-btn");
   country_btn.innerHTML = `
