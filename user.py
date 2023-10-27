@@ -47,7 +47,6 @@ class Books(db.Model):
     user = db.relationship('User', backref=db.backref('books', lazy=True))
 
 class Contest(db.Model):
-    __tablename__ = 'Contest'
     id = db.Column(db.Integer, primary_key=True)
     subject =db.Column(db.String)
     contest_data = db.Column(db.String)  # Store JSON data as a string
