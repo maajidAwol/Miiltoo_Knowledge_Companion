@@ -1,7 +1,9 @@
 const home_link = document.querySelectorAll(".home-link");
 const underline = document.getElementById("underline");
 const grade_menu = document.querySelector(".grade-menu");
-const grade_btn_icon = document.querySelector(".grade-btn-icon");
+const country_menu = document.querySelector(".country-menu");
+const page_menu = document.querySelector(".page-menu");
+const grade_btn_icon = document.querySelectorAll(".grade-btn-icon");
 const profile_drop_icon = document.querySelector(".profile-drop-icon");
 const profile_group = document.querySelector(".profile-group");
 const profile_menu = document.querySelector(".profile-menu");
@@ -10,8 +12,12 @@ let currentPosition;
 let n = 0;
 body.addEventListener("click", () => {
   grade_menu.classList.add("hidden");
+  country_menu.classList.add("hidden");
+  page_menu.classList.add("hidden");
   profile_menu.classList.add("hidden");
-  grade_btn_icon.style.transform = "rotate(0deg)";
+  grade_btn_icon.forEach((grade_btn_icon) => {
+    grade_btn_icon.style.transform = "rotate(0deg)";
+  });
   profile_drop_icon.style.transform = "rotate(0deg)";
 });
 const mediaQuery_768 = window.matchMedia("(min-width: 768px)");
@@ -19,38 +25,58 @@ if (mediaQuery_768.matches) {
   for (let i = 0; i < home_link.length; i++) {
     home_link[i].addEventListener("mouseover", () => {
       if (i === 0) {
-        n = 73 * i;
+        n = 43 * i;
         currentPosition = 0;
         grade_menu.classList.add("hidden");
         profile_menu.classList.add("hidden");
-        grade_btn_icon.style.transform = "rotate(0deg)";
+        page_menu.classList.add("hidden");
+        country_menu.classList.add("hidden");
+        grade_btn_icon[i].style.transform = "rotate(0deg)";
         profile_drop_icon.style.transform = "rotate(0deg)";
       } else if (i === 1) {
         n = 73 * i;
         grade_menu.classList.remove("hidden");
         profile_menu.classList.add("hidden");
-        grade_btn_icon.style.transform = "rotate(180deg)";
+        page_menu.classList.add("hidden");
+        country_menu.classList.add("hidden");
+        grade_btn_icon[i].style.transform = "rotate(180deg)";
         profile_drop_icon.style.transform = "rotate(0deg)";
-        currentPosition = 1;
+        currentPosition = i;
       } else if (i === 2) {
         n = 90 * i;
-        currentPosition = 0;
+        currentPosition = i;
         grade_menu.classList.add("hidden");
         profile_menu.classList.add("hidden");
-        grade_btn_icon.style.transform = "rotate(0deg)";
+        page_menu.classList.add("hidden");
+        country_menu.classList.add("hidden");
+        grade_btn_icon[i].style.transform = "rotate(0deg)";
+        profile_drop_icon.style.transform = "rotate(0deg)";
+      } else if (i === 3) {
+        n = 94 * i;
+        currentPosition = i;
+        page_menu.classList.remove("hidden");
+        country_menu.classList.add("hidden");
+        profile_menu.classList.add("hidden");
+        grade_menu.classList.add("hidden");
+        grade_btn_icon[i - 2].style.transform = "rotate(180deg)";
         profile_drop_icon.style.transform = "rotate(0deg)";
       } else {
-        n = 94 * i;
-        currentPosition = 0;
+        n = 0;
+        currentPosition = i;
+        country_menu.classList.remove("hidden");
+        page_menu.classList.add("hidden");
         grade_menu.classList.add("hidden");
         profile_menu.classList.add("hidden");
-        grade_btn_icon.style.transform = "rotate(0deg)";
+        grade_btn_icon[i - 2].style.transform = "rotate(180deg)";
         profile_drop_icon.style.transform = "rotate(0deg)";
       }
       underline.style.transform = `translateX(${n}px)`;
     });
     home_link[i].addEventListener("mouseleave", function () {
       underline.style.transform = `translateX(${currentPosition})`;
+    });
+    home_link[i].addEventListener("click", function () {
+      underline.style.transform = `translateX(${i})`;
     });
   }
 } else {

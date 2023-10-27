@@ -122,7 +122,7 @@ nav {
 .underline {
   position: absolute;
     top: 20px;
-    margin-left: -439px;
+    margin-left: -39vw;
     margin-top: 10px;
     height: 32px;
     transition: 0.5s ease;
@@ -372,10 +372,10 @@ font-weight: 600;
   font-weight: 400;
   text-transform: lowercase;
 }
-.grade-menu{
+.grade-menu,.country-menu,.page-menu{
   position: fixed;
     top: 60px;
-    left: 41.3%;
+    left: 36%;
     display: inline-flex;
     padding: 24px 8px;
     justify-content: center;
@@ -387,7 +387,14 @@ font-weight: 600;
     backdrop-filter: blur(8.75px);
     z-index: 4;
 }
-.grade-menu-content{
+.country-menu{
+  left: 54.3%;
+  backdrop-filter: blur(38.75px);
+}
+.page-menu{
+    left: 50%;
+}
+.grade-menu-content,.country-menu-content,.page-menu-content{
   display: flex;
 width: 300px;
 padding: 0px 8px;
@@ -395,14 +402,14 @@ flex-direction: column;
 align-items: flex-start;
 gap: 8px;
 }
-.grade-header{
+.grade-header,.country-header,.page-header{
 display: flex;
 padding: 8px 16px;
 align-items: center;
 gap: 8px;
 border-radius: 7.5px;
 }
-.grade-tittle{
+.grade-tittle,.country-tittle,.page-tittle{
   display: flex;
 width: 212px;
 flex-direction: column;
@@ -414,19 +421,19 @@ color: var(--color-white);
 font-style: normal;
 line-height: normal;
 }
-.grade-tittle :nth-child(1){
+.grade-tittle :nth-child(1),.country-tittle :nth-child(1),.page-tittle :nth-child(1){
 font-size: 18px;
 font-weight: 500;
 }
-.grade-tittle :nth-child(2){
+.grade-tittle :nth-child(2),.country-tittle :nth-child(2),.page-tittle :nth-child(2){
 font-size: 12px;
 font-weight: 400;
 }
-.grade-tittle-icon i{
+.grade-tittle-icon i,.country-tittle-icon i,.page-tittle-icon i{
   font-size: 32px;
   color: var(--color-accent);
 }
-.grade-menu-item,.grade-menu-btn{
+.grade-menu-item,.grade-menu-btn,.country-menu-item,.page-menu-item,.country-menu-btn,.page-menu-btn{
   display: flex;
 height: 35px;
 padding: 8px 16px;
@@ -443,7 +450,7 @@ line-height: normal;
 text-transform: capitalize;
 text-decoration: none;
 }
-.grade-menu-btn{
+.grade-menu-btn,.country-menu-btn,.page-menu-btn{
   display: flex;
     height: 35px;
     padding: 0;
@@ -453,20 +460,20 @@ text-decoration: none;
     border: none;
     background: transparent;
 }
-.grade-menu-item-icon i{
+.grade-menu-item-icon i,.country-menu-item-icon i,.page-menu-item-icon i{
   font-size: 16px;
   color: var(--color-white);
 }
-.grade-menu-item:hover,.profile-menu-item:hover{
+.grade-menu-item:hover,.profile-menu-item:hover,.country-menu-item:hover,.page-menu-item:hover{
  
   background: rgba(30, 32, 111, 0.50);
   color: var(--color-white);
 }
-.grade-menu-btn:hover{
+.grade-menu-btn:hover,.country-menu-btn:hover,.page-menu-btn:hover{
   cursor: pointer;
  color: var(--color-white);
 }
-.grade-menu-btn:hover :nth-child(1){
+.grade-menu-btn:hover :nth-child(1),.country-menu-btn:hover :nth-child(1),.page-menu-btn:hover :nth-child(1){
  color: var(--color-accent);
 }
 
@@ -1968,11 +1975,10 @@ footer {
   .hero-bg {
     height: 80%;
   }
-  .robot-pic,
-  .mesh-shape {
-    top: 3%;
-    left: 55%;
-    transform: scale3d(0.7, 0.7, 2.4);
+  .robot-pic, .mesh-shape {
+    top: 0%;
+    left: 57%;
+    transform: scale(0.6);
   }
   .feature-sec {
     padding: 8px 0px;
