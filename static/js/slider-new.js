@@ -3,6 +3,7 @@ const dots_container = document.querySelector(".resrc-slider-indicator");
 
 var resrc_btns = document.querySelectorAll(".resrc-btns button");
 var grade_btns = document.querySelectorAll(".grade-menu-btn");
+var country_menu_btn = document.querySelectorAll(".country-menu-btn");
 var grade_no = document.querySelectorAll(".grade_no");
 var country_code = "ETH";
 let currentImage = 9;
@@ -51,6 +52,17 @@ function changeContent(country, event) {
       - ${country_code}
     </span>
 `;
+  slider_container.innerHTML = ``;
+  dots_container.innerHTML = ``;
+  createResrc(9, country_code, subj_Name, k);
+  sliderWithAuto(
+    ".resource-sec",
+    ".resrc-item",
+    ".resrc-slider-indicator",
+    ".left-btn",
+    ".right-btn",
+    ".resrc-nav-container"
+  );
   handler(country_code);
 }
 
@@ -154,11 +166,14 @@ function createResrc(g_no, country_code, subj_Name, k) {
       ) {
         k = 0;
       }
+      // href="/grade/?book=bk/${country_code}/${subj_Name[k]}_g-${g_no}.pdf"
+
       item_container[i].insertAdjacentHTML(
         "beforeend",
         ` 
+
 <a
-href="/grade/?book=bk/Biology Student Textbook Grade 9.pdf"
+href="/grade/?book=bk/${country_code}/${subj_Name[k]}_g-${g_no}.pdf"
 class="resrc-box"
 >
 <div class="resrc-cover-container">
