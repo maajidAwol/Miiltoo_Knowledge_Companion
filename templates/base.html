@@ -57,25 +57,31 @@
             </span></button
         ></a>
         
-        <a href="" class="home-link"
-          ><button class="upload-btn" id="country-btn">
-            <span class="upload-btn-icon">
-              <i class="fa-solid fa-globe"></i>
-            </span>
-            Country
-            <span class="grade-btn-icon">
-              <i class="fa-solid fa-caret-down"></i>
-            </span>
-          </button>
-        </a>
+       
         <a href="" class=""
           ><button class="upload-btn" id="upload-btn1">
             <span class="upload-btn-icon">
               <i class="fa-solid fa-upload"></i>
             </span>
+            <p>
             Upload
+
+            </p>
           </button></a
         >
+        <a href="" class="home-link"
+        ><button class="upload-btn" id="country-btn">
+          <span class="country-menu-item-icon" style='display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;'>
+      <img src="/static/asset/ethiopia-flag.svg" alt="" />
+      <p>
+      - ETH
+      </p>
+    </span>
+        </button>
+      </a>
       </nav>
       <div class="login-container">
         <a href="/login"><button class="login-btn1">login</button></a>
@@ -215,7 +221,7 @@
             <p>Explore African Countries</p>
           </div>
         </div>
-        <a href="/#grade" class="country-menu-item">
+        <a href="/#ETH" class="country-menu-item" onclick="changeContent('ethiopia',event)">
           <button class="country-menu-btn">
             <span class="country-menu-item-icon"></span>
               <img src="/static/asset/ethiopia-flag.svg" alt="" />
@@ -223,7 +229,7 @@
             Ethiopia
           </button>
         </a>
-        <a href="/#grade" class="country-menu-item">
+        <a href="/#NGA" class="country-menu-item" onclick="changeContent('nigeria',event)">
           <button class="country-menu-btn">
             <span class="country-menu-item-icon">
               <img src="/static/asset/nigeria-flag.svg" alt="" />
@@ -231,7 +237,7 @@
             Nigeria(soon)
           </button>
         </a>
-        <a href="/#grade" class="country-menu-item">
+        <a href="/#KEN" class="country-menu-item" onclick="changeContent('kenya',event)">
           <button class="country-menu-btn">
             <span class="country-menu-item-icon">
               <img src="/static/asset/kenya-flag.svg" alt="" />
@@ -239,7 +245,7 @@
             kenya(soon)
           </button>
         </a>
-        <a href="/#grade" class="country-menu-item">
+        <a href="/#SDN" class="country-menu-item" onclick="changeContent('sudan',event)">
           <button class="country-menu-btn">
             <span class="country-menu-item-icon">
               <img src="/static/asset/sudan-flag.svg" alt="" />

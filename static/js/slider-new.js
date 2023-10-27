@@ -4,6 +4,7 @@ const dots_container = document.querySelector(".resrc-slider-indicator");
 var resrc_btns = document.querySelectorAll(".resrc-btns button");
 var grade_btns = document.querySelectorAll(".grade-menu-btn");
 var grade_no = document.querySelectorAll(".grade_no");
+var country_code = "ETH";
 let currentImage = 9;
 let g_no = 9;
 let k = 0;
@@ -17,8 +18,7 @@ var subj_Name = [
   "sth",
   "we",
 ];
-console.log(subj_Name[0]);
-createResrc(currentImage, "Et", subj_Name, k);
+createResrc(currentImage, country_code, subj_Name, k);
 sliderWithAuto(
   ".resource-sec",
   ".resrc-item",
@@ -27,8 +27,34 @@ sliderWithAuto(
   ".right-btn",
   ".resrc-nav-container"
 );
-handler();
-function handler() {
+handler(country_code);
+
+function changeContent(country, event) {
+  event.preventDefault();
+  if (country === "ethiopia") {
+    country_code = "ETH";
+  } else if (country === "nigeria") {
+    country_code = "NGA";
+  } else if (country === "kenya") {
+    country_code = "KEN";
+    newContent = "Content for Kenya";
+  } else if (country === "sudan") {
+    country_code = "SDN";
+  }
+  var country_btn = document.getElementById("country-btn");
+  country_btn.innerHTML = `
+    <span class="country-menu-item-icon" style='display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;'>
+      <img src="/static/asset/${country}-flag.svg" alt="" />
+      - ${country_code}
+    </span>
+`;
+  handler(country_code);
+}
+
+function handler(country_code) {
   for (let i = 0; i < grade_btns.length; i++) {
     grade_btns[i].addEventListener("click", function () {
       slider_container.innerHTML = ``;
@@ -40,8 +66,11 @@ function handler() {
       for (let j = 0; j < grade_no.length; j++) {
         grade_no[j].innerHTML = `grade-${i + 9}`;
       }
+      console.log("code-" + country_code);
+
       currentImage = i + 9;
-      createResrc(currentImage, "Et", subj_Name, k);
+
+      createResrc(currentImage, country_code, subj_Name, k);
       sliderWithAuto(
         ".resource-sec",
         ".resrc-item",
@@ -69,7 +98,7 @@ function handler() {
       } else {
         currentImage = i + 8;
       }
-      createResrc(currentImage, "Et", subj_Name, k);
+      createResrc(currentImage, country_code, subj_Name, k);
       sliderWithAuto(
         ".resource-sec",
         ".resrc-item",
