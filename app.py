@@ -1,3 +1,3 @@
-from miiltoo import create_app
+from Miiltoo import create_app
 
 app=create_app()
