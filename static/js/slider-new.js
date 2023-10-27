@@ -82,7 +82,7 @@ function handler() {
   }
 }
 window.addEventListener("resize", () => {
-  location.reload();
+  // location.reload();
 });
 function createResrc(g_no, country_code, subj_Name, k) {
   let length = 0;
