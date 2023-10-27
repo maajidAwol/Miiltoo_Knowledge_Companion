@@ -261,7 +261,7 @@ def contest_send():
     # return result
     # db.session.query(Contest).delete()
     #  db.session.commit()
-    print(r)
+    # print(r)
     print(dict_contest)
     sample_contest = Contest(
         subject=subject,
@@ -273,8 +273,10 @@ def contest_send():
     db.session.add(sample_contest)
     db.session.commit()
     contest_query = Contest.query.first()
+    if contest_query:
+        print("it is finding the contest data")
     result = ext(contest_query.contest_data)
-    print(result)
+    # print(result)
     return result
 
 
