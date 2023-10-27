@@ -37,8 +37,8 @@ function changeContent(country, event) {
   } else if (country === "kenya") {
     country_code = "KEN";
     newContent = "Content for Kenya";
-  } else if (country === "sudan") {
-    country_code = "SDN";
+  } else if (country === "south-sudan") {
+    country_code = "SSDN";
   }
   var country_btn = document.getElementById("country-btn");
   country_btn.innerHTML = `
@@ -135,6 +135,9 @@ function createResrc(g_no, country_code, subj_Name, k) {
   } else if (mediaFor_lap.matches) {
     p = 3;
     q = 1;
+    if (p == Math.floor(subj_Name.length / p)) {
+      q = 0;
+    }
   }
   length = p;
   for (let i = 0; i < q + Math.floor(subj_Name.length / p); i++) {
