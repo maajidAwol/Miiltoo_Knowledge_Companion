@@ -1,0 +1,146 @@
+{% extends "base.html" %} {%block title %}Account{%endblock%} {%block body%}
+<link rel="stylesheet" href="/static/css/home-new.css" />
+<link rel="stylesheet" href="/static/css/account.css" />
+<section class="account-sec">
+  <div class="account-sec-content">
+    <div class="acc-left-bar">
+
+       <form action="/save_changes" method="post" enctype="multipart/form-data">
+         <button type="button" class="edit-btn">
+        <input type="file" name="profile_pic"  accept="image/*" >
+        <span class="edit-icon"><i class="fa-solid fa-pen-to-square"></i></span>
+      </button >
+      <div class="profile-content">
+        <div class="profile-photo">
+          <img src="/{{ user.profile_pic }}" alt="" />
+        </div>
+        <div class="profile-desc">
+<!--          <p id="" class="person-username"></p>-->
+<!--          <p class="person-email"></p>-->
+          <p class="google_username">{{ user.username }}</p>
+            <p class="google_email">{{ user.email }}</p>
+        </div>
+        <div class="blue-line"></div>
+      </div>
+
+
+      <div class="btns-container">
+        <button class="btn-func-item flashlight" id="profile-btn">
+          <span class="btns-icon">
+            <i class="fa-solid fa-id-card-clip"></i>
+          </span>
+          my profile
+          <span class="active-state-shape">
+            <img src="/static/asset/active-state-shape.svg" alt="" />
+          </span>
+        </button>
+        <button class="btn-func-item" id="profile-btn">
+          <span class="btns-icon"
+            ><i class="fa-solid fa-shield-halved"></i>
+          </span>
+          security
+          <span class="active-state-shape hidden">
+            <img src="/static/asset/active-state-shape.svg" alt="" />
+          </span>
+        </button>
+        <button class="btn-func-item" id="profile-btn">
+          <span class="btns-icon"> <i class="fa-solid fa-chart-line"></i></span>
+          my data
+          <span class="active-state-shape hidden">
+            <img src="/static/asset/active-state-shape.svg" alt="" />
+          </span>
+        </button>
+        <button class="btn-func-item" id="profile-btn">
+          <span class="btns-icon"> <i class="fa-solid fa-bell"></i></span>
+          notification
+          <span class="active-state-shape hidden">
+            <img src="/static/asset/active-state-shape.svg" alt="" />
+          </span>
+        </button>
+        <button class="btn-func-item" id="profile-btn">
+          <span class="btns-icon"> <i class="fa-solid fa-gear"></i></span>
+          setting
+          <span class="active-state-shape hidden">
+            <img src="/static/asset/active-state-shape.svg" alt="" />
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="acc-right-panel">
+      <div class="current-label">
+        <button class="left-btn">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        my profile
+      </div>
+<!--    ooooooooooooo  -->
+
+      <div class="personal-info-container">
+        <div class="top-container">
+          personal information
+          <button class="edit-btn">
+            edit
+            <span class="edit-icon"
+              ><i class="fa-solid fa-pen-to-square"></i
+            ></span>
+          </button>
+        </div>
+        <div class="middle-container">
+          <div class="input-box">
+            username
+            <input type="text" id="username" name="username" value="{{ user.username }}"  />
+          </div>
+          <div class="input-box">
+            School Level
+            <input type="text" name="school_level" id="school_level" value="{{ user.school_level }}" />
+          </div>
+        </div>
+        <div class="middle-container">
+          <div class="input-box">
+            School Name
+            <input
+                    name="school_name"
+              type="text"
+              id="email"
+              value="{{ user.school_name }}"
+            />
+          </div>
+          <div class="input-box">
+            Age
+            <input type="number" name="age" id="phone" min="1" value="{{ user.age }}"  />
+          </div>
+        </div>
+      </div>
+      <div class="address-container">
+        <div class="top-container">
+          address
+          <button class="edit-btn">
+            edit
+            <span class="edit-icon"
+              ><i class="fa-solid fa-pen-to-square"></i
+            ></span>
+          </button>
+        </div>
+        <div class="middle-container">
+          <div class="input-box">
+            country
+            <input name="country" type="text" id="country" value="{{ user.country }}"  />
+          </div>
+          <div class="input-box">
+            city/state
+            <input name="city" type="text" id="city-state" value="{{ user.city }}" />
+          </div>
+        </div>
+      </div>
+        <input type="submit" value="SAVE CHANGES">
+      </form>
+<!--      ending-->
+    </div>
+  </div>
+</section>
+<script src="/static/js/alert.js">
+
+
+
+    </script>
+{%endblock%}

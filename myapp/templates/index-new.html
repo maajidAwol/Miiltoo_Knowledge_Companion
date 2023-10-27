@@ -1,0 +1,918 @@
+{% extends "base.html" %} {%block title %}Dashboard{%endblock%} {%block body%}
+
+<main>
+  <section class="hero-sec">
+    <div class="headline-container">
+      <h1>
+        Elevate <span class="anime-text">Education</span> with AI
+        powered-services
+      </h1>
+      <p class="headline-quatation">
+        AI enhanced learning for African students, blending traditional teaching
+        with interactive quizzes and personalized Chatbot.
+      </p>
+      <a href="/explore">
+        <button class="explore-btn">
+          <span class="explore-icon">
+            <i class="fa-brands fa-safari"></i>
+          </span>
+          explore now
+        </button></a
+      >
+    </div>
+    <img class="robot-pic" src="/static/asset/robot 2.png" alt="" />
+    <img src="/static/asset/robot-shape-1.svg" class="mesh-shape" />
+  </section>
+  <section class="feature-sec" id="features">
+    <div class="feat-headline">
+      features
+      <span class="feat-line"></span>
+    </div>
+    <div class="feat-container">
+      <div class="feat-box">
+        <div class="box-icon">
+          <i class="fa-solid fa-person-dots-from-line"></i>
+        </div>
+        Personalization
+        <div class="desc-container">
+          <span class="desc-icon"><i class="fa-solid fa-feather"></i></span>
+          <p class="desc-content">
+            This feature ensures that students receive tailored support and
+            resources that align with their individual learning needs.
+          </p>
+        </div>
+      </div>
+      <div class="feat-box">
+        <div class="box-icon">
+          <img
+            class="conve-icon"
+            src="/static/asset/conversation-icon.svg"
+            alt=""
+          />
+        </div>
+        Interactive Conversation
+        <div class="desc-container">
+          <span class="desc-icon"><i class="fa-solid fa-feather"></i></span>
+          <p class="desc-content">
+            Promotes Active Learning And Encourages Students To Actively
+            Participate In Their Educational Journey.
+          </p>
+        </div>
+      </div>
+      <div class="feat-box">
+        <div class="box-icon">
+          <img class="res-icon" src="/static/asset/resource-icon.svg" alt="" />
+        </div>
+        Comprehensive Resource
+        <div class="desc-container">
+          <span class="desc-icon"><i class="fa-solid fa-feather"></i></span>
+          <p class="desc-content">
+            Ensures That Students Have Access To Comprehensive Learning
+            Materials That Support Their Academic Progress
+          </p>
+        </div>
+      </div>
+      <div class="feat-box">
+        <div class="box-icon">
+          <i class="fa-solid fa-upload"></i>
+        </div>
+        Custom Upload
+        <div class="desc-container">
+          <span class="desc-icon"><i class="fa-solid fa-feather"></i></span>
+          <p class="desc-content">
+            This feature ensures that students receive tailored support and
+            resources that align with their individual learning needs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="resource-sec">
+    <div class="resrc-headline" id="grade">
+      resources
+      <span class="resrc-line"></span>
+    </div>
+    <div class="resrc-btns">
+      <!-- <div class="resrc-btns-item"> -->
+      <button class="active-btn">All</button>
+      <button class="other-btns">grade-9</button>
+      <button class="other-btns">grade-10</button>
+      <button class="other-btns">grade-11</button>
+      <button class="other-btns">grade-12</button>
+      <!-- </div> -->
+    </div>
+    <div class="resrc-nav-container">
+      <button class="left-btn">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button class="right-btn">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+
+    <div class="resrc-slider">
+      <div class="resrc-container" id="resrc-container">
+        <!-- <div class="resrc-item">
+          <a
+            href="/grade/?book=bk/Biology Student Textbook Grade 9.pdf"
+            class="resrc-box"
+          >
+            <div class="resrc-cover-container">
+              <img
+                src="/static/asset/bio-g10-cover.svg"
+                class="resrc-cover-item"
+              />
+              <div class="resrc-cover-overlay">
+                grade-9
+                <span class="resrc-cover-overlay-icon">
+                  <i class="fa-solid fa-book-open-reader"></i>
+                </span>
+              </div>
+            </div>
+            <div class="resrc-tittle-container">
+              <span class="resrc-tittle-icon"
+                ><i class="fa-solid fa-book"></i
+              ></span>
+              Biology
+            </div>
+            <div class="resrc-desc-container">
+              <div class="resrc-desc-tittle">
+                <span class="resc-desc-tittle-icon"
+                  ><i class="fa-solid fa-feather"></i
+                ></span>
+                description
+              </div>
+              <div class="resrc-desc-content">
+                <p class="resrc-desc-text">
+                  ensures that students have access to comprehensive learning
+                  materials that support their academic progress.
+                </p>
+              </div>
+            </div>
+          </a>
+          <a
+            href="/grade/?book=bk/History student textbook grade 9.pdf"
+            class="resrc-box"
+          >
+            <div class="resrc-cover-container" style="background: #1aa751">
+              <img
+                src="/static/asset/hist-g9-cover.svg"
+                class="resrc-cover-item"
+              />
+              <div class="resrc-cover-overlay">
+                grade-9
+                <span class="resrc-cover-overlay-icon">
+                  <i class="fa-solid fa-book-open-reader"></i>
+                </span>
+              </div>
+            </div>
+            <div class="resrc-tittle-container">
+              <span class="resrc-tittle-icon"
+                ><i class="fa-solid fa-book"></i
+              ></span>
+              history
+            </div>
+            <div class="resrc-desc-container">
+              <div class="resrc-desc-tittle">
+                <span class="resc-desc-tittle-icon"
+                  ><i class="fa-solid fa-feather"></i
+                ></span>
+                description
+              </div>
+              <div class="resrc-desc-content">
+                <p class="resrc-desc-text">
+                  ensures that students have access to comprehensive learning
+                  materials that support their academic progress.
+                </p>
+              </div>
+            </div>
+          </a>
+          <div class="resrc-box">
+            <div class="resrc-cover-container" style="background: #1aa751">
+              <img
+                src="/static/asset/citiz-g9-cover.svg"
+                class="resrc-cover-item"
+              />
+              <div class="resrc-cover-overlay">
+                grade-9
+                <span class="resrc-cover-overlay-icon">
+                  <i class="fa-solid fa-book-open-reader"></i>
+                </span>
+              </div>
+            </div>
+            <div class="resrc-tittle-container">
+              <span class="resrc-tittle-icon"
+                ><i class="fa-solid fa-book"></i
+              ></span>
+              chemistry
+            </div>
+            <div class="resrc-desc-container">
+              <div class="resrc-desc-tittle">
+                <span class="resc-desc-tittle-icon"
+                  ><i class="fa-solid fa-feather"></i
+                ></span>
+                description
+              </div>
+              <div class="resrc-desc-content">
+                <p class="resrc-desc-text">
+                  ensures that students have access to comprehensive learning
+                  materials that support their academic progress.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="resrc-item">
+          <div class="resrc-box">
+            <div class="resrc-cover-container">
+              <img
+                src="/static/asset/soon-cover.svg"
+                class="resrc-cover-item"
+              />
+              <div class="resrc-cover-overlay">
+                grade-9
+                <span class="resrc-cover-overlay-icon">
+                  <i class="fa-solid fa-book-open-reader"></i>
+                </span>
+              </div>
+            </div>
+            <div class="resrc-tittle-container">
+              <span class="resrc-tittle-icon"
+                ><i class="fa-solid fa-book"></i
+              ></span>
+              citizenship
+            </div>
+            <div class="resrc-desc-container">
+              <div class="resrc-desc-tittle">
+                <span class="resc-desc-tittle-icon"
+                  ><i class="fa-solid fa-feather"></i
+                ></span>
+                description
+              </div>
+              <div class="resrc-desc-content">
+                <p class="resrc-desc-text">
+                  ensures that students have access to comprehensive learning
+                  materials that support their academic progress.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="resrc-box">
+            <div class="resrc-cover-container">
+              <img
+                src="/static/asset/soon-cover.svg"
+                class="resrc-cover-item"
+              />
+              <div class="resrc-cover-overlay">
+                grade-9
+                <span class="resrc-cover-overlay-icon">
+                  <i class="fa-solid fa-book-open-reader"></i>
+                </span>
+              </div>
+            </div>
+            <div class="resrc-tittle-container">
+              <span class="resrc-tittle-icon"
+                ><i class="fa-solid fa-book"></i
+              ></span>
+              physics
+            </div>
+            <div class="resrc-desc-container">
+              <div class="resrc-desc-tittle">
+                <span class="resc-desc-tittle-icon"
+                  ><i class="fa-solid fa-feather"></i
+                ></span>
+                description
+              </div>
+              <div class="resrc-desc-content">
+                <p class="resrc-desc-text">
+                  ensures that students have access to comprehensive learning
+                  materials that support their academic progress.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="resrc-box">
+            <div class="resrc-cover-container">
+              <img
+                src="/static/asset/soon-cover.svg"
+                class="resrc-cover-item"
+              />
+              <div class="resrc-cover-overlay">
+                grade-10
+                <span class="resrc-cover-overlay-icon">
+                  <i class="fa-solid fa-book-open-reader"></i>
+                </span>
+              </div>
+            </div>
+
+            <div class="resrc-tittle-container">
+              <span class="resrc-tittle-icon"
+                ><i class="fa-solid fa-book"></i
+              ></span>
+              Biology-6
+            </div>
+            <div class="resrc-desc-container">
+              <div class="resrc-desc-tittle">
+                <span class="resc-desc-tittle-icon"
+                  ><i class="fa-solid fa-feather"></i
+                ></span>
+                description
+              </div>
+              <div class="resrc-desc-content">
+                <p class="resrc-desc-text">
+                  ensures that students have access to comprehensive learning
+                  materials that support their academic progress.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="resrc-item">
+          <div class="resrc-box">
+            <div class="resrc-cover-container">
+              <img
+                src="/static/asset/soon-cover.svg"
+                class="resrc-cover-item"
+              />
+              <div class="resrc-cover-overlay">
+                grade-9
+                <span class="resrc-cover-overlay-icon">
+                  <i class="fa-solid fa-book-open-reader"></i>
+                </span>
+              </div>
+            </div>
+            <div class="resrc-tittle-container">
+              <span class="resrc-tittle-icon"
+                ><i class="fa-solid fa-book"></i
+              ></span>
+              geography
+            </div>
+            <div class="resrc-desc-container">
+              <div class="resrc-desc-tittle">
+                <span class="resc-desc-tittle-icon"
+                  ><i class="fa-solid fa-feather"></i
+                ></span>
+                description
+              </div>
+              <div class="resrc-desc-content">
+                <p class="resrc-desc-text">
+                  ensures that students have access to comprehensive learning
+                  materials that support their academic progress.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="resrc-box">
+            <div class="resrc-cover-container">
+              <img
+                src="/static/asset/soon-cover.svg"
+                class="resrc-cover-item"
+              />
+              <div class="resrc-cover-overlay">
+                grade-9
+                <span class="resrc-cover-overlay-icon">
+                  <i class="fa-solid fa-book-open-reader"></i>
+                </span>
+              </div>
+            </div>
+            <div class="resrc-tittle-container">
+              <span class="resrc-tittle-icon"
+                ><i class="fa-solid fa-book"></i
+              ></span>
+              mathmatics
+            </div>
+            <div class="resrc-desc-container">
+              <div class="resrc-desc-tittle">
+                <span class="resc-desc-tittle-icon"
+                  ><i class="fa-solid fa-feather"></i
+                ></span>
+                description
+              </div>
+              <div class="resrc-desc-content">
+                <p class="resrc-desc-text">
+                  ensures that students have access to comprehensive learning
+                  materials that support their academic progress.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="resrc-box">
+            <div class="resrc-cover-container">
+              <img
+                src="/static/asset/soon-cover.svg"
+                class="resrc-cover-item"
+              />
+              <div class="resrc-cover-overlay">
+                grade-9
+                <span class="resrc-cover-overlay-icon">
+                  <i class="fa-solid fa-book-open-reader"></i>
+                </span>
+              </div>
+            </div>
+
+            <div class="resrc-tittle-container">
+              <span class="resrc-tittle-icon"
+                ><i class="fa-solid fa-book"></i
+              ></span>
+              civic
+            </div>
+            <div class="resrc-desc-container">
+              <div class="resrc-desc-tittle">
+                <span class="resc-desc-tittle-icon"
+                  ><i class="fa-solid fa-feather"></i
+                ></span>
+                description
+              </div>
+              <div class="resrc-desc-content">
+                <p class="resrc-desc-text">
+                  ensures that students have access to comprehensive learning
+                  materials that support their academic progress.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <div class="resrc-slider-indicator">
+      <!-- <span class="dots active"></span>
+      <span class="dots"></span>
+      <span class="dots"></span> -->
+    </div>
+  </section>
+  <section class="how-does-sec">
+    <div class="how-does-headline">
+      <h2 class="how-does-text">how does it <span>work</span> ?</h2>
+      <div class="how-does-line"></div>
+    </div>
+    <div class="how-does-content-container">
+      <div class="robot-2">
+        <img src="/static/asset/robot-2.svg" alt="" alt="robot-2" />
+      </div>
+      <div class="how-does-step-container">
+        <div class="step-container">
+          <div class="step">
+            <div class="step-1">1</div>
+            <span class="circle-dot">
+              <img src="/static/asset/circle-dots.svg" alt="" />
+            </span>
+          </div>
+          <div class="how-does-reg">
+            <div class="reg-icon">
+              <i class="fa-solid fa-user-plus"></i>
+            </div>
+            registration
+            <div class="reg-desc">create account with us</div>
+          </div>
+        </div>
+        <div class="step-container">
+          <div class="step">
+            <div class="step-1">2</div>
+            <span class="circle-dot">
+              <img src="/static/asset/circle-dots.svg" alt="" />
+            </span>
+          </div>
+          <div class="how-does-reg">
+            <div class="reg-icon">
+              <i class="fa-solid fa-book"></i>
+            </div>
+            select grade & subject
+            <div class="reg-desc">
+              you have to choose specific grade and subject
+            </div>
+          </div>
+        </div>
+        <div class="step-container">
+          <div class="step">
+            <div class="step-1">3</div>
+            <span class="circle-dot">
+              <img src="/static/asset/circle-dots.svg" alt="" />
+            </span>
+          </div>
+          <div class="how-does-reg">
+            <div class="reg-icon">
+              <i class="fa-brands fa-rocketchat"></i>
+            </div>
+            chat with miiltoo
+            <div class="reg-desc">
+              you can generate quize and upload custom file
+            </div>
+          </div>
+        </div>
+        <div class="vertical-dots">
+          <span class="circle-dot-vertical">
+            <img src="/static/asset/circle-dot-vertical.svg" alt="" />
+          </span>
+          <span class="circle-dot-vertical">
+            <img src="/static/asset/circle-dot-vertical.svg" alt="" />
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="testimony-sec" id="testimoney">
+    <div class="testi-headline">
+      <h2 class="testi-text">testimony</h2>
+      <div class="testi-line"></div>
+    </div>
+    <div class="testimoney-content">
+      <div class="slider-testimoney">
+        <div class="person-item">
+          <div class="person-profile"></div>
+          <div class="person-comment-container">
+            <div class="person-name">Cody Fisher</div>
+            <div class="person-comment">
+              "miiltoo has completely transformed the way I learn. The
+              AI-powered services provide personalized recommendations and
+              insights tailored to my specific needs, helping me excel in my
+              studies like never before." cody, High School Student
+            </div>
+            <div class="review-container">
+              review
+
+              <div class="star-container"></div>
+            </div>
+          </div>
+        </div>
+        <div class="person-item">
+          <div class="person-profile"></div>
+          <div class="person-comment-container">
+            <div class="person-name">Wade Warren</div>
+            <div class="person-comment">
+              "As a teacher, miiltoo has become an invaluable tool in my
+              classroom. It helps me analyze student performance, identify areas
+              of improvement, and provide targeted support, ultimately leading
+              to better academic outcomes for all my students."
+            </div>
+            <div class="review-container">
+              review
+
+              <div class="star-container"></div>
+            </div>
+          </div>
+        </div>
+        <div class="person-item">
+          <div class="person-profile"></div>
+          <div class="person-comment-container">
+            <div class="person-name">Esther Howard</div>
+            <div class="person-comment">
+              "Being a parent, I always want the best for my child's education.
+              miiltoo has been a game-changer for us. It offers a comprehensive
+              platform with AI-driven resources that supplement my child's
+              learning journey and ensure they receive a well-rounded
+              education." -Esther howard , Parent
+            </div>
+            <div class="review-container">
+              review
+
+              <div class="star-container"></div>
+            </div>
+          </div>
+        </div>
+        <div class="person-item">
+          <div class="person-profile"></div>
+          <div class="person-comment-container">
+            <div class="person-name">Jenny Wilson</div>
+            <div class="person-comment">
+              "As a university professor, miiltoo has enhanced my teaching
+              methods and made the learning experience more engaging for my
+              students. The AI-powered services provide interactive content,
+              real-time feedback, and adaptive learning pathways, making
+              education a dynamic and rewarding process for everyone involved."
+              - Dr. jenny, University Professor
+            </div>
+            <div class="review-container">
+              review
+
+              <div class="star-container"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-frame">
+        <div class="shape-collection">
+          <div class="ellipse"></div>
+          <div class="ellipse"></div>
+          <div class="ellipse"></div>
+          <div class="ellipse"></div>
+          <div class="ellipse"></div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-nav-container">
+      <button class="left-btn">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button class="right-btn">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+    <div class="testi-slider-indicator">
+      <span class="dots active"></span>
+      <span class="dots"></span>
+      <span class="dots"></span>
+      <span class="dots"></span>
+    </div>
+  </section>
+  <section class="ad-sec">
+    <div class="ad-container">
+      <div class="robot-3">
+        <img src="/static/asset/robot-3.png" alt="" />
+      </div>
+      <div class="ad-content-container">
+        <h3 class="ad-headline-3">
+          <span class="harness-text">Harnessing</span> the Power of AI for
+          Next-Level Education
+        </h3>
+        <p class="miiltoo-desc">
+          miiltoo has been developed since Aug, 2023. Lorem ipsum dolor sit
+          amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+          labore Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore
+        </p>
+        <button class="try-it-btn">
+          <span class="try-it-icon"
+            ><img src="/static/asset/sparkels-icon.svg" alt=""
+          /></span>
+          try it’s free
+        </button>
+      </div>
+    </div>
+  </section>
+  <section class="team-sec" id="team">
+    <div class="team-headline">
+      <h2 class="team-text">Team Members</h2>
+      <div class="team-line"></div>
+    </div>
+    <div class="team-container" id="team-container">
+      <div class="team-member">
+        <div class="member-profile">
+          <div class="member-pic"></div>
+          <div class="member-name">
+            <span class="user-icon"><i class="fa-solid fa-user-tie"></i></span>
+            Abdulmajid Awol
+          </div>
+        </div>
+        <div class="team-content">
+          <div class="member-role">
+            <span class="role-icon"
+              ><i class="fa-solid fa-puzzle-piece"></i
+            ></span>
+            team lead & backend developer
+          </div>
+          <p class="member-bio">
+            "I am an experienced and results-oriented Team Leader with a strong
+            passion for leadership and a track record of guiding teams to
+            success. With a focus on fostering collaboration, mentorship, and
+            achieving collective goals, I am dedicated to maximizing team
+            productivity and ensuring every member's growth and development."
+          </p>
+          <div class="member-email">
+            <span class="email-icon"><i class="fa-solid fa-inbox"></i></span>
+            email : <span>maajidawol@gmail.com</span>
+          </div>
+          <div class="member-phone">
+            <span class="phone-icon"
+              ><i class="fa-solid fa-phone-volume"></i
+            ></span>
+            phone : 0993174585
+          </div>
+        </div>
+      </div>
+      <div class="team-member">
+        <div class="member-profile">
+          <div class="member-pic ararsa-pic"></div>
+          <div class="member-name">
+            <span class="user-icon"><i class="fa-solid fa-user-tie"></i></span>
+            Ararsa Derese
+          </div>
+        </div>
+        <div class="team-content">
+          <div class="member-role">
+            <span class="role-icon"
+              ><i class="fa-solid fa-puzzle-piece"></i
+            ></span>
+            backend developer
+          </div>
+          <p class="member-bio">
+            "I am a dedicated and detail-oriented Backend Developer with a
+            strong passion for crafting efficient, scalable, and secure
+            server-side solutions. My expertise lies in designing and
+            implementing the backbone of web and mobile applications, ensuring
+            that they operate flawlessly and provide exceptional performance. I
+            am committed to translating complex technical challenges into
+            elegant, functional, and maintainable code."
+          </p>
+          <div class="member-email">
+            <span class="email-icon"><i class="fa-solid fa-inbox"></i></span>
+            email : <span>ararsaderese6@gmail.com</span>
+          </div>
+          <div class="member-phone">
+            <span class="phone-icon"
+              ><i class="fa-solid fa-phone-volume"></i
+            ></span>
+            phone : 0946543376
+          </div>
+        </div>
+      </div>
+      <div class="team-member">
+        <div class="member-profile">
+          <div class="member-pic natty-pic"></div>
+          <div class="member-name">
+            <span class="user-icon"><i class="fa-solid fa-user-tie"></i></span>
+            Natnael Meseret
+          </div>
+        </div>
+        <div class="team-content">
+          <div class="member-role">
+            <span class="role-icon"
+              ><i class="fa-solid fa-puzzle-piece"></i
+            ></span>
+            front-end developer & Ui/Ux designer
+          </div>
+          <p class="member-bio">
+            "I am a passionate and highly creative front-end developer and UI/UX
+            Designer dedicated to enhancing digital experiences through
+            thoughtful and user-centric design. With a deep appreciation for the
+            intersection of aesthetics and functionality, I thrive on
+            translating complex ideas into intuitive, visually stunning, and
+            user-friendly interfaces."
+          </p>
+          <div class="member-email">
+            <span class="email-icon"><i class="fa-solid fa-inbox"></i></span>
+            email : <span>natnaelmeseret5@gmail.com</span>
+          </div>
+          <div class="member-phone">
+            <span class="phone-icon"
+              ><i class="fa-solid fa-phone-volume"></i
+            ></span>
+            phone : 0987158100
+          </div>
+        </div>
+      </div>
+      <div class="team-member">
+        <div class="member-profile">
+          <div class="member-pic abel-pic"></div>
+          <div class="member-name">
+            <span class="user-icon"><i class="fa-solid fa-user-tie"></i></span>
+            Abel Bekana
+          </div>
+        </div>
+        <div class="team-content">
+          <div class="member-role">
+            <span class="role-icon"
+              ><i class="fa-solid fa-puzzle-piece"></i
+            ></span>
+            content creator and front-end developer
+          </div>
+          <p class="member-bio">
+            "I am a dedicated Content Curator with a passion for discovering,
+            organizing, and sharing meaningful content. My role is to
+            meticulously curate and manage digital content to engage and inform
+            your target audience, while ensuring your brand's voice and message
+            remain consistent and relevant. "
+          </p>
+          <div class="member-email">
+            <span class="email-icon"><i class="fa-solid fa-inbox"></i></span>
+            email : <span>abelbekanagot@gmail.com</span>
+          </div>
+          <div class="member-phone">
+            <span class="phone-icon"
+              ><i class="fa-solid fa-phone-volume"></i
+            ></span>
+            phone : 0966871742
+          </div>
+        </div>
+      </div>
+      <div class="team-member">
+        <div class="member-profile">
+          <div class="member-pic abel-pic"></div>
+          <div class="member-name">
+            <span class="user-icon"><i class="fa-solid fa-user-tie"></i></span>
+            Abigiya Getachew
+          </div>
+        </div>
+        <div class="team-content">
+          <div class="member-role">
+            <span class="role-icon"
+              ><i class="fa-solid fa-puzzle-piece"></i
+            ></span>
+            content creator and project manager
+          </div>
+          <p class="member-bio">
+            "I am a results-driven and detail-oriented Project Manager with a
+            proven track record of successfully leading and delivering complex
+            projects from inception to completion. With a keen understanding of
+            project management methodologies, a knack for team collaboration,
+            and a focus on delivering value, I am dedicated to ensuring projects
+            are executed on time, within scope, and to the highest quality
+            standards."
+          </p>
+          <div class="member-email">
+            <span class="email-icon"><i class="fa-solid fa-inbox"></i></span>
+            email : <span>Bigu160715@gmail.com</span>
+          </div>
+          <div class="member-phone">
+            <span class="phone-icon"
+              ><i class="fa-solid fa-phone-volume"></i
+            ></span>
+            phone : 0926815050
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="team-nav-container">
+      <button class="left-btn">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button class="right-btn">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+    <div class="team-slider-indicator">
+      <span class="dots active" data-slide="0"></span>
+      <span class="dots" data-slide="1"></span>
+      <span class="dots" data-slide="2"></span>
+      <span class="dots" data-slide="3"></span>
+      <span class="dots" data-slide="4"></span>
+    </div>
+  </section>
+  <section class="contact-sec" id="contact">
+    <div class="contact-headline">
+      <h2 class="contact-text">contact us</h2>
+      <div class="contact-line"></div>
+    </div>
+    <div class="contact-container">
+      <div class="robot-4">
+        <img src="/static/asset/robor-4.svg" alt="" />
+      </div>
+      <form action="#" method="" class="contact-box">
+        <div class="contact-box-icon">
+          <i class="fa-solid fa-address-card"></i>
+        </div>
+        <div class="fullname-box">
+          Full Name
+          <div class="name-container">
+            <input type="text" class="contact-name" placeholder="fullname" />
+            <span class="fullname-icon"></span>
+          </div>
+        </div>
+        <div class="email-box">
+          email
+          <div class="email-container">
+            <input type="email" class="contact-email" placeholder="email" />
+            <span class="email-icon"></span>
+          </div>
+        </div>
+        <div class="message-box">
+          message
+          <div class="message-container">
+            <textarea
+              class="message-area"
+              cols="30"
+              rows="8"
+              placeholder="message-here"
+            >
+            </textarea>
+          </div>
+        </div>
+        <button class="send-btn">
+          <span class="send-icon"><i class="fa-solid fa-paper-plane"></i></span>
+          send message
+        </button>
+      </form>
+    </div>
+  </section>
+</main>
+<script src="/static/js/slider-new.js"></script>
+<script>
+  const how_does_sec = document.querySelector(".how-does-sec");
+  const circle_dot = document.querySelectorAll(".circle-dot");
+  const box = document.querySelectorAll(".how-does-reg");
+
+  for (let i = 0; i < circle_dot.length; i++) {
+    circle_dot[i].style.opacity = "0";
+  }
+
+  for (let i = 0; i < box.length; i++) {
+    box[i].style.opacity = "0";
+    box[i].style.transform = `translateX(160%)`;
+  }
+
+  how_does_sec.addEventListener("mouseenter", () => {
+    for (let i = 0; i < circle_dot.length; i++) {
+      let delay = i * 0.8; // Adjust the delay duration as needed
+      circle_dot[i].style.opacity = "1";
+      circle_dot[i].style.transitionDelay = `${delay}s`;
+    }
+
+    box.forEach((boxItem, index) => {
+      let delay = index * 0.8; // Adjust the delay duration as needed
+      boxItem.style.opacity = "1";
+      boxItem.style.transitionDelay = `${delay}s`;
+      boxItem.style.transform = "translateX(0)";
+    });
+  });
+</script>
+
+{% endblock %}

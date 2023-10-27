@@ -1,0 +1,511 @@
+{%extends "base.html"%}
+
+    {%block title%}Learn{%endblock%}
+   {%block head%}
+    <link rel="stylesheet" href="/static/css/home-new.css" />
+    <link rel="stylesheet" href="/static/css/book-new.css" />
+    <link rel="stylesheet" href="/static/css/loading-style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    {%endblock%}
+  {%block body%}
+   
+    <main sty>
+      <section class="chat-sec">
+        <div class="book-container">
+            <embed
+            src="/static/{{book}}"
+            frameborder="0"
+            class="pdf-section"
+          ></embed>
+        </div>
+        <div class="chatbot-container">
+          <div class="chatbot-var-2 hidden">
+            <button class="arrow-btn chat-left-btn">
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <div class="chat-top-container">
+              <div class="var2-logo">
+                <img src="/static/asset/logo.svg" alt="">
+                miilt<span>oo</span>
+              </div>
+              <div class="chat-top-headline">
+                <div class="chat-text">
+                  <span class="chat-text-icon"><i class="fa-brands fa-rocketchat"></i></span>
+                  chat
+                </div>
+                <div class="subject-text">
+                  <span class="subject-text-icon"><i class="fa-solid fa-book"></i></span>
+                  subject :
+                  <p class="subject-name">subject name</p>
+                </div>
+              </div>
+            </div>
+            <form method="post" class="ask-form">
+              <div class="text-input-container">
+                <span class="question-icon">?
+                </span>
+                <textarea name="" id="aaa" class="text-input" placeholder="what can i help you?"></textarea>
+              </div>
+
+
+              <button type="submit" id="bbb" class="ask-btn">
+                <span class="ask-btn-icon">
+
+                  <i class="fa-solid fa-microchip"></i>
+                <span class="icon-text">ai</span>
+                </span>
+                ask
+              </button>
+                <input id="book_choice" name="book_choice" type="hidden" value="/{{book}}" >
+            </form>
+            <div class="result-label">
+              <div class="result-label-item">
+                <span class="static-icon"><i class="fa-solid fa-square-poll-vertical"></i></span>
+                result
+              </div>
+            </div>
+            <div class="result-container" >
+
+<div class="result-container-item" id="ccc">
+<!--                <div class="user-message-container">-->
+<!--                  <span class="user-message-icon">-->
+<!--                    <i class="fa-solid fa-user-tie"></i>-->
+<!--                  </span>-->
+<!--                  <div class="user-message-content">-->
+<!--                    what is the book about ?-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="chatbot-message-container">-->
+<!--                  <span class="chatbot-icon">-->
+<!--                    <img src="/static/asset/logo.svg" alt="">-->
+
+<!--                  </span>-->
+<!--                  <div class="chatbot-content">-->
+<!--                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam laborum iure laboriosam, eveniet iste itaque, quas dolorem sed quam veritatis commodi eum laudantium. Voluptatibus sapiente recusandae nemo ipsa illo expedita.-->
+<!--                    Necessitatibus quasi error recusandae vitae ut cum accusantium quae delectus eius esse quibusdam aliquam sunt alias debitis consequatur vero laudantium nobis dolorum, sed tenetur obcaecati placeat asperiores voluptas iusto! Quia!-->
+<!--                    Repudiandae assumenda dicta similique dolorem, eaque unde quas autem sit tempora. Nobis consequatur eaque assumenda nostrum molestias alias. Accusamus reprehenderit rem repellat unde necessitatibus esse error earum iste ratione beatae.-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+
+<!--                            hello-->
+<!--              <form>-->
+
+<!--&lt;!&ndash;             <input id="aaa" name="prompt" type="text">&ndash;&gt;-->
+<!--&lt;!&ndash;                <button id="bbb">prompt</button>&ndash;&gt;-->
+<!--              <div id="ccc">jjj</div>-->
+<!--              </form>-->
+            </div>
+          </div>
+          </div>
+          <div class="chatbot-var-3 hidden">
+                 <!--    protect       -->
+            <button class="arrow-btn chat-left-btn">
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <div class="chat-top-container">
+              <div class="var2-logo">
+                <img src="/static/asset/logo.svg" alt="">
+                miilt<span>oo</span>
+              </div>
+              <div class="chat-top-headline">
+                <div class="chat-text">
+
+                  <span class="chat-text-icon">
+                    <i class="fa-regular fa-message"></i>
+                    <i class="fa-solid fa-question"></i>
+                  </span>
+                  quize
+                </div>
+                <div class="subject-text">
+                  <span class="subject-text-icon"><i class="fa-solid fa-book"></i></span>
+                  subject :
+                  <p class="subject-name">subject name</p>
+                </div>
+              </div>
+            </div>
+<!--    protect       -->
+<!--              generation form-->
+          <form  class="generate-form" >
+            <div class="selection-container">
+              <div class="chapter-container">
+               <select name="" id="chapter" class="chapter">
+                 <option  value="Introduction">
+
+                 choose-chapter
+
+                 </option>
+                </select>
+              </div>
+               <div class="chapter-container">
+                 <select name="" id="subtopic" class="subtopic">
+                   <option  value="Definition of Biology ">
+                 <div class="please-choose-section">Choose subtopic</div>
+
+                   </option>
+                 </select>
+               </div>
+             <div class="chapter-container">
+               <select name="" id="number" class="totalNoQuize">
+                 <option value="label">choose no of quize</option>
+                 <option value="1">1</option>
+                 <option value="2">2</option>
+                 <option value="3">3</option>
+                 <option value="4" >4</option>
+                 <option value="5" >5</option>
+                 <option value="6">6</option>
+                </select>
+             </div>
+           </div>
+            <button id="fetch-quiz" type="submit" class="generate-btn">
+            <span class="generate-btn-icon">
+                <i class="fa-solid fa-microchip"></i>
+              <span class="icon-text">ai</span>
+              </span>
+              generate quiz
+            </button>
+          </form>
+              <!--              generation form-->
+<!--result text-->
+          <div class="result-label">
+            <div class="result-label-item">
+              <span class="static-icon"><i class="fa-solid fa-square-poll-vertical"></i></span>
+              result
+            </div>
+          </div>   <script>
+  var biology = {{ json_data | default('null') | tojson | safe }};
+</script>
+              <!--result text-->
+<!--the generated quiz container-->
+          <div class="result-container">
+
+           <div class="result-container-item">
+           <form action="" class="generated-quize-form" id="quiz-form">
+<!--           <div class="quize-content-container" data-question-id="1">-->
+<!--              <div class="quize-question-container">-->
+<!--                <span class="quize-no">q1</span>-->
+<!--                <p class="quize-question">-->
+<!--                  Who was the emperor of Ethiopia-->
+<!--                  during the Battle of Adwa in 1896, where Ethiopian forces defeated the Italians?-->
+<!--                </p>-->
+<!--              </div>-->
+<!--              <button class="quize-choose " onclick="handleChoice(1,'option-1')">-->
+<!--                <span class="choose-list">A&#41;</span>-->
+<!--              <p class="choose-item">-->
+<!--                Emperor Menelik II-->
+<!--              </p>-->
+<!--              </button>-->
+<!--              <button class="quize-choose " onclick="handleChoice(1,'option-2')">-->
+<!--                <span class="choose-list">B&#41;</span>-->
+<!--              <p class="choose-item">-->
+<!--                Emperor Menelik II-->
+<!--              </p>-->
+<!--              </button>-->
+<!--              <button class="quize-choose " onclick="handleChoice(1,'option-3')">-->
+<!--                <span class="choose-list">C&#41;</span>-->
+<!--              <p class="choose-item">-->
+<!--                Emperor Menelik II-->
+<!--              </p>-->
+<!--              </button>-->
+<!--              <button class="quize-choose " onclick="handleChoice(1,'option-4')">-->
+<!--                <span class="choose-list">d&#41;</span>-->
+<!--              <p class="choose-item">-->
+<!--                Emperor Menelik II-->
+<!--              </p>-->
+<!--              </button>-->
+<!--              <input type="hidden" id="selectedChoice1" name="selectedChoice1" value="">-->
+
+<!--            </div>-->
+<!--            <div class="quize-content-container" data-question-id="2">-->
+<!--              <div class="quize-question-container">-->
+<!--                <span class="quize-no">q2</span>-->
+<!--                <p class="quize-question">-->
+<!--                  Who was the emperor of Ethiopia-->
+<!--                  during the Battle of Adwa in 1896, where Ethiopian forces defeated the Italians?-->
+<!--                </p>-->
+<!--              </div>-->
+<!--              <button class="quize-choose " onclick="handleChoice(2,'option-1')">-->
+<!--                <span class="choose-list">A&#41;</span>-->
+<!--              <p class="choose-item">-->
+<!--                Emperor Menelik II-->
+<!--              </p>-->
+<!--              </button>-->
+<!--              <button class="quize-choose " onclick="handleChoice(2,'option-2')">-->
+<!--                <span class="choose-list">B&#41;</span>-->
+<!--              <p class="choose-item">-->
+<!--                Emperor Menelik II-->
+<!--              </p>-->
+<!--              </button>-->
+<!--              <button class="quize-choose " onclick="handleChoice(2,'option-3')">-->
+<!--                <span class="choose-list">C&#41;</span>-->
+<!--              <p class="choose-item">-->
+<!--                Emperor Menelik II-->
+<!--              </p>-->
+<!--              </button>-->
+<!--              <button class="quize-choose " onclick="handleChoice(2,'option-4')">-->
+<!--                <span class="choose-list">d&#41;</span>-->
+<!--              <p class="choose-item">-->
+<!--                Emperor Menelik II-->
+<!--              </p>-->
+<!--              </button>-->
+<!--              <input type="hidden" id="selectedChoice2" name="selectedChoice1" value="">-->
+<!--            </div>-->
+
+               <div id="quiz-container"></div>
+<!--        <div class="blue-line"></div>-->
+
+            <button class="generate-btn" type="button" style="display: none;" id="submit-button" disabled>Submit Answers</button><br>
+           </form>
+           <div class="explanation-container" id="results"  style="display: none;"></div>
+           </div>
+
+          </div>
+
+
+
+<!--           <div class="result-label2-container">-->
+<!--            <div class="result-line"></div>-->
+<!--            <div class="result-label2">result</div>-->
+<!--           </div>-->
+<!--           <div class="score-container">-->
+<!--            <div class="score-board">-->
+<!--              your score : <span class="score">1</span><span class="total-quize">/2</span>-->
+<!--             </div>-->
+<!--           </div>-->
+<!--           <div class="explanation-label">-->
+<!--            <span class="fether-icon">-->
+<!--              <i class="fa-solid fa-feather"></i>-->
+<!--            </span>-->
+<!--            explanation-->
+<!--          </div>-->
+<!--          <div class="explanation-container">-->
+<!--            <span class="chatbot-icon">-->
+<!--              <img src="/static/asset/logo.svg" alt="">-->
+
+<!--            </span>-->
+<!--           <div class="expln-content">-->
+<!--              <div class="expln-item">-->
+<!--                <div class="question-container">-->
+<!--                  <span class="quize-no">q1</span>-->
+<!--                  <p class="question">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore-->
+<!--                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris </p>-->
+<!--                </div>-->
+<!--                <div class="your-answer">-->
+<!--                  your answer : <span class="choice-selected">A</span>-->
+<!--                  <span class="x-icon"><i class="fa-solid fa-circle-xmark"></i></span>-->
+<!--                  <span class="correct-icon hidden"><i class="fa-solid fa-circle-check"></i></span>-->
+<!--                </div>-->
+<!--                <div class="correct-answer">-->
+<!--                  <span class="correct-icon"><i class="fa-solid fa-circle-check"></i></span>-->
+<!--                  correct answer : <span class="correct">C</span>-->
+<!--                </div>-->
+<!--               <div class="expln-detail-container">-->
+<!--                <div class="explanation-label expln-detail-label">-->
+<!--                  <span class="fether-icon">-->
+<!--                    <i class="fa-solid fa-feather"></i>-->
+<!--                  </span>-->
+<!--                  explanation-->
+<!--                </div>-->
+<!--                <p class="expln-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore-->
+<!--                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con-->
+<!--                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu-->
+<!--                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id es-->
+<!--                </p>-->
+<!--               </div>-->
+<!--              </div>-->
+<!--              <div class="expln-item">-->
+<!--                <div class="question-container">-->
+<!--                  <span class="quize-no">q1</span>-->
+<!--                  <p class="question">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore-->
+<!--                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris </p>-->
+<!--                </div>-->
+<!--                <div class="your-answer">-->
+<!--                  your answer : <span class="choice-selected">A</span>-->
+<!--                  <span class="x-icon"><i class="fa-solid fa-circle-xmark"></i></span>-->
+<!--                  <span class="correct-icon hidden"><i class="fa-solid fa-circle-check"></i></span>-->
+<!--                </div>-->
+<!--                <div class="correct-answer">-->
+<!--                  <span class="correct-icon"><i class="fa-solid fa-circle-check"></i></span>-->
+<!--                  correct answer : <span class="correct">C</span>-->
+<!--                </div>-->
+<!--               <div class="expln-detail-container">-->
+<!--                <div class="explanation-label expln-detail-label">-->
+<!--                  <span class="fether-icon">-->
+<!--                    <i class="fa-solid fa-feather"></i>-->
+<!--                  </span>-->
+<!--                  explanation-->
+<!--                </div>-->
+<!--                <p class="expln-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore-->
+<!--                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con-->
+<!--                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu-->
+<!--                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id es-->
+<!--                </p>-->
+<!--               </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+          </div>
+              <!--the generated quiz container-->
+
+       
+          <div class="chatbot-var-1">
+                <button class="arrow-btn right-arrow-btn">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+                <div class="chatbot-logo">
+                    <img src="/static/asset/logo.svg" alt="logo" />
+                </div>
+                <div class="chatbot-headline">
+                    what can i <span>help</span> you ?
+                </div>
+                <div class="robot-say-hi">
+                    <img src="/static/asset/robot-3.png" alt="" />
+                </div>
+                <div class="func-container">
+                    <button class="chatbot-func-item" id="chat-btn">
+                        <div class="active-state-shape hidden">
+                            <img src="/static/asset/active-state-shape.svg" alt="">
+                        </div>
+                        <span class="func-item-icon">
+                          <i class="fa-brands fa-rocketchat"></i>
+                        </span>
+                         <p>chat</p>
+                    </button>
+                    <button class="chatbot-func-item" id="quize-btn">
+                      <div class="active-state-shape hidden">
+                        <img src="/static/asset/active-state-shape.svg" alt="">
+                      </div>
+                        <span class="func-item-icon">
+                            <i class="fa-regular fa-message"></i>
+                            <i class="fa-solid fa-question"></i></span>
+                    <p>quize</p>
+                    </button>
+                    <!-- <button class="chatbot-func-item" id="custom-upload-btn">
+                      <div class="active-state-shape hidden">
+                        <img src="/static/asset/active-state-shape.svg" alt="">
+                      </div>
+                      <span class="func-item-icon">
+                            <i class="fa-solid fa-upload"></i>
+                        </span>
+                        <p>custom upload</p>
+                    </button> -->
+                    <button class="chatbot-func-item" id="setting-btn">
+                      <div class="active-state-shape hidden">
+                        <img src="/static/asset/active-state-shape.svg" alt="">
+                      </div>
+                      <span class="func-item-icon"><i class="fa-solid fa-gear"></i></span>
+                       <p>setting</p>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+      </section>
+    </main>
+    {%block footer%}
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="/static/asset/logo.svg" alt="" />
+          <div>miilt<span class="oo">oo</span></div>
+        </div>
+        <div class="footer-link-container">
+          <div class="link-container">
+            Home
+            <a href="" class="link">grade</a>
+            <a href="" class="link">subject</a>
+            <a href="" class="link">chatbot</a>
+          </div>
+          <div class="link-container">
+            resource
+            <a href="" class="link">textbook</a>
+            <a href="" class="link">study guid</a>
+            <a href="" class="link">upload</a>
+          </div>
+          <div class="link-container">
+            grade
+            <a href="" class="link">grade-9</a>
+            <a href="" class="link">grade-10</a>
+            <a href="" class="link">grade-11</a>
+            <a href="" class="link">grade-12</a>
+          </div>
+          <div class="link-container">
+            pages
+            <a href="" class="link">About us</a>
+            <a href="" class="link">contact us</a>
+            <a href="" class="link">FAQ</a>
+            <a href="" class="link">help</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <a class="social-icons"><i class="fa-brands fa-square-twitter"></i></a>
+        <a class="social-icons"><i class="fa-brands fa-facebook"></i></a>
+        <a class="social-icons"><i class="fa-brands fa-linkedin"></i></a>
+        <a class="social-icons"><i class="fa-brands fa-github"></i></a>
+        <a class="social-icons"><i class="fa-brands fa-telegram"></i></a>
+      </div>
+    </footer>
+    {%endblock%}
+    <!--<script src="/static/js/menu.js"></script>
+    -->
+
+    <script src="/static/js/leftbar.js"></script>
+    <script>
+
+const quize_choose = document.querySelectorAll(".quize-choose");
+const choiceOption = document.querySelectorAll(".choose-list");
+const choose_item = document.querySelectorAll(".choose-item");
+var questions = {
+  1: null,
+  2: null
+};
+
+function handleChoice(questionId, choice) {
+  var selectedChoice = questions[questionId];
+
+  if (selectedChoice === choice) {
+    // Deselect the choice if it's already selected
+    questions[questionId] = null;
+    event.target.classList.remove("active");
+  } else {
+    // Select the choice
+    questions[questionId] = choice;
+
+    var buttons = document.querySelectorAll('.quize-content-container[data-question-id="' + questionId + '"] .choose-list');
+   for (let i = 0; i < buttons.length; i++) {
+    buttons[i].classList.remove('active');
+   }
+    event.target.classList.add("active");
+  }
+
+  event.preventDefault();
+}
+
+document.getElementById("generated-quize-form").addEventListener("submit", function(e) {
+  for (var questionId in questions) {
+    if (questions.hasOwnProperty(questionId)) {
+      var selectedChoice = questions[questionId];
+      document.getElementById("selectedChoice" + questionId).value = selectedChoice;
+    }
+  }
+
+  // Perform any additional form validation or submission logic
+  // if needed before allowing the form to be submitted.
+
+  // Uncomment the line below to submit the form
+  // this.submit();
+});
+
+
+
+    </script>
+<script src="/static/js/chat.js"></script>
+<script src="/static/js/bioquiz.js"></script>
+{%endblock%}
