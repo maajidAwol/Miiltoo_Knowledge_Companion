@@ -1,15 +1,30 @@
 
-let quizData = [];
+let biology_quizData = [];
+const biology_score =0;
 const quizContainer = document.getElementById("biology-quiz-container");
 const submitButton = document.getElementById("biology-submit-button");
 const resultsContainer = document.getElementById("biology-results");
-
-const physics_quizContainer = document.getElementById("physics-quiz-container");
-const physics_submitButton = document.getElementById("physics-submit-button");
-const physics_resultsContainer = document.getElementById("physics-results");
-let physics_quizData = [];
+const bio_score = document.getElementById("bio-score");
+const history_quizContainer = document.getElementById("history-quiz-container");
+const history_submitButton = document.getElementById("history-submit-button");
+const history_resultsContainer = document.getElementById("history-results");
+let history_quizData = [];
+const history_score =0;
+const hist_score = document.getElementById("hist-score");
  // To store fetched quiz data
- 
+
+ const chemistry_quizContainer = document.getElementById("chemistry-quiz-container");
+const chemistry_submitButton = document.getElementById("chemistry-submit-button");
+const chemistry_resultsContainer = document.getElementById("chemistry-results");
+let chemistry_quizData = [];
+const chemistry_score =0;
+const chem_score = document.getElementById("chem-score");
+const geography_quizContainer = document.getElementById("geography-quiz-container");
+const geography_submitButton = document.getElementById("geography-submit-button");
+const geography_resultsContainer = document.getElementById("geography-results");
+let geography_quizData = [];
+const geography_score =0;
+const geo_score = document.getElementById("geo-score");
 document.addEventListener('DOMContentLoaded', function () {
 
   event.preventDefault();
@@ -95,10 +110,16 @@ document.addEventListener('DOMContentLoaded', function () {
       space.classList.replace("space-holder", "hidden");
 
       if (data && data.biology && data.biology.quiz) {
-        quizData = data.biology.quiz;
-        buildQuiz(quizContainer,quizData);
-        physics_quizData = data.physics.quiz;
-        buildQuiz(physics_quizContainer,physics_quizData);
+        biology_quizData = data.biology.quiz;
+        buildQuiz(quizContainer,biology_quizData);
+        history_quizData = data.history.quiz;
+        buildQuiz(history_quizContainer,history_quizData);
+        //
+        chemistry_quizData = data.chemistry.quiz;
+        buildQuiz(chemistry_quizContainer,chemistry_quizData);
+        //
+        geography_quizData = data.geography.quiz;
+        buildQuiz(geography_quizContainer,geography_quizData);
         submitButton.style.display = "block";
       } else {
         // Handle the case where the response is empty or doesn't contain quiz data
@@ -158,15 +179,23 @@ function buildQuiz(quizContainer,quizData) {
 }
 
 submitButton.addEventListener("click", function () {
-  showResults(resultsContainer,quizData);
+  showResults(resultsContainer,biology_quizData,bio_score);
   submitButton.style.display = "none";
 });
-physics_submitButton.addEventListener("click", function () {
-  showResults(physics_resultsContainer,physics_quizData);
-  physics_submitButton.style.display = "none";
+history_submitButton.addEventListener("click", function () {
+  showResults(history_resultsContainer,history_quizData,hist_score);
+  history_submitButton.style.display = "none";
+});
+geography_submitButton.addEventListener("click", function () {
+  showResults(geography_resultsContainer,geography_quizData,geo_score);
+  geography_submitButton.style.display = "none";
 });
 
-function showResults(resultsContainer) {
+chemistry_submitButton.addEventListener("click", function () {
+  showResults(chemistry_resultsContainer,chemistry_quizData,chem_score);
+  chemistry_submitButton.style.display = "none";
+});
+function showResults(resultsContainer,quizData,score_container) {
   score = 0; // Reset the score before evaluating user answers
   resultsContainer.innerHTML = `
   <div class="result-label2-container">
@@ -247,7 +276,18 @@ function showResults(resultsContainer) {
               your score : <span class="score">${score}</span><span class="total-quize">/${quizData.length}</span>
              </div>
            </div><br>`;
+  score_container.innerHTML = `           <div class="score-container">
+  <div class="score-board">
+    your score : <span class="score">${score}</span><span class="total-quize">/${quizData.length}</span>
+   </div>
+ </div><br>`;
 }
+
+bio_score.innerHTML = `           <div class="score-container">
+<div class="score-board">
+  your score : <span class="score">1</span><span class="total-quize">/4</span>
+ </div>
+</div><br>`;
 
 //pysics
 

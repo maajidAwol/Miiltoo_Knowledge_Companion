@@ -253,12 +253,14 @@ def contest_send():
     subject = "biology"
     dict_contest = {subject: r}
 
-    dict_contest.update({"physics": r})
+    dict_contest.update({"history": r})
+    dict_contest.update({"chemistry": r})
+    dict_contest.update({"geography": r})
     str_contest = json.dumps(dict_contest)
     # result = ext(r)
     # return result
     # db.session.query(Contest).delete()
-    # db.session.commit()
+    #  db.session.commit()
     print(r)
     print(dict_contest)
     sample_contest = Contest(
