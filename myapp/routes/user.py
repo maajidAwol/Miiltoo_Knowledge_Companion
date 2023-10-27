@@ -12,7 +12,7 @@ from ..models.book import Books
 from ..extensions import db
 from .utils import register_user, login_auth
 
-client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "../clientSecret.json")
+client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "../../clientSecret.json")
 flow = Flow.from_client_secrets_file(
     client_secrets_file=client_secrets_file,
     scopes=["https://www.googleapis.com/auth/userinfo.profile", "https://www.googleapis.com/auth/userinfo.email",
