@@ -3,7 +3,9 @@ const dots_container = document.querySelector(".resrc-slider-indicator");
 
 var resrc_btns = document.querySelectorAll(".resrc-btns button");
 var grade_btns = document.querySelectorAll(".grade-menu-btn");
+var country_menu_btn = document.querySelectorAll(".country-menu-btn");
 var grade_no = document.querySelectorAll(".grade_no");
+var country_code = "ETH";
 let currentImage = 9;
 let g_no = 9;
 let k = 0;
@@ -14,11 +16,8 @@ var subj_Name = [
   "chemistry",
   "physics",
   "geography",
-  "sth",
-  "we",
 ];
-console.log(subj_Name[0]);
-createResrc(currentImage, "Et", subj_Name, k);
+createResrc(currentImage, country_code, subj_Name, k);
 sliderWithAuto(
   ".resource-sec",
   ".resrc-item",
@@ -27,8 +26,67 @@ sliderWithAuto(
   ".right-btn",
   ".resrc-nav-container"
 );
-handler();
-function handler() {
+handler(country_code);
+function handleCountrySelection(country) {
+  const storedCountry = localStorage.getItem("selectedCountry");
+
+  // Check if a selected country is stored
+  if (storedCountry) {
+    const country = storedCountry.toLowerCase();
+
+    // Update the country button with the selected country
+    country_btn.innerHTML = `
+      <span class="country-menu-item-icon" style='display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;'>
+        <img src="/static/asset/${country}-flag.svg" alt="" />
+        - ${country_code}
+      </span>
+    `;
+
+    // Update the content and handle the selected country
+    changeContent(country, null);
+  }
+}
+function changeContent(country, event) {
+  event.preventDefault();
+  if (country === "ethiopia") {
+    country_code = "ETH";
+  } else if (country === "nigeria") {
+    country_code = "NGA";
+  } else if (country === "kenya") {
+    country_code = "KEN";
+    newContent = "Content for Kenya";
+  } else if (country === "south-sudan") {
+    country_code = "SS";
+  }
+  var country_btn = document.getElementById("country-btn");
+
+  country_btn.innerHTML = `
+    <span class="country-menu-item-icon" style='display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;'>
+      <img src="/static/asset/${country}-flag.svg" alt="" />
+      - ${country_code}
+    </span>
+`;
+  slider_container.innerHTML = ``;
+  dots_container.innerHTML = ``;
+  createResrc(9, country_code, subj_Name, k);
+  sliderWithAuto(
+    ".resource-sec",
+    ".resrc-item",
+    ".resrc-slider-indicator",
+    ".left-btn",
+    ".right-btn",
+    ".resrc-nav-container"
+  );
+  handler(country_code);
+}
+
+function handler(country_code) {
   for (let i = 0; i < grade_btns.length; i++) {
     grade_btns[i].addEventListener("click", function () {
       slider_container.innerHTML = ``;
@@ -40,8 +98,11 @@ function handler() {
       for (let j = 0; j < grade_no.length; j++) {
         grade_no[j].innerHTML = `grade-${i + 9}`;
       }
+      console.log("code-" + country_code);
+
       currentImage = i + 9;
-      createResrc(currentImage, "Et", subj_Name, k);
+
+      createResrc(currentImage, country_code, subj_Name, k);
       sliderWithAuto(
         ".resource-sec",
         ".resrc-item",
@@ -69,7 +130,7 @@ function handler() {
       } else {
         currentImage = i + 8;
       }
-      createResrc(currentImage, "Et", subj_Name, k);
+      createResrc(currentImage, country_code, subj_Name, k);
       sliderWithAuto(
         ".resource-sec",
         ".resrc-item",
@@ -96,6 +157,9 @@ function createResrc(g_no, country_code, subj_Name, k) {
   } else if (mediaFor_lap.matches) {
     p = 3;
     q = 1;
+    if (p == Math.floor(subj_Name.length / p)) {
+      q = 0;
+    }
   }
   length = p;
   for (let i = 0; i < q + Math.floor(subj_Name.length / p); i++) {
@@ -125,11 +189,14 @@ function createResrc(g_no, country_code, subj_Name, k) {
       ) {
         k = 0;
       }
+      // href="/grade/?book=bk/${country_code}/${subj_Name[k]}_g-${g_no}.pdf"
+
       item_container[i].insertAdjacentHTML(
         "beforeend",
         ` 
+
 <a
-href="/grade/?book=bk/Biology Student Textbook Grade 9.pdf"
+href="/grade/?book=bk/${country_code}/${subj_Name[k]}_g-${g_no}.pdf"
 class="resrc-box"
 >
 <div class="resrc-cover-container">

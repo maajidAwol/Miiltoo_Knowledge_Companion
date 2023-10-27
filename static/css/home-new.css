@@ -121,8 +121,8 @@ nav {
 }
 .underline {
   position: absolute;
-    top: 20px;
-    margin-left: -39vw;
+  top: 23px;
+    margin-left: -37vw;
     margin-top: 10px;
     height: 32px;
     transition: 0.5s ease;
@@ -2395,6 +2395,18 @@ footer {
     top: 1672px;
     height: 856px;
   }
+}
+@media only screen and (992px <= width <1200px ) {
+.upload-btn p,.country-menu-item-icon p{
+  display: none;
+}
+
+element.style {
+  transform: translateX(0px);
+}
+.underline {
+  margin-left: -40vw;
+}
 }
 @media only screen and (width >= 1200px) {
   .resrc-nav-container {

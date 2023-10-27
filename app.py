@@ -150,12 +150,12 @@ def grade():
     book = request.args.get('book')
 
     if book:
-        if book == "bk/Biology Student Textbook Grade 9.pdf":
+        if book == "bk/ETH/biology_g-9.pdf":
             json_data = biology
             print(biology)
             print(book)
             return render_template("book-new.html", book=book, json_data=json_data)
-        elif book == "bk/History student textbook grade 9.pdf":
+        elif book == "bk/ETH/history_g-9.pdf":
             json_data = history
             print(history)
             return render_template("book-new.html", book=book, json_data=json_data)
@@ -236,7 +236,7 @@ def quiz_send():
     print(path)
     time.sleep(10)
 
-    if path == "books/Biology Student Textbook Grade 9.txt" or path == "books/History Student Textbook Grade 9.txt":
+    if path == "books/ETH/biology_g-9.txt" or path == "books/ETH/history_g-9.txt":
         prompt = f'generate  {quiz_number} conceptual and random question quiz from  the content specially from {chapter} and subtopic {subtopic} having four choices a,b,c,d and answer letter and explanation  of the answer in json format'
     else:
         prompt = f'generate a {quiz_number} conceptual and random question quiz from  the whole content  having four choices a,b,c,d and answer letter and explanation  of the answer in json format'
