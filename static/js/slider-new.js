@@ -16,8 +16,6 @@ var subj_Name = [
   "chemistry",
   "physics",
   "geography",
-  "sth",
-  "we",
 ];
 createResrc(currentImage, country_code, subj_Name, k);
 sliderWithAuto(
