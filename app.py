@@ -332,7 +332,7 @@ def upload_file():
 
         # Convert the PDF to a text file and save it
         text_filename = os.path.splitext(filename)[0] + '.txt'
-        text_file_path = os.path.join('books', text_filename)  # Save in "books" folder
+        text_file_path = os.path.join('static/books', text_filename)  # Save in "books" folder
 
         # Use PyPDF2 to extract text from the PDF and save it to the text file
         pdf_text = pdf_to_text(pdf_file_path)

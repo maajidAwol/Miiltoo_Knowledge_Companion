@@ -181,6 +181,9 @@ function buildQuiz(quizContainer,quizData) {
   submitButton.disabled = false;
 }
 
+
+
+
 submitButton.addEventListener("click", function () {
   showResults(resultsContainer,biology_quizData,bio_score,"Biology",biology_score);
   submitButton.style.display = "none";
@@ -286,7 +289,7 @@ function showResults(resultsContainer,quizData,score_container,title,subject_sco
            </div><br>`;
            total_question +=quizData.length;
            total_point += score;
-           alert(total_point);
+
   score_container.innerHTML = `           <div class="score-container">
   <div class="score-board">
    ${title}  score : <span class="score">${score}</span><span class="total-quize">/${quizData.length}</span>
