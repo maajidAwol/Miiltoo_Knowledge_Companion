@@ -258,8 +258,8 @@ footer {
   left: 0;
   width: 100%;
   height: 100vh;
-  background: #1e206f1f;
-  backdrop-filter: blur(7px);
+  background: #07081d75;
+  backdrop-filter: blur(28px);
   z-index: 3;
 }
 .chatbot-var-2,
