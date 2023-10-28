@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  /* fonts */
+  --font-pacifico: Pacifico;
+  --font-roboto: Roboto;
+
+  /* font sizes */
+  --font-size-mini-5: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 16px;
+  --font-size-Hb: 25px;
+  --font-size-Xl: 32px;
+  --font-size-XXl-sc: 48px;
+  --font-size-XXl-pr: 61px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-black: #000;
+  --color-primary: #080d27;
+  --color-secondary: #1e206f;
+  --color-accent: #22fbf9;
+  font-family: var(--font-roboto);
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+header {
+  box-shadow: 0px -197px 38px 189px var(--color-secondary);
+}
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  display: block;
+}
+
+.width-50 {
+  width: 50%;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.text-center {
+  text-align: center;
+  color: var(--color-accent);
+  font-size: 32px;
+}
+.myH4 {
+  color: var(--color-white);
+  font-size: 18px;
+}
+/* Progressbar */
+.progressbar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  counter-reset: step;
+  margin: 2rem 0 4rem;
+}
+
+.progressbar::before,
+.progress {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  /* outline: none; */
+  height: 5px;
+  width: 100%;
+  background-color: #dcdcdc;
+  border: none;
+  z-index: -1;
+}
+
+.progress {
+  background-color: var(--primary-color);
+  width: 0%;
+  transition: 0.3s;
+}
+.progress {
+  background-color: var(--color-secondary);
+}
+.progress-step {
+  background-color: var(--color-white);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 11px 18px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.progress-step::before {
+  counter-increment: step;
+  content: counter(step);
+}
+
+.progress-step::after {
+  content: attr(data-title);
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  font-size: 14px;
+  color: var(--color-white);
+}
+
+.progress-step-active {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+}
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 11px;
+  margin: 4% auto;
+  border: 1.5px solid var(--color-secondary);
+  border-radius: 24px;
+  padding: 24px;
+}
+
+.form-step {
+  display: none;
+  flex-direction: column;
+  gap: 24px;
+  transform-origin: top;
+  animation: animate 0.5s;
+}
+
+.form-step-active {
+  display: block;
+}
+
+.input-group {
+  margin: 2rem 0;
+}
+
+@keyframes animate {
+  from {
+    transform: scale(1, 0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+
+/* Button */
+.btns-group {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  display: flex;
+  padding: 8px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 24px;
+  color: var(--color-primary);
+  font-size: 18px;
+  font-style: normal;
+  color: var(--color-primary);
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
+  background: var(--color-accent);
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-next,
+.btn-prev {
+  width: 20%;
+}
+.btn:hover {
+  background: #1e1f6fb0;
+  border: 2px solid var(--color-secondary);
+  color: var(--color-white);
+}
+.biology-results {
+  display: flex;
+  flex-direction: column;
+}

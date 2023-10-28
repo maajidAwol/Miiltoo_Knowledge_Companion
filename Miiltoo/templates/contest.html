@@ -1,313 +1,183 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block head %}
+<link rel="stylesheet" href="/static/css/book-new.css" />
+<link rel="stylesheet" href="/static/css/contest.css" />
+{% endblock %} {%block body%}
+<body class="body">
+  <form action="#" class="form">
+    <h2 class="text-center">Contest</h2>
+    <!-- Progress bar -->
+    <div class="progressbar">
+      <div class="progress" id="progress"></div>
 
+      <div class="progress-step progress-step-active" data-title="Bio"></div>
+      <div class="progress-step" data-title="Hist"></div>
+      <div class="progress-step" data-title="Chem"></div>
+      <div class="progress-step" data-title="Geo"></div>
+      <div class="progress-step" data-title="Result"></div>
+    </div>
 
+    <!-- Steps -->
+    <div class="form-step form-step-active">
+      <div>
+        <div id="biology-quiz-form">
+          <div id="biology-quiz-container"></div>
 
- {% block head %}
- <link rel="stylesheet" href="/static/css/book-new.css" />
-    <style>
-      :root {
-    --primary-color: rgb(11, 78, 179);
-  }
+          <div id="biology-results" style="display: none"></div>
+          <button type="button" class="btn" id="biology-submit-button">
+            <i class="fa-solid fa-square-arrow-up-right"></i>Submit Answers
+          </button>
+        </div>
+      </div>
 
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
+      <div class="">
+        <a href="#" class="btn btn-next width-50 ml-auto"
+          >Next
+          <i class="fa-solid fa-hand-point-right"></i>
+        </a>
+      </div>
+    </div>
 
-  body {
-    font-family: Montserrat, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    <div class="form-step">
+      <h4 class="myH4">History</h4>
 
+      <div id="history-quiz-form">
+        <div id="history-quiz-container"></div>
 
-  }
-  /* Global Stylings */
-  label {
-    display: block;
-    margin-bottom: 0.5rem;
-  }
+        <div id="history-results" style="display: none"></div>
+        <button
+          type="button"
+          class="btn submit-Answer-btn"
+          id="history-submit-button"
+        >
+          <i class="fa-solid fa-square-arrow-up-right"></i>Submit Answers
+        </button>
+      </div>
+      <!-- <h4 class="myH4">History</h4> -->
 
-  input {
-    display: block;
+      <div class="btns-group">
+        <a href="#" class="btn btn-prev"
+          ><i class="fa-solid fa-hand-point-left"></i>Previous</a
+        >
+        <a href="#" class="btn btn-next"
+          >Next<i class="fa-solid fa-hand-point-right"></i
+        ></a>
+      </div>
+    </div>
 
+    <div class="form-step">
+      <h4 class="myH4">Chemistry</h4>
 
-  }
+      <div id="chemistry-quiz-form">
+        <div id="chemistry-quiz-container"></div>
 
-  .width-50 {
-    width: 50%;
-  }
+        <div id="chemistry-results" style="display: none"></div>
+        <button type="button" class="btn" id="chemistry-submit-button">
+          <i class="fa-solid fa-square-arrow-up-right"></i>Submit Answers
+        </button>
+      </div>
+      <!-- <h4 class="myH4">Chemistry</h4> -->
 
-  .ml-auto {
-    margin-left: auto;
-  }
+      <div class="btns-group">
+        <a href="#" class="btn btn-prev"
+          ><i class="fa-solid fa-hand-point-left"></i>Previous</a
+        >
+        <a href="#" style="display: none" class="btn btn-prev"
+          ><i class="fa-solid fa-square-arrow-up-right"></i>Submit</a
+        >
+        <a href="#" class="btn btn-next"
+          >Next<i class="fa-solid fa-hand-point-right"></i
+        ></a>
+      </div>
+    </div>
+    <div class="form-step">
+      <div id="geography-quiz-form">
+        <div id="geography-quiz-container"></div>
 
-  .text-center {
-    text-align: center;
-  }
+        <div id="geography-results" style="display: none"></div>
+        <button type="button" class="btn" id="geography-submit-button">
+          <i class="fa-solid fa-square-arrow-up-right"></i>Submit Answers
+        </button>
+      </div>
 
-  /* Progressbar */
-  .progressbar {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    counter-reset: step;
-    margin: 2rem 0 4rem;
-  }
+      <div class="btns-group">
+        <a href="#" class="btn btn-prev"
+          ><i class="fa-solid fa-hand-point-left"></i>Previous</a
+        >
+        <a href="#" class="btn btn-next"
+          >Next<i class="fa-solid fa-hand-point-right"></i
+        ></a>
+      </div>
+    </div>
+    <div class="form-step">
+      <div class="input-group">
+        <div id="bio-score"></div>
+        <div id="geo-score"></div>
+        <div id="hist-score"></div>
+        <div id="chem-score"></div>
+        <div id="total-score"></div>
+      </div>
+      <div class="btns-group">
+        <a href="#" class="btn btn-prev"
+          ><i class="fa-solid fa-hand-point-left"></i>Previous</a
+        >
+        <input type="submit" value="Submit" class="btn" />
+      </div>
+    </div>
+  </form>
+  <script>
+    // Changing subjects
+    const prevBtns = document.querySelectorAll(".btn-prev");
+    const nextBtns = document.querySelectorAll(".btn-next");
+    const progress = document.getElementById("progress");
+    const formSteps = document.querySelectorAll(".form-step");
+    const progressSteps = document.querySelectorAll(".progress-step");
+    const bod = document.querySelector(".body");
 
-  .progressbar::before,
-  .progress {
-    content: "";
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 4px;
-    width: 100%;
-    background-color: #dcdcdc;
-    z-index: -1;
-  }
+    let formStepsNum = 0;
 
-  .progress {
-    background-color: var(--primary-color);
-    width: 0%;
-    transition: 0.3s;
-  }
+    nextBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        formStepsNum++;
+        updateFormSteps();
+        updateProgressbar();
+        bod.scrollTop = 0;
+      });
+    });
 
-  .progress-step {
-    width: 2.1875rem;
-    height: 2.1875rem;
-    background-color: #dcdcdc;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+    prevBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        formStepsNum--;
+        updateFormSteps();
+        updateProgressbar();
+        bod.scrollTop = 0;
+      });
+    });
 
-  .progress-step::before {
-    counter-increment: step;
-    content: counter(step);
-  }
+    function updateFormSteps() {
+      formSteps.forEach((formStep) => {
+        formStep.classList.contains("form-step-active") &&
+          formStep.classList.remove("form-step-active");
+      });
 
-  .progress-step::after {
-    content: attr(data-title);
-    position: absolute;
-    top: calc(100% + 0.5rem);
-    font-size: 0.85rem;
-    color: #666;
-  }
-
-  .progress-step-active {
-    background-color: var(--primary-color);
-    color: #f3f3f3;
-  }
-
-  /* Form */
-  .form {
-    width: auto;
-    margin: 0 auto;
-    margin-top: 50px;
-    border: 1px solid #ccc;
-    border-radius: 0.35rem;
-    padding: 1.5rem;
-  }
-
-  .form-step {
-    display: none;
-    transform-origin: top;
-    animation: animate 0.5s;
-  }
-
-  .form-step-active {
-    display: block;
-  }
-
-  .input-group {
-    margin: 2rem 0;
-  }
-
-  @keyframes animate {
-    from {
-      transform: scale(1, 0);
-      opacity: 0;
+      formSteps[formStepsNum].classList.add("form-step-active");
     }
-    to {
-      transform: scale(1, 1);
-      opacity: 1;
+
+    function updateProgressbar() {
+      progressSteps.forEach((progressStep, idx) => {
+        if (idx < formStepsNum + 1) {
+          progressStep.classList.add("progress-step-active");
+        } else {
+          progressStep.classList.remove("progress-step-active");
+        }
+      });
+
+      const progressActive = document.querySelectorAll(".progress-step-active");
+
+      progress.style.width =
+        ((progressActive.length - 1) / (progressSteps.length - 1)) * 100 + "%";
     }
-  }
-
-  /* Button */
-  .btns-group {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-
-  .btn {
-    padding: 0.75rem;
-    display: block;
-    text-decoration: none;
-    background-color: var(--primary-color);
-    color: #f3f3f3;
-    text-align: center;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  .btn:hover {
-    box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-color);
-  }
-    </style>
-  {% endblock %}
-  {%block body%}
-  <body>
-    <form action="#" class="form">
-      <h2 class="text-center">Contest</h2>
-      <!-- Progress bar -->
-      <div class="progressbar">
-        <div class="progress" id="progress"></div>
-
-        <div
-          class="progress-step progress-step-active"
-          data-title="Bio"
-        ></div>
-        <div class="progress-step" data-title="Hist"></div>
-        <div class="progress-step" data-title="Chem"></div>
-        <div class="progress-step" data-title="Geo"></div>
-        <div class="progress-step" data-title="Result"></div>
-      </div>
-
-      <!-- Steps -->
-      <div class="form-step form-step-active">
-<div>
-        <div   id="biology-quiz-form">
-         <div  id="biology-quiz-container"></div>
-
-         <div  id="biology-results" style="display: none;"></div>
-         <button type="button" class="btn" id="biology-submit-button">Submit Answers</button>
-        </div>
-</div>
-
-         <div class="">
-           <a href="#" class="btn btn-next width-50 ml-auto">Next</a>
-         </div>
-       </div>
-
-        <div class="form-step">
-
-        <h4>History</h4>
-
-        <div id="history-quiz-form">
-          <div id="history-quiz-container"></div>
-
-          <div id="history-results" style="display: none;"></div>
-          <button type="button" class="btn" id="history-submit-button">Submit Answers</button>
-        </div>
-        <h4>History</h>
-
-
-                <div class="btns-group">
-                  <a href="#" class="btn btn-prev">Previous</a>
-                  <a href="#" class="btn btn-next">Next</a>
-                </div>
-              </div>
-
-      <div class="form-step">
-        <h4>Chemistry</h4>
-
-<div id="chemistry-quiz-form">
-  <div id="chemistry-quiz-container"></div>
-
-  <div id="chemistry-results" style="display: none;"></div>
-  <button type="button" class="btn" id="chemistry-submit-button">Submit Answers</button>
-</div>
-<h4>Chemistry</h>
-
-        <div class="btns-group">
-          <a href="#"  class="btn btn-prev">Previous</a>
-          <a href="#" style="display: none;" class="btn btn-prev">Submit</a>
-          <a href="#"  class="btn btn-next">Next</a>
-        </div>
-      </div>
-      <div class="form-step">
-        <div id="geography-quiz-form">
-          <div id="geography-quiz-container"></div>
-
-          <div id="geography-results" style="display: none;"></div>
-          <button type="button" class="btn" id="geography-submit-button">Submit Answers</button>
-        </div>
-
-        <div class="btns-group">
-          <a href="#" class="btn btn-prev">Previous</a>
-          <a href="#" class="btn btn-next">Next</a>
-        </div>
-      </div>
-      <div class="form-step">
-
-        <div class="input-group">
-
-            <div id="bio-score"></div>
-             <div id="geo-score"></div>
-             <div id="hist-score"></div>
-            <div id="chem-score"></div>
-             <div id="total-score"></div>
-        </div>
-        <div class="btns-group">
-          <a href="#" class="btn btn-prev">Previous</a>
-          <input type="submit" value="Submit" class="btn" />
-        </div>
-      </div>
-    </form>
-    <script>
-        // Changing subjects
-        const prevBtns = document.querySelectorAll(".btn-prev");
-const nextBtns = document.querySelectorAll(".btn-next");
-const progress = document.getElementById("progress");
-const formSteps = document.querySelectorAll(".form-step");
-const progressSteps = document.querySelectorAll(".progress-step");
-
-let formStepsNum = 0;
-
-nextBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    formStepsNum++;
-    updateFormSteps();
-    updateProgressbar();
-  });
-});
-
-prevBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    formStepsNum--;
-    updateFormSteps();
-    updateProgressbar();
-  });
-});
-
-function updateFormSteps() {
-  formSteps.forEach((formStep) => {
-    formStep.classList.contains("form-step-active") &&
-      formStep.classList.remove("form-step-active");
-  });
-
-  formSteps[formStepsNum].classList.add("form-step-active");
-}
-
-function updateProgressbar() {
-  progressSteps.forEach((progressStep, idx) => {
-    if (idx < formStepsNum + 1) {
-      progressStep.classList.add("progress-step-active");
-    } else {
-      progressStep.classList.remove("progress-step-active");
-    }
-  });
-
-  const progressActive = document.querySelectorAll(".progress-step-active");
-
-  progress.style.width =
-    ((progressActive.length - 1) / (progressSteps.length - 1)) * 100 + "%";
-}
-// changin subjects end here
-
-    </script>
-    <script src="/static/js/contest.js"></script>
-  </body>
+    // changin subjects end here
+  </script>
+  <script src="/static/js/contest.js"></script>
+</body>
 {%endblock%}
