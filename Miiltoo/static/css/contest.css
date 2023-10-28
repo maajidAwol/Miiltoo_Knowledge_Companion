@@ -188,7 +188,8 @@ input {
 }
 .btn-next,
 .btn-prev {
-  width: 20%;
+  min-width: 25%;
+  max-width: 30%;
 }
 .btn:hover {
   background: #1e1f6fb0;
@@ -199,4 +200,19 @@ input {
   width: 100%;
   display: flex;
   flex-direction: column;
+}
+@media only screen and (width < 600px) {
+  .form {
+    width: 85%;
+  }
+}
+@media only screen and (600px<=width<768px) {
+  .form {
+    width: 80%;
+  }
+}
+@media only screen and (768px<=width<992px) {
+  .form {
+    width: 75%;
+  }
 }
