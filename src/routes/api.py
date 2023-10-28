@@ -46,12 +46,15 @@ def quiz_send():
     path = url.replace("bk/", "books/")
     path = path[:-4] + ".txt"
     print(path)
-    
 
+    current_directory = os.path.dirname(__file__)
+
+    # Create the absolute path to the file
+    file_path = os.path.join(current_directory, "books/ETH/biology_g-9.txt")
     if path == "books/Biology Student Textbook Grade 9.txt" or path == "books/History Student Textbook Grade 9.txt":
         prompt = f'generate  {quiz_number} conceptual and random question quiz from  the content specially from {chapter} and subtopic {subtopic} having four choices a,b,c,d and answer letter and explanation  of the answer in json format'
     else:
         prompt = f'generate a {quiz_number} conceptual and random question quiz from  the whole content  having four choices a,b,c,d and answer letter and explanation  of the answer in json format'
-    result = quiz_function(prompt, path)
+    result = quiz_function(prompt, file_path)
     
     return result
