@@ -1,6 +1,6 @@
 import json
 import os
-from flask import Blueprint, app, render_template, request
+from flask import Blueprint, app, render_template, request, session
 from ..models.contest import Contest
 from .topics import biology, history,rt,cont_hist,cont_geo,cont_chem
 from .utils import ext, pdf_to_text
@@ -74,6 +74,10 @@ def save_contest_data():
 @main.route("/contest/")
 def contest():
     return render_template("contest.html")
+@main.route('/get_chat_history', methods=['GET'])
+def get_chat_history():
+    chat_history = session.get('bio', [])
+    return jsonify(chat_history)
 @main.route('/upload', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:

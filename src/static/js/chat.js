@@ -195,3 +195,60 @@ sendBtn.addEventListener("click", function (event) {
 //    messageInput.value = "";
 //  }
 //});
+// Assuming that session["bio"] contains the chat history data in the specified format
+// Replace the URL with the actual endpoint URL from your server
+
+
+
+
+
+function add_chat_history_Message(message, isUserMessage) {
+  const messageDiv = document.createElement("div");
+  messageDiv.classList.add("mt-3", "p-3", "rounded");
+
+  if (isUserMessage) {
+    messageDiv.classList.add("user-message-container");
+  } else {
+    messageDiv.classList.add("chatbot-message-container");
+  }
+
+  messageDiv.innerHTML = `
+
+  <div class="user-message-container-my">
+		
+                  <span class="user-message-icon">
+                    <i class="fa-solid fa-user-tie"></i>
+                  </span>
+                  <div class="user-message-content">
+                   ${message}
+                  </div>
+                  </div>
+
+                
+
+    `;
+
+  chatBox.appendChild(messageDiv);
+  //chatBox.scrollTop = chatBox.scrollHeight;
+  parentContainer.scrollTop = parentContainer.scrollHeight;
+}
+const historyEndpoint = '/get_chat_history';
+
+function displayChatHistory() {
+  fetch(historyEndpoint)
+    .then((response) => response.json())
+    .then((chatHistory) => {
+
+      chatHistory.forEach(([userMessage, chatbotMessage]) => {
+        add_chat_history_Message(userMessage, true);
+        add_chat_history_Message(chatbotMessage, false);
+      });
+    })
+    .catch((error) => console.error(error));
+
+}
+
+// Call the function to display chat history
+displayChatHistory();
+
+
