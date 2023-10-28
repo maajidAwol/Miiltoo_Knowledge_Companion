@@ -17,23 +17,27 @@
 </head>
 <body>
     <div class="container mt-4">
-        <h1><a href="/">home</a></h1>
+        <h6><a href="/">home</a></h6>
     </div>
     <div class="container mt-4">
         <div class="centered">
             <div class="card">
                 <div class="card-body">
                     <div id="history-quiz-form">
-                        <button class="btn btn-primary" id="fetch-quiz">Generate</button>
+                        <button class="btn btn-primary" id="fetch-quiz">Generate Contest</button>
                         <div id="history-quiz-container"></div>
                         <div id="history-results" style="display: none"></div>
-                        <button type="button" class="btn btn-success" id="history-submit-button">
-                            Submit Answers <i class="fas fa-arrow-alt-circle-up"></i>
-                        </button>
+
                         <div class="form-group">
-                            <label for="myTextarea">Textarea Label:</label>
-                            <textarea class="form-control" id="myTextarea" rows="4"></textarea>
+                            <label for="myTextarea">Contest Data</label>
+                            <textarea class="form-control" id="myTextarea" cols="100" rows="10"></textarea>
                         </div>
+                       <a href="/save_contest_data">
+    <button type="button" class="btn btn-success" id="Save">
+        Save Contest Data <i class="fas fa-arrow-alt-circle-up"></i>
+    </button>
+</a>
+
                     </div>
                 </div>
             </div>
@@ -51,6 +55,7 @@
 <script>
     const fetchQuizButton = document.getElementById("fetch-quiz");
 const quizContainer = document.getElementById("history-quiz-container");
+
 var textarea = document.getElementById('myTextarea');
 fetchQuizButton.addEventListener("click", function (event) {
   event.preventDefault();
@@ -109,6 +114,50 @@ textarea.value = jsonString;
     });
 
   return false; // Prevent form submission
+});
+// Get the "Save" button element
+const saveButton = document.getElementById("Save");
+
+// Add a click event listener to the button
+saveButton.addEventListener("click", function() {
+    // Define the function inside the event listener
+    function sendPostRequest() {
+        const contestData = document.getElementById("myTextarea").value; // Get the textarea data
+
+        // Send a POST request to the /save_contest_data route
+       fetch('/save_contest_data', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ contestData: contestData }), // Send the textarea data as JSON
+})
+        .then(response => {
+            if (response.ok) {
+                // Request was successful
+                return response.json(); // If the response is JSON
+            } else {
+                // Handle errors or other responses
+                throw new Error('Network response was not ok');
+            }
+        })
+        .then(data => {
+            // Process the response data if needed
+            console.log(data); // Replace with your handling logic
+            // Navigate back to the previous page
+            window.history.back();
+        })
+        .catch(error => {
+            // Handle network errors or other exceptions here
+            console.error('Error:', error);
+            // Navigate back to the previous page even on error
+            window.history.back();
+        });
+    }
+
+    // Call the function
+    sendPostRequest();
+    window.history.back();
 });
 
 

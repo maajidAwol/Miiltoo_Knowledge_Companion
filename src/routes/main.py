@@ -37,6 +37,35 @@ def grade():
     else:
 
         return render_template("grade.html")
+from flask import jsonify
+
+@main.route("/save_contest_data", methods=["POST"])
+def save_contest_data():
+    if request.method == 'POST':
+        data = request.get_json()  # Assuming data is sent as JSON
+        contest_data = data.get('contestData', '')  # Extract 'contestData' from the JSON
+
+        sample_contest = Contest(
+            subject="grade9",
+            contest_data=contest_data,
+            is_approved=True,
+            active=True
+        )
+
+        db.session.add(sample_contest)
+        db.session.commit()
+
+        # Return a JSON response
+        response_data = {
+            "message": "Contest data saved successfully",
+            "contestData": contest_data
+        }
+
+        return jsonify(response_data)
+    else:
+        # Handle invalid requests or other HTTP methods
+        return "Method not allowed", 405  # Return a 405 Method Not Allowed status
+
 @main.route("/contest/")
 def contest():
     return render_template("contest.html")
