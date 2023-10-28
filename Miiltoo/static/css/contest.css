@@ -195,7 +195,8 @@ input {
   border: 2px solid var(--color-secondary);
   color: var(--color-white);
 }
-.biology-results {
+.expln-content {
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
