@@ -138,6 +138,10 @@
         formStepsNum++;
         updateFormSteps();
         updateProgressbar();
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
       });
     });
 
@@ -146,6 +150,10 @@
         formStepsNum--;
         updateFormSteps();
         updateProgressbar();
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
       });
     });
 
