@@ -26,6 +26,27 @@
   --color-accent: #22fbf9;
   font-family: var(--font-roboto);
 }
+/* Width and height of the scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #1a2438
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ffffff5c;
+  border-radius: 24px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff6d;
+}
+
 html {
   scroll-behavior: smooth;
 }
