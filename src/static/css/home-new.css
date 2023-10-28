@@ -2555,7 +2555,7 @@ padding: 8px 16px;
 }
 @media only screen and (width >= 1300px) {
   .upload-btn{
-    min-width: 152px;
+    min-width: 149px;
 
   }
   .upload-btn p{
