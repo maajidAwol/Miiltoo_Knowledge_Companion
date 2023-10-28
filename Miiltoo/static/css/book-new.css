@@ -196,7 +196,7 @@ footer {
   text-transform: capitalize;
   border-radius: 8px;
   border: none;
-  background: rgba(30, 32, 111, 0.5);
+  background: rgb(30 32 111 / 25%);
   transition: transform 0.3s ease;
 }
 .chatbot-func-item p.minWidth {
@@ -207,9 +207,23 @@ footer {
 .flashlight {
   box-shadow: -68.5px 0px 17.5px 0px rgba(34, 251, 249, 0.9);
 }
+.func-item-icon i {
+  font-size: 18px;
+  color: var(--color-white);
+  opacity: 0.9;
+}
+.chatbot-func-item p {
+  opacity: 0.9;
+}
 .chatbot-func-item:hover {
   cursor: pointer;
+  background: #457dee85;
+  /* border: 3px solid var(--color-secondary); */
   transform: scale(1.06);
+}
+.chatbot-func-item:hover .func-item-icon i,
+.chatbot-func-item:hover p {
+  opacity: 1;
 }
 .active-state-shape {
   height: 32px;
@@ -230,13 +244,10 @@ footer {
   align-items: center;
   gap: 4.465px;
   border-radius: 7.535px;
-  background: rgba(30, 32, 111, 0.56);
-  box-shadow: 0px 1.11623px 5.58116px 0px #080d27;
+  /* background: rgba(30, 32, 111, 0.56); */
+  /* box-shadow: 0px 1.11623px 5.58116px 0px #080d27; */
 }
-.func-item-icon i {
-  font-size: 18px;
-  color: var(--color-accent);
-}
+
 #quize-btn .func-item-icon :nth-child(2) {
   font-size: 8px;
   position: absolute;
