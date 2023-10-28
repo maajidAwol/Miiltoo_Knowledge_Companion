@@ -2,10 +2,114 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include Bootstrap CSS (you may need to adjust the paths) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Contest generation</title>
+    <style>
+        .centered {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+    </style>
 </head>
 <body>
-<h1>This is admin page</h1>
-<a href="/">home</a>
+    <div class="container mt-4">
+        <h1><a href="/">home</a></h1>
+    </div>
+    <div class="container mt-4">
+        <div class="centered">
+            <div class="card">
+                <div class="card-body">
+                    <div id="history-quiz-form">
+                        <button class="btn btn-primary" id="fetch-quiz">Generate</button>
+                        <div id="history-quiz-container"></div>
+                        <div id="history-results" style="display: none"></div>
+                        <button type="button" class="btn btn-success" id="history-submit-button">
+                            Submit Answers <i class="fas fa-arrow-alt-circle-up"></i>
+                        </button>
+                        <div class="form-group">
+                            <label for="myTextarea">Textarea Label:</label>
+                            <textarea class="form-control" id="myTextarea" rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS (you may need to adjust the paths) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+
+<script>
+    const fetchQuizButton = document.getElementById("fetch-quiz");
+const quizContainer = document.getElementById("history-quiz-container");
+var textarea = document.getElementById('myTextarea');
+fetchQuizButton.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  fetchQuizButton.style.display = "none";
+  quizContainer.innerHTML = ""; // Clear the previous quiz content
+ 
+  
+  fetch("/contest_generate", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      chapter: "chapter 1",
+      subtopic: "1.1",
+      number: 1,
+      book_choice: "/bk/ETH/biology_g-9.pdf",
+    }),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((data) => {
+
+      if (data) {
+        quizData = data;
+const jsonString = JSON.stringify(quizData, null, 2); // Convert to a formatted string with 2 spaces of indentation
+
+quizContainer.innerHTML = `<pre>${jsonString}</pre>`;
+
+            
+textarea.value = jsonString;
+        fetchQuizButton.style.display = "block";
+      } else {
+        // Handle the case where the response is empty or doesn't contain quiz data
+        // You can show an error message or take appropriate action here
+        fetchQuizButton.style.display = "block";
+        quizContainer.innerHTML =
+          '<span style="color:red;">error generating quiz please re generate </span>';
+        console.error("Empty or invalid response from the server");
+        alert("Error: Empty or invalid response from the server");
+      }
+    })
+    .catch((error) => {
+      // Handle network errors or other exceptions here
+      quizContainer.innerHTML =
+        '<span style="color:red;">error generating quiz please re generate </span>';
+
+      fetchQuizButton.style.display = "block";
+      console.error("Error fetching data:", error);
+      alert("Error fetchinmmg data: " + error.message);
+    });
+
+  return false; // Prevent form submission
+});
+
+
+</script>

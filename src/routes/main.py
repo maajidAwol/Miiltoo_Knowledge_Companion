@@ -16,12 +16,12 @@ def grade():
     book = request.args.get('book')
 
     if book:
-        if book == "bk/Biology Student Textbook Grade 9.pdf":
+        if book == "bk/ETH/biology_g-9.pdf":
             json_data = biology
             print(biology)
             print(book)
             return render_template("book-new.html", book=book, json_data=json_data)
-        elif book == "bk/History student textbook grade 9.pdf":
+        elif book == "bk/ETH/history_g-9.pdf":
             json_data = history
             print(history)
             return render_template("book-new.html", book=book, json_data=json_data)
@@ -93,7 +93,7 @@ def contest_send():
     # result = ext(r)
     # return result
     # db.session.query(Contest).delete()
-    #  db.session.commit()
+    # db.session.commit()
     print(r)
     print(dict_contest)
     sample_contest = Contest(
