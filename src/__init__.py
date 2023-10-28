@@ -3,8 +3,24 @@ from flask import Flask
 from .extensions import db, bcrypt, mail, migrate, admin
 from decouple import config
 from .routes.main import main
-from .routes.user import user
+from .routes.users import users
 from .routes.api import api
+from flask_admin import BaseView, expose
+from flask_admin.contrib.sqla import ModelView
+from .extensions import admin
+# Import your User class and db
+from .models.book import Books 
+from .models.user import User
+from .models.contest import Contest 
+class MyView(BaseView):
+    @expose('/')
+    def index(self):
+        return self.render('admin/my_view.html')
+
+admin.add_view(MyView(name='My View', endpoint='myview'))
+admin.add_view(ModelView(User, db.session))
+admin.add_view(ModelView(Books, db.session))
+admin.add_view(ModelView(Contest, db.session))
 
 def create_app():
     app= Flask(__name__)
@@ -31,7 +47,7 @@ def create_app():
     with app.app_context():
         db.create_all()
     app.register_blueprint(main)
-    app.register_blueprint(user)
+    app.register_blueprint(users)
     app.register_blueprint(api)
     
     

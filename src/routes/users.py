@@ -6,7 +6,7 @@ from google.oauth2 import id_token
 from google_auth_oauthlib.flow import Flow
 from pip._vendor import cachecontrol
 import google.auth.transport.requests
-from flask import Blueprint, render_template,request, redirect, url_for, flash,session,abort
+from flask import Blueprint, render_template,request, redirect, flash,session,abort
 from ..models.user import User
 from ..models.book import Books
 from ..extensions import db
@@ -20,29 +20,29 @@ flow = Flow.from_client_secrets_file(
     redirect_uri="http://127.0.0.1:5000/callback"
 )
 GOOGLE_CLIENT_ID = config('GOOGLE_CLIENT_ID')  
-user = Blueprint('user', __name__)
+users = Blueprint('users', __name__)
 
 
-@user.route("/login")
+@users.route("/login")
 def login():
     return render_template("login.html")
 
-@user.route("/signup")
+@users.route("/signup")
 def signup():
     return render_template("signup.html")
 
-@user.route("/forget")
+@users.route("/forget")
 def forget():
     return render_template("forget.html")
 
-@user.route("/change_password", methods=['POST'])
+@users.route("/change_password", methods=['POST'])
 def change_password():
     email = request.form['email']
-    if user.send_password(email):
+    if users.send_password(email):
         return render_template('login.html')
-    elif not user.send_password(email):
+    elif not users.send_password(email):
         return "no user exist by that username"
-@user.route('/register', methods=['POST', 'GET'])
+@users.route('/register', methods=['POST', 'GET'])
 def register():
     if request.method == 'POST':
         # full_name = request.form['full_name']
@@ -81,7 +81,7 @@ def register():
     return render_template('index-new.html', users=all_users)
 
 
-@user.route('/auth', methods=['POST', 'GET'])
+@users.route('/auth', methods=['POST', 'GET'])
 def auth():
     email = request.form['email']
     password = request.form['password']
@@ -94,7 +94,7 @@ def auth():
 
     return redirect('/login')
 
-@user.route('/account/', methods=['GET', 'POST'])
+@users.route('/account/', methods=['GET', 'POST'])
 def profile():
     # Query the database to get the first user's data
 
@@ -119,7 +119,7 @@ def profile():
         return "no user found"
 
 
-@user.route('/add_book', methods=['POST'])
+@users.route('/add_book', methods=['POST'])
 def add_book():
     # Retrieve the first user from the database
     username = session["username"]
@@ -139,7 +139,7 @@ def add_book():
     return redirect('/profile')
 
 
-@user.route('/save_changes', methods=['POST'])
+@users.route('/save_changes', methods=['POST'])
 def save_profile():
     # Retrieve the first user from the database
 
@@ -175,14 +175,14 @@ def save_profile():
         return render_template('error.html', message='No user found')
 
 
-@user.route('/logout')
+@users.route('/logout')
 def logout():
     session['logged_in'] = "false"
     session.pop('username', None)
     return redirect('/')
 
 
-@user.route('/confirm_email', methods=['GET', 'POST'])
+@users.route('/confirm_email', methods=['GET', 'POST'])
 def confirm_email():
     if request.method == 'POST':
         entered_code = request.form.get('verification_code')
@@ -217,7 +217,7 @@ def login_is_required(function):
     return wruserer
 
 
-@user.route("/login_with_google")
+@users.route("/login_with_google")
 def login_with_google():
     authorization_url, state = flow.authorization_url()
     session["state"] = state
@@ -225,7 +225,7 @@ def login_with_google():
     return redirect(authorization_url)
 
 
-@user.route("/callback")
+@users.route("/callback")
 def callback():
     flow.fetch_token(authorization_response=request.url)
 
@@ -260,7 +260,7 @@ def callback():
         db.session.commit()
 
     return redirect("/protected_area")
-@user.route("/protected_area")
+@users.route("/protected_area")
 @login_is_required
 def protected_area():
     session['logged_in'] = "true"
