@@ -6,7 +6,7 @@
     <title>{%block title %}Base{%endblock%}</title>
     <link rel="icon" href="/static/public/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/static/css/home-new.css" />
-    
+    <!-- <link rel="stylesheet" href="/static/css/book-new.css" /> -->
 
     <link rel="stylesheet" href="/static/css/loading-style.css" />
     <link rel="stylesheet" href="/static/css/grade-new.css" />
@@ -26,7 +26,7 @@
     </style>
     {% block head %} {% endblock %}
   </head>
-  <body class="body">
+  <!-- <body class="body"> -->
     <header class="sticky-header">
       <div class="logo-container">
         <img src="/static/asset/logo.svg" alt="logo" />
@@ -297,7 +297,7 @@
           account
         </div></a
       >
-      <a href="/account">
+      <a href="/account"></a>
       <div class="profile-menu-item">
         <span class="profile-menu-item-icon"
           ><i class="fa-solid fa-book"></i>
@@ -449,7 +449,12 @@
       </div>
     </div>
     <div class="overlay hidden"></div>
-    {% block body %} {% endblock %} {%block footer%}
+    {% block body %} 
+    
+    
+    {% endblock %}
+    
+    {%block footer%}
     <footer>
       <div class="footer-content">
         <div class="footer-logo">
@@ -517,5 +522,5 @@
         profile.classList.add("hidden");
       }
     </script>
-  </body>
+  <!-- </body> -->
 </html>
