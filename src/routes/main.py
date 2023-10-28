@@ -2,7 +2,7 @@ import json
 import os
 from flask import Blueprint, app, render_template, request
 from ..models.contest import Contest
-from .topics import biology, history,rt
+from .topics import biology, history,rt,cont_hist
 from .utils import ext, pdf_to_text
 from ..extensions import db
 from werkzeug.utils import secure_filename
@@ -111,11 +111,12 @@ def upload_file():
 @main.route("/contest_request", methods=["POST"])
 def contest_send():
     r = ext(rt)
+    hist_cont =ext(cont_hist)
 
     subject = "biology"
     dict_contest = {subject: r}
 
-    dict_contest.update({"history": r})
+    dict_contest.update({"history": hist_cont})
     dict_contest.update({"chemistry": r})
     dict_contest.update({"geography": r})
     str_contest = json.dumps(dict_contest)
@@ -126,7 +127,7 @@ def contest_send():
     print(r)
     print(dict_contest)
     sample_contest = Contest(
-        subject=subject,
+        subject="grade9",
         contest_data=str_contest,
         is_approved=True,
         active=True

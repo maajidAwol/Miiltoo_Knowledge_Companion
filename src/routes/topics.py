@@ -135,4 +135,55 @@ history = {
 
 
 
+cont_hist = '''
+{
+  "quiz": [
+    {
+      "question": "What was the main reason for the split between the Roman Catholic Church and the Greek Orthodox Church in 1054 AD?",
+      "choices": {
+        "a": "Differences in religious beliefs",
+        "b": "Disagreements over Church leadership and authority",
+        "c": "Conflict over the use of Latin as the Church language",
+        "d": "Competition for converts in Western Europe"
+      },
+      "answer": "b",
+      "explanation": "The split between the Roman Catholic Church and the Greek Orthodox Church in 1054 AD was primarily due to disagreements over Church leadership and authority, as well as theological differences. This event is known as the Great Schism and resulted in the two branches of Christianity developing separately."
+    },
+    {
+      "question": "Which Roman Emperor played a significant role in promoting Christianity by issuing the Edict of Milan in 313 AD?",
+      "choices": {
+        "a": "Nero",
+        "b": "Julius Caesar",
+        "c": "Constantine",
+        "d": "Theodosius the Great"
+      },
+      "answer": "c",
+      "explanation": "Emperor Constantine played a significant role in promoting Christianity by issuing the Edict of Milan in 313 AD, which granted religious toleration to Christians and allowed them to practice their faith openly without fear of persecution. This edict marked a crucial moment in the history of the Christian Church and contributed to the spread of Christianity within the Roman Empire."
+    },
+    {
+      "question": "What were the major traded items in the trans-Saharan trade network?",
+      "choices": {
+        "a": "Gold and salt",
+        "b": "Spices and silk",
+        "c": "Ivory and cotton",
+        "d": "Coffee and tea"
+      },
+      "answer": "a",
+      "explanation": "The trans-Saharan trade network primarily involved the exchange of gold from the regions of West Africa and salt from northwest Africa. Gold and salt were highly valuable commodities in these trade routes."
+    },
+    {
+      "question": "What was one of the significant outcomes of Afro-European contact during the exploration era?",
+      "choices": {
+        "a": "The spread of African cultures to Europe",
+        "b": "The establishment of strong African empires",
+        "c": "The opening of the Trans-Atlantic Slave Trade",
+        "d": "The preservation of African languages"
+      },
+      "answer": "c",
+      "explanation": "The opening of the Trans-Atlantic Slave Trade. One of the significant outcomes of Afro-European contact during the exploration era was the initiation of the Trans-Atlantic Slave Trade, which had a profound impact on the African continent, as African people were captured and transported to the Americas as slaves."
+    }
+  ]
+}
+'''
+
 rt='''{\n  "quiz": [\n    {\n      "question": "What is the main function of the nucleus in a cell?",\n      "choices": {\n        "a": "To produce energy for the cell",\n        "b": "To store genetic material",\n        "c": "To control the movement of substances in and out of the cell",\n        "d": "To synthesize proteins"\n      },\n      "answer": "b",\n      "explanation": "The nucleus is responsible for storing the cell\'s genetic material, including DNA."\n    },\n    {\n      "question": "Which organelle is responsible for protein synthesis in a cell?",\n      "choices": {\n        "a": "Mitochondria",\n        "b": "Golgi apparatus",\n        "c": "Ribosomes",\n        "d": "Endoplasmic reticulum"\n      },\n      "answer": "c",\n      "explanation": "Ribosomes are the organelles where proteins are synthesized in a cell."\n    },\n    {\n      "question": "What is the function of the cell membrane?",\n      "choices": {\n        "a": "To provide structural support to the cell",\n        "b": "To control the movement of substances in and out of the cell",\n        "c": "To store genetic material",\n        "d": "To produce energy for the cell"\n      },\n      "answer": "b",\n      "explanation": "The cell membrane regulates the passage of substances into and out of the cell, maintaining homeostasis."\n    },\n    {\n      "question": "Which structure is common to both plant and animal cells?",\n      "choices": {\n        "a": "Chloroplast",\n        "b": "Cell wall",\n        "c": "Nucleus",\n        "d": "Vacuole"\n      },\n      "answer": "c",\n      "explanation": "Both plant and animal cells have a nucleus, which contains the cell\'s genetic material."\n    }\n  ]\n}'''
