@@ -28,8 +28,8 @@
 
   input {
     display: block;
-    
-  
+
+
   }
 
   .width-50 {
@@ -158,9 +158,9 @@
     </style>
   {% endblock %}
   {%block body%}
+  <body>
     <form action="#" class="form">
-      <h1 class="text-center">Contest</h1>
-        <a href="/admin">admin</a>
+      <h2 class="text-center">Contest</h2>
       <!-- Progress bar -->
       <div class="progressbar">
         <div class="progress" id="progress"></div>
@@ -172,50 +172,50 @@
         <div class="progress-step" data-title="Hist"></div>
         <div class="progress-step" data-title="Chem"></div>
         <div class="progress-step" data-title="Geo"></div>
-        <div class="progress-step" data-title="result"></div>
+        <div class="progress-step" data-title="Result"></div>
       </div>
 
       <!-- Steps -->
       <div class="form-step form-step-active">
-        
-       <div   id="biology-quiz-form">
-        <div  id="biology-quiz-container"></div>
-        
-        <div  id="biology-results" style="display: none;"></div>
-        <button type="button" class="btn" id="biology-submit-button">Submit Answers</button>
-       </div>
-       
-        
-        <div class="">
-          <a href="#" class="btn btn-next width-50 ml-auto">Next</a>
+<div>
+        <div   id="biology-quiz-form">
+         <div  id="biology-quiz-container"></div>
+
+         <div  id="biology-results" style="display: none;"></div>
+         <button type="button" class="btn" id="biology-submit-button">Submit Answers</button>
         </div>
-      </div>
-
-
-      <div class="form-step">
-        
-<h4>History</h4>
-
-<div id="history-quiz-form">
-  <div id="history-quiz-container"></div>
-  
-  <div id="history-results" style="display: none;"></div>
-  <button type="button" class="btn" id="history-submit-button">Submit Answers</button>
 </div>
-<h4>History</h>
-        
- 
-        <div class="btns-group">
-          <a href="#" class="btn btn-prev">Previous</a>
-          <a href="#" class="btn btn-next">Next</a>
+
+         <div class="">
+           <a href="#" class="btn btn-next width-50 ml-auto">Next</a>
+         </div>
+       </div>
+
+        <div class="form-step">
+
+        <h4>History</h4>
+
+        <div id="history-quiz-form">
+          <div id="history-quiz-container"></div>
+
+          <div id="history-results" style="display: none;"></div>
+          <button type="button" class="btn" id="history-submit-button">Submit Answers</button>
         </div>
-      </div>
+        <h4>History</h>
+
+
+                <div class="btns-group">
+                  <a href="#" class="btn btn-prev">Previous</a>
+                  <a href="#" class="btn btn-next">Next</a>
+                </div>
+              </div>
+
       <div class="form-step">
         <h4>Chemistry</h4>
 
 <div id="chemistry-quiz-form">
   <div id="chemistry-quiz-container"></div>
-  
+
   <div id="chemistry-results" style="display: none;"></div>
   <button type="button" class="btn" id="chemistry-submit-button">Submit Answers</button>
 </div>
@@ -228,27 +228,31 @@
         </div>
       </div>
       <div class="form-step">
-        <div class="input-group">
-          <h4>Geography</h4>
+        <div id="geography-quiz-form">
+          <div id="geography-quiz-container"></div>
 
-          <div id="geography-quiz-form">
-            <div id="geography-quiz-container"></div>
-            
-            <div id="geography-results" style="display: none;"></div>
-            <button type="button" class="btn" id="geography-submit-button">Submit Answers</button>
-          </div>
-          <h4>Geography</h>
+          <div id="geography-results" style="display: none;"></div>
+          <button type="button" class="btn" id="geography-submit-button">Submit Answers</button>
+        </div>
+
         <div class="btns-group">
           <a href="#" class="btn btn-prev">Previous</a>
-          <a href="#" id="save-result" class="btn btn-next">Result</a>
+          <a href="#" class="btn btn-next">Next</a>
         </div>
       </div>
       <div class="form-step">
 
-       <h1>trasdftgyuiosdfnm,./</h1>
+        <div class="input-group">
+
+            <div id="bio-score"></div>
+             <div id="geo-score"></div>
+             <div id="hist-score"></div>
+            <div id="chem-score"></div>
+             <div id="total-score"></div>
+        </div>
         <div class="btns-group">
           <a href="#" class="btn btn-prev">Previous</a>
-          
+          <input type="submit" value="Submit" class="btn" />
         </div>
       </div>
     </form>
@@ -305,5 +309,5 @@ function updateProgressbar() {
 
     </script>
     <script src="/static/js/contest.js"></script>
-
+  </body>
 {%endblock%}

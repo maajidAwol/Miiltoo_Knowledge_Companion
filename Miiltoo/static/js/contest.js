@@ -1,6 +1,8 @@
 
 let biology_quizData = [];
-const biology_score =0;
+var biology_score =0;
+var total_point=0;
+var total_question =0;
 const quizContainer = document.getElementById("biology-quiz-container");
 const submitButton = document.getElementById("biology-submit-button");
 const resultsContainer = document.getElementById("biology-results");
@@ -9,21 +11,22 @@ const history_quizContainer = document.getElementById("history-quiz-container");
 const history_submitButton = document.getElementById("history-submit-button");
 const history_resultsContainer = document.getElementById("history-results");
 let history_quizData = [];
-const history_score =0;
+var history_score =0;
 const hist_score = document.getElementById("hist-score");
- // To store fetched quiz data
+var total_score = document.getElementById("total-score");
+ // total-scoreTo store fetched quiz data
 
  const chemistry_quizContainer = document.getElementById("chemistry-quiz-container");
 const chemistry_submitButton = document.getElementById("chemistry-submit-button");
 const chemistry_resultsContainer = document.getElementById("chemistry-results");
 let chemistry_quizData = [];
-const chemistry_score =0;
+var chemistry_score =0;
 const chem_score = document.getElementById("chem-score");
 const geography_quizContainer = document.getElementById("geography-quiz-container");
 const geography_submitButton = document.getElementById("geography-submit-button");
 const geography_resultsContainer = document.getElementById("geography-results");
 let geography_quizData = [];
-const geography_score =0;
+var geography_score =0;
 const geo_score = document.getElementById("geo-score");
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -178,24 +181,32 @@ function buildQuiz(quizContainer,quizData) {
   submitButton.disabled = false;
 }
 
+
+
+
 submitButton.addEventListener("click", function () {
-  showResults(resultsContainer,biology_quizData,bio_score);
+  showResults(resultsContainer,biology_quizData,bio_score,"Biology",biology_score);
   submitButton.style.display = "none";
 });
 history_submitButton.addEventListener("click", function () {
-  showResults(history_resultsContainer,history_quizData,hist_score);
+  showResults(history_resultsContainer,history_quizData,hist_score,"History",history_score);
   history_submitButton.style.display = "none";
 });
 geography_submitButton.addEventListener("click", function () {
-  showResults(geography_resultsContainer,geography_quizData,geo_score);
+  showResults(geography_resultsContainer,geography_quizData,geo_score,"Geography",geography_score);
   geography_submitButton.style.display = "none";
 });
 
 chemistry_submitButton.addEventListener("click", function () {
-  showResults(chemistry_resultsContainer,chemistry_quizData,chem_score);
+  showResults(chemistry_resultsContainer,chemistry_quizData,chem_score,"Chemistry",chemistry_score);
   chemistry_submitButton.style.display = "none";
+  total_score.innerHTML = `           <div class="score-container">
+  <div class="score-board">
+    Total Score : <span class="score">${total_point}</span><span class="total-quize">/${total_question}</span>
+   </div>
+ </div><br>`;
 });
-function showResults(resultsContainer,quizData,score_container) {
+function showResults(resultsContainer,quizData,score_container,title,subject_score) {
   score = 0; // Reset the score before evaluating user answers
   resultsContainer.innerHTML = `
   <div class="result-label2-container">
@@ -276,18 +287,19 @@ function showResults(resultsContainer,quizData,score_container) {
               your score : <span class="score">${score}</span><span class="total-quize">/${quizData.length}</span>
              </div>
            </div><br>`;
+           total_question +=quizData.length;
+           total_point += score;
+
   score_container.innerHTML = `           <div class="score-container">
   <div class="score-board">
-    your score : <span class="score">${score}</span><span class="total-quize">/${quizData.length}</span>
+   ${title}  score : <span class="score">${score}</span><span class="total-quize">/${quizData.length}</span>
    </div>
  </div><br>`;
+
 }
 
-bio_score.innerHTML = `           <div class="score-container">
-<div class="score-board">
-  your score : <span class="score">1</span><span class="total-quize">/4</span>
- </div>
-</div><br>`;
+
+
 
 //pysics
 

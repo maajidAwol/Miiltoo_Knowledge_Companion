@@ -1,6 +1,6 @@
 # Project README - Miiltoo: Knowledge Companion
 
-![Miiltoo Logo](img.png)
+![Miiltoo Logo](Miiltoo/static/img.png)
 
 ## Team Information
 
