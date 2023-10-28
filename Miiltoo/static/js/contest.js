@@ -35,7 +35,8 @@ const geography_resultsContainer = document.getElementById("geography-results");
 let geography_quizData = [];
 var geography_score = 0;
 const geo_score = document.getElementById("geo-score");
-document.addEventListener("DOMContentLoaded", function () {
+
+document.addEventListener("DOMContentLoaded", function (event) {
   event.preventDefault();
   submitButton.style.display = "none";
 

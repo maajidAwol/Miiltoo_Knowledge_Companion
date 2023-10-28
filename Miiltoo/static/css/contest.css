@@ -142,7 +142,7 @@ input {
 }
 
 .form-step-active {
-  display: block;
+  display: flex;
 }
 
 .input-group {
@@ -169,7 +169,7 @@ input {
 
 .btn {
   display: flex;
-  padding: 8px 24px;
+  padding: 12px 24px;
   justify-content: center;
   align-items: center;
   gap: 4px;
