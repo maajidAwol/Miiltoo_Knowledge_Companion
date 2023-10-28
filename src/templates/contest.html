@@ -1,0 +1,187 @@
+{% extends "base.html" %} {% block head %}
+<link rel="stylesheet" href="/static/css/book-new.css" />
+<link rel="stylesheet" href="/static/css/contest.css" />
+{% endblock %} {%block body%}
+<body class="body">
+  <form action="#" class="form">
+    <h2 class="text-center">Contest</h2>
+    <!-- Progress bar -->
+    <div class="progressbar">
+      <div class="progress" id="progress"></div>
+
+      <div class="progress-step progress-step-active" data-title="Bio"></div>
+      <div class="progress-step" data-title="Hist"></div>
+      <div class="progress-step" data-title="Chem"></div>
+      <div class="progress-step" data-title="Geo"></div>
+      <div class="progress-step" data-title="Result"></div>
+    </div>
+
+    <!-- Steps -->
+    <div class="form-step form-step-active">
+      <div>
+        <div id="biology-quiz-form">
+          <div id="biology-quiz-container"></div>
+
+          <div id="biology-results" style="display: none"></div>
+          <button type="button" class="btn" id="biology-submit-button">
+            Submit Answers<i class="fa-solid fa-square-arrow-up-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="">
+        <a href="#" class="btn btn-next width-50 ml-auto"
+          >Next
+          <i class="fa-solid fa-hand-point-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="form-step">
+      <h4 class="myH4">History</h4>
+
+      <div id="history-quiz-form">
+        <div id="history-quiz-container"></div>
+
+        <div id="history-results" style="display: none"></div>
+        <button
+          type="button"
+          class="btn submit-Answer-btn"
+          id="history-submit-button"
+        >
+          Submit Answers<i class="fa-solid fa-square-arrow-up-right"></i>
+        </button>
+      </div>
+      <!-- <h4 class="myH4">History</h4> -->
+
+      <div class="btns-group">
+        <a href="#" class="btn btn-prev"
+          ><i class="fa-solid fa-hand-point-left"></i>Previous</a
+        >
+        <a href="#" class="btn btn-next"
+          >Next<i class="fa-solid fa-hand-point-right"></i
+        ></a>
+      </div>
+    </div>
+
+    <div class="form-step">
+      <h4 class="myH4">Chemistry</h4>
+
+      <div id="chemistry-quiz-form">
+        <div id="chemistry-quiz-container"></div>
+
+        <div id="chemistry-results" style="display: none"></div>
+        <button type="button" class="btn" id="chemistry-submit-button">
+          Submit Answers <i class="fa-solid fa-square-arrow-up-right"></i>
+        </button>
+      </div>
+      <!-- <h4 class="myH4">Chemistry</h4> -->
+
+      <div class="btns-group">
+        <a href="#" class="btn btn-prev"
+          ><i class="fa-solid fa-hand-point-left"></i>Previous</a
+        >
+        <a href="#" style="display: none" class="btn btn-prev"
+          >Submit<i class="fa-solid fa-square-arrow-up-right"></i
+        ></a>
+        <a href="#" class="btn btn-next"
+          >Next<i class="fa-solid fa-hand-point-right"></i
+        ></a>
+      </div>
+    </div>
+    <div class="form-step">
+      <div id="geography-quiz-form">
+        <div id="geography-quiz-container"></div>
+
+        <div id="geography-results" style="display: none"></div>
+        <button type="button" class="btn" id="geography-submit-button">
+          Submit Answers<i class="fa-solid fa-square-arrow-up-right"></i>
+        </button>
+      </div>
+
+      <div class="btns-group">
+        <a href="#" class="btn btn-prev"
+          ><i class="fa-solid fa-hand-point-left"></i>Previous</a
+        >
+        <a href="#" class="btn btn-next"
+          >Next<i class="fa-solid fa-hand-point-right"></i
+        ></a>
+      </div>
+    </div>
+    <div class="form-step">
+      <div class="input-group">
+        <div id="bio-score"></div>
+        <div id="geo-score"></div>
+        <div id="hist-score"></div>
+        <div id="chem-score"></div>
+        <div id="total-score"></div>
+      </div>
+      <div class="btns-group">
+        <a href="#" class="btn btn-prev"
+          ><i class="fa-solid fa-hand-point-left"></i>Previous</a
+        >
+        <input type="submit" value="Submit" class="btn" />
+      </div>
+    </div>
+  </form>
+  <script>
+    // Changing subjects
+    const prevBtns = document.querySelectorAll(".btn-prev");
+    const nextBtns = document.querySelectorAll(".btn-next");
+    const progress = document.getElementById("progress");
+    const formSteps = document.querySelectorAll(".form-step");
+    const progressSteps = document.querySelectorAll(".progress-step");
+    let formStepsNum = 0;
+
+    nextBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        formStepsNum++;
+        updateFormSteps();
+        updateProgressbar();
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+    });
+
+    prevBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        formStepsNum--;
+        updateFormSteps();
+        updateProgressbar();
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+    });
+
+    function updateFormSteps() {
+      formSteps.forEach((formStep) => {
+        formStep.classList.contains("form-step-active") &&
+          formStep.classList.remove("form-step-active");
+      });
+
+      formSteps[formStepsNum].classList.add("form-step-active");
+    }
+
+    function updateProgressbar() {
+      progressSteps.forEach((progressStep, idx) => {
+        if (idx < formStepsNum + 1) {
+          progressStep.classList.add("progress-step-active");
+        } else {
+          progressStep.classList.remove("progress-step-active");
+        }
+      });
+
+      const progressActive = document.querySelectorAll(".progress-step-active");
+
+      progress.style.width =
+        ((progressActive.length - 1) / (progressSteps.length - 1)) * 100 + "%";
+    }
+    // changin subjects end here
+  </script>
+  <script src="/static/js/contest.js"></script>
+</body>
+{%endblock%}

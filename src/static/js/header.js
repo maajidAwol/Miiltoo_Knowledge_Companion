@@ -132,3 +132,25 @@ overlay[0].addEventListener("click", () => {
 window.addEventListener("load", function () {
   window.scrollTo(0, 0);
 });
+// Add event listeners to anchor links
+document.addEventListener("DOMContentLoaded", function () {
+  var links = document.querySelectorAll('a[href^="#"]');
+  for (var i = 0; i < links.length; i++) {
+    links[i].addEventListener("click", scrollToSection);
+  }
+});
+
+// Scroll to the section when an anchor link is clicked
+function scrollToSection(event) {
+  event.preventDefault();
+  var targetId = event.target.getAttribute("href");
+  var targetSection = document.querySelector(targetId);
+  targetSection.scrollIntoView({ behavior: "smooth" });
+  // animateSection(targetSection);
+}
+
+// Apply animation to the section
+function animateSection(section) {
+  section.classList.add("active");
+  section.style.animation = "fadeInUp 0.5s ease";
+}

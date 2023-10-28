@@ -36,12 +36,15 @@ function handleCountrySelection(country) {
 
     // Update the country button with the selected country
     country_btn.innerHTML = `
+    <span class="upload-btn-icon">
+    <i class="fa-solid fa-globe"></i>
+  </span>
+  Country
       <span class="country-menu-item-icon" style='display: flex;
         justify-content: center;
         align-items: center;
         gap: 4px;'>
         <img src="/static/asset/${country}-flag.svg" alt="" />
-        - ${country_code}
       </span>
     `;
 
@@ -64,12 +67,15 @@ function changeContent(country, event) {
   var country_btn = document.getElementById("country-btn");
 
   country_btn.innerHTML = `
+  <span class="upload-btn-icon">
+  <i class="fa-solid fa-globe"></i>
+</span>
+Country
     <span class="country-menu-item-icon" style='display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;'>
+      justify-content: center;
+      align-items: center;
+      gap: 4px;'>
       <img src="/static/asset/${country}-flag.svg" alt="" />
-      - ${country_code}
     </span>
 `;
   slider_container.innerHTML = ``;
