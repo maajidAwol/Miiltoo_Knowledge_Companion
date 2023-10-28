@@ -201,6 +201,7 @@ input {
   display: flex;
   flex-direction: column;
 }
+
 @media only screen and (width < 600px) {
   .form {
     width: 85%;
