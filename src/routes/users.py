@@ -11,7 +11,7 @@ from ..models.user import User
 from ..models.book import Books
 from ..extensions import db
 from .utils import register_user, login_auth
-
+from flask_login import login_user, logout_user
 client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "../../clientSecret.json")
 flow = Flow.from_client_secrets_file(
     client_secrets_file=client_secrets_file,
@@ -88,6 +88,8 @@ def auth():
     print(email)
     print(password)
     if login_auth(email, password):
+        if email == "ararsaderese6@gmail.com" or email == "maajidawol@gmail.com":
+            login_user(User.query.filter_by(email=email).first())
         session['logged_in'] = "true"
 
         return redirect('/')
@@ -177,6 +179,7 @@ def save_profile():
 
 @users.route('/logout')
 def logout():
+    logout_user()
     session['logged_in'] = "false"
     session.pop('username', None)
     return redirect('/')
@@ -200,7 +203,9 @@ def confirm_email():
             session['logged_in'] = "true"
             session["google_name"] = user.username
             session["google_email"] = user.email
-            return render_template('index-new.html')
+            if user.email == "ararsaderese6@gmail.com" or user.email == "maajidawol@gmail.com":
+                login_user(user)
+            return redirect('/')
         else:
             return render_template('confirm_email.html')
 
@@ -258,7 +263,9 @@ def callback():
                         profile_pic=profile_url)
         db.session.add(new_user)
         db.session.commit()
-
+    if session["google_email"] == "ararsaderese6@gmail.com" or session["google_email"] == "maajidawol@gmail.com":
+        user= User.query.filter_by(email=session["google_email"]).first()
+        login_user(user) 
     return redirect("/protected_area")
 @users.route("/protected_area")
 @login_is_required

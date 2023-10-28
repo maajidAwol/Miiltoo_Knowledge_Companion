@@ -1,26 +1,38 @@
 import os
 from flask import Flask
-from .extensions import db, bcrypt, mail, migrate, admin
+from .extensions import db, bcrypt, mail, migrate, admin, login
 from decouple import config
 from .routes.main import main
 from .routes.users import users
 from .routes.api import api
+from flask import redirect, url_for
 from flask_admin import BaseView, expose
 from flask_admin.contrib.sqla import ModelView
-from .extensions import admin
-# Import your User class and db
+from flask_login import current_user
 from .models.book import Books 
 from .models.user import User
 from .models.contest import Contest 
+@login.user_loader
+def load_user(id):
+    return User.query.get(int(id))
 class MyView(BaseView):
+    def is_accessible(self):
+        return current_user.is_authenticated
     @expose('/')
     def index(self):
         return self.render('admin/my_view.html')
+class MyModelView(ModelView):
+    def is_accessible(self):
+        return current_user.is_authenticated
+    def inaccessible_callback(self, name, **kwargs):
+        # redirect to login page if user doesn't have access
+        
+        return redirect(url_for('main.index'))
 
 admin.add_view(MyView(name='My View', endpoint='myview'))
-admin.add_view(ModelView(User, db.session))
-admin.add_view(ModelView(Books, db.session))
-admin.add_view(ModelView(Contest, db.session))
+admin.add_view(MyModelView(User, db.session))
+admin.add_view(MyModelView(Books, db.session))
+admin.add_view(MyModelView(Contest, db.session))
 
 def create_app():
     app= Flask(__name__)
@@ -41,6 +53,7 @@ def create_app():
     bcrypt.init_app(app)
     mail.init_app(app)
     admin.init_app(app)
+    login.init_app(app)
     os.environ["OPENAI_API_KEY"] = config('API_KEY')
     os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
      

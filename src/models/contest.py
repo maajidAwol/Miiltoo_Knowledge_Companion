@@ -1,6 +1,7 @@
+from flask_login import UserMixin
 from ..extensions import db
 from datetime import datetime
-class Contest(db.Model):
+class Contest(db.Model, UserMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     subject =db.Column(db.String)
