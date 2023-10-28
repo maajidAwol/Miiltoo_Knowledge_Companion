@@ -60,7 +60,7 @@ body {
   backdrop-filter: blur(2.558332681655884px);
 }
 .signup-container-inner {
-  height: 534px;
+  height: 544px;
   gap: 12px;
 }
 .shape {
@@ -95,6 +95,9 @@ body {
   height: 54px;
   flex-shrink: 0;
   background: no-repeat url(/static/public/logo.svg);
+}
+.logo-login :last-of-type {
+  display: none;
 }
 .text-welcome,
 .text-quote-signup {
