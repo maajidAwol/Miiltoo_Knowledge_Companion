@@ -2,11 +2,16 @@ import json
 import os
 from flask import Blueprint, app, render_template, request
 from ..models.contest import Contest
-from .topics import biology, history,rt,cont_hist
+from .topics import biology, history,rt,cont_hist,cont_geo,cont_chem
 from .utils import ext, pdf_to_text
 from ..extensions import db
 from werkzeug.utils import secure_filename
 main = Blueprint('main', __name__)
+ALLOWED_EXTENSIONS = {'pdf'}
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 
 @main.route('/')
 def index():
@@ -79,46 +84,43 @@ def upload_file():
     if file.filename == '':
         return 'No selected file'
 
-    if file and file.filename.endswith('.pdf'):
-        # Save the uploaded PDF file to the "bk" folder in the static directory
+    if file and allowed_file(file.filename):
+        # Save the uploaded PDF file to the "static/bk" folder
         filename = secure_filename(file.filename)
-        pdf_file_path = os.path.join(app.static_folder, 'bk', filename)
+        pdf_file_path = os.path.join(os.path.dirname(__file__), '../static/bk', filename)
         file.save(pdf_file_path)
 
-        # Convert the PDF to a text file and save it
+        # Convert the PDF to a text file and save it in the "routes/books" folder
         text_filename = os.path.splitext(filename)[0] + '.txt'
-        text_file_path = os.path.join('books', text_filename)  # Save in "books" folder
+        text_file_path = os.path.join(os.path.dirname(__file__), 'books', text_filename)
 
-        # Use PyPDF2 to extract text from the PDF and save it to the text file
+        # Use pdfminer.six to extract text from the PDF and save it to the text file
         pdf_text = pdf_to_text(pdf_file_path)
         with open(text_file_path, 'w', encoding='utf-8') as text_file:
             text_file.write(pdf_text)
 
-        # Calculate the relative path from the "bk" folder including the "bk/" prefix
-        relative_pdf_path = os.path.relpath(pdf_file_path, os.path.join(app.static_folder, 'bk'))
-
-        # Render the "books.html" template and pass the relative PDF file path
-        print(relative_pdf_path)
+        # Calculate the relative path for rendering the template
+        relative_pdf_path = os.path.relpath(pdf_file_path, os.path.join(os.path.dirname(__file__), '../static/bk'))
         bkr = "bk/" + relative_pdf_path
-        print(bkr)
 
-        json_data = {
+        json_data = {}  # You can define the json_data here
 
-        }
-        return render_template("book-new.html", book=bkr, json_data=json_data, )
+        return render_template("book-new.html", book=bkr, json_data=json_data)
 
     return 'Error: Please upload a PDF file'
+
 @main.route("/contest_request", methods=["POST"])
 def contest_send():
     r = ext(rt)
     hist_cont =ext(cont_hist)
-
+    geo_cont =ext(cont_geo)
+    chem_cont =ext(cont_chem)
     subject = "biology"
     dict_contest = {subject: r}
 
     dict_contest.update({"history": hist_cont})
-    dict_contest.update({"chemistry": r})
-    dict_contest.update({"geography": r})
+    dict_contest.update({"chemistry": chem_cont})
+    dict_contest.update({"geography": geo_cont})
     str_contest = json.dumps(dict_contest)
     # result = ext(r)
     # return result
