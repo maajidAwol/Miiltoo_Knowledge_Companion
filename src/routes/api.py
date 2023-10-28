@@ -1,3 +1,5 @@
+import os
+
 from flask import Blueprint,request
 from .utils import chat_function,quiz_function
 api = Blueprint('api', __name__)
@@ -8,9 +10,14 @@ def send():
     book = request.args.get('book')
     choice = request.json.get("book_choice")
     print(choice)
+
+
     print(prompt)
     path = ""
+    current_directory = os.path.dirname(__file__)
 
+    # Create the absolute path to the file
+    file_path = os.path.join(current_directory, "books/ETH/biology_g-9.txt")
     url = choice
 
     # Replace "bk" with "books"
@@ -18,7 +25,7 @@ def send():
     path = path[:-4] + ".txt"
     print(path)
     #
-    result = chat_function(prompt, path)
+    result = chat_function(prompt, file_path)
     return result
 @api.route("/quiz_request", methods=["POST"])
 def quiz_send():
