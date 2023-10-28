@@ -303,7 +303,7 @@ a{
 }
 .profile-menu-item{
   display: flex;
-  width: 235px;
+  width: 217px;
   padding: 8px 16px;
   align-items: flex-start;
   gap: 8px;
@@ -320,7 +320,7 @@ text-transform: capitalize;
   font-size: 16px;
 }
 .profile-menu-item:hover{
-
+cursor: pointer;
 }
 .profile-menu-item:hover .profile-menu-item-icon i{
   color: var(--color-accent);
@@ -406,6 +406,9 @@ color: var(--color-white);
   justify-content: center;
   align-items: center;
   gap: 12px;
+}
+.profile-group:hover{
+  cursor: pointer;
 }
 .profile-group:hover .profile-drop-icon i{
   color: var(--color-accent);

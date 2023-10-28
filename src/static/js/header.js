@@ -85,6 +85,8 @@ if (mediaQuery_992.matches) {
 profile_group.addEventListener("mouseover", () => {
   profile_menu.classList.remove("hidden");
   grade_menu.classList.add("hidden");
+  page_menu.classList.add("hidden");
+  country_menu.classList.add("hidden");
   grade_btn_icon.style.transform = "rotate(0deg)";
   profile_drop_icon.style.transform = "rotate(180deg)";
 });
