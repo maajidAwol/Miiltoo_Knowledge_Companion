@@ -2522,12 +2522,20 @@ footer {
   }
 }
 @media only screen and (992px <= width <1200px ) {
-.upload-btn p,.country-menu-item-icon p{
+.upload-btn p,.country-menu-item-icon p,.logo-name{
   display: none;
 }
-
-element.style {
-  transform: translateX(0px);
+.logo-container {
+  min-width: 148px;
+}
+nav{
+  margin-left: 0%;
+}
+.login-container {
+  margin-right: 0%;
+}
+.login-btn1,.signup-btn1{
+padding: 8px 16px;
 }
 .underline {
   margin-left: -40vw;
@@ -2537,5 +2545,25 @@ element.style {
   .resrc-nav-container {
     gap: 78.5%;
   }
+  .upload-btn{
+    min-width: 48px;
+  }
+  .upload-btn p{
+    display: none;
+  }
   
+}
+@media only screen and (width >= 1300px) {
+  .upload-btn{
+    min-width: 152px;
+
+  }
+  .upload-btn p{
+    display: block;
+  }
+  .logo-container {
+    margin-left: -5%;
+  }nav {
+    margin-right: -6%;
+  }
 }
