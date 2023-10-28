@@ -227,11 +227,12 @@ a{
 }
 .login-container {
   margin-left: auto;
-  display: flex;
-  min-width: 150px;
-  justify-content: center;
-  align-items: center;
-  gap: 12.5px;
+    display: flex;
+    min-width: 150px;
+    justify-content: center;
+    align-items: center;
+    gap: 12.5px;
+    z-index: 4;
 }
 .login-btn1,.login-btn-mob {
   font-size: 16px;
@@ -2424,7 +2425,15 @@ footer {
     align-items: center;
     gap: 24px;
   }
-  
+  .profile-drop-icon{
+    display: none;
+  }
+  .profile-container {
+    z-index: 4;
+  }
+  .separet-line{
+    display: none;
+  }
   .home-link.underline {
     background-position: 51px bottom;
   }
