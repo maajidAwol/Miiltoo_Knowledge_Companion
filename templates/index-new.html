@@ -54,8 +54,8 @@
         <div class="desc-container">
           <span class="desc-icon"><i class="fa-solid fa-feather"></i></span>
           <p class="desc-content">
-            Promotes Active Learning And Encourages Students To Actively
-            Participate In Their Educational Journey.
+            Promotes active learning and encourages students to actively
+            participate in their educational journey.
           </p>
         </div>
       </div>
@@ -67,8 +67,8 @@
         <div class="desc-container">
           <span class="desc-icon"><i class="fa-solid fa-feather"></i></span>
           <p class="desc-content">
-            Ensures That Students Have Access To Comprehensive Learning
-            Materials That Support Their Academic Progress
+            Ensures that students have access to comprehensive learning
+            materials that support their academic progress.
           </p>
         </div>
       </div>
@@ -462,7 +462,7 @@
               <i class="fa-solid fa-user-plus"></i>
             </div>
             registration
-            <div class="reg-desc">create account with us</div>
+            <div class="reg-desc">Create an account with us.</div>
           </div>
         </div>
         <div class="step-container">
@@ -478,7 +478,7 @@
             </div>
             select grade & subject
             <div class="reg-desc">
-              you have to choose specific grade and subject
+              You have to choose a specific grade and subject.
             </div>
           </div>
         </div>
@@ -495,7 +495,7 @@
             </div>
             chat with miiltoo
             <div class="reg-desc">
-              you can generate quize and upload custom file
+              You can generate quizzes and upload custom files.
             </div>
           </div>
         </div>
@@ -885,34 +885,6 @@
   </section>
 </main>
 <script src="/static/js/slider-new.js"></script>
-<script>
-  const how_does_sec = document.querySelector(".how-does-sec");
-  const circle_dot = document.querySelectorAll(".circle-dot");
-  const box = document.querySelectorAll(".how-does-reg");
-
-  for (let i = 0; i < circle_dot.length; i++) {
-    circle_dot[i].style.opacity = "0";
-  }
-
-  for (let i = 0; i < box.length; i++) {
-    box[i].style.opacity = "0";
-    box[i].style.transform = `translateX(160%)`;
-  }
-
-  how_does_sec.addEventListener("mouseenter", () => {
-    for (let i = 0; i < circle_dot.length; i++) {
-      let delay = i * 0.8; // Adjust the delay duration as needed
-      circle_dot[i].style.opacity = "1";
-      circle_dot[i].style.transitionDelay = `${delay}s`;
-    }
-
-    box.forEach((boxItem, index) => {
-      let delay = index * 0.8; // Adjust the delay duration as needed
-      boxItem.style.opacity = "1";
-      boxItem.style.transitionDelay = `${delay}s`;
-      boxItem.style.transform = "translateX(0)";
-    });
-  });
-</script>
+<script src="/static/js/how-does.js"></script>
 
 {% endblock %}

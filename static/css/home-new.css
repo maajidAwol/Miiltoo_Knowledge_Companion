@@ -26,6 +26,9 @@
   --color-accent: #22fbf9;
   font-family: var(--font-roboto);
 }
+html {
+  scroll-behavior: smooth;
+}
 body {
   position: relative;
   left: 0;
@@ -41,6 +44,7 @@ body {
   overflow-x: hidden;
   z-index: -2;
 }
+
 header {
   display: flex;
   position: relative;
@@ -130,28 +134,51 @@ nav {
 .underline img {
   width: 58px;
 }
-.underlineT{
-  width: 93%;
-    height: 4px;
-    position: absolute;
-    top: 23px;
-    left: 0;
-    margin-left: 10%;
-    margin-top: 9px;
-    border-radius: 24px;
-    transition: 0.5s ease;
-    z-index: 5;
+.underlineT {
+  width: 0%;
+  height: 4px;
+  position: absolute;
+  top: 23px;
+  left: 0;
+  margin-left: 10%;
+  margin-top: 9px;
+  border-radius: 24px;
+  z-index: 5;
+  background: var(--color-accent);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.home-link {
+  position: relative;
+}
+
+.home-link:hover {
+  color: var(--color-accent);
+}
+
+.home-link:hover .underlineT {
+  animation: slideInWidth 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards,
+             changeColor 0.3s ease forwards;
+  opacity: 1;
+}
+
+@keyframes slideInWidth {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 90%;
+  }
+}
+
+@keyframes changeColor {
+  0% {
+    background: var(--color-secondary);
+  }
+  100% {
     background: var(--color-accent);
-    display: none;
   }
-  .home-link{
-    position: relative;
-  }
-  .home-link:hover{
-    color: var(--color-accent);
-  }
-.home-link:hover .underlineT{
-  display: block;
 }
 
 nav a,
@@ -695,7 +722,7 @@ h1 span {
 }
 .desc-container {
   display: flex;
-  padding: 28.5px 12px;
+  padding: 16px 16px;
   justify-content: center;
   align-items: center;
   gap: 8px;
@@ -721,7 +748,7 @@ h1 span {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  text-transform: lowercase;
+  text-transform: none;
 }
 .conve-icon {
   width: 61px;
@@ -953,7 +980,7 @@ h1 span {
 .resrc-desc-container {
   display: flex;
   width: 100%;
-  padding: 12px;
+  padding: 16px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -962,6 +989,8 @@ h1 span {
   background: var(--secondary, #1e206f);
 }
 .resrc-desc-tittle {
+  display: flex;
+  gap: 4%;
   width: 100%;
   color: #fff;
   font-family: Roboto;
@@ -989,7 +1018,9 @@ h1 span {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  text-transform: lowercase;
+  text-transform: none;
+  opacity: .8;
+
 }
 .resrc-nav-container,
 .testi-nav-container,
@@ -1188,9 +1219,10 @@ h1 span {
   font-family: Roboto;
   font-size: 16px;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 500;
   line-height: normal;
-  text-transform: lowercase;
+  text-transform: none;
+  opacity: .75;
 }
 .testimony-sec {
   position: relative;
@@ -1439,11 +1471,11 @@ h1 span {
   text-transform: capitalize;
 }
 .miiltoo-desc {
-  opacity: .7;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 150%; /* 27px */
-  text-transform: lowercase;
+  opacity: .8;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 150%;
+    text-transform: none;
 }
 .harness-text {
   color: var(--color-accent);
@@ -2154,7 +2186,7 @@ footer {
     height: 266px;
   }
   .desc-container {
-    padding: 12px 8px;
+    padding: 12px 12px;
     width: 90%;
     height: 94%;
     align-items: flex-start;
@@ -2409,7 +2441,7 @@ footer {
   }
   .resrc-slider {
     width: 83vw;
-    height: 420px;
+    height: 448px;
   }
   .resrc-nav-container {
     gap: 100.5%;
@@ -2436,6 +2468,16 @@ footer {
   .resource-bg {
     top: 1672px;
     height: 856px;
+  }
+  .resrc-desc-text {
+    text-transform: none;
+    font-size: 22px;
+  }
+  .resrc-tittle-container {
+    font-size: 30px;
+  }
+  .resrc-desc-tittle {
+    font-size: 18px;
   }
 }
 @media only screen and (992px <= width <1200px ) {
