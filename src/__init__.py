@@ -91,9 +91,9 @@ admin.add_view(ModelView(User, db.session))
 admin.add_view(ModelView(Books, db.session))
 admin.add_view(ModelView(Contest, db.session))
 
-def create_app():
+def create_app(database_uri='sqlite:///profile.db'):
     app= Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///profile.db'
+    app.config['SQLALCHEMY_DATABASE_URI'] = database_uri
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['MAIL_SERVER'] = 'smtp.gmail.com'
     app.config['MAIL_PORT'] = 465
