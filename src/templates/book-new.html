@@ -20,17 +20,19 @@
         <div class="book-container">
             <div class="chapter-container">
                <select name="" id="chapter" class="chapter">
-                 <option  value="Introduction">
+                 <option  value="all">
 
-                 choose-chapter
+                 All Chapter
 
                  </option>
                 </select>
               </div>
+              <br>
             <embed
             src="/static/{{book}}"
             frameborder="0"
             class="pdf-section"
+            id="pdf-embed"
           ></embed>
         </div>
 
@@ -510,6 +512,40 @@ document.getElementById("generated-quize-form").addEventListener("submit", funct
 
 
     </script>
+    <script>
+      var select = document.getElementById("chapter");
+      var embed = document.getElementById("pdf-embed");
+  
+      // Get the variable from the backend
+      var bookParam = "{{book}}"; // Replace "book_param" with the actual variable name used in Jinja
+  
+      // Determine the default source based on the "book" parameter
+      var defaultSource = "/static/bk/ETH/bio/all.pdf";  // Default source for "bio"
+      var chapter_change =""
+      if (bookParam === "bk/ETH/history_g-9.pdf") {
+          defaultSource = "/static/bk/ETH/hist/all.pdf";  // Default source for "hist"
+         chapter_change = "/static/bk/ETH/hist/";
+      } else if (bookParam === "bk/SS/history_g-9.pdf") {
+          defaultSource = "/static/bk/SS/hist/all.pdf";
+          chapter_change ="/static/bk/SS/hist/";
+            // Default source for "ss"
+          alert("hhhh");
+      } else if (bookParam === "bk/ETH/biology_g-9.pdf") {
+    defaultSource = "/static/bk/ETH/bio/all.pdf";
+    chapter_change ="/static/bk/ETH/bio/";
+      }
+  
+      // Update the default src attribute
+      embed.src = defaultSource;
+  
+      // Add an event listener to the select element
+      select.addEventListener("change", function () {
+          // Update the src attribute of the embed element with the selected value
+          embed.src = chapter_change + select.value + ".pdf";
+          alert(chapter_change + select.value);
+      });
+  </script>
+  
 <script src="/static/js/chat.js"></script>
 <script src="/static/js/bioquiz.js"></script>
 {%endblock%}
