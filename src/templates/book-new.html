@@ -18,17 +18,29 @@
     <main sty>
       <section class="chat-sec">
         <div class="book-container">
+            <div class="chapter-container">
+               <select name="" id="chapter" class="chapter">
+                 <option  value="Introduction">
+
+                 choose-chapter
+
+                 </option>
+                </select>
+              </div>
             <embed
             src="/static/{{book}}"
             frameborder="0"
             class="pdf-section"
           ></embed>
         </div>
+
         <div class="chatbot-container">
+
           <div class="chatbot-var-2 hidden">
             <button class="arrow-btn chat-left-btn">
               <i class="fa-solid fa-arrow-right"></i>
             </button>
+
             <div class="chat-top-container">
               <div class="var2-logo">
                 <img src="/static/asset/logo.svg" alt="">
@@ -134,15 +146,7 @@
 <!--              generation form-->
           <form  class="generate-form" >
             <div class="selection-container">
-              <div class="chapter-container">
-               <select name="" id="chapter" class="chapter">
-                 <option  value="Introduction">
 
-                 choose-chapter
-
-                 </option>
-                </select>
-              </div>
                <div class="chapter-container">
                  <select name="" id="subtopic" class="subtopic">
                    <option  value="Definition of Biology ">

@@ -1,3 +1,48 @@
+sudan_hist = {
+    "Chapter 1 Pre-Colonial Era": {
+        "1.1: Introduction to History": [],
+        "1.2: Pre-Colonial Trade in Africa": [],
+        "1.3: The Long Distance Trade": [],
+        "1.4: The Coastal Trade": [],
+    },
+    "Chapter 2 Colonial Rule": {
+        "2.1: The Scramble and Partition in Africa": [],
+        "2.2: Colonial Rule and Administration": [],
+        "2.3: African Response to Colonial Rule": [],
+    },
+    "Chapter 3 Early Societies in South Sudan": {
+        "3.1: Centralized and Decentralized Societies in South Sudan": [],
+        "3.2: The Shilluk Kingdom (1490-1865)": [],
+        "3.3: The Azande Kingdom": [],
+        "3.4: The Anyuak (Anywaa) Kingdom": [],
+        "3.5: The Nuer": [],
+        "3.6: The Dinka": [],
+    },
+    "Chapter 4 The Turko-Egyptians and Mahdists in Sudan": {
+        "4.1: The Turko-Egyptian Rule in Sudan": [],
+        "4.2: Turko-Egyptians Administrative Structures in Sudan": [],
+        "4.3: Mahdist Revolution (1881 to 1889)": [],
+        "4.4: Mahdist Administration": [],
+    },
+    "Chapter 5 Contributions of Regional and International Bodies in Achieving Independence and Development in Africa": {
+        "5.1: The Organisation of African Unity (OAU)": [],
+        "5.2: The African Union (AU)": [],
+        "5.3: Intergovernmental Authority and Development (IGAD)": [],
+        "5.4: The Economic Community of West African States (ECOWAS)": [],
+        "5.5: The New East African Community (EAC)": [],
+    },
+    "Chapter 6 Slaves and Other Items of Trade": {
+        "6.1: Slave Trade in South Sudan": [],
+        "6.2: The Trans-Atlantic Slave Trade": [],
+        "6.3: Modern-Day Slavery": [],
+        "6.4: Comparison Between Slave Trade in the 17th Century and 21st Century in South Sudan": [],
+    },
+    "Chapter 7 Christian Missionaries in South Sudan": {
+        "7.1: Mission Groups That Came to South Sudan in the 19th Century": [],
+        "7.2: Problems That Churches Face in South Sudan Today": [],
+    }
+}
+
 biology = {
   "chapter 1:Introduction to Biology": {
     "1.1:Definition of Biology ": [],
@@ -56,7 +101,7 @@ biology = {
   },
 }
 history = {
-        "chapter 1: The Discipline of History and Human Evolution": {
+        "chapter 1 The Discipline of History and Human Evolution": {
         "1.1: Meaning of Prehistory and History": [],
         "1.2: The Discipline of History": [],
         "1.3: The Evolution of Human Beings": [],
@@ -65,21 +110,21 @@ history = {
         "1.6: The Stone Age": [],
         "1.7: The Emergence of States": [],
       },
-      "chapter 2: Ancient World Civilizations up to c. 500 AD": {
+      "chapter 2 Ancient World Civilizations up to c. 500 AD": {
         "2.1: Ancient Civilizations of Africa": [],
         "2.2: Civilizations in Asia": [],
         "2.3: Ancient Civilization of Latin America": [],
         "2.4: Civilizations in Europe": [],
         "2.5: Rise and spread of Christianity": [],
       },
-      "chapter 3: Peoples and States in Ethiopia and the Horn to the end of 13th C.": {
+      "chapter 3 Peoples and States in Ethiopia and the Horn to the end of 13th C": {
         "3.1: Languages, Religions and Peoples of Ethiopia and the Horn": [],
         "3.2: Pre-Aksumite States and their Geographical Setting": [],
         "3.3: Aksumite Kingdom": [],
         "3.4: Zagwe Dynasty": [],
         "3.5: The Sultanate Shewa": [],
       },
-      "chapter 4: The Middle Ages and Early Modern World C. 500 to 1750s": {
+      "chapter 4 The Middle Ages and Early Modern World C. 500 to 1750s": {
         "4.1: The Middle Ages in Europe": [],
         "4.2: The Middle Ages in Asia": [],
         "4.3: Development of Early Capitalism": [],
@@ -88,7 +133,7 @@ history = {
         "4.6: The Reformation": [],
         "4.7: Industrial Revolution": [],
       },
-      "chapter 5: Peoples and States of Africa to 1500": {
+      "chapter 5 Peoples and States of Africa to 1500": {
         "5.1: Languages and Peoples of Africa": [],
         "5.2: States in North Africa": [],
         "5.3: Spread of Islam and its Impact in West Africa": [],
@@ -99,14 +144,14 @@ history = {
         "5.8: Trans-Saharan trade": [],
         "5.9: Early Contacts with the Outside World": [],
       },
-      "chapter 6: Africa and the Outside World 1500- 1880s": {
+      "chapter 6 Africa and the Outside World 1500- 1880s": {
         "6.1: Contact with the Outside World": [],
         "6.2: Slavery": [],
         "6.3: The “Legitimate” Trade": [],
         "6.4: The White Settlement in South Africa": [],
         "6.5: European Explorers and Missionaries": [],
       },
-      "chapter 7: States, Principalities, Population Movements & Interactions in Ethiopia 13th to Mid-16th C.": {
+      "chapter 7 States, Principalities, Population Movements & Interactions in Ethiopia 13th to Mid-16th C": {
         "7.1: The “Solomonic” Dynasty & the Christian Kingdom, 13th -16th C": [],
         "7.2: The Muslim Principalities": [],
         "7.3: Relationship Between the Christian Kingdom and the Sultanate of Adal, 1520s to 1559": [],
@@ -116,14 +161,14 @@ history = {
         "7.7: Moggasa and Guddifacha": [],
         "7.8: Egalitarian System of Governance": [],
       },
-       "chapter 8: Political, Social and Economic Processes in Ethiopia Mid- 16th to Mid- 19thC.": {
+       "chapter 8 Political, Social and Economic Processes in Ethiopia Mid- 16th to Mid- 19thC": {
         "8.1: Peoples and states of the Eastern, Central, Southern and Western Regions": [],
         "8.2: Gondarine Period": [],
         "8.3: The Zemene Mesafint (The Era of Warlords)": [],
         "8.4: The Yejju Dynasty": [],
         "8.5: The Kingdom of Shoa": [],
       },
-      "chapter 9: The Age of Revolutions 1750s to 1815": {
+      "chapter 9 The Age of Revolutions 1750s to 1815": {
         "9.1: Industrial Capitalism in Europe": [],
         "9.2: French Revolution": [],
         "9.3: Napoleonic Era": [],
