@@ -27,6 +27,7 @@ fastapi==0.85.1
 filelock==3.12.4
 Flask==3.0.0
 Flask-Admin==1.6.1
+Flask-Login==0.6.2
 Flask-Bcrypt==1.0.1
 Flask-Mail==0.9.1
 Flask-Migrate==4.0.5
@@ -109,7 +110,7 @@ urllib3==2.0.6
 uvicorn==0.23.2
 watchfiles==0.21.0
 websockets==11.0.3
-Werkzeug==3.0.0
+Werkzeug==2.3.7
 WTForms==3.1.0
 yarl==1.9.2
 zipp==3.17.0
