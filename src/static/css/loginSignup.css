@@ -261,7 +261,7 @@ label {
   font-style: normal;
   font-weight: 500;
   line-height: 12.507px; /* 104.228% */
-  text-transform: lowercase;
+  
 }
 .email-field:focus,
 .password-field:focus,

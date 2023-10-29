@@ -471,7 +471,7 @@ font-weight: 600;
   color: var(--color-white);
   font-size: 12px;
   font-weight: 400;
-  text-transform: lowercase;
+  
 }
 .grade-menu,.country-menu,.page-menu{
   position: fixed;
@@ -1411,7 +1411,7 @@ h1 span {
   font-style: normal;
   font-weight: 400;
   line-height: 156%;
-  text-transform: lowercase;
+  
 }
 .review-container {
   font-size: 18px;
@@ -1667,7 +1667,7 @@ h1 span {
   text-transform: capitalize;
 }
 .member-email span{
-  text-transform: lowercase;
+
 }
 .member-role {
   display: flex;
@@ -1858,7 +1858,7 @@ footer {
 }
 .footer-logo span {
   color: var(--color-accent);
-  text-transform: lowercase;
+  
 }
 .footer-link-container {
   display: flex;
