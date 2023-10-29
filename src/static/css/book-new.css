@@ -337,7 +337,7 @@ footer {
 }
 .var2-logo span {
   color: var(--color-accent);
-  text-transform: lowercase;
+  
   margin-left: -11px;
 }
 .chat-top-headline {
@@ -389,7 +389,7 @@ footer {
 .subject-name {
   font-size: 14px;
   font-weight: 400;
-  text-transform: lowercase;
+  
 }
 .ask-form,
 .generate-form {
@@ -606,7 +606,7 @@ footer {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  text-transform: lowercase;
+  
 }
 .chatbot-message-container {
   display: flex;
@@ -629,7 +629,7 @@ footer {
   font-style: normal;
   font-weight: 500;
   line-height: 168%;
-  text-transform: lowercase;
+ 
   padding: 8px;
   align-items: flex-start;
   align-content: flex-start;
@@ -674,7 +674,7 @@ footer {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  text-transform: lowercase;
+  
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -938,7 +938,7 @@ footer {
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
-  text-transform: lowercase;
+  
   background: transparent;
   box-shadow: 0px 4px 7.5px 0px rgba(0, 0, 0, 0.25);
 }
@@ -1017,7 +1017,7 @@ input[type="file"]:hover {
   opacity: 0.65;
   font-size: 14px;
   font-weight: 400;
-  text-transform: lowercase;
+
 }
 #upload-button {
   position: absolute;
@@ -1122,7 +1122,7 @@ input[type="file"]:hover {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  text-transform: lowercase;
+  
   opacity: 0.64;
 }
 .upload-status-container {
@@ -1150,7 +1150,7 @@ input[type="file"]:hover {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  text-transform: lowercase;
+  
 }
 .upload-status {
   display: flex;
