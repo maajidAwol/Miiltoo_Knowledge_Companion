@@ -1,3 +1,48 @@
+sudan_hist = {
+    "Chapter 1: Pre-Colonial Era": {
+        "1.1: Introduction to History": [],
+        "1.2: Pre-Colonial Trade in Africa": [],
+        "1.3: The Long Distance Trade": [],
+        "1.4: The Coastal Trade": [],
+    },
+    "Chapter 2: Colonial Rule": {
+        "2.1: The Scramble and Partition in Africa": [],
+        "2.2: Colonial Rule and Administration": [],
+        "2.3: African Response to Colonial Rule": [],
+    },
+    "Chapter 3: Early Societies in South Sudan": {
+        "3.1: Centralized and Decentralized Societies in South Sudan": [],
+        "3.2: The Shilluk Kingdom (1490-1865)": [],
+        "3.3: The Azande Kingdom": [],
+        "3.4: The Anyuak (Anywaa) Kingdom": [],
+        "3.5: The Nuer": [],
+        "3.6: The Dinka": [],
+    },
+    "Chapter 4: The Turko-Egyptians and Mahdists in Sudan": {
+        "4.1: The Turko-Egyptian Rule in Sudan": [],
+        "4.2: Turko-Egyptians Administrative Structures in Sudan": [],
+        "4.3: Mahdist Revolution (1881 to 1889)": [],
+        "4.4: Mahdist Administration": [],
+    },
+    "Chapter 5: Contributions of Regional and International Bodies in Achieving Independence and Development in Africa": {
+        "5.1: The Organisation of African Unity (OAU)": [],
+        "5.2: The African Union (AU)": [],
+        "5.3: Intergovernmental Authority and Development (IGAD)": [],
+        "5.4: The Economic Community of West African States (ECOWAS)": [],
+        "5.5: The New East African Community (EAC)": [],
+    },
+    "Chapter 6: Slaves and Other Items of Trade": {
+        "6.1: Slave Trade in South Sudan": [],
+        "6.2: The Trans-Atlantic Slave Trade": [],
+        "6.3: Modern-Day Slavery": [],
+        "6.4: Comparison Between Slave Trade in the 17th Century and 21st Century in South Sudan": [],
+    },
+    "Chapter 7: Christian Missionaries in South Sudan": {
+        "7.1: Mission Groups That Came to South Sudan in the 19th Century": [],
+        "7.2: Problems That Churches Face in South Sudan Today": [],
+    }
+}
+
 biology = {
   "chapter 1:Introduction to Biology": {
     "1.1:Definition of Biology ": [],

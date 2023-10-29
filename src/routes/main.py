@@ -2,7 +2,7 @@ import json
 import os
 from flask import Blueprint, app, render_template, request, session
 from ..models.contest import Contest
-from .topics import biology, history,rt,cont_hist,cont_geo,cont_chem
+from .topics import biology, history,rt,cont_hist,cont_geo,cont_chem,sudan_hist
 from .utils import ext, pdf_to_text
 from ..extensions import db
 from werkzeug.utils import secure_filename
@@ -29,6 +29,10 @@ def grade():
         elif book == "bk/ETH/history_g-9.pdf":
             json_data = history
             print(history)
+            return render_template("book-new.html", book=book, json_data=json_data)
+        elif book == "bk/SS/history_g-9.pdf":
+            json_data = sudan_hist
+            print(sudan_hist)
             return render_template("book-new.html", book=book, json_data=json_data)
         else:
 
@@ -76,6 +80,7 @@ def contest():
     return render_template("contest.html")
 @main.route('/get_chat_history', methods=['GET'])
 def get_chat_history():
+    print("get")
     chat_history = session.get('bio', [])
     return jsonify(chat_history)
 @main.route('/upload', methods=['POST'])
