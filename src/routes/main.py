@@ -78,11 +78,11 @@ def save_contest_data():
 @main.route("/contest/")
 def contest():
     return render_template("contest.html")
-@main.route('/get_chat_history', methods=['GET'])
-def get_chat_history():
-    print("get")
-    chat_history = session.get('bio', [])
-    return jsonify(chat_history)
+# @main.route('/get_chat_history', methods=['GET'])
+# def get_chat_history():
+#     print("get")
+#     chat_history = session.get('bio', [])
+#     return jsonify(chat_history)
 @main.route('/upload', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
