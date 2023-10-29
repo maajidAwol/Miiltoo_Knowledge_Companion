@@ -86,7 +86,7 @@ class MyView(BaseView):
     def index(self):
         return self.render('admin/my_view.html')
 
-admin.add_view(MyView(name='My View', endpoint='myview'))
+admin.add_view(MyView(name='Generate Contest', endpoint='myview'))
 admin.add_view(ModelView(User, db.session))
 admin.add_view(ModelView(Books, db.session))
 admin.add_view(ModelView(Contest, db.session))

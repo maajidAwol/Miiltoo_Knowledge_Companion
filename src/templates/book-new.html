@@ -1,6 +1,6 @@
 {%extends "base.html"%}
 
-    {%block title%}Learn{%endblock%}
+    {%block title%}Book{%endblock%}
    {%block head%}
     <link rel="stylesheet" href="/static/css/home-new.css" />
     <link rel="stylesheet" href="/static/css/loading-style.css" />
@@ -22,7 +22,7 @@
                <select name="" id="chapter" class="chapter">
                  <option  value="all">
 
-                 All Chapter
+                 All Chapters
 
                  </option>
                 </select>
@@ -46,7 +46,7 @@
             <div class="chat-top-container">
               <div class="var2-logo">
                 <img src="/static/asset/logo.svg" alt="">
-                miilt<span>oo</span>
+                miiltoo
               </div>
               <div class="chat-top-headline">
                 <div class="chat-text">
@@ -523,16 +523,19 @@ document.getElementById("generated-quize-form").addEventListener("submit", funct
       var defaultSource = "/static/bk/ETH/bio/all.pdf";  // Default source for "bio"
       var chapter_change =""
       if (bookParam === "bk/ETH/history_g-9.pdf") {
-          defaultSource = "/static/bk/ETH/hist/all.pdf";  // Default source for "hist"
+          defaultSource = "/static/bk/ETH/history_g-9.pdf";  // Default source for "hist"
          chapter_change = "/static/bk/ETH/hist/";
       } else if (bookParam === "bk/SS/history_g-9.pdf") {
-          defaultSource = "/static/bk/SS/hist/all.pdf";
+          defaultSource = "/static/bk/SS/history_g-9.pdf";
           chapter_change ="/static/bk/SS/hist/";
             // Default source for "ss"
           
       } else if (bookParam === "bk/ETH/biology_g-9.pdf") {
-    defaultSource = "/static/bk/ETH/bio/all.pdf";
+    defaultSource = "/static/bk/ETH/biology_g-9.pdf";
     chapter_change ="/static/bk/ETH/bio/";
+      }else{
+
+      defaultSource  = "/static/{{book}}";
       }
   
       // Update the default src attribute

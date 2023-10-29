@@ -1,6 +1,7 @@
 {% extends "base.html" %} {% block head %}
 <link rel="stylesheet" href="/static/css/book-new.css" />
 <link rel="stylesheet" href="/static/css/contest.css" />
+<title>Contest</title>
 {% endblock %} {%block body%}
 <body class="body">
   <form action="#" class="form">
@@ -120,7 +121,7 @@
         <a href="#" class="btn btn-prev"
           ><i class="fa-solid fa-hand-point-left"></i>Previous</a
         >
-        <input type="submit" value="Submit" class="btn" />
+        <input style="display: none;" type="submit" value="Submit" class="btn" />
       </div>
     </div>
   </form>
