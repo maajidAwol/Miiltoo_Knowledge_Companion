@@ -33,13 +33,14 @@
 .grade-menu-item:hover :nth-child(1) {
   color: var(--color-accent);
 }
-.resrc-item {
+/* .resrc-item {
   position: absolute;
   width: max-content;
   display: flex;
   gap: 8px;
   transition: transform 0.6s ease;
-}
+} */
+
 .resource-sec {
   gap: 16px;
 }

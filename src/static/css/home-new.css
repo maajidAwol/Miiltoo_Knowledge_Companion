@@ -967,10 +967,6 @@ h1 span {
   border: 3.5px solid var(--secondary, #1e206f);
   background: rgba(30, 32, 111, 0.5);
 }
-.resrc-box:hover{
-  cursor: pointer;
-  transform: scale(.8);
-}
 .resrc-box:hover .resrc-cover-container .resrc-cover-overlay {
   background: rgb(30 32 111 / 70%);
     backdrop-filter: blur(3px);
@@ -1999,10 +1995,10 @@ footer {
     transform: scale(0.7);
   }
   .resrc-container {
-    justify-content: flex-start;
-    width: 100vw;
-    height: 417px;
-    gap: 0;
+      justify-content: flex-start;
+      width: 100vw;
+      height: 390px;
+      gap: 4%;
   }
 
   .resrc-box {
@@ -2012,8 +2008,12 @@ footer {
     padding: 2%;
     gap: 10px;
   }
+  .resrc-item {
+    position: relative;
+    width: max-content;
+  }
   .resrc-container :nth-child(1) {
-    margin-left: 2%;
+    margin-left: 4%;
   }
   .resrc-box:last-of-type {
     margin-right: 8%;
@@ -2050,8 +2050,8 @@ footer {
   }
 
   .resource-sec {
-    gap: 16.5px;
-    height: 647px;
+      gap: 16.5px;
+      height: 524px;
   }
   .resrc-nav-container {
     display: none;
@@ -2087,6 +2087,10 @@ footer {
   .explore-btn {
     padding: 8px 16px;
     font-size: 16px;
+  }
+  .upload-popup, .overlay {
+    width: 64%;
+    margin: 0 16%;
   }
   .hero-sec {
     width: 92%;
@@ -2182,7 +2186,7 @@ footer {
     padding-top: 32px;
   }
   .resrc-slider {
-      width: 533px;
+      width: 554px;
       margin: 0;
   }
   .resrc-box {
@@ -2418,6 +2422,89 @@ footer {
     gap: 10%;
   }
 }
+@media only screen and (width >=600px ) {
+.resrc-box:hover {
+    cursor: pointer;
+    transform: scale(1.004);
+}
+
+ .resrc-item{
+  position: absolute;
+   display: flex;
+  transform: translateX(0%);
+  flex-direction: row;
+  opacity: 1;
+  transition: all .5s ease-in-out;
+}
+}
+@media only screen and (width >=768px ) {
+  .resrc-box:hover {
+      cursor: pointer;
+      transform: scale(1.004);
+  }
+}
+@media only screen and (width <600px ) {
+.how-does-sec {
+  align-items: flex-start;
+  padding: 72px 0px;
+  gap: 29px;
+  height: auto;
+}
+#upload-button {
+  left: 67%;
+}
+.how-does-content-container {
+    flex-direction: column;
+  }
+.how-does-step-container {
+    width: 72%;
+    gap: 24px;
+  }
+.vertical-dots {
+  position: absolute;
+  margin-left: -31px;
+  margin-top: -7px;
+  display: flex;
+  flex-direction: column;
+  gap: 54px;
+  }
+  .how-does-reg {
+    backdrop-filter: blur(21px);
+    margin-left: 3%;
+    margin-right: 0;
+  }
+  .testimoney-content, .team-content {
+    flex-direction: column;
+    margin-top: -27px;
+  }
+  .testi-frame{
+    display: none;
+  }
+  .person-comment-container {
+    width: 54%;
+  }
+  .slider-testimoney, .testi-container, .team-container {
+    width: 100%;
+    padding-left: 46%;
+    height: 645px;
+  }
+  .testi-nav-container {
+    width: 76%;}
+    .person-item {
+      position: absolute;
+      top: 0;
+      width: 72%;
+    }
+    .testimony-sec{
+      gap: 0;
+      background-position: 0 -52px;
+      background-size: auto;
+    }
+    .resrc-slider-indicator, .testi-slider-indicator, .team-slider-indicator {
+      margin-top: -34px;
+    }
+
+}
 @media only screen and (width < 992px) {
   nav,
   .overlay {
@@ -2598,6 +2685,10 @@ margin-left: -16px;
     transform: scale(0.78);
     margin: 0px -3.05%;
   }
+  .resrc-box:hover {
+    cursor: pointer;
+    transform: scale(.8);
+}
   .resrc-slider {
     width: 83vw;
     height: 448px;

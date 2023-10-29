@@ -36,16 +36,17 @@
   left: 73.8%;
 } */
 .chat-sec {
+  width: 98%;
   display: flex;
   height: 87vh;
-  padding: 8px 32px;
+  padding: 8px 1%;
   padding-left: 16px;
   align-items: flex-start;
   gap: 32px;
 }
 .book-container {
   position: relative;
-  width: 80%;
+  width: 190%;
   height: 100%;
 }
 .book-container.toWidth {
@@ -60,6 +61,7 @@ footer {
   display: none;
 }
 .chatbot-container {
+  width: auto;
   position: relative;
   display: flex;
   height: 93%;
@@ -67,6 +69,7 @@ footer {
   gap: 8px;
 }
 .chatbot-var-1 {
+  min-width: 61px;
   display: flex;
   width: 254px;
   height: 95%;
@@ -265,6 +268,7 @@ footer {
   margin: 0 22%;
 }
 .overlay {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -297,6 +301,10 @@ footer {
   border: 0.5px solid var(--secondary, #1e206f);
   background: var(--primary, #080d27);
   backdrop-filter: blur(12.158369064331055px);
+}
+.chatbot-var-2,
+.chatbot-var-3 {
+  width: 36rem;
 }
 .chatbot-var-2.hidden {
   display: none;
@@ -1024,6 +1032,7 @@ input[type="file"]:hover {
   border: 1.7px solid var(--color-secondary);
   background: #1e1f6f78;
 }
+
 #upload-button:hover {
   cursor: pointer;
 }

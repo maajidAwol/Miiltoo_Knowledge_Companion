@@ -97,6 +97,9 @@ function handler(country_code) {
     grade_btns[i].addEventListener("click", function () {
       slider_container.innerHTML = ``;
       dots_container.innerHTML = ``;
+      grade_menu.classList.remove("hidden");
+      document.querySelector(".nav-links").classList.toggle("slide");
+      document.querySelector(".overlay").style.display = "none";
       for (let j = 0; j < resrc_btns.length; j++) {
         resrc_btns[j].classList.replace("active-btn", "other-btns");
       }
@@ -167,6 +170,13 @@ function createResrc(g_no, country_code, subj_Name, k) {
       q = 0;
     }
   }
+  // } else {
+  //   p = 1;
+  //   q = 1;
+  //   if (p == Math.floor(subj_Name.length / p)) {
+  //     q = 0;
+  //   }
+  // }
   length = p;
   for (let i = 0; i < q + Math.floor(subj_Name.length / p); i++) {
     slider_container.insertAdjacentHTML(
@@ -252,10 +262,13 @@ function sliderWithAuto(section, item, indicator, left, right, sec_nav) {
   const indicator_dots = document.querySelectorAll(`${indicator} .dots`);
   const left_btn = document.querySelector(`${sec_nav} ${left}`);
   const right_btn = document.querySelector(`${sec_nav} ${right}`);
-
-  slide_content.forEach(
-    (s, i) => (s.style.transform = `translateX(${100 * i}%)`)
-  );
+  if (window.matchMedia("(width<600px)").matches) {
+    slide_content.forEach((s) => (s.style.transform = `none`));
+  } else {
+    slide_content.forEach(
+      (s, i) => (s.style.transform = `translateX(${100 * i}%)`)
+    );
+  }
   let currentSlide = 0;
   const maxSlide = slide_content.length - 1;
 
@@ -293,6 +306,7 @@ function sliderWithAuto(section, item, indicator, left, right, sec_nav) {
     } else {
       currentSlide--;
     }
+
     slide_content.forEach(
       (s, i) => (s.style.transform = `translateX(${100 * (i - currentSlide)}%)`)
     );

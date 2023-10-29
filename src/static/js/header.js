@@ -97,20 +97,10 @@ for (let i = 0; i < home_link.length; i++) {
         grade_btn_icon[i - 2].style.transform = "rotate(180deg)";
         profile_drop_icon.style.transform = "rotate(0deg)";
       }
-    } else if (window.matchMedia("(max-width:992px)").matches) {
-      if (i == 4) {
-        currentPosition = i;
-        country_menu.classList.add("hidden");
-        profile_menu.classList.add("hidden");
-        grade_menu.classList.add("hidden");
-        grade_btn_icon[i - 2].style.transform = "rotate(180deg)";
-        profile_drop_icon.style.transform = "rotate(0deg)";
-        uploadFunc();
-      }
     } else {
       n = 0;
       country_menu.classList.remove("hidden");
-      nav_links.classList.toggle("slide");
+
       if (window.matchMedia("(min-width:992px)").matches) {
         currentPosition = i;
         page_menu.classList.add("hidden");
@@ -126,8 +116,10 @@ for (let i = 0; i < home_link.length; i++) {
     underline.style.transform = `translateX(${currentPosition})`;
   });
   home_link[i].addEventListener("click", function (event) {
-    if (i != 2 || i != 4) {
-      event.preventDefault();
+    if (window.matchMedia("(max-width:992px)").matches) {
+      if (i != 1 || i != 3) {
+        event.preventDefault();
+      }
     }
     underline.style.transform = `translateX(${i})`;
   });
@@ -137,8 +129,8 @@ hamb_btn.addEventListener("click", function () {
   hamb_btn.classList.toggle("active");
   overlay.classList.toggle("hidden");
   upload_popup.classList.add("hidden");
-
   overlay.style.zIndex = "1";
+
   // body.classList.toggle("overflow-hidden");
 });
 overlay.addEventListener("click", () => {
@@ -164,6 +156,7 @@ function uploadFunc() {
     overlay.style.display = "block";
     document.querySelector(".body").style.overflowY = "hidden";
     overlay.classList.remove("forMob");
+    overlay.style.zIndex = "3";
   });
 }
 close_btn.addEventListener("click", () => {
@@ -173,7 +166,7 @@ close_btn.addEventListener("click", () => {
   overlay.classList.remove("forMob");
 });
 overlay.addEventListener("click", () => {
-  overlay.style.display = "none";
+  overlay.classList.toggle("hidden");
   upload_popup.classList.toggle("hidden");
   document.querySelector(".body").style.overflowY = "auto";
   overlay.classList.remove("forMob");
@@ -197,8 +190,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Scroll to the section when an anchor link is clicked
 function scrollToSection(event) {
+  nav_links.classList.toggle("slide");
   event.preventDefault();
   var targetId = event.target.getAttribute("href");
+  document.querySelector(".overlay").style.display = "none";
   var targetSection = document.querySelector(targetId);
   targetSection.scrollIntoView({ behavior: "smooth" });
   // animateSection(targetSection);
