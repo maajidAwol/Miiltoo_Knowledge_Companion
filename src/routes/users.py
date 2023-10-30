@@ -29,8 +29,7 @@ def login():
 
 @users.route("/signup")
 def signup():
-    if session["logged_in"] == "true":
-        return redirect("/#grade")
+    
     
         
     return render_template("signup.html")
