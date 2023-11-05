@@ -88,6 +88,39 @@ def save_contest_data():
         return "Method not allowed", 405  # Return a 405 Method Not Allowed status
 
 
+# @main.route('/contest/', methods=['GET', 'POST'])
+# def contest():
+#     if request.method == 'POST':
+#         # Handle the registration logic here
+#         user_email = session.get('google_email')
+#         contest_id = session.get('contest_id')
+#
+#         if user_email and contest_id:
+#             user = User.query.filter_by(email=user_email).first()
+#
+#             if user:
+#                 user_contest = UserContest.query.filter_by(user_email=user_email, contest_id=contest_id).first()
+#
+#                 if user_contest:
+#                     user_contest.registered = True
+#                     db.session.commit()
+#                 else:
+#                     new_user_contest = UserContest(
+#                         user_email=user_email,
+#                         contest_id=contest_id,
+#                         registered=True
+#                     )
+#                     db.session.add(new_user_contest)
+#                     db.session.commit()
+#                 return jsonify({'success': True, 'message': 'Registration successful'})
+#             else:
+#                 return jsonify({'success': False, 'message': 'User not found'})
+#         else:
+#             return jsonify({'success': False, 'message': 'User email or contest ID not found in the session'})
+#
+#     return render_template('contest.html')
+# from datetime import datetime, timedelta
+#
 @main.route('/contest/', methods=['GET', 'POST'])
 def contest():
     if request.method == 'POST':
@@ -117,10 +150,27 @@ def contest():
                 return jsonify({'success': False, 'message': 'User not found'})
         else:
             return jsonify({'success': False, 'message': 'User email or contest ID not found in the session'})
+    contest_query = Contest.query.filter(Contest.is_approved.is_(True)).first()
+    # Calculate the contest start and end times
+    now = datetime.now().strftime('%Y%m%d%H%M%S')
+    contest_start_time = contest_query.start_time
+    contest_end_time = contest_query.end_time
 
-    return render_template('contest.html')
+    return render_template('contest.html', contest_start_time=contest_start_time, contest_end_time=contest_end_time)
 
+@main.route('/finish_contest/', methods=['POST'])
+def finish_contest():
+    data = request.get_json()
 
+    biology_data = data.get('biology')
+    history_data = data.get('history')
+    chemistry_data = data.get('chemistry')
+    geography_data = data.get('geography')
+    user_email = data.get('user_email')
+
+    print("sdfghjkedfghbjnkml,ghbjnm,")
+    response = {'success': True, 'message': 'Contest data updated successfully'}
+    return jsonify(response)
 @main.route("/register_for_contest/")
 def register_for_contest():
     pass

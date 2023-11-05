@@ -47,6 +47,7 @@ enter_contest_button.addEventListener('click', function (event) {
 
   quizContainer.innerHTML = ""; // Clear the previous quiz content
   resultsContainer.style.display = "none"; // Hide the results
+  enter_contest_button.style.display = "none";
   quizContainer.innerHTML = `
 
 <div class="space-holder" style="height:48px;"></div>
@@ -316,7 +317,7 @@ function showResults(
       resultsContainer.appendChild(resultElement);
     }
   });
-
+    // Attach the registration function to the "Register for Contest" button
   resultsContainer.style.display = "flex";
   //  resultsContainer.innerHTML += `<p>Your score: ${score}/${quizData.length}</p>`;
   resultsContainer.innerHTML += `           <div class="score-container">
@@ -370,5 +371,44 @@ function showResults(
         });
     }
 
-    // Attach the registration function to the "Register for Contest" button
+
     registerbutton.addEventListener('click', registerForContest);
+
+//function finishContest() {
+//  const biologyData_score = biology_score;
+//  const historyData_score = history_score;
+//  const chemistryData_score = chemistry_score;
+//  const geographyData_score = geography_score;
+//  const user_email_score = session.get('google_email'); // Get user email from the session
+//
+//  // Send data to the backend
+//  fetch('/finish_contest', {
+//    method: 'POST',
+//    headers: {
+//      'Content-Type': 'application/json',
+//    },
+//    body: JSON.stringify({
+//      biology: biologyData_score,
+//      history: historyData_score,
+//      chemistry: chemistryData_score,
+//      geography: geographyData_score,
+//      user_email: user_email_score,
+//    }),
+//  })
+//    .then((response) => response.json())
+//    .then((data) => {
+//      if (data.success) {
+//        // Handle success (e.g., show a success message)
+//      } else {
+//        // Handle the error (e.g., display an error message)
+//        alert(data.message);
+//      }
+//    })
+//    .catch((error) => {
+//      // Handle any network or server errors
+//      console.error('Error:', error);
+//    });
+//}
+//
+//// Attach the finishContest function to the "Finish up" button
+//document.getElementById('finish_up_contest').addEventListener('click', finishContest);

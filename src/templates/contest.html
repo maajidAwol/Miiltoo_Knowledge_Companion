@@ -4,6 +4,7 @@
 <title>Contest</title>
 {% endblock %} {%block body%}
 <body class="body">
+<div style="color: white;" id="countdown_to_end"></div>
 <div id="registration-div">
     <button id="register-button" class="btn btn-primary">Register for Contest</button>
   </div>
@@ -130,7 +131,11 @@
         <a href="#" class="btn btn-prev"
           ><i class="fa-solid fa-hand-point-left"></i>Previous</a
         >
-        <input style="display: none;" type="submit" value="Submit" class="btn" />
+        <button id="finish_up_contest" class="btn">Finish up</button>
+
+
+
+
       </div>
     </div>
   </form>
@@ -234,7 +239,38 @@
         ((progressActive.length - 1) / (progressSteps.length - 1)) * 100 + "%";
     }
     // changin subjects end here
+
+    // Function to update the countdown timer
+   
+    function updateCountdown() {
+  const contestEndTime = new Date("{{ contest_end_time }}").getTime(); // Replace with your back-end value
+  const now = new Date().getTime();
+  
+  const timeRemaining = contestEndTime - now;
+  
+  const hours = Math.floor(timeRemaining / (1000 * 60 * 60));
+  const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+  const countdownDiv = document.getElementById("countdown_to_end");
+  countdownDiv.innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+
+  // Call the function to update the countdown display
+  updateCountdownDisplay(timeRemaining);
+}
+
+// Update the countdown timer every second
+setInterval(updateCountdown, 1000);
+
+// Call the function immediately to display the countdown
+updateCountdown();
+
+
+
+
+
   </script>
+
   <script src="/static/js/contest.js"></script>
 </body>
 {%endblock%}
