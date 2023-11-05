@@ -1,18 +1,30 @@
 import json
 import os
-from flask import Blueprint, app, render_template, request, session
+from flask import Blueprint, app, render_template, request, session, flash
 from ..models.contest import Contest
+from ..models.user import User
+from ..models.user_contest import UserContest
 from .topics import biology, history,rt,cont_hist,cont_geo,cont_chem,sudan_hist
 from .utils import ext, pdf_to_text
 from ..extensions import db
+from datetime import datetime
+import random
+import string
 from werkzeug.utils import secure_filename
+from flask import Flask, render_template, request, session, redirect, url_for
+from flask_wtf import FlaskForm
+from wtforms import SubmitField, BooleanField
+
+
 main = Blueprint('main', __name__)
 ALLOWED_EXTENSIONS = {'pdf'}
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-
+class RegistrationForm(FlaskForm):
+    registered = BooleanField('Registered')
+    submit = SubmitField('Update Registration')
 @main.route('/')
 def index():
     return render_template('index-new.html')
@@ -75,14 +87,43 @@ def save_contest_data():
         # Handle invalid requests or other HTTP methods
         return "Method not allowed", 405  # Return a 405 Method Not Allowed status
 
-@main.route("/contest/")
+
+@main.route('/contest/', methods=['GET', 'POST'])
 def contest():
-    return render_template("contest.html")
-# @main.route('/get_chat_history', methods=['GET'])
-# def get_chat_history():
-#     print("get")
-#     chat_history = session.get('bio', [])
-#     return jsonify(chat_history)
+    if request.method == 'POST':
+        # Handle the registration logic here
+        user_email = session.get('google_email')
+        contest_id = session.get('contest_id')
+
+        if user_email and contest_id:
+            user = User.query.filter_by(email=user_email).first()
+
+            if user:
+                user_contest = UserContest.query.filter_by(user_email=user_email, contest_id=contest_id).first()
+
+                if user_contest:
+                    user_contest.registered = True
+                    db.session.commit()
+                else:
+                    new_user_contest = UserContest(
+                        user_email=user_email,
+                        contest_id=contest_id,
+                        registered=True
+                    )
+                    db.session.add(new_user_contest)
+                    db.session.commit()
+                return jsonify({'success': True, 'message': 'Registration successful'})
+            else:
+                return jsonify({'success': False, 'message': 'User not found'})
+        else:
+            return jsonify({'success': False, 'message': 'User email or contest ID not found in the session'})
+
+    return render_template('contest.html')
+
+
+@main.route("/register_for_contest/")
+def register_for_contest():
+    pass
 @main.route('/upload', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
@@ -118,6 +159,12 @@ def upload_file():
 
     return 'Error: Please upload a PDF file'
 
+
+
+
+
+
+
 @main.route("/contest_request", methods=["POST"])
 def contest_send():
     r = ext(rt)
@@ -135,18 +182,29 @@ def contest_send():
     # return result
     # db.session.query(Contest).delete()
     # db.session.commit()
-    print(r)
-    print(dict_contest)
+    random_suffix = ''.join(random.choice(string.ascii_letters) for _ in range(6))
+
+    # Generate a random contest ID by concatenating "grade9" with the current time and the random suffix
+    current_time = datetime.now().strftime('%Y%m%d%H%M%S')
+    contest_id = f'grade9_{current_time}_{random_suffix}'
+    session['contest_id'] = contest_id
+    # Create the Contest instance with the generated ID
     sample_contest = Contest(
-        subject="grade9",
+        contest_id=contest_id,
         contest_data=str_contest,
-        is_approved=True,
-        active=True
+        is_approved=False
     )
+
 
     db.session.add(sample_contest)
     db.session.commit()
-    contest_query = Contest.query.first()
+    contest_query = Contest.query.filter(Contest.is_approved.is_(True)).first()
+    current_time = datetime.strptime(current_time, '%Y%m%d%H%M%S')
+
     result = ext(contest_query.contest_data)
-    print(result)
-    return result
+    print(current_time)
+    if contest_query.start_time <= current_time <= contest_query.end_time:
+        session["contest_id"] =contest_query.contest_id
+        return result
+    else:
+        return "error"

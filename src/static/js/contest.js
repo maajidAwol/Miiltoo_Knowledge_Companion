@@ -35,10 +35,15 @@ const geography_resultsContainer = document.getElementById("geography-results");
 let geography_quizData = [];
 var geography_score = 0;
 const geo_score = document.getElementById("geo-score");
+const enter_contest_button =  document.getElementById('enter-contest-button');
 
-document.addEventListener("DOMContentLoaded", function (event) {
+const main_contest_form =  document.getElementById('main_contest_form');
+
+
+enter_contest_button.addEventListener('click', function (event) {
   event.preventDefault();
   submitButton.style.display = "none";
+  main_contest_form.style.display = "block";
 
   quizContainer.innerHTML = ""; // Clear the previous quiz content
   resultsContainer.style.display = "none"; // Hide the results
@@ -135,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         // You can show an error message or take appropriate action here
 
         quizContainer.innerHTML =
-          '<span style="color:red;">error generating quiz please re generate </span>';
+          '<span style="color:red;">Error loading contest </span>';
         console.error("Empty or invalid response from the server");
         alert("Error: Empty or invalid response from the server");
       }
@@ -143,10 +148,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
     .catch((error) => {
       // Handle network errors or other exceptions here
       quizContainer.innerHTML =
-        '<span style="color:red;">error generating quiz please re generate </span>';
+        '<span style="color:red;">Error loading contest  </span>';
 
       console.error("Error fetching data:", error);
-      alert("Error fetchinmmg data: " + error.message);
+      alert("Error fetchig data: " + error.message);
     });
 
   return false; // Prevent form submission
@@ -330,3 +335,40 @@ function showResults(
 }
 
 //pysics
+
+ 
+   const registerbutton  = document.getElementById('register-button');
+    // Function to handle registration using Fetch
+    function registerForContest() {
+      // Perform Fetch request to the server-side registration route
+      enter_contest_button.style.display= "block";
+      registerbutton .style.display = "none";
+      fetch('/contest/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          // Include any data needed for registration
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          // Handle the response from the server (e.g., success or error message)
+          if (data.success) {
+            // Registration was successful
+            // You can display a success message or redirect the user
+            alert('Registration successful');
+          } else {
+            // Handle the error (e.g., display an error message)
+            alert(data.message);
+          }
+        })
+        .catch((error) => {
+          // Handle any network or server errors
+          console.error('Error:', error);
+        });
+    }
+
+    // Attach the registration function to the "Register for Contest" button
+    registerbutton.addEventListener('click', registerForContest);

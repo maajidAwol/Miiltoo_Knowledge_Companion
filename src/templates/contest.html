@@ -4,7 +4,16 @@
 <title>Contest</title>
 {% endblock %} {%block body%}
 <body class="body">
-  <form action="#" class="form">
+<div id="registration-div">
+    <button id="register-button" class="btn btn-primary">Register for Contest</button>
+  </div>
+
+  <button style="display: none;" class="btn btn-primary" id="enter-contest-button">Enter Contest</button>
+
+
+
+</body>
+  <form action="#" id="main_contest_form" style="display: none;" class="form">
     <h2 class="text-center">Contest</h2>
     <!-- Progress bar -->
     <div class="progressbar">

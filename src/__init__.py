@@ -11,7 +11,8 @@ from flask_admin.contrib.sqla import ModelView
 from flask_login import current_user
 from .models.book import Books 
 from .models.user import User
-from .models.contest import Contest 
+from .models.contest import Contest
+from .models.user_contest import UserContest
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
@@ -33,6 +34,7 @@ admin.add_view(MyView(name='Generate Contest', endpoint='myview'))
 admin.add_view(MyModelView(User, db.session))
 admin.add_view(MyModelView(Books, db.session))
 admin.add_view(MyModelView(Contest, db.session))
+admin.add_view(MyModelView(UserContest, db.session))
 
 def create_app(database_uri='sqlite:///profile.db'):
     app= Flask(__name__)
