@@ -701,7 +701,7 @@ h1 span {
   display: flex;
   padding: 64px 0px;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 64px;
   align-self: stretch;
 }
@@ -1256,7 +1256,7 @@ h1 span {
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  text-transform: capitalize;
+  
   margin-left: 20%;
   margin-right: 8%;
 }
@@ -1518,7 +1518,7 @@ h1 span {
   font-style: normal;
   font-weight: 800;
   line-height: normal;
-  text-transform: capitalize;
+ 
 }
 .harness-text,
 .miiltoo-desc,

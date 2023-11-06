@@ -3,6 +3,7 @@ import os
 from flask import Blueprint, app, render_template, request, session, flash
 from ..models.contest import Contest
 from ..models.user import User
+from ..models.book import Books
 from ..models.user_contest import UserContest
 from .topics import biology, history,rt,cont_hist,cont_geo,cont_chem,sudan_hist
 from .utils import ext, pdf_to_text
@@ -189,7 +190,7 @@ def upload_file():
         filename = secure_filename(file.filename)
         pdf_file_path = os.path.join(os.path.dirname(__file__), '../static/bk', filename)
         file.save(pdf_file_path)
-
+        
         # Convert the PDF to a text file and save it in the "routes/books" folder
         text_filename = os.path.splitext(filename)[0] + '.txt'
         text_file_path = os.path.join(os.path.dirname(__file__), 'books', text_filename)
@@ -202,7 +203,9 @@ def upload_file():
         # Calculate the relative path for rendering the template
         relative_pdf_path = os.path.relpath(pdf_file_path, os.path.join(os.path.dirname(__file__), '../static/bk'))
         bkr = "bk/" + relative_pdf_path
-
+        book=Books(user_email=session['google_email'],book_url=pdf_file_path ,txt_url=bkr)
+        db.session.add(book)
+        db.session.commit()
         json_data = {}  # You can define the json_data here
 
         return render_template("book-new.html", book=bkr, json_data=json_data)
