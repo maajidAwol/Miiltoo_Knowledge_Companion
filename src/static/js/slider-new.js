@@ -99,7 +99,8 @@ function handler(country_code) {
       dots_container.innerHTML = ``;
       grade_menu.classList.remove("hidden");
       document.querySelector(".nav-links").classList.toggle("slide");
-      document.querySelector(".overlay").style.display = "none";
+      document.querySelector(".overlayHeader").classList.toggle("hidden");
+      document.querySelector(".hamb-menu").classList.toggle("active");
       for (let j = 0; j < resrc_btns.length; j++) {
         resrc_btns[j].classList.replace("active-btn", "other-btns");
       }
@@ -169,14 +170,14 @@ function createResrc(g_no, country_code, subj_Name, k) {
     if (p == Math.floor(subj_Name.length / p)) {
       q = 0;
     }
+  } else {
+    // location.reload();
+    p = 1;
+    q = 1;
+    if (p == Math.floor(subj_Name.length / p)) {
+      q = 0;
+    }
   }
-  // } else {
-  //   p = 1;
-  //   q = 1;
-  //   if (p == Math.floor(subj_Name.length / p)) {
-  //     q = 0;
-  //   }
-  // }
   length = p;
   for (let i = 0; i < q + Math.floor(subj_Name.length / p); i++) {
     slider_container.insertAdjacentHTML(

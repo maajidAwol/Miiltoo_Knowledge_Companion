@@ -257,8 +257,7 @@ footer {
   top: 7px;
   left: 11px;
 }
-.upload-popup,
-.overlay {
+.upload-popup {
   width: 56%;
   position: fixed;
   top: 10vh;
@@ -267,24 +266,7 @@ footer {
   z-index: 4;
   margin: 0 22%;
 }
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  max-width: none;
-  height: 100vh;
-  background: #171841ab;
-  backdrop-filter: blur(7px);
-  z-index: 3;
-  margin: 0;
-}
-.overlay.forMob {
-  top: 66px;
-}
-.overlay.overlayDesk {
-  opacity: 0;
-}
+
 .chatbot-var-2,
 .chatbot-var-3,
 .chatbot-var-4 {
