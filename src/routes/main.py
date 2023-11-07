@@ -15,6 +15,7 @@ from werkzeug.utils import secure_filename
 from flask import Flask, render_template, request, session, redirect, url_for
 from flask_wtf import FlaskForm
 from wtforms import SubmitField, BooleanField
+from datetime import datetime, timedelta
 
 
 main = Blueprint('main', __name__)
@@ -120,13 +121,15 @@ def save_contest_data():
 #             return jsonify({'success': False, 'message': 'User email or contest ID not found in the session'})
 #
 #     return render_template('contest.html')
-from datetime import datetime, timedelta
+
 #
 @main.route('/contest/', methods=['GET', 'POST'])
 def contest():
     if request.method == 'POST':
         # Handle the registration logic here
         user_email = session.get('google_email')
+        contest_query = Contest.query.filter(Contest.is_approved.is_(True)).first()
+        session["contest_id"] = contest_query.contest_id
         contest_id = session.get('contest_id')
 
         if user_email and contest_id:
@@ -153,6 +156,8 @@ def contest():
             return jsonify({'success': False, 'message': 'User email or contest ID not found in the session'})
     contest_query = Contest.query.filter(Contest.is_approved.is_(True)).first()
     # Calculate the contest start and end times
+    if not contest_query:
+        return render_template("leaderboard.html")
     now = datetime.now().strftime('%Y%m%d%H%M%S')
     contest_start_time = contest_query.start_time
     contest_end_time = contest_query.end_time
@@ -161,20 +166,34 @@ def contest():
 
 @main.route('/finish_contest/', methods=['POST'])
 def finish_contest():
-    data = request.get_json()
+    print(session['contest_id'])
+    print(session['google_email'])
 
-    biology_data = data.get('biology')
-    history_data = data.get('history')
-    chemistry_data = data.get('chemistry')
-    geography_data = data.get('geography')
-    user_email = data.get('user_email')
+    contest_id = session['contest_id']
+    user_email = session['google_email']
 
-    print("sdfghjkedfghbjnkml,ghbjnm,")
+    biology_score = request.json.get('biology')
+    history_score = request.json.get('history')
+    chemistry_score = request.json.get('chemistry')
+    geography_score = request.json.get('geography')
+
+    user_contest_entry = UserContest.query.filter_by(user_email = user_email, contest_id=contest_id).first()
+    print(user_contest_entry.contest_id)
+    if user_contest_entry:
+        # Update the subject scores and total
+        user_contest_entry.biology = biology_score
+        user_contest_entry.history = history_score
+        user_contest_entry.chemistry = chemistry_score
+        user_contest_entry.geography = geography_score
+        user_contest_entry.total = sum(
+            [score for score in [biology_score, history_score, chemistry_score, geography_score] if score is not None])
+        db.session.commit()
+
     response = {'success': True, 'message': 'Contest data updated successfully'}
     return jsonify(response)
-@main.route("/register_for_contest/")
-def register_for_contest():
-    pass
+# @main.route("/register_for_contest/")
+# def register_for_contest():
+#     pass
 @main.route('/upload', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
@@ -225,47 +244,29 @@ def upload_file():
 
 @main.route("/contest_request", methods=['GET', 'POST' ])
 def contest_send():
-    r = ext(rt)
-    hist_cont =ext(cont_hist)
-    geo_cont =ext(cont_geo)
-    chem_cont =ext(cont_chem)
-    subject = "biology"
-    dict_contest = {subject: r}
-
-    dict_contest.update({"history": hist_cont})
-    dict_contest.update({"chemistry": chem_cont})
-    dict_contest.update({"geography": geo_cont})
-    str_contest = json.dumps(dict_contest)
-    # result = ext(r)
-    # return result
-    # db.session.query(Contest).delete()
-    # db.session.commit()
-    random_suffix = ''.join(random.choice(string.ascii_letters) for _ in range(6))
-
-    # Generate a random contest ID by concatenating "grade9" with the current time and the random suffix
     current_time = datetime.now().strftime('%Y%m%d%H%M%S')
-    contest_id = f'grade9_{current_time}_{random_suffix}'
-    session['contest_id'] = contest_id
-    # Create the Contest instance with the generated ID
-    sample_contest = Contest(
-        contest_id=contest_id,
-        contest_data=str_contest,
-        is_approved=False
-    )
-
-
-    db.session.add(sample_contest)
-    db.session.commit()
     contest_query = Contest.query.filter(Contest.is_approved.is_(True)).first()
+    session["contest_id"] = contest_query.contest_id
     current_time = datetime.strptime(current_time, '%Y%m%d%H%M%S')
 
-    result = ext(contest_query.contest_data)
-    print(current_time)
+    if not contest_query.start_time:
+        return render_template("leaderboard.html")
     if contest_query.start_time <= current_time <= contest_query.end_time:
-        session["contest_id"] =contest_query.contest_id
+        result = ext(contest_query.contest_data)
+        print(current_time)
+
         return result
     else:
         return render_template("leaderboard.html")
 @main.route("/leaderboard")
 def leaderboard():
-    return render_template("leaderboard.html")
+    contest_id_from_session = session.get('contest_id')
+
+    if contest_id_from_session:
+        leaderboard_data = UserContest.query.filter_by(contest_id=contest_id_from_session).order_by(
+            UserContest.total.desc()).all()
+
+        return render_template("leaderboard.html", leaderboard_data=leaderboard_data)
+    else:
+        return "Contest ID not found in the session."
+

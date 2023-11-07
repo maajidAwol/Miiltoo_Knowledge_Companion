@@ -14,3 +14,5 @@ class User(db.Model, UserMixin):
     country = db.Column(db.String(255))
     city = db.Column(db.String(50))
     books= db.relationship('Books',backref='user')
+    # user_contests = db.relationship('UserContest', backref='user')
+

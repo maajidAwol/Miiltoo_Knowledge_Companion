@@ -151,7 +151,7 @@
         <a href="#" class="btn btn-prev"
           ><i class="fa-solid fa-hand-point-left"></i>Previous</a
         >
-        <a id="finish_up_contest" href="/leaderboard" class="btn">Finish up</a>
+        <button type="button"  id="finish_up_contest"  class="btn">Finish up</button>
 
 
 
@@ -229,11 +229,14 @@ function updateCountdown() {
   if (timeRemaining <= 0) {
     // Time's up!
     const countdownDiv = document.getElementById("countdown_to_end");
+    
     countdownDiv.innerHTML = "Time's up!";
-    var newRoute = "/leaderboard";
+  //  var newRoute = "/finish_contest";
 
   // Redirect to the new route
-  window.location.href = newRoute;
+ // window.location.href = newRoute;
+ finish_contest();
+
     showResults(
     resultsContainer,
     biology_quizData,
@@ -259,44 +262,7 @@ setInterval(updateCountdown, 1000);
 updateCountdown();
 
 // saving data
-    function finishContest() {
-  const biologyData_score = biology_score;
-  const historyData_score = history_score;
-  const chemistryData_score = chemistry_score;
-  const geographyData_score = geography_score;
-  const user_email_score = session.get('google_email'); // Get user email from the session
-
-  // Send data to the backend
-  fetch('/finish_contest', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      biology: biologyData_score,
-      history: historyData_score,
-      chemistry: chemistryData_score,
-      geography: geographyData_score,
-      user_email: user_email_score,
-    }),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.success) {
-        // Handle success (e.g., show a success message)
-      } else {
-        // Handle the error (e.g., display an error message)
-        alert(data.message);
-      }
-    })
-    .catch((error) => {
-      // Handle any network or server errors
-      console.error('Error:', error);
-    });
-}
-
-// Attach the finishContest function to the "Finish up" button
-document.getElementById('finish_up_contest').addEventListener('click', finishContest);
+   
 
 
   </script>

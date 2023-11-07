@@ -343,7 +343,24 @@ function showResults(
    ${title}  score : <span class="score">${score}</span><span class="total-quize">/${quizData.length}</span>
    </div>
  </div><br>`;
+ subject_score =score;
+
+ if(title == "Biology"){
+  biology_score = score;
+
+ }else if(title == "History"){
+  history_score = score;
+
+ }else if(title == "Chemistry"){
+  chemistry_score = score;
+
+ }else if(title == "Geography"){
+  geography_score = score;
+
+ }
+ 
 }
+
 
 //pysics
 
@@ -372,6 +389,7 @@ function showResults(
             alert('Registration successful');
           } else {
             // Handle the error (e.g., display an error message)
+            window.location.href = "/login";
             alert(data.message);
           }
         })
@@ -383,6 +401,51 @@ function showResults(
 
 
     registerbutton.addEventListener('click', registerForContest);
+
+
+
+    
+   const finish_up_contest  = document.getElementById('finish_up_contest');
+   // Function to handle registration using Fetch
+   function finish_contest() {
+     // Perform Fetch request to the server-side registration route
+     enter_contest_button.style.display= "block";
+     registerbutton .style.display = "none";
+     
+     fetch('/finish_contest/', {
+       method: 'POST',
+       headers: {
+         'Content-Type': 'application/json',
+       },
+       body: JSON.stringify({
+         // Include any data needed for registration
+         biology: biology_score,
+         history: history_score,
+         chemistry: chemistry_score,
+         geography: geography_score,
+       }),
+     })
+       .then((response) => response.json())
+       .then((data) => {
+         // Handle the response from the server (e.g., success or error message)
+         if (data.success) {
+           // Registration was successful
+           // You can display a success message or redirect the user
+           
+           window.location.href = "/leaderboard";
+         } else {
+           // Handle the error (e.g., display an error message)
+           alert(data.message);
+         }
+       })
+       .catch((error) => {
+         // Handle any network or server errors
+         console.error('Error:', error);
+       });
+   }
+
+
+   finish_up_contest.addEventListener('click', finish_contest);
 
 //function finishContest() {
 //  const biologyData_score = biology_score;

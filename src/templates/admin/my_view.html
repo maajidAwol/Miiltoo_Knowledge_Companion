@@ -145,19 +145,19 @@ saveButton.addEventListener("click", function() {
             // Process the response data if needed
             console.log(data); // Replace with your handling logic
             // Navigate back to the previous page
-            window.history.back();
+            //window.history.back();
         })
         .catch(error => {
             // Handle network errors or other exceptions here
             console.error('Error:', error);
             // Navigate back to the previous page even on error
-            window.history.back();
+           // window.history.back();
         });
     }
 
     // Call the function
     sendPostRequest();
-    window.history.back();
+   // window.history.back();
 });
 
 

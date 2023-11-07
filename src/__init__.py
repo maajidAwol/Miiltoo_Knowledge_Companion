@@ -4,6 +4,7 @@ from .extensions import db, bcrypt, mail, migrate, admin, login
 from decouple import config
 from .routes.main import main
 from .routes.users import users
+from .routes.utils import save_first_contest
 from .routes.api import api
 from flask import redirect, url_for
 from flask_admin import BaseView, expose
@@ -61,6 +62,7 @@ def create_app(database_uri='sqlite:///profile.db'):
      
     with app.app_context():
         db.create_all()
+        save_first_contest()
     app.register_blueprint(main)
     app.register_blueprint(users)
     app.register_blueprint(api)
