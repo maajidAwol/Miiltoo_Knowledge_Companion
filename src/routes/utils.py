@@ -157,3 +157,8 @@ def pdf_to_text(pdf_path):
         for page in pdf_reader.pages:
             text += page.extract_text()
     return text
+def replace_space(filename):
+    for i in range(len(filename)):
+        if filename[i]==' ':
+            filename[i]='_'
+    return filename

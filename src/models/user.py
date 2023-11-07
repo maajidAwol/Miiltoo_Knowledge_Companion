@@ -13,5 +13,4 @@ class User(db.Model, UserMixin):
     verified = db.Column(db.Boolean)
     country = db.Column(db.String(255))
     city = db.Column(db.String(50))
-
-
+    books= db.relationship('Books',backref='user')

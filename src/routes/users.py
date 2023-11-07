@@ -275,3 +275,7 @@ def callback():
 def protected_area():
     session['logged_in'] = "true"
     return redirect("/")
+@users.route("/booklist")
+def booklist():
+    books=Books.query.filter_by(user_email=session['google_email'])
+    return render_template('booklist.html',books=books)
