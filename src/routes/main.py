@@ -67,12 +67,15 @@ def save_contest_data():
     if request.method == 'POST':
         data = request.get_json()  # Assuming data is sent as JSON
         contest_data = data.get('contestData', '')  # Extract 'contestData' from the JSON
-
+        random_suffix = ''.join(random.choice(string.ascii_letters) for _ in range(6))
+        current_time = datetime.now().strftime('%Y%m%d%H%M%S')
+        contest_id = f'grade9_{current_time}_{random_suffix}'
+        print(contest_id)
         sample_contest = Contest(
-            subject="grade9",
+            contest_id = contest_id,
             contest_data=contest_data,
             is_approved=True,
-            active=True
+
         )
 
         db.session.add(sample_contest)
