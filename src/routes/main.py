@@ -119,7 +119,7 @@ def save_contest_data():
 #             return jsonify({'success': False, 'message': 'User email or contest ID not found in the session'})
 #
 #     return render_template('contest.html')
-# from datetime import datetime, timedelta
+from datetime import datetime, timedelta
 #
 @main.route('/contest/', methods=['GET', 'POST'])
 def contest():
@@ -215,7 +215,7 @@ def upload_file():
 
 
 
-@main.route("/contest_request", methods=["POST"])
+@main.route("/contest_request", methods=['GET', 'POST' ])
 def contest_send():
     r = ext(rt)
     hist_cont =ext(cont_hist)
@@ -257,4 +257,7 @@ def contest_send():
         session["contest_id"] =contest_query.contest_id
         return result
     else:
-        return "error"
+        return render_template("leaderboard.html")
+@main.route("/leaderboard")
+def leaderboard():
+    return render_template("leaderboard.html")

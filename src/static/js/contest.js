@@ -191,7 +191,7 @@ function buildQuiz(quizContainer, quizData) {
 
   submitButton.disabled = false;
 }
-
+const bio_next = document.getElementById("bio-next");
 submitButton.addEventListener("click", function () {
   showResults(
     resultsContainer,
@@ -201,7 +201,9 @@ submitButton.addEventListener("click", function () {
     biology_score
   );
   submitButton.style.display = "none";
+  bio_next.style.display = "block";
 });
+const hist_next = document.getElementById("hist-next");
 history_submitButton.addEventListener("click", function () {
   showResults(
     history_resultsContainer,
@@ -211,7 +213,9 @@ history_submitButton.addEventListener("click", function () {
     history_score
   );
   history_submitButton.style.display = "none";
+  hist_next.style.display = "block";
 });
+const geo_next = document.getElementById("geo-next");
 geography_submitButton.addEventListener("click", function () {
   showResults(
     geography_resultsContainer,
@@ -221,8 +225,9 @@ geography_submitButton.addEventListener("click", function () {
     geography_score
   );
   geography_submitButton.style.display = "none";
+  geo_next.style.display = "block";
 });
-
+const chem_next = document.getElementById("chem-next");
 chemistry_submitButton.addEventListener("click", function () {
   showResults(
     chemistry_resultsContainer,
@@ -232,12 +237,17 @@ chemistry_submitButton.addEventListener("click", function () {
     chemistry_score
   );
   chemistry_submitButton.style.display = "none";
+  chem_next.style.display = "block";
+  
+});
+function totalpointdisp(){
   total_score.innerHTML = `           <div class="score-container">
   <div class="score-board">
     Total Score : <span class="score">${total_point}</span><span class="total-quize">/${total_question}</span>
    </div>
  </div><br>`;
-});
+}
+
 function showResults(
   resultsContainer,
   quizData,
