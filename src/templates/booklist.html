@@ -1,0 +1,51 @@
+{%extends "base.html"%}
+{%block title %}My books{%endblock%}
+{%block body%}
+{% if books %}
+ <h1>Uploaded Books</h1>
+<ul>
+    
+    {% for book in books %}
+        <a
+href="/grade/?book={{book.txt_url}}"
+class="resrc-box"
+>
+<div class="resrc-cover-container">
+  <img
+    src="/static/asset/book-cover/book.png"
+    class="resrc-cover-item"
+
+  />
+  <div class="resrc-cover-overlay">
+    <p class='grade_no'>{{book.book_name}}</p>
+    <span class="resrc-cover-overlay-icon">
+      <i class="fa-solid fa-book-open-reader"></i>
+    </span>
+  </div>
+</div>
+<div class="resrc-tittle-container">
+  <span class="resrc-tittle-icon"
+    ><i class="fa-solid fa-book"></i
+  ></span>
+   Desciption
+</div>
+<div class="resrc-desc-container">
+  <div class="resrc-desc-tittle">
+    <span class="resc-desc-tittle-icon"
+      ><i class="fa-solid fa-feather"></i
+    ></span>
+   
+  </div>
+  <div class="resrc-desc-content">
+    <p class="resrc-desc-text">
+      uplaoded books
+    </p>
+  </div>
+</div>
+</a>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No data available.</p>
+{% endif %}
+{%endblock%}

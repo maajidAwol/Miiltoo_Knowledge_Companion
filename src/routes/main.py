@@ -203,9 +203,11 @@ def upload_file():
         # Calculate the relative path for rendering the template
         relative_pdf_path = os.path.relpath(pdf_file_path, os.path.join(os.path.dirname(__file__), '../static/bk'))
         bkr = "bk/" + relative_pdf_path
-        book=Books(user_email=session['google_email'],book_url=pdf_file_path ,txt_url=bkr)
-        db.session.add(book)
-        db.session.commit()
+        book=Books(user_email=session['google_email'],book_name=file.filename,book_url='books/'+text_filename,txt_url= 'bk/'+file.filename)
+        exist=Books.query.filter_by(book_url='books/'+text_filename).first()
+        if not exist:
+            db.session.add(book)
+            db.session.commit()
         json_data = {}  # You can define the json_data here
 
         return render_template("book-new.html", book=bkr, json_data=json_data)
