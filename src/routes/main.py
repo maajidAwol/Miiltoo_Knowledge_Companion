@@ -6,7 +6,7 @@ from ..models.user import User
 from ..models.book import Books
 from ..models.user_contest import UserContest
 from .topics import biology, history,rt,cont_hist,cont_geo,cont_chem,sudan_hist
-from .utils import ext, pdf_to_text
+from .utils import ext, pdf_to_text,replace_space
 from ..extensions import db
 from datetime import datetime
 import random
@@ -188,11 +188,14 @@ def upload_file():
     if file and allowed_file(file.filename):
         # Save the uploaded PDF file to the "static/bk" folder
         filename = secure_filename(file.filename)
+        
+        filename=replace_space(filename)
         pdf_file_path = os.path.join(os.path.dirname(__file__), '../static/bk', filename)
         file.save(pdf_file_path)
         
         # Convert the PDF to a text file and save it in the "routes/books" folder
         text_filename = os.path.splitext(filename)[0] + '.txt'
+        text_filename=replace_space(text_filename)
         text_file_path = os.path.join(os.path.dirname(__file__), 'books', text_filename)
 
         # Use pdfminer.six to extract text from the PDF and save it to the text file
@@ -203,7 +206,7 @@ def upload_file():
         # Calculate the relative path for rendering the template
         relative_pdf_path = os.path.relpath(pdf_file_path, os.path.join(os.path.dirname(__file__), '../static/bk'))
         bkr = "bk/" + relative_pdf_path
-        book=Books(user_email=session['google_email'],book_name=file.filename,book_url='books/'+text_filename,txt_url= 'bk/'+file.filename)
+        book=Books(user_email=session['google_email'],book_name=file.filename,book_url='books/'+text_filename,txt_url= 'bk/'+filename)
         exist=Books.query.filter_by(book_url='books/'+text_filename).first()
         if not exist:
             db.session.add(book)
