@@ -89,7 +89,8 @@
 .animation-logo {
   position: relative;
   top: 0px;
-  left: 252px;
+  /* right: -81%; */
+  margin-left: 28vw;
   width: 80px;
   height: 80px;
   background: transparent;

@@ -1,7 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 * {
   margin: 0;
   padding: 0;
+}
+:root {
+  /* fonts */
+  --font-pacifico: Pacifico;
+  --font-roboto: Roboto;
+
+  /* font sizes */
+  --font-size-mini-5: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 16px;
+  --font-size-Hb: 25px;
+  --font-size-Xl: 32px;
+  --font-size-XXl-sc: 48px;
+  --font-size-XXl-pr: 61px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-black: #000;
+  --color-primary: #080d27;
+  --color-secondary: #1e206f;
+  --color-accent: #22fbf9;
+  font-family: var(--font-roboto);
 }
 body {
   width: 100vw;
@@ -15,10 +38,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: black; /*
-  background: url(/static/public/login-bg2.jpg);
-  background-position: center;
-  background-size: contain;*/
+  background: var(--color-primary);
 }
 
 .login-bg {
@@ -38,9 +58,9 @@ body {
   align-items: center;
   gap: 4.548px;
   border-radius: 22.741px;
-  background: rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 5.11667px 12.79166px 0px rgba(101, 255, 252, 0.42),
-    0px 2.27407px 54.00925px 0px rgba(142, 235, 255, 0.84);
+  background: var(--color-primary);
+  box-shadow: 0px 5.11667px 70.79166px 0px var(--color-secondary),
+    0px 2.27407px 54.00925px 0px var(--color-secondary);
   backdrop-filter: blur(2.274073600769043px);
 }
 .login-container-inner,
@@ -55,8 +75,8 @@ body {
   align-items: center;
   gap: 16px;
   border-radius: 13.644px;
-  border: 1.706px solid rgba(101, 255, 252, 0.39);
-  background: rgba(0, 0, 0, 0.76);
+  border: 1.5px solid var(--color-secondary);
+  background: #1e206f33;
   backdrop-filter: blur(2.558332681655884px);
 }
 .signup-container-inner {
@@ -121,6 +141,9 @@ body {
 .text-back,
 .text-miiltoo {
   color: var(--wireframe-color-white, #65fffc);
+}
+.text-back {
+  margin-left: 6px;
 }
 .email-container,
 .password-container,
@@ -248,9 +271,9 @@ label {
   font-size: 16px;
   align-self: stretch;
   border-radius: 8px;
-  border: 1.137px solid rgba(0, 0, 0, 0.05);
+  border: 1.137px solid var(--color-secondary);
   color: #65fffc;
-  background: rgba(255, 255, 255, 0.15);
+  background: #1e206f6b;
 }
 .email-field::placeholder,
 .password-field::placeholder,
@@ -261,7 +284,6 @@ label {
   font-style: normal;
   font-weight: 500;
   line-height: 12.507px; /* 104.228% */
-  
 }
 .email-field:focus,
 .password-field:focus,

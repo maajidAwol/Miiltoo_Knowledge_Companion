@@ -278,4 +278,13 @@ def protected_area():
 @users.route("/booklist")
 def booklist():
     books=Books.query.filter_by(user_email=session['google_email'])
-    return render_template('booklist.html',books=books)
+    if books:
+        return render_template('booklist.html',books=books)
+    return render_template('booklist.html')
+@users.route("/delete_book")
+def delete_book():
+    book_name=request.args.get('book_name')
+    book=Books.query.filter_by(user_email=session['google_email'],book_url=book_name).first()
+    db.session.delete(book)
+    db.session.commit()
+    return redirect("/booklist")
