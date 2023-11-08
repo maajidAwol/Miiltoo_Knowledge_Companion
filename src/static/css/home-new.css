@@ -908,8 +908,8 @@ h1 span {
   line-height: normal;
   text-transform: capitalize;
 }
-.resrc-line {
-}
+/* .resrc-line {
+} */
 
 .resrc-btns,
 .resrc-btns-item {
@@ -1024,10 +1024,11 @@ h1 span {
   scroll-behavior: smooth;
   margin-left: 16px;
 }
+/* }
 .resrc-container :nth-child(1) {
 }
 .resrc-container :last-child {
-}
+} */
 .resrc-container::-webkit-scrollbar {
   display: none;
 }
@@ -1144,10 +1145,10 @@ h1 span {
   font-size: 16px;
   color: var(--color-accent);
 }
-.resrc-desc-content {
+/* .resrc-desc-content {
 }
 .resrc-content-icon {
-}
+} */
 
 .resrc-desc-text {
   flex-shrink: 0;
@@ -1497,8 +1498,8 @@ h1 span {
 .review-container {
   font-size: 18px;
 }
-.star-container {
-}
+/* .star-container {
+} */
 .shape-collection {
   position: relative;
   width: 363px;
@@ -2046,7 +2047,7 @@ footer {
   .resrc-btns :nth-child(1) {
     margin-left: 204px;
   }
-  }
+
   .resrc-btns :last-child {
     margin-right: 0%;
   }
