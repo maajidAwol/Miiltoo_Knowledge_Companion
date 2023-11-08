@@ -2044,10 +2044,11 @@ footer {
     transform: scale(0.6);
   }
   .resrc-btns :nth-child(1) {
-    margin-left: 24%;
+    margin-left: 204px;
+  }
   }
   .resrc-btns :last-child {
-    margin-right: 14%;
+    margin-right: 0%;
   }
   .active-btn,
   .other-btns {

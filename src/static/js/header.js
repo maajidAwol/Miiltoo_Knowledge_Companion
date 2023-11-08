@@ -125,7 +125,7 @@ if (window.matchMedia("(min-width:992px)").matches) {
         country_menu.classList.add("hidden");
         profile_menu.classList.add("hidden");
         grade_menu.classList.add("hidden");
-        grade_btn_icon[2].classList.toggle("rotate");
+        // grade_btn_icon[2].classList.toggle("rotate");
         // profile_drop_icon.style.transform = "rotate(0deg)";
       } else if (i == 4) {
         country_menu.classList.toggle("hidden");
@@ -202,21 +202,33 @@ document.addEventListener("DOMContentLoaded", function () {
     links[i].addEventListener("click", scrollToSection);
   }
 });
+var links = document.querySelectorAll(".page-menu-item");
 
-// Scroll to the section when an anchor link is clicked
-function scrollToSection(event) {
-  event.preventDefault();
-  document.querySelector(".nav-links").classList.toggle("slide");
-  document.querySelector(".overlayHeader").classList.toggle("hidden");
-  document.querySelector(".hamb-menu").classList.toggle("active");
-  var targetId = event.target.getAttribute("href");
-  document.querySelector(".overlay").style.display = "none";
-  var targetSection = document.querySelector(targetId);
-  targetSection.scrollIntoView({ behavior: "smooth" });
+for (var i = 0; i < links.length; i++) {
+  links[i].addEventListener("click", () => {
+    if (window.matchMedia("(width < 992px )").matches) {
+      // location.reload();
 
-  // animateSection(targetSection);
+      document.querySelector(".nav-links").classList.toggle("slide");
+      document.querySelector(".overlayHeader").classList.toggle("hidden");
+      document.querySelector(".hamb-menu").classList.toggle("active");
+    }
+  });
 }
 
+// Scroll to the section when an anchor link is clicked
+
+function scrollToSection(event) {
+  // Hide nav links and overlay for screens with width < 992px
+
+  // event.preventDefault();
+
+  var targetId = event.target.getAttribute("href");
+  var targetSection = document.querySelector(targetId);
+
+  // Scroll to the target section
+  targetSection.scrollIntoView({ behavior: "smooth" });
+}
 // Apply animation to the section
 function animateSection(section) {
   section.classList.add("active");

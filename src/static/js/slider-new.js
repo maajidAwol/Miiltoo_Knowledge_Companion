@@ -54,6 +54,7 @@ function handleCountrySelection(country) {
 }
 function changeContent(country, event) {
   event.preventDefault();
+
   if (country === "ethiopia") {
     country_code = "ETH";
   } else if (country === "nigeria") {
@@ -78,6 +79,11 @@ Country
       <img src="/static/asset/${country}-flag.svg" alt="" />
     </span>
 `;
+  // if (window.matchMedia("(width < 992px)").matches) {
+  //   document.querySelector(".nav-links").classList.toggle("slide");
+  //   document.querySelector(".overlayHeader").classList.toggle("hidden");
+  //   document.querySelector(".hamb-menu").classList.toggle("active");
+  // }
   slider_container.innerHTML = ``;
   dots_container.innerHTML = ``;
   createResrc(9, country_code, subj_Name, k);
@@ -94,13 +100,16 @@ Country
 
 function handler(country_code) {
   for (let i = 0; i < grade_btns.length; i++) {
-    grade_btns[i].addEventListener("click", function () {
+    grade_btns[i].addEventListener("click", function (event) {
       slider_container.innerHTML = ``;
       dots_container.innerHTML = ``;
       grade_menu.classList.remove("hidden");
-      document.querySelector(".nav-links").classList.toggle("slide");
-      document.querySelector(".overlayHeader").classList.toggle("hidden");
-      document.querySelector(".hamb-menu").classList.toggle("active");
+      // event.stopPropagation()
+      if (window.matchMedia("(width < 992px)").matches) {
+        document.querySelector(".nav-links").classList.toggle("slide");
+        document.querySelector(".overlayHeader").classList.toggle("hidden");
+        document.querySelector(".hamb-menu").classList.toggle("active");
+      }
       for (let j = 0; j < resrc_btns.length; j++) {
         resrc_btns[j].classList.replace("active-btn", "other-btns");
       }
