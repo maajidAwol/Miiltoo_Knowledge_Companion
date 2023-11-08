@@ -272,4 +272,20 @@ def leaderboard():
         return render_template("leaderboard.html", leaderboard_data=leaderboard_data)
     else:
         return "Contest ID not found in the session."
+@main.route('/get_chat_history', methods=['POST'])
+def get_chat_history():
+    choice = request.json.get("book_choice")
+    path = ""
+
+    url = choice
+
+    # Replace "bk" with "books"
+    path = url.replace("bk/", "books/")
+    path = path[:-4] + ".txt"
+    print(path)
+    path=path[1:]
+    file_path = os.path.join(os.path.dirname(__file__), path)
+    chat_history = session.get(file_path, [])
+    print(path)
+    return jsonify(chat_history)
 

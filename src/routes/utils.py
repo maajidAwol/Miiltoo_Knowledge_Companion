@@ -110,7 +110,7 @@ def chat_function(prompt,path):
 
     loader = TextLoader(path, encoding="utf-8")  # Use this line if you only need data.txt
 
-    print(path)
+    print(path+"jjj")
     index = VectorstoreIndexCreator().from_loaders([loader])
 
     chain = ConversationalRetrievalChain.from_llm(
@@ -120,17 +120,24 @@ def chat_function(prompt,path):
     # session.pop("hist", None)
     if "bio" not in session:
         session["bio"] = []
+    if path not in session:
+        session[path] = []
 
-    chat_history = session["bio"]
-    result = chain({"question": prompt, "chat_history": ""})
+    # chat_history = session["bio"]
+    chat_history = session[path]
+    result = chain({"question": prompt, "chat_history": chat_history})
 
     # Append the current conversation turn to the chat history in the session
     chat_history.append((prompt, result['answer']))
-    session["bio"] = chat_history  # Update the chat history in the session
+    # session[path] = chat_history
+    # print(session[path])
+    # session["bio"] = chat_history  # Update the chat history in the session
+    session[path] = chat_history
 
     query = None
     print(result)
     print(session["bio"])
+    print(session[path])
     return result
 def quiz_function(prompt, path):
 

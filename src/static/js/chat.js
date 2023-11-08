@@ -241,19 +241,27 @@ function add_chat_history_Message(message, isUserMessage) {
 }
 const historyEndpoint = '/get_chat_history';
 
-//function displayChatHistory() {
-//  fetch(historyEndpoint)
-//    .then((response) => response.json())
-//    .then((chatHistory) => {
-//
-//      chatHistory.forEach(([userMessage, chatbotMessage]) => {
-//        add_chat_history_Message(userMessage, true);
-//        add_chat_history_Message(chatbotMessage, false);
-//      });
-//    })
-//    .catch((error) => console.error(error));
-//
-//}
+function displayChatHistory() {
+  
+  const book_choice1 = oda.value.trim();
+  fetch(historyEndpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({book_choice: book_choice1 }),
+    })
+    .then((response) => response.json())
+    .then((chatHistory) => {
+
+      chatHistory.forEach(([userMessage, chatbotMessage]) => {
+        add_chat_history_Message(userMessage, true);
+        add_chat_history_Message(chatbotMessage, false);
+      });
+    })
+    .catch((error) => console.error(error));
+
+}
 
 // Call the function to display chat history
 displayChatHistory();
