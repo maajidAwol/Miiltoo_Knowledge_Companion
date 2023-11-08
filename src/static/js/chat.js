@@ -181,7 +181,7 @@ function sendMessage() {
   
         sendBtn.style.display = "block";
         console.error("Error fetching data:", error);
-        alert("Error fetching data: " );
+        alert("Error fetching data" );
       });
   }
 }
