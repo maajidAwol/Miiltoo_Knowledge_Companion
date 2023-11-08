@@ -73,8 +73,9 @@ header {
   padding: 8px 8%;
   align-items: center;
   gap: 8px;
+  background: #2f3f903b;
   align-self: stretch;
-  backdrop-filter: blur(100px);
+  backdrop-filter: blur(32px);
   z-index: 2;
 }
 header::before {

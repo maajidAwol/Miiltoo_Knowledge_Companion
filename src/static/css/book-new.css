@@ -61,11 +61,12 @@ footer {
   display: none;
 }
 .chatbot-container {
-  width: auto;
+  width: 100%;
   position: relative;
   display: flex;
   height: 93%;
   align-items: flex-start;
+  justify-content: center;
   gap: 8px;
 }
 .chatbot-var-1 {
@@ -319,8 +320,8 @@ footer {
 }
 .var2-logo span {
   color: var(--color-accent);
-  
   margin-left: -11px;
+  text-transform: none;
 }
 .chat-top-headline {
   display: flex;
@@ -371,7 +372,6 @@ footer {
 .subject-name {
   font-size: 14px;
   font-weight: 400;
-  
 }
 .ask-form,
 .generate-form {
@@ -588,7 +588,6 @@ footer {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  
 }
 .chatbot-message-container {
   display: flex;
@@ -611,7 +610,7 @@ footer {
   font-style: normal;
   font-weight: 500;
   line-height: 168%;
- 
+
   padding: 8px;
   align-items: flex-start;
   align-content: flex-start;
@@ -656,7 +655,7 @@ footer {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  
+
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -920,7 +919,7 @@ footer {
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
-  
+
   background: transparent;
   box-shadow: 0px 4px 7.5px 0px rgba(0, 0, 0, 0.25);
 }
@@ -999,7 +998,6 @@ input[type="file"]:hover {
   opacity: 0.65;
   font-size: 14px;
   font-weight: 400;
-
 }
 #upload-button {
   position: absolute;
@@ -1104,7 +1102,7 @@ input[type="file"]:hover {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  
+
   opacity: 0.64;
 }
 .upload-status-container {
@@ -1132,7 +1130,6 @@ input[type="file"]:hover {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  
 }
 .upload-status {
   display: flex;
@@ -1161,4 +1158,42 @@ input[type="file"]:hover {
 }
 .hidden {
   display: none;
+}
+@media only screen and (width < 992px) {
+  .chat-sec {
+    padding: 8px 1%;
+    margin-bottom: 24px;
+  }
+  .chatbot-var-2,
+  .chatbot-var-3 {
+    width: 90%;
+    min-width: 420px;
+  }
+  .book-container {
+    display: none;
+  }
+  .chatbot-var-1.width {
+    display: none;
+  }
+  .arrow-btn {
+    display: none;
+  }
+  .chatbot-var-2,
+  .chatbot-var-3 {
+    width: 82%;
+    margin: 24px 0;
+  }
+  .text-input-container {
+    height: 25px;
+  }
+}
+
+@media only screen and (768px<=width < 992px) {
+  .chatbot-var-1.width {
+    display: flex;
+  }
+  .chatbot-var-2,
+  .chatbot-var-3 {
+    width: 73%;
+  }
 }
