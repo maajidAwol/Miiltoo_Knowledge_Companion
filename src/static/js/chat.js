@@ -114,7 +114,7 @@ function sendMessage() {
         const messageDiv = document.createElement("div");
         messageDiv.classList.add("mt-3", "p-3", "rounded");
         messageDiv.classList.add("chatbot-message-container");
-        sendBtn.style.visibility = "visible";
+        sendBtn.style.display = "block";
 
         const content = data.answer;
 
@@ -175,14 +175,21 @@ function sendMessage() {
 
         // chatBox.scrollTop = chatBox.scrollHeight;
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        // Handle network errors or other exceptions here
+        
+  
+        sendBtn.style.display = "block";
+        console.error("Error fetching data:", error);
+        alert("Error fetching data: " );
+      });
   }
 }
 
 sendBtn.addEventListener("click", function (event) {
   event.preventDefault(); // Prevent the default form submission behavior
   sendMessage();
-  sendBtn.style.visibility = "hidden";
+  sendBtn.style.display = "none";
   messageInput.value = "";
 });
 

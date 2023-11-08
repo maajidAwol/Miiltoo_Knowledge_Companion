@@ -116,7 +116,7 @@ fetchQuizButton.addEventListener("click", function (event) {
 
       fetchQuizButton.style.display = "block";
       console.error("Error fetching data:", error);
-      alert("Error fetchinmmg data: " + error.message);
+      alert("Error fetching data: " + error.message);
     });
 
   return false; // Prevent form submission
