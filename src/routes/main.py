@@ -229,7 +229,7 @@ def upload_file():
         relative_pdf_path = os.path.relpath(pdf_file_path, os.path.join(os.path.dirname(__file__), '../static/bk'))
         bkr = "bk/" + relative_pdf_path
         book=Books(user_email=session['google_email'],book_name=file.filename,book_url='books/'+text_filename,txt_url= 'bk/'+filename)
-        exist=Books.query.filter_by(book_url='books/'+text_filename).first()
+        exist=Books.query.filter_by(use_email=session['google_email'],book_url='books/'+text_filename).first()
         if not exist:
             db.session.add(book)
             db.session.commit()

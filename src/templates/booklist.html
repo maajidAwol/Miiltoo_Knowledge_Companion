@@ -1,11 +1,59 @@
 {%extends "base.html"%}
 {%block title %}My books{%endblock%}
+{%block head%}
+<link rel="stylesheet" href="/static/css/home-new.css" />
+<link rel="stylesheet" href="/static/css/loading-style.css" />
+<link rel="stylesheet" href="/static/css/book-new.css" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+{%endblock%}
 {%block body%}
-{% if books %}
- <h1>Uploaded Books</h1>
-<ul>
+<div class="feat-container">
+
+<a
+id="add-book"
+class="resrc-box"
+>
+
+<div class="resrc-cover-container">
+  <img
+    src="/static/asset/book-cover/plus.png"
+    class="resrc-cover-item"
+
+  />
+ 
+</div>
+<div class="resrc-tittle-container">
+  <span class="resrc-tittle-icon"
+    ><i class="fa-solid fa-book"></i
+  ></span>
+  Add book
+</div>
+<div class="resrc-desc-container">
+  <div class="resrc-desc-tittle">
+    <span class="resc-desc-tittle-icon"
+      ><i class="fa-solid fa-feather"></i
+    ></span>
+     Chat with your own book and ask it to generate quiz for you
+  </div>
+  <div class="resrc-desc-content">
+    <p class="resrc-desc-text">
+      
+    </p>
+  </div>
+</div>
+</a>
+
+ 
+
     
     {% for book in books %}
+<div style="display: flex;flex-direction: column;flex-wrap: nowrap;align-content: stretch;justify-content: center;align-items: flex-end;">
         <a
 href="/grade/?book={{book.txt_url}}"
 class="resrc-box"
@@ -23,12 +71,7 @@ class="resrc-box"
     </span>
   </div>
 </div>
-<div class="resrc-tittle-container">
-  <span class="resrc-tittle-icon"
-    ><i class="fa-solid fa-book"></i
-  ></span>
-   Desciption
-</div>
+
 <div class="resrc-desc-container">
   <div class="resrc-desc-tittle">
     <span class="resc-desc-tittle-icon"
@@ -38,14 +81,30 @@ class="resrc-box"
   </div>
   <div class="resrc-desc-content">
     <p class="resrc-desc-text">
-      uplaoded books
+      chat with your book and ask it to generate quiz for you
     </p>
   </div>
-</div>
+</div> 
 </a>
-    {% endfor %}
-</ul>
-{% else %}
-<p>No data available.</p>
-{% endif %}
+<a href="/delete_book?book_name={{book.book_url}}"
+  ><button class="upload-btn">
+<span class="upload-btn-icon">
+  <i class="fa-solid fa-upload"></i>
+    </span>
+            <p>
+            Delete Book
+            </p>
+          </button>
+        </a>
+</div>
+{% endfor %}
+
+    
+</div>
+<script>
+  document.getElementById('add-book').addEventListener('click', function (event) {
+    event.preventDefault(); 
+    document.getElementById('upload-btn1').click();
+  });
+</script>
 {%endblock%}
