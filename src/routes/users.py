@@ -91,7 +91,7 @@ def auth():
     print(email)
     print(password)
     if login_auth(email, password):
-        if email == "ararsaderese6@gmail.com" or email == "maajidawol@gmail.com":
+        if email == "ararsaderese6@gmail.com" or email == "maajidawol@gmail.com" or email=="natnaelmeseret5@gmail.com":
             login_user(User.query.filter_by(email=email).first())
         session['logged_in'] = "true"
 
@@ -206,7 +206,7 @@ def confirm_email():
             session['logged_in'] = "true"
             session["google_name"] = user.username
             session["google_email"] = user.email
-            if user.email == "ararsaderese6@gmail.com" or user.email == "maajidawol@gmail.com":
+            if user.email == "ararsaderese6@gmail.com" or user.email == "maajidawol@gmail.com" or user.email=="natnaelmeseret5@gmail.com":
                 login_user(user)
             return redirect('/')
         else:
@@ -266,7 +266,7 @@ def callback():
                         profile_pic=profile_url)
         db.session.add(new_user)
         db.session.commit()
-    if session["google_email"] == "ararsaderese6@gmail.com" or session["google_email"] == "maajidawol@gmail.com":
+    if session["google_email"] == "ararsaderese6@gmail.com" or session["google_email"] == "maajidawol@gmail.com" or session["google_email"] == "natnaelmeseret5@gmail.com":
         user= User.query.filter_by(email=session["google_email"]).first()
         login_user(user) 
     return redirect("/protected_area")
