@@ -19,10 +19,24 @@
     <div class="container mt-4">
         <h6><a href="/">home</a></h6>
     </div>
-    <div class="container mt-4">
+
+
         <div class="centered">
             <div class="card">
                 <div class="card-body">
+                     <div class="container mt-4">
+                         <div style="text-align: center;">
+    <button style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer;">Ethiopia</button>
+    <button style="background-color: #cccccc; color: white; padding: 10px 20px; border: none; cursor: not-allowed;" disabled>South Sudan</button>
+</div>
+<br>
+ <div style="text-align: center;">
+    <button style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer;">Grade 9</button>
+    <button style="background-color: #cccccc; color: white; padding: 10px 20px; border: none; cursor: not-allowed;" disabled>Grade 10</button>
+    <button style="background-color: #cccccc; color: white; padding: 10px 20px; border: none; cursor: not-allowed;" disabled>Grade 11</button>
+    <button style="background-color: #cccccc; color: white; padding: 10px 20px; border: none; cursor: not-allowed;" disabled>Grade 12</button>
+</div><br>
+
                     <div id="history-quiz-form">
                         <button class="btn btn-primary" id="fetch-quiz">Generate Contest</button>
                         <div id="history-quiz-container"></div>
@@ -32,11 +46,11 @@
                             <label for="myTextarea">Contest Data</label>
                             <textarea class="form-control" id="myTextarea" cols="100" rows="10"></textarea>
                         </div>
-                       <a href="/save_contest_data">
+
     <button type="button" class="btn btn-success" id="Save">
         Save Contest Data <i class="fas fa-arrow-alt-circle-up"></i>
     </button>
-</a>
+
 
                     </div>
                 </div>
@@ -116,49 +130,38 @@ textarea.value = jsonString;
   return false; // Prevent form submission
 });
 // Get the "Save" button element
-const saveButton = document.getElementById("Save");
+// Define a function to send a POST request to save contest data
+function saveContestData() {
+  const contestData = document.getElementById("myTextarea").value;
+
+  fetch('/save_contest_data', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ contestData: contestData }),
+  })
+  .then(response => {
+      if (response.ok) {
+          
+      } else {
+         
+      }
+  })
+  .then(data => {
+      alert("Contest data saved successfully");
+      window.location.href = "/admin/contest/";
+  })
+  .catch(error => {
+      console.error('Error:', error);
+      window.location.href = "/admin/contest/";
+  });
+}
 
 // Add a click event listener to the button
-saveButton.addEventListener("click", function() {
-    // Define the function inside the event listener
-    function sendPostRequest() {
-        const contestData = document.getElementById("myTextarea").value; // Get the textarea data
+const saveButton = document.getElementById("Save");
+saveButton.addEventListener("click", saveContestData);
 
-        // Send a POST request to the /save_contest_data route
-       fetch('/save_contest_data', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ contestData: contestData }), // Send the textarea data as JSON
-})
-        .then(response => {
-            if (response.ok) {
-                // Request was successful
-                return response.json(); // If the response is JSON
-            } else {
-                // Handle errors or other responses
-                throw new Error('Network response was not ok');
-            }
-        })
-        .then(data => {
-            // Process the response data if needed
-            console.log(data); // Replace with your handling logic
-            // Navigate back to the previous page
-            window.history.back();
-        })
-        .catch(error => {
-            // Handle network errors or other exceptions here
-            console.error('Error:', error);
-            // Navigate back to the previous page even on error
-            window.history.back();
-        });
-    }
-
-    // Call the function
-    sendPostRequest();
-    window.history.back();
-});
 
 
 </script>

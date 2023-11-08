@@ -44,7 +44,7 @@ sudan_hist = {
 }
 
 biology = {
-  "chapter 1:Introduction to Biology": {
+  "chapter 1 Introduction to Biology": {
     "1.1:Definition of Biology ": [],
     "1.2:Why do we study Biology?": [],
     "1.3:The scientific method": [],
@@ -52,7 +52,7 @@ biology = {
     "1.5: Handling and using of light Microscope ": [],
     "1.6:General Laboratory Safety Rules": [],
   },
-  "chapter 2:Characteristics and Classification of organisms": {
+  "chapter 2 Characteristics and Classification of organisms": {
     "2.1: Characteristics of living things": [],
     "2.2: Taxonomy of living things": [],
     "2.3: Relevance of classification": [],
@@ -61,7 +61,7 @@ biology = {
     "2.6: The five-kingdom system of classification": [],
     "2.7: Renowned taxonomists in Ethiopia": [],
   },
-  "chapter 3: Cells": {
+  "chapter 3 Cells": {
     "3.1: What is a cell?": [],
     "3.2: Cell theory": [],
     "3.3: Cell structure and function": [],
@@ -71,7 +71,7 @@ biology = {
     "3.7: The cell and its environment": [],
     "3.8: Levels of Biological Organization": [],
   },
-  "chapter 4 :Reproduction": {
+  "chapter 4 Reproduction": {
     "4.1: Introduction to reproduction": [],
     "4.2: Asexual reproduction": [],
     "4.3: Types of asexual reproduction ": [],
@@ -84,7 +84,7 @@ biology = {
     "4.10: Methods of birth control": [],
     "4.11: Sexually transmitted infection: transmission and prevention": [],
   },
-  "chapter 5:Human Health, Nutrition, and Disease ": {
+  "chapter 5 Human Health, Nutrition, and Disease": {
     "5.1: What is food?": [],
     "5.2: Nutrition": [],
     "5.3: Nutrients ": [],
@@ -95,7 +95,7 @@ biology = {
     "5.8: Types of diseases": [],
     "5.9: Renowned Nutritionists in Ethiopia": [],
   },
-  "chapter 6:Ecology": {
+  "chapter 6 Ecology": {
     "6.1: Ecology": [],
     "6.2: Ecological relationships": [],
   },

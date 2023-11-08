@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{%block title %}Base{%endblock%}</title>
+    <title>{%block title %}Miiltoo{%endblock%}</title>
     <link rel="icon" href="/static/public/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/static/css/home-new.css" />
-    <!-- <link rel="stylesheet" href="/static/css/book-new.css" /> -->
+  
 
     <link rel="stylesheet" href="/static/css/loading-style.css" />
     <link rel="stylesheet" href="/static/css/grade-new.css" />
@@ -33,9 +33,7 @@
         <h3 class="logo-name">Miilt<span class="oo">oo</span></h3>
       </div>
       <nav class="nav-links">
-        <!-- <span class="underline" id="underline">
-          <img src="/static/asset/nav-link-underline.svg" alt="" />
-        </span> -->
+       
         <a href="/" class="home-link">
           <span class="nav-icons"><i class="fa-solid fa-house"></i></span>
           Home
@@ -260,16 +258,9 @@
         <a href="/login"><button class="login-btn1">login</button></a>
         <a href="/signup"><button class="signup-btn1">signup</button></a>
       </div>
-      <!-- <div class="overlay hidden"></div> -->
+     
       <div class="profile-container hidden">
-        <!-- <button class="search-btn">
-          <span class="search-icon"
-            ><i class="fa-solid fa-magnifying-glass"></i
-          ></span>
-        </button>
-        <button class="notify-btn">
-          <span class="notify-icon"><i class="fa-solid fa-bell"></i></span>
-        </button> -->
+       
         <div class="profile-group">
           <div class="separet-line"></div>
           <span class="profile-pic">
@@ -300,20 +291,15 @@
           account
         </div></a
       >
-      <a href="/account"></a>
+      <a href="/booklist">
       <div class="profile-menu-item">
         <span class="profile-menu-item-icon"
           ><i class="fa-solid fa-book"></i>
         </span>
         my booklists
-      </div></a
+      </div></a></a
       >
-      <!-- <div class="profile-menu-item">
-        <span class="profile-menu-item-icon"
-          ><i class="fa-solid fa-book"></i
-        ></span>
-        something
-      </div> -->
+   
       <a href="/logout">
         <div class="profile-menu-item">
           <span class="profile-menu-item-icon"
@@ -343,20 +329,7 @@
             </div>
           </div>
         </div>
-        <!-- the start of drop area -->
-        <!--          <div class="drop-area">-->
-        <!--            <span class="cloud-icon"><i class="fa-solid fa-cloud-arrow-up"></i>-->
-        <!--            </span>-->
-        <!--            <div class="drop-area-label">-->
-        <!--              Drop your pdf here or ,-->
-        <!--&lt;!&ndash;              <span>Browse</span>&ndash;&gt;-->
-        <!--                <input type="file" placeholder="Browse">-->
-        <!--            </div>-->
-        <!--            <div class="sub-label">-->
-        <!--              maximum file size 50mb-->
-        <!--            </div>-->
-        <!--          </div>-->
-
+      
         <div class="drop-area" id="drop-area">
           <form
             class="drop-area-form my-form"
@@ -394,7 +367,7 @@
 
           <!-- Move the upload button outside the drop area -->
         </div>
-        <div class="recent-label">
+        <div class="recent-glabel">
           <span class="recent-icon">
             <i class="fa-solid fa-newspaper"></i>
           </span>
@@ -406,49 +379,7 @@
 
         <!-- the end of drop area -->
 
-        <!-- <div class="file-container">
-        <div class="file-item">
-
-          <div class="file-box">
-            <span class="file-icon">
-              <i class="fa-solid fa-file"></i>
-            </span>
-            <div class="file-desc">
-              <span class="file-name">file name</span>
-              <span class="file-meta">
-                file type *
-                 <span class="file-size"></span>
-                 2mb
-              </span>
-            </div>
-            <div class="upload-status-container">
-              <div class="upload-progress-container hidden">
-                 <div class="progress-bar"></div>
-                 <div class="progress-percent">50%</div>
-                 <span class="progress-icon"><i class="fa-solid fa-xmark"></i></span>
-              </div>
-              <div class="upload-status">
-              <div class="uploading hidden">
-                <span class="upload-status-icon hidden">
-                  <i class="fa-solid fa-thermometer"></i>
-                </span>
-                uploading...
-              </div>
-                <div class="uploaded-label">
-                uploaded
-                <span class="upload-status-icon">
-                  <i class="fa-solid fa-circle-check"></i>
-                </span>
-
-                </div>
-              </div>
-              <div class="trash-icon">
-                <i class="fa-solid fa-trash-can"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
+       
       </div>
     </div>
     <div class="overlay hidden"></div>
@@ -463,32 +394,32 @@
       <div class="footer-content">
         <div class="footer-logo">
           <img src="/static/asset/logo.svg" alt="" />
-          <div>miilt<span class="oo">oo</span></div>
+          <div>Miilt<span class="oo">oo</span></div>
         </div>
         <div class="footer-link-container">
           <div class="link-container">
             Home
-            <a href="" class="link">grade</a>
-            <a href="" class="link">subject</a>
-            <a href="" class="link">chatbot</a>
+            <a href="" class="link">Grade</a>
+            <a href="" class="link">Subject</a>
+            <a href="" class="link">Chatbot</a>
           </div>
           <div class="link-container">
-            resource
-            <a href="" class="link">textbook</a>
-            <a href="" class="link">study guid</a>
-            <a href="" class="link">upload</a>
+            Resource
+            <a href="" class="link">Textbook</a>
+            <a href="" class="link">Study Guide</a>
+            <a href="" class="link">Upload</a>
           </div>
           <div class="link-container">
-            grade
-            <a href="" class="link">grade-9</a>
-            <a href="" class="link">grade-10</a>
-            <a href="" class="link">grade-11</a>
-            <a href="" class="link">grade-12</a>
+            Grade
+            <a href="" class="link">Grade-9</a>
+            <a href="" class="link">Grade-10</a>
+            <a href="" class="link">Grade-11</a>
+            <a href="" class="link">Grade-12</a>
           </div>
           <div class="link-container">
-            pages
+            Pages
             <a href="" class="link">About us</a>
-            <a href="" class="link">contact us</a>
+            <a href="" class="link">Contact us</a>
             <a href="" class="link">FAQ</a>
             <a href="" class="link">help</a>
           </div>

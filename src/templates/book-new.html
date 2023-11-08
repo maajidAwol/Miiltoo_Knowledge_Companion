@@ -1,6 +1,6 @@
 {%extends "base.html"%}
 
-    {%block title%}Learn{%endblock%}
+    {%block title%}Book{%endblock%}
    {%block head%}
     <link rel="stylesheet" href="/static/css/home-new.css" />
     <link rel="stylesheet" href="/static/css/loading-style.css" />
@@ -20,21 +20,23 @@
         <div class="book-container">
             <div class="chapter-container">
                <select name="" id="chapter" class="chapter">
-                 <option  value="Introduction">
+                 <option  value="all">
 
-                 choose-chapter
+                 All Chapters
 
                  </option>
                 </select>
               </div>
+              <br>
             <embed
             src="/static/{{book}}"
             frameborder="0"
             class="pdf-section"
+            id="pdf-embed"
           ></embed>
         </div>
 
-        <div class="chatbot-container">
+        <div style="text-transform: capitalize;" class="chatbot-container">
 
           <div class="chatbot-var-2 hidden">
             <button class="arrow-btn chat-left-btn">
@@ -44,7 +46,7 @@
             <div class="chat-top-container">
               <div class="var2-logo">
                 <img src="/static/asset/logo.svg" alt="">
-                miilt<span>oo</span>
+                miiltoo
               </div>
               <div class="chat-top-headline">
                 <div class="chat-text">
@@ -54,7 +56,7 @@
                 <div class="subject-text">
                   <span class="subject-text-icon"><i class="fa-solid fa-book"></i></span>
                   subject :
-                  <p class="subject-name">subject name</p>
+                  <p class="subject-name"></p>
                 </div>
               </div>
             </div>
@@ -85,34 +87,7 @@
             <div class="result-container" >
 
 <div class="result-container-item" id="ccc">
-<!--                <div class="user-message-container">-->
-<!--                  <span class="user-message-icon">-->
-<!--                    <i class="fa-solid fa-user-tie"></i>-->
-<!--                  </span>-->
-<!--                  <div class="user-message-content">-->
-<!--                    what is the book about ?-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                <div class="chatbot-message-container">-->
-<!--                  <span class="chatbot-icon">-->
-<!--                    <img src="/static/asset/logo.svg" alt="">-->
 
-<!--                  </span>-->
-<!--                  <div class="chatbot-content">-->
-<!--                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam laborum iure laboriosam, eveniet iste itaque, quas dolorem sed quam veritatis commodi eum laudantium. Voluptatibus sapiente recusandae nemo ipsa illo expedita.-->
-<!--                    Necessitatibus quasi error recusandae vitae ut cum accusantium quae delectus eius esse quibusdam aliquam sunt alias debitis consequatur vero laudantium nobis dolorum, sed tenetur obcaecati placeat asperiores voluptas iusto! Quia!-->
-<!--                    Repudiandae assumenda dicta similique dolorem, eaque unde quas autem sit tempora. Nobis consequatur eaque assumenda nostrum molestias alias. Accusamus reprehenderit rem repellat unde necessitatibus esse error earum iste ratione beatae.-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-
-<!--                            hello-->
-<!--              <form>-->
-
-<!--&lt;!&ndash;             <input id="aaa" name="prompt" type="text">&ndash;&gt;-->
-<!--&lt;!&ndash;                <button id="bbb">prompt</button>&ndash;&gt;-->
-<!--              <div id="ccc">jjj</div>-->
-<!--              </form>-->
             </div>
           </div>
           </div>
@@ -191,75 +166,7 @@
 
            <div class="result-container-item">
            <form action="" class="generated-quize-form" id="quiz-form">
-<!--           <div class="quize-content-container" data-question-id="1">-->
-<!--              <div class="quize-question-container">-->
-<!--                <span class="quize-no">q1</span>-->
-<!--                <p class="quize-question">-->
-<!--                  Who was the emperor of Ethiopia-->
-<!--                  during the Battle of Adwa in 1896, where Ethiopian forces defeated the Italians?-->
-<!--                </p>-->
-<!--              </div>-->
-<!--              <button class="quize-choose " onclick="handleChoice(1,'option-1')">-->
-<!--                <span class="choose-list">A&#41;</span>-->
-<!--              <p class="choose-item">-->
-<!--                Emperor Menelik II-->
-<!--              </p>-->
-<!--              </button>-->
-<!--              <button class="quize-choose " onclick="handleChoice(1,'option-2')">-->
-<!--                <span class="choose-list">B&#41;</span>-->
-<!--              <p class="choose-item">-->
-<!--                Emperor Menelik II-->
-<!--              </p>-->
-<!--              </button>-->
-<!--              <button class="quize-choose " onclick="handleChoice(1,'option-3')">-->
-<!--                <span class="choose-list">C&#41;</span>-->
-<!--              <p class="choose-item">-->
-<!--                Emperor Menelik II-->
-<!--              </p>-->
-<!--              </button>-->
-<!--              <button class="quize-choose " onclick="handleChoice(1,'option-4')">-->
-<!--                <span class="choose-list">d&#41;</span>-->
-<!--              <p class="choose-item">-->
-<!--                Emperor Menelik II-->
-<!--              </p>-->
-<!--              </button>-->
-<!--              <input type="hidden" id="selectedChoice1" name="selectedChoice1" value="">-->
 
-<!--            </div>-->
-<!--            <div class="quize-content-container" data-question-id="2">-->
-<!--              <div class="quize-question-container">-->
-<!--                <span class="quize-no">q2</span>-->
-<!--                <p class="quize-question">-->
-<!--                  Who was the emperor of Ethiopia-->
-<!--                  during the Battle of Adwa in 1896, where Ethiopian forces defeated the Italians?-->
-<!--                </p>-->
-<!--              </div>-->
-<!--              <button class="quize-choose " onclick="handleChoice(2,'option-1')">-->
-<!--                <span class="choose-list">A&#41;</span>-->
-<!--              <p class="choose-item">-->
-<!--                Emperor Menelik II-->
-<!--              </p>-->
-<!--              </button>-->
-<!--              <button class="quize-choose " onclick="handleChoice(2,'option-2')">-->
-<!--                <span class="choose-list">B&#41;</span>-->
-<!--              <p class="choose-item">-->
-<!--                Emperor Menelik II-->
-<!--              </p>-->
-<!--              </button>-->
-<!--              <button class="quize-choose " onclick="handleChoice(2,'option-3')">-->
-<!--                <span class="choose-list">C&#41;</span>-->
-<!--              <p class="choose-item">-->
-<!--                Emperor Menelik II-->
-<!--              </p>-->
-<!--              </button>-->
-<!--              <button class="quize-choose " onclick="handleChoice(2,'option-4')">-->
-<!--                <span class="choose-list">d&#41;</span>-->
-<!--              <p class="choose-item">-->
-<!--                Emperor Menelik II-->
-<!--              </p>-->
-<!--              </button>-->
-<!--              <input type="hidden" id="selectedChoice2" name="selectedChoice1" value="">-->
-<!--            </div>-->
 
                <div id="quiz-container"></div>
 <!--        <div class="blue-line"></div>-->
@@ -273,87 +180,7 @@
 
 
 
-<!--           <div class="result-label2-container">-->
-<!--            <div class="result-line"></div>-->
-<!--            <div class="result-label2">result</div>-->
-<!--           </div>-->
-<!--           <div class="score-container">-->
-<!--            <div class="score-board">-->
-<!--              your score : <span class="score">1</span><span class="total-quize">/2</span>-->
-<!--             </div>-->
-<!--           </div>-->
-<!--           <div class="explanation-label">-->
-<!--            <span class="fether-icon">-->
-<!--              <i class="fa-solid fa-feather"></i>-->
-<!--            </span>-->
-<!--            explanation-->
-<!--          </div>-->
-<!--          <div class="explanation-container">-->
-<!--            <span class="chatbot-icon">-->
-<!--              <img src="/static/asset/logo.svg" alt="">-->
 
-<!--            </span>-->
-<!--           <div class="expln-content">-->
-<!--              <div class="expln-item">-->
-<!--                <div class="question-container">-->
-<!--                  <span class="quize-no">q1</span>-->
-<!--                  <p class="question">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore-->
-<!--                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris </p>-->
-<!--                </div>-->
-<!--                <div class="your-answer">-->
-<!--                  your answer : <span class="choice-selected">A</span>-->
-<!--                  <span class="x-icon"><i class="fa-solid fa-circle-xmark"></i></span>-->
-<!--                  <span class="correct-icon hidden"><i class="fa-solid fa-circle-check"></i></span>-->
-<!--                </div>-->
-<!--                <div class="correct-answer">-->
-<!--                  <span class="correct-icon"><i class="fa-solid fa-circle-check"></i></span>-->
-<!--                  correct answer : <span class="correct">C</span>-->
-<!--                </div>-->
-<!--               <div class="expln-detail-container">-->
-<!--                <div class="explanation-label expln-detail-label">-->
-<!--                  <span class="fether-icon">-->
-<!--                    <i class="fa-solid fa-feather"></i>-->
-<!--                  </span>-->
-<!--                  explanation-->
-<!--                </div>-->
-<!--                <p class="expln-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore-->
-<!--                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con-->
-<!--                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu-->
-<!--                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id es-->
-<!--                </p>-->
-<!--               </div>-->
-<!--              </div>-->
-<!--              <div class="expln-item">-->
-<!--                <div class="question-container">-->
-<!--                  <span class="quize-no">q1</span>-->
-<!--                  <p class="question">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore-->
-<!--                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris </p>-->
-<!--                </div>-->
-<!--                <div class="your-answer">-->
-<!--                  your answer : <span class="choice-selected">A</span>-->
-<!--                  <span class="x-icon"><i class="fa-solid fa-circle-xmark"></i></span>-->
-<!--                  <span class="correct-icon hidden"><i class="fa-solid fa-circle-check"></i></span>-->
-<!--                </div>-->
-<!--                <div class="correct-answer">-->
-<!--                  <span class="correct-icon"><i class="fa-solid fa-circle-check"></i></span>-->
-<!--                  correct answer : <span class="correct">C</span>-->
-<!--                </div>-->
-<!--               <div class="expln-detail-container">-->
-<!--                <div class="explanation-label expln-detail-label">-->
-<!--                  <span class="fether-icon">-->
-<!--                    <i class="fa-solid fa-feather"></i>-->
-<!--                  </span>-->
-<!--                  explanation-->
-<!--                </div>-->
-<!--                <p class="expln-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore-->
-<!--                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con-->
-<!--                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu-->
-<!--                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id es-->
-<!--                </p>-->
-<!--               </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
           </div>
               <!--the generated quiz container-->
 
@@ -390,15 +217,7 @@
                             <i class="fa-solid fa-question"></i></span>
                     <p>quize</p>
                     </button>
-                    <!-- <button class="chatbot-func-item" id="custom-upload-btn">
-                      <div class="active-state-shape hidden">
-                        <img src="/static/asset/active-state-shape.svg" alt="">
-                      </div>
-                      <span class="func-item-icon">
-                            <i class="fa-solid fa-upload"></i>
-                        </span>
-                        <p>custom upload</p>
-                    </button> -->
+                   
                     <button class="chatbot-func-item" id="setting-btn">
                       <div class="active-state-shape hidden">
                         <img src="/static/asset/active-state-shape.svg" alt="">
@@ -510,6 +329,43 @@ document.getElementById("generated-quize-form").addEventListener("submit", funct
 
 
     </script>
+    <script>
+      var select = document.getElementById("chapter");
+      var embed = document.getElementById("pdf-embed");
+  
+      // Get the variable from the backend
+      var bookParam = "{{book}}"; // Replace "book_param" with the actual variable name used in Jinja
+  
+      // Determine the default source based on the "book" parameter
+      var defaultSource = "/static/bk/ETH/bio/all.pdf";  // Default source for "bio"
+      var chapter_change =""
+      if (bookParam === "bk/ETH/history_g-9.pdf") {
+          defaultSource = "/static/bk/ETH/history_g-9.pdf";  // Default source for "hist"
+         chapter_change = "/static/bk/ETH/hist/";
+      } else if (bookParam === "bk/SS/history_g-9.pdf") {
+          defaultSource = "/static/bk/SS/history_g-9.pdf";
+          chapter_change ="/static/bk/SS/hist/";
+            // Default source for "ss"
+          
+      } else if (bookParam === "bk/ETH/biology_g-9.pdf") {
+    defaultSource = "/static/bk/ETH/biology_g-9.pdf";
+    chapter_change ="/static/bk/ETH/bio/";
+      }else{
+
+      defaultSource  = "/static/{{book}}";
+      }
+  
+      // Update the default src attribute
+      embed.src = defaultSource;
+  
+      // Add an event listener to the select element
+      select.addEventListener("change", function () {
+          // Update the src attribute of the embed element with the selected value
+          embed.src = chapter_change + select.value + ".pdf";
+         
+      });
+  </script>
+  
 <script src="/static/js/chat.js"></script>
 <script src="/static/js/bioquiz.js"></script>
 {%endblock%}

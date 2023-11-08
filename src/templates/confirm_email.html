@@ -1,16 +1,70 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Confirmation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .card {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Email Confirmation</h1>
-    <p>Enter the 4-digit verification code sent to your email:</p>
-    <form action="/confirm_email" method="POST">
-        <input type="number" name="verification_code" required>
-        <button type="submit">Confirm</button>
-    </form>
+    <div class="card">
+        <h1>Email Confirmation</h1>
+        <p>Enter the 4-digit verification code sent to your email by miiltoo:</p>
+        <form action="/confirm_email" method="POST">
+            <input type="number" name="verification_code" required>
+            <button type="submit">Confirm</button>
+        </form>
+    </div>
 </body>
 </html>
+

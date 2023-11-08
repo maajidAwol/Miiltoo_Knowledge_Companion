@@ -35,13 +35,19 @@ const geography_resultsContainer = document.getElementById("geography-results");
 let geography_quizData = [];
 var geography_score = 0;
 const geo_score = document.getElementById("geo-score");
+const enter_contest_button =  document.getElementById('enter-contest-button');
 
-document.addEventListener("DOMContentLoaded", function (event) {
+const main_contest_form =  document.getElementById('main_contest_form');
+
+
+enter_contest_button.addEventListener('click', function (event) {
   event.preventDefault();
   submitButton.style.display = "none";
+  main_contest_form.style.display = "block";
 
   quizContainer.innerHTML = ""; // Clear the previous quiz content
   resultsContainer.style.display = "none"; // Hide the results
+  enter_contest_button.style.display = "none";
   quizContainer.innerHTML = `
 
 <div class="space-holder" style="height:48px;"></div>
@@ -135,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         // You can show an error message or take appropriate action here
 
         quizContainer.innerHTML =
-          '<span style="color:red;">error generating quiz please re generate </span>';
+          '<span style="color:red;">Error loading contest </span>';
         console.error("Empty or invalid response from the server");
         alert("Error: Empty or invalid response from the server");
       }
@@ -143,10 +149,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
     .catch((error) => {
       // Handle network errors or other exceptions here
       quizContainer.innerHTML =
-        '<span style="color:red;">error generating quiz please re generate </span>';
+        '<span style="color:red;">Error loading contest  </span>';
 
       console.error("Error fetching data:", error);
-      alert("Error fetchinmmg data: " + error.message);
+      alert("Error fetchig data: " + error.message);
     });
 
   return false; // Prevent form submission
@@ -185,7 +191,7 @@ function buildQuiz(quizContainer, quizData) {
 
   submitButton.disabled = false;
 }
-
+const bio_next = document.getElementById("bio-next");
 submitButton.addEventListener("click", function () {
   showResults(
     resultsContainer,
@@ -195,7 +201,9 @@ submitButton.addEventListener("click", function () {
     biology_score
   );
   submitButton.style.display = "none";
+  bio_next.style.display = "block";
 });
+const hist_next = document.getElementById("hist-next");
 history_submitButton.addEventListener("click", function () {
   showResults(
     history_resultsContainer,
@@ -205,7 +213,9 @@ history_submitButton.addEventListener("click", function () {
     history_score
   );
   history_submitButton.style.display = "none";
+  hist_next.style.display = "block";
 });
+const geo_next = document.getElementById("geo-next");
 geography_submitButton.addEventListener("click", function () {
   showResults(
     geography_resultsContainer,
@@ -215,8 +225,9 @@ geography_submitButton.addEventListener("click", function () {
     geography_score
   );
   geography_submitButton.style.display = "none";
+  geo_next.style.display = "block";
 });
-
+const chem_next = document.getElementById("chem-next");
 chemistry_submitButton.addEventListener("click", function () {
   showResults(
     chemistry_resultsContainer,
@@ -226,12 +237,17 @@ chemistry_submitButton.addEventListener("click", function () {
     chemistry_score
   );
   chemistry_submitButton.style.display = "none";
+  chem_next.style.display = "block";
+  
+});
+function totalpointdisp(){
   total_score.innerHTML = `           <div class="score-container">
   <div class="score-board">
     Total Score : <span class="score">${total_point}</span><span class="total-quize">/${total_question}</span>
    </div>
  </div><br>`;
-});
+}
+
 function showResults(
   resultsContainer,
   quizData,
@@ -311,7 +327,7 @@ function showResults(
       resultsContainer.appendChild(resultElement);
     }
   });
-
+    // Attach the registration function to the "Register for Contest" button
   resultsContainer.style.display = "flex";
   //  resultsContainer.innerHTML += `<p>Your score: ${score}/${quizData.length}</p>`;
   resultsContainer.innerHTML += `           <div class="score-container">
@@ -327,6 +343,145 @@ function showResults(
    ${title}  score : <span class="score">${score}</span><span class="total-quize">/${quizData.length}</span>
    </div>
  </div><br>`;
+ subject_score =score;
+
+ if(title == "Biology"){
+  biology_score = score;
+
+ }else if(title == "History"){
+  history_score = score;
+
+ }else if(title == "Chemistry"){
+  chemistry_score = score;
+
+ }else if(title == "Geography"){
+  geography_score = score;
+
+ }
+ 
 }
 
+
 //pysics
+
+ 
+   const registerbutton  = document.getElementById('register-button');
+    // Function to handle registration using Fetch
+    function registerForContest() {
+      // Perform Fetch request to the server-side registration route
+      enter_contest_button.style.display= "block";
+      registerbutton .style.display = "none";
+      fetch('/contest/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          // Include any data needed for registration
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          // Handle the response from the server (e.g., success or error message)
+          if (data.success) {
+            // Registration was successful
+            // You can display a success message or redirect the user
+            alert('Registration successful');
+          } else {
+            // Handle the error (e.g., display an error message)
+            window.location.href = "/login";
+            alert(data.message);
+          }
+        })
+        .catch((error) => {
+          // Handle any network or server errors
+          console.error('Error:', error);
+        });
+    }
+
+
+    registerbutton.addEventListener('click', registerForContest);
+
+
+
+    
+   const finish_up_contest  = document.getElementById('finish_up_contest');
+   // Function to handle registration using Fetch
+   function finish_contest() {
+     // Perform Fetch request to the server-side registration route
+     enter_contest_button.style.display= "block";
+     registerbutton .style.display = "none";
+     
+     fetch('/finish_contest/', {
+       method: 'POST',
+       headers: {
+         'Content-Type': 'application/json',
+       },
+       body: JSON.stringify({
+         // Include any data needed for registration
+         biology: biology_score,
+         history: history_score,
+         chemistry: chemistry_score,
+         geography: geography_score,
+       }),
+     })
+       .then((response) => response.json())
+       .then((data) => {
+         // Handle the response from the server (e.g., success or error message)
+         if (data.success) {
+           // Registration was successful
+           // You can display a success message or redirect the user
+           
+           window.location.href = "/leaderboard";
+         } else {
+           // Handle the error (e.g., display an error message)
+           alert(data.message);
+         }
+       })
+       .catch((error) => {
+         // Handle any network or server errors
+         console.error('Error:', error);
+       });
+   }
+
+
+   finish_up_contest.addEventListener('click', finish_contest);
+
+//function finishContest() {
+//  const biologyData_score = biology_score;
+//  const historyData_score = history_score;
+//  const chemistryData_score = chemistry_score;
+//  const geographyData_score = geography_score;
+//  const user_email_score = session.get('google_email'); // Get user email from the session
+//
+//  // Send data to the backend
+//  fetch('/finish_contest', {
+//    method: 'POST',
+//    headers: {
+//      'Content-Type': 'application/json',
+//    },
+//    body: JSON.stringify({
+//      biology: biologyData_score,
+//      history: historyData_score,
+//      chemistry: chemistryData_score,
+//      geography: geographyData_score,
+//      user_email: user_email_score,
+//    }),
+//  })
+//    .then((response) => response.json())
+//    .then((data) => {
+//      if (data.success) {
+//        // Handle success (e.g., show a success message)
+//      } else {
+//        // Handle the error (e.g., display an error message)
+//        alert(data.message);
+//      }
+//    })
+//    .catch((error) => {
+//      // Handle any network or server errors
+//      console.error('Error:', error);
+//    });
+//}
+//
+//// Attach the finishContest function to the "Finish up" button
+//document.getElementById('finish_up_contest').addEventListener('click', finishContest);

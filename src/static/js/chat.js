@@ -234,19 +234,19 @@ function add_chat_history_Message(message, isUserMessage) {
 }
 const historyEndpoint = '/get_chat_history';
 
-function displayChatHistory() {
-  fetch(historyEndpoint)
-    .then((response) => response.json())
-    .then((chatHistory) => {
-
-      chatHistory.forEach(([userMessage, chatbotMessage]) => {
-        add_chat_history_Message(userMessage, true);
-        add_chat_history_Message(chatbotMessage, false);
-      });
-    })
-    .catch((error) => console.error(error));
-
-}
+//function displayChatHistory() {
+//  fetch(historyEndpoint)
+//    .then((response) => response.json())
+//    .then((chatHistory) => {
+//
+//      chatHistory.forEach(([userMessage, chatbotMessage]) => {
+//        add_chat_history_Message(userMessage, true);
+//        add_chat_history_Message(chatbotMessage, false);
+//      });
+//    })
+//    .catch((error) => console.error(error));
+//
+//}
 
 // Call the function to display chat history
 displayChatHistory();

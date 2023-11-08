@@ -11,6 +11,9 @@ from langchain.document_loaders import TextLoader
 from langchain.indexes import VectorstoreIndexCreator
 from langchain.chains import ConversationalRetrievalChain
 from langchain.chat_models import ChatOpenAI
+from datetime import datetime
+from ..models.contest import Contest
+from .topics import biology, history,rt,cont_hist,cont_geo,cont_chem,sudan_hist
 def generate_verification_code():
     first_digit = random.choice(string.digits[1:])  # Choose a digit from 1 to 9
     rest_of_digits = ''.join(random.choice(string.digits) for _ in range(3))
@@ -157,3 +160,40 @@ def pdf_to_text(pdf_path):
         for page in pdf_reader.pages:
             text += page.extract_text()
     return text
+def replace_space(filename):
+    for i in range(len(filename)):
+        if filename[i]==' ':
+            filename[i]='_'
+    return filename
+def save_first_contest():
+    r = ext(rt)
+    hist_cont =ext(cont_hist)
+    geo_cont =ext(cont_geo)
+    chem_cont =ext(cont_chem)
+    subject = "biology"
+    dict_contest = {subject: r}
+
+    dict_contest.update({"history": hist_cont})
+    dict_contest.update({"chemistry": chem_cont})
+    dict_contest.update({"geography": geo_cont})
+    str_contest = json.dumps(dict_contest)
+    # result = ext(r)
+    # return result
+    # db.session.query(Contest).delete()
+    # db.session.commit()
+    random_suffix = ''.join(random.choice(string.ascii_letters) for _ in range(6))
+
+    # Generate a random contest ID by concatenating "grade9" with the current time and the random suffix
+    current_time = datetime.now().strftime('%Y%m%d%H%M%S')
+    contest_id = f'grade9_{current_time}_{random_suffix}'
+
+    # Create the Contest instance with the generated ID
+    sample_contest = Contest(
+        contest_id=contest_id,
+        contest_data=str_contest,
+        is_approved=False
+    )
+
+
+    db.session.add(sample_contest)
+    db.session.commit()

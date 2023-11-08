@@ -1,9 +1,40 @@
 {% extends "base.html" %} {% block head %}
 <link rel="stylesheet" href="/static/css/book-new.css" />
 <link rel="stylesheet" href="/static/css/contest.css" />
+<title>Contest</title>
+<style>
+  .timer-container {
+    font-size: 24px;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid #000;
+    width: 400px;
+    margin: 0 auto;
+  }
+  .timer-container1 {
+    font-size: 24px;
+    text-align: center;
+    padding: 10px;
+   
+    width: 400px;
+    margin: 0 auto;
+  }
+</style>
 {% endblock %} {%block body%}
 <body class="body">
-  <form action="#" class="form">
+  <div class="timer-container">
+<div style="color: white;" id="countdown_to_end"></div></div>
+<div class="timer-container1">
+<div id="registration-div">
+    <button id="register-button" class="btn btn-primary">Register for Contest</button>
+  </div>
+
+  <button style="display: none;" class="btn btn-primary" id="enter-contest-button">Enter Contest</button></div>
+
+
+
+</body>
+  <form action="#" id="main_contest_form" style="display: none;" class="form">
     <h2 class="text-center">Contest</h2>
     <!-- Progress bar -->
     <div class="progressbar">
@@ -29,8 +60,8 @@
         </div>
       </div>
 
-      <div class="">
-        <a href="#" class="btn btn-next width-50 ml-auto"
+      <div id="bio-next" style="display: none;" class="">
+        <a href="#"  class="btn btn-next width-50 ml-auto"
           >Next
           <i class="fa-solid fa-hand-point-right"></i>
         </a>
@@ -58,7 +89,7 @@
         <a href="#" class="btn btn-prev"
           ><i class="fa-solid fa-hand-point-left"></i>Previous</a
         >
-        <a href="#" class="btn btn-next"
+        <a id="hist-next" style="display: none;" href="#" class="btn btn-next"
           >Next<i class="fa-solid fa-hand-point-right"></i
         ></a>
       </div>
@@ -78,13 +109,13 @@
       <!-- <h4 class="myH4">Chemistry</h4> -->
 
       <div class="btns-group">
-        <a href="#" class="btn btn-prev"
+        <a  href="#" class="btn btn-prev"
           ><i class="fa-solid fa-hand-point-left"></i>Previous</a
         >
         <a href="#" style="display: none" class="btn btn-prev"
           >Submit<i class="fa-solid fa-square-arrow-up-right"></i
         ></a>
-        <a href="#" class="btn btn-next"
+        <a id="chem-next" style="display: none;" href="#" class="btn btn-next"
           >Next<i class="fa-solid fa-hand-point-right"></i
         ></a>
       </div>
@@ -100,10 +131,10 @@
       </div>
 
       <div class="btns-group">
-        <a href="#" class="btn btn-prev"
+        <a  href="#" class="btn btn-prev"
           ><i class="fa-solid fa-hand-point-left"></i>Previous</a
         >
-        <a href="#" class="btn btn-next"
+        <a id="geo-next" style="display: none;" href="#" onclick="totalpointdisp()" class="btn btn-next"
           >Next<i class="fa-solid fa-hand-point-right"></i
         ></a>
       </div>
@@ -120,53 +151,15 @@
         <a href="#" class="btn btn-prev"
           ><i class="fa-solid fa-hand-point-left"></i>Previous</a
         >
-        <input type="submit" value="Submit" class="btn" />
-      </div>
+        <button type="button"  id="finish_up_contest"  class="btn">Finish up</button>
+
+
+
+
+      </div> 
     </div>
   </form>
-  <footer style="display: block;">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <img src="/static/asset/logo.svg" alt="" />
-          <div>miilt<span class="oo">oo</span></div>
-        </div>
-        <div class="footer-link-container">
-          <div class="link-container">
-            Home
-            <a href="" class="link">grade</a>
-            <a href="" class="link">subject</a>
-            <a href="" class="link">chatbot</a>
-          </div>
-          <div class="link-container">
-            resource
-            <a href="" class="link">textbook</a>
-            <a href="" class="link">study guid</a>
-            <a href="" class="link">upload</a>
-          </div>
-          <div class="link-container">
-            grade
-            <a href="" class="link">grade-9</a>
-            <a href="" class="link">grade-10</a>
-            <a href="" class="link">grade-11</a>
-            <a href="" class="link">grade-12</a>
-          </div>
-          <div class="link-container">
-            pages
-            <a href="" class="link">About us</a>
-            <a href="" class="link">contact us</a>
-            <a href="" class="link">FAQ</a>
-            <a href="" class="link">help</a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <a class="social-icons"><i class="fa-brands fa-square-twitter"></i></a>
-        <a class="social-icons"><i class="fa-brands fa-facebook"></i></a>
-        <a class="social-icons"><i class="fa-brands fa-linkedin"></i></a>
-        <a class="social-icons"><i class="fa-brands fa-github"></i></a>
-        <a class="social-icons"><i class="fa-brands fa-telegram"></i></a>
-      </div>
-    </footer>
+  
   <script>
     // Changing subjects
     const prevBtns = document.querySelectorAll(".btn-prev");
@@ -224,7 +217,56 @@
         ((progressActive.length - 1) / (progressSteps.length - 1)) * 100 + "%";
     }
     // changin subjects end here
+
+    // Function to update the countdown timer
+   
+function updateCountdown() {
+  const contestEndTime = new Date("{{ contest_end_time }}").getTime(); // Replace with your back-end value
+  const now = new Date().getTime();
+
+  const timeRemaining = contestEndTime - now;
+
+  if (timeRemaining <= 0) {
+    // Time's up!
+    const countdownDiv = document.getElementById("countdown_to_end");
+    
+    countdownDiv.innerHTML = "Time's up!";
+  //  var newRoute = "/finish_contest";
+
+  // Redirect to the new route
+ // window.location.href = newRoute;
+ finish_contest();
+
+    showResults(
+    resultsContainer,
+    biology_quizData,
+    bio_score,
+    "Biology",
+    biology_score
+  );
+  submitButton.style.display = "none";
+  } else {
+    const hours = Math.floor(timeRemaining / (1000 * 60 * 60));
+    const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+    const countdownDiv = document.getElementById("countdown_to_end");
+    countdownDiv.innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+  }
+}
+
+// Update the countdown timer every second
+setInterval(updateCountdown, 1000);
+
+// Call the function immediately to display the countdown
+updateCountdown();
+
+// saving data
+   
+
+
   </script>
+
   <script src="/static/js/contest.js"></script>
 </body>
-{%endblock%}
+{%endblock%} 
