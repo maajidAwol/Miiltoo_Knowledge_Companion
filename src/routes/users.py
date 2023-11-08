@@ -284,7 +284,14 @@ def booklist():
 @users.route("/delete_book")
 def delete_book():
     book_name=request.args.get('book_name')
+    txt_name=request.args.get('txt_name')
     book=Books.query.filter_by(user_email=session['google_email'],book_url=book_name).first()
     db.session.delete(book)
     db.session.commit()
+    file_path = os.path.join(users.root_path,book_name)
+    os.remove(file_path)
+    txt_path = os.path.abspath('src/static/'+txt_name)
+    os.remove(txt_path)
+           
+           
     return redirect("/booklist")
