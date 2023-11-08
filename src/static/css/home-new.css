@@ -1702,11 +1702,23 @@ h1 span {
   background-position: center;
 }
 .ararsa-pic {
-  background: no-repeat url(/static/asset/ourTeam/ararsa-pic.png);
+  background: no-repeat url(/static/asset/ourTeam/ararsa.png);
+  background-size: cover;
+}
+.megid-pic {
+  background: no-repeat url(/static/asset/ourTeam/megid.png);
+  background-size: cover;
+}
+.abel-pic {
+  background: no-repeat url(/static/asset/ourTeam/abel.png);
+  background-size: cover;
+}
+.bigu-pic {
+  background: no-repeat url(/static/asset/ourTeam/bigu.png);
   background-size: cover;
 }
 .natty-pic {
-  background: no-repeat url(/static/asset/ourTeam/.natty-pic.png);
+  background: no-repeat url(/static/asset/ourTeam/nati.png);
   background-size: cover;
 }
 .member-name {
