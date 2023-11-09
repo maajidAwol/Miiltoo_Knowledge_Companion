@@ -196,7 +196,7 @@ def finish_contest():
     geography_score = request.json.get('geography')
 
     user_contest_entry = UserContest.query.filter_by(user_email = user_email, contest_id=contest_id).first()
-    print(user_contest_entry.contest_id)
+
     if user_contest_entry:
         # Update the subject scores and total
         user_contest_entry.biology = biology_score
