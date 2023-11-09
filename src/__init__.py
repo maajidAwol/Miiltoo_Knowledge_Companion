@@ -6,6 +6,7 @@ from .routes.main import main
 from .routes.users import users
 from .routes.utils import save_first_contest
 from .routes.api import api
+from .routes.error_handlers import errors
 from flask import redirect, url_for
 from flask_admin import BaseView, expose
 from flask_admin.contrib.sqla import ModelView
@@ -66,8 +67,6 @@ def create_app(database_uri='sqlite:///profile.db'):
     app.register_blueprint(main)
     app.register_blueprint(users)
     app.register_blueprint(api)
-    
-    
-    
+    app.register_blueprint(errors)
     
     return app
