@@ -1420,7 +1420,7 @@ h1 span {
   margin-left: -81px;
 }
 .slider-testimoney :nth-child(1) .person-profile {
-  background: url(/static/asset/ellipse-3.png);
+  background: url(/static/asset/ellipse-3.jpg);
   background-size: contain;
 }
 .slider-testimoney :nth-child(2) .person-profile {
@@ -1529,15 +1529,16 @@ h1 span {
   height: 171px;
   top: 0;
   left: 0px;
-  background: url(/static/asset/ellipse-1.png);
-  background-size: contain;
+  background: no-repeat url(/static/asset/ellipse-1.jpg);
+  background-size: cover;
+  background-position: -64px;
 }
 .shape-collection :nth-child(2) {
   width: 100px;
   height: 100px;
   top: 46px;
   left: 179px;
-  background: url(/static/asset/ellipse-2.png);
+  background: url(/static/asset/ellipse-2.jpg);
   background-size: contain;
 }
 .shape-collection :nth-child(3) {
@@ -1545,7 +1546,7 @@ h1 span {
   height: 96px;
   top: 193px;
   left: 6px;
-  background: url(/static/asset/ellipse-3.png);
+  background: url(/static/asset/ellipse-3.jpg);
   background-size: contain;
 }
 .shape-collection :nth-child(4) {
@@ -1561,7 +1562,7 @@ h1 span {
   height: 86px;
   top: 324px;
   left: 86px;
-  background: url(/static/asset/ellipse-5.png);
+  background: url(/static/asset/ellipse-5.jpg);
   background-size: contain;
 }
 
@@ -1702,11 +1703,23 @@ h1 span {
   background-position: center;
 }
 .ararsa-pic {
-  background: no-repeat url(/static/asset/ourTeam/ararsa-pic.png);
+  background: no-repeat url(/static/asset/ourTeam/ararsa.png);
+  background-size: cover;
+}
+.megid-pic {
+  background: no-repeat url(/static/asset/ourTeam/megid.png);
+  background-size: cover;
+}
+.abel-pic {
+  background: no-repeat url(/static/asset/ourTeam/abel.png);
+  background-size: cover;
+}
+.bigu-pic {
+  background: no-repeat url(/static/asset/ourTeam/bigu.png);
   background-size: cover;
 }
 .natty-pic {
-  background: no-repeat url(/static/asset/ourTeam/.natty-pic.png);
+  background: no-repeat url(/static/asset/ourTeam/nati.png);
   background-size: cover;
 }
 .member-name {
