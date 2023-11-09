@@ -161,6 +161,8 @@ def contest():
         else:
             return jsonify({'success': False, 'message': 'User email or contest ID not found in the session'})
     contest_query = Contest.query.filter(Contest.is_approved.is_(True)).first()
+    if "logged_in" not in session or not session["logged_in"]:
+        return redirect("/login")
     if contest_query:
         session['contest_id'] =contest_query.contest_id
     # Calculate the contest start and end times
@@ -169,6 +171,7 @@ def contest():
     now = datetime.now().strftime('%Y%m%d%H%M%S')
     contest_start_time = contest_query.start_time
     contest_end_time = contest_query.end_time
+
 
     contest_id = session['contest_id']
     user_email = session['google_email']
