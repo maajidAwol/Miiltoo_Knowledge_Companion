@@ -12,7 +12,7 @@ class UserContest(db.Model):
     geography = db.Column(db.Integer, nullable=True)  # Data for subject 4
     total = db.Column(db.Integer, nullable=True)
     registered = db.Column(db.Boolean, default=False)
-
+    finished_contest = db.Column(db.Boolean, default=False)
 
     def __init__(self, user_email, contest_id,registered):
         self.user_email = user_email

@@ -135,6 +135,9 @@ def contest():
         session["contest_id"] = contest_query.contest_id
         contest_id = session.get('contest_id')
 
+
+
+
         if user_email and contest_id:
             user = User.query.filter_by(email=user_email).first()
 
@@ -158,12 +161,21 @@ def contest():
         else:
             return jsonify({'success': False, 'message': 'User email or contest ID not found in the session'})
     contest_query = Contest.query.filter(Contest.is_approved.is_(True)).first()
+    if contest_query:
+        session['contest_id'] =contest_query.contest_id
     # Calculate the contest start and end times
     if not contest_query:
-        return render_template("leaderboard.html")
+        return redirect("/leaderboard")
     now = datetime.now().strftime('%Y%m%d%H%M%S')
     contest_start_time = contest_query.start_time
     contest_end_time = contest_query.end_time
+
+    contest_id = session['contest_id']
+    user_email = session['google_email']
+    user_contest_entry = UserContest.query.filter_by(user_email=user_email, contest_id=contest_id).first()
+
+    if user_contest_entry and user_contest_entry.finished_contest:
+        return redirect("/leaderboard")
 
     return render_template('contest.html', contest_start_time=contest_start_time, contest_end_time=contest_end_time)
 
@@ -188,6 +200,7 @@ def finish_contest():
         user_contest_entry.history = history_score
         user_contest_entry.chemistry = chemistry_score
         user_contest_entry.geography = geography_score
+        user_contest_entry.finished_contest = True
         user_contest_entry.total = sum(
             [score for score in [biology_score, history_score, chemistry_score, geography_score] if score is not None])
         db.session.commit()
@@ -250,6 +263,7 @@ def contest_send():
     current_time = datetime.now().strftime('%Y%m%d%H%M%S')
     contest_query = Contest.query.filter(Contest.is_approved.is_(True)).first()
     session["contest_id"] = contest_query.contest_id
+
     current_time = datetime.strptime(current_time, '%Y%m%d%H%M%S')
 
     if not contest_query.start_time:
@@ -257,7 +271,8 @@ def contest_send():
     if contest_query.start_time <= current_time <= contest_query.end_time:
         result = ext(contest_query.contest_data)
         print(current_time)
-
+        # contest_query.is_approved =False
+        # db.session.commit()
         return result
     else:
         return render_template("leaderboard.html")

@@ -118,8 +118,8 @@ def chat_function(prompt,path):
         retriever=index.vectorstore.as_retriever(search_kwargs={"k": 1}),
     )
     # session.pop("hist", None)
-    if "bio" not in session:
-        session["bio"] = []
+    # if "bio" not in session:
+    #     session["bio"] = []
     if path not in session:
         session[path] = []
 
@@ -136,7 +136,7 @@ def chat_function(prompt,path):
 
     query = None
     print(result)
-    print(session["bio"])
+    # print(session["bio"])
     print(session[path])
     return result
 def quiz_function(prompt, path):
