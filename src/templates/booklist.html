@@ -102,9 +102,12 @@ class="resrc-box"
     
 </div>
 <script>
+  uploadButton = document.querySelector('.upload-btn');
   document.getElementById('add-book').addEventListener('click', function (event) {
     event.preventDefault(); 
     document.getElementById('upload-btn1').click();
+    
   });
+   document.getElementById('upload-btn1').classList.add('hidden'); 
 </script>
 {%endblock%}
