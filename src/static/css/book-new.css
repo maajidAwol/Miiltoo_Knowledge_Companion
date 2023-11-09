@@ -61,13 +61,14 @@ footer {
   display: none;
 }
 .chatbot-container {
-  width: 100%;
+  /* width: 100%; */
   position: relative;
   display: flex;
   height: 93%;
   align-items: flex-start;
   justify-content: center;
   gap: 8px;
+  margin-right: 1%;
 }
 .chatbot-var-1 {
   min-width: 61px;
@@ -287,7 +288,7 @@ footer {
 }
 .chatbot-var-2,
 .chatbot-var-3 {
-  width: 36rem;
+  width: 38vw;
 }
 .chatbot-var-2.hidden {
   display: none;
@@ -621,7 +622,6 @@ footer {
   border: 0.5px solid var(--secondary, #1e206f);
   background: rgba(30, 32, 111, 0.2);
 }
-
 .selection-container {
   display: flex;
   justify-content: center;
@@ -629,13 +629,22 @@ footer {
   gap: 12px;
   align-self: stretch;
 }
+/* .chapter-container :first-of-type {
+  position: absolute;
+  top: 24px;
+  left: 70vw;
+} */
 .chapter-container {
-  width: 25%;
+  /* position: absolute;
+  top: 24px;
+  left: 70vw; */
+  /* width: 72%; */
   display: flex;
   align-items: flex-start;
   gap: 5.337px;
   border-radius: 10.341px;
   background: rgba(30, 32, 111, 0.3);
+  z-index: 4;
 }
 .chapter,
 .subtopic,
@@ -1163,6 +1172,13 @@ input[type="file"]:hover {
   .chat-sec {
     padding: 8px 1%;
     margin-bottom: 24px;
+    justify-content: center;
+  }
+  .chatbot-container {
+    justify-content: center;
+    margin: 24px 0;
+    margin-right: 1%;
+    align-items: center;
   }
   .chatbot-var-2,
   .chatbot-var-3 {
@@ -1194,6 +1210,6 @@ input[type="file"]:hover {
   }
   .chatbot-var-2,
   .chatbot-var-3 {
-    width: 73%;
+    width: 73vw;
   }
 }
