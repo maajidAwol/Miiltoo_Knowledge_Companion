@@ -144,3 +144,13 @@
     opacity: 0;
   }
 }
+@media only screen and (368px<=width < 768px) {
+  .animation-logo {
+    margin-left: 28vw;
+  }
+}
+@media only screen and (768px<=width < 992px) {
+  .animation-logo {
+    margin-left: 30vw;
+  }
+}
