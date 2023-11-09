@@ -439,6 +439,7 @@
     <script src="/static/js/upload.js"></script>
     <script>
       var login_and_signup = document.querySelector(".login-container");
+      var login_and_signup_mob= document.querySelector(".login-group-mob");
       var profile = document.querySelector(".profile-container");
       var username = document.querySelector(".google_username");
       var email = document.querySelector(".google_email");
@@ -447,12 +448,13 @@
       // Now you can use the 'loggedIn' JavaScript variable to manipulate information.
       if (loggedIn == "true") {
         login_and_signup.classList.add("hidden");
-
+        login_and_signup_mob.classList.add("hidden");
         username.innerHTML = "{{ session['google_name'] }}";
         email.innerHTML = "{{ session['google_email'] }}";
         profile.classList.remove("hidden");
         console.log("logged in");
       } else {
+        login_and_signup.classList.remove("hidden");
         login_and_signup.classList.remove("hidden");
         profile.classList.add("hidden");
       }
