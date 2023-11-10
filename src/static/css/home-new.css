@@ -247,9 +247,9 @@ a {
 .login-group-mob {
   height: 115px;
   align-items: end;
-  width: 83%;
+  width: 84%;
   display: flex;
-  padding: 0px 6%;
+  padding: 0px 8%;
   gap: 2%;
 }
 .login-group-mob a {
