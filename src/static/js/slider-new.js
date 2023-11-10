@@ -17,6 +17,9 @@ var subj_Name = [
   "physics",
   "geography",
 ];
+
+var cover_color = ["#0CABA4", "#1AA751", "#1AA751", "#AA8EC1", "", "#7570B3"];
+
 createResrc(currentImage, country_code, subj_Name, k);
 sliderWithAuto(
   ".resource-sec",
@@ -57,6 +60,7 @@ function changeContent(country, event) {
 
   if (country === "ethiopia") {
     country_code = "ETH";
+    cover_color = ["#3D996A", "#EE1D23", "#CF6E65", "#AA8EC1", "", "#7570B3"];
   } else if (country === "nigeria") {
     country_code = "NGA";
   } else if (country === "kenya") {
@@ -64,6 +68,7 @@ function changeContent(country, event) {
     newContent = "Content for Kenya";
   } else if (country === "south-sudan") {
     country_code = "SS";
+    cover_color = ["#3D996A", "#EE1D23", "#CF6E65", "#AA8EC1", "", "#7570B3"];
   }
   var country_btn = document.getElementById("country-btn");
 
@@ -176,14 +181,14 @@ function createResrc(g_no, country_code, subj_Name, k) {
   } else if (mediaFor_lap.matches) {
     p = 3;
     q = 1;
-    if (p == Math.floor(subj_Name.length / p)) {
+    if (subj_Name.length % p == 0) {
       q = 0;
     }
   } else {
     // location.reload();
     p = 1;
     q = 1;
-    if (p == Math.floor(subj_Name.length / p)) {
+    if (subj_Name.length % p == 0) {
       q = 0;
     }
   }
@@ -225,7 +230,7 @@ function createResrc(g_no, country_code, subj_Name, k) {
 href="/grade/?book=bk/${country_code}/${subj_Name[k]}_g-${g_no}.pdf"
 class="resrc-box"
 >
-<div class="resrc-cover-container">
+<div class="resrc-cover-container" style="background:${cover_color[k]};">
   <img
     src="/static/asset/book-cover/${country_code}/${
           subj_Name[k]
