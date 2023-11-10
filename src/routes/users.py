@@ -9,7 +9,8 @@ import google.auth.transport.requests
 from flask import Blueprint, render_template,request, redirect, flash,session,abort
 from ..models.user import User
 from ..models.book import Books
-from ..extensions import db
+from ..extensions import db,mail
+from flask_mail import Message
 from .utils import register_user, login_auth
 from flask_login import login_user, logout_user
 client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "../../clientSecret.json")
@@ -295,3 +296,18 @@ def delete_book():
            
            
     return redirect("/booklist")
+@users.route("/contact_us/", methods=['GET','POST'])
+def contact_us():
+    name=request.form['name']   
+    email=request.form['email']
+    message=request.form['message']
+    
+    msg = Message(
+        'New message from {} <{}>'.format(name, email),
+        sender='miltooknowledgecompanion@gmail.com',  # Use your email
+        recipients=['ararsaderese6@gmail.com']
+    )
+    msg.body = message
+    mail.send(msg)
+    flash('Message sent!', 'success') 
+    return redirect("/#contact")

@@ -847,21 +847,21 @@
         <div class="robot-4">
           <img src="/static/asset/robor-4.svg" alt="" />
         </div>
-        <form action="#" method="" class="contact-box">
+        <form action="/contact_us/" method="POST" class="contact-box">
           <div class="contact-box-icon">
             <i class="fa-solid fa-address-card"></i>
           </div>
           <div class="fullname-box">
             Full Name
             <div class="name-container">
-              <input type="text" class="contact-name" placeholder="fullname" />
+              <input type="text" class="contact-name" placeholder="fullname" name="name"/>
               <span class="fullname-icon"></span>
             </div>
           </div>
           <div class="email-box">
             email
             <div class="email-container">
-              <input type="email" class="contact-email" placeholder="email" />
+              <input type="email" class="contact-email" placeholder="email" name="email" />
               <span class="email-icon"></span>
             </div>
           </div>
@@ -873,6 +873,7 @@
                 cols="30"
                 rows="8"
                 placeholder="message-here"
+                name="message"
               >
               </textarea>
             </div>
@@ -883,8 +884,18 @@
             ></span>
             send message
           </button>
-        </form>
+        </form> 
+        {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
       </div>
+     
     </section>
   </main>
   <footer style="display: block">
