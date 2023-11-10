@@ -1270,6 +1270,14 @@ input[type="file"]:hover {
   .chatbot-var-1 {
     display: none;
   }
+  .profile-menu {
+    top: 68px;
+    left: 56vw;
+    width: 172px;
+  }
+  .profile-menu-item {
+    width: 136px;
+  }
 }
 
 @media only screen and (768px<=width < 992px) {

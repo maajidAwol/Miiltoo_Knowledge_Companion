@@ -156,14 +156,27 @@ overlayHeader.addEventListener("click", () => {
   overlay.classList.remove("forMob");
   // body.classList.toggle("overflow-hidden");
 });
-profile_group.addEventListener("mouseover", () => {
-  profile_menu.classList.remove("hidden");
-  grade_menu.classList.add("hidden");
-  page_menu.classList.add("hidden");
-  country_menu.classList.add("hidden");
-  grade_btn_icon.style.transform = "rotate(0deg)";
-  profile_drop_icon.style.transform = "rotate(180deg)";
-});
+if (window.matchMedia("(width>=992px)").matches) {
+  profile_group.addEventListener("mouseover", () => {
+    profile_menu.classList.remove("hidden");
+    grade_menu.classList.add("hidden");
+    page_menu.classList.add("hidden");
+    country_menu.classList.add("hidden");
+    grade_btn_icon.style.transform = "rotate(0deg)";
+    profile_drop_icon.style.transform = "rotate(180deg)";
+  });
+} else {
+  profile_group.addEventListener("click", (e) => {
+    e.stopPropagation();
+    profile_menu.classList.toggle("hidden");
+    console.log("cllllllll");
+    grade_menu.classList.toggle("hidden");
+    page_menu.classList.toggle("hidden");
+    country_menu.classList.toggle("hidden");
+    // grade_btn_icon.style.transform = "rotate(0deg)";
+    profile_drop_icon.style.transform = "rotate(180deg)";
+  });
+}
 uploadFunc();
 function uploadFunc() {
   upload_btn.addEventListener("click", (e) => {
