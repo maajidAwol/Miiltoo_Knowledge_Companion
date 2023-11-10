@@ -1815,6 +1815,7 @@ h1 span {
   justify-content: end;
   gap: 12px;
   align-self: stretch;
+  text-transform: capitalize;
 }
 .message-box {
   position: relative;
