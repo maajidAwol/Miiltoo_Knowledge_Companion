@@ -1,0 +1,156 @@
+.my-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.loading-anime {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  font-size: 20px;
+  letter-spacing: 4px;
+  font-weight: 600;
+  color: aqua;
+  background: #0c1035;
+  border-radius: 50%;
+  z-index: 3;
+}
+.loading-overlay {
+  width: 100%;
+  height: 60vh;
+  background: black;
+}
+
+#logo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: fill 1s ease forwards 2s;
+}
+#logo path:nth-child(7) {
+  stroke-dasharray: 148;
+  stroke-dashoffset: 148;
+  animation: lin-anime 4s ease forwards infinite;
+}
+#logo path:nth-child(2) {
+  stroke-dasharray: 12;
+  stroke-dashoffset: 12;
+  animation: lin-anime 4s ease backwards infinite;
+}
+#logo path:nth-child(5) {
+  stroke-dasharray: 12;
+  stroke-dashoffset: 12;
+  animation: lin-anime 4s ease backwards infinite;
+}
+@keyframes lin-anime {
+  to {
+    stroke-dashoffset: 0;
+    background: transparent;
+  }
+}
+@keyframes fill {
+  from {
+    fill: transparent;
+    background: transparent;
+  }
+  to {
+    fill: rgba(0, 255, 255, 0.137);
+  }
+}
+.hidden {
+  display: none;
+}
+.blinker {
+  animation: blinker 1s linear infinite;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+.loader1,
+.loader2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  color: white;
+  font-size: 16px;
+  text-transform: capitalize;
+  z-index: 1;
+}
+.animation-logo {
+  position: relative;
+  top: 0px;
+  /* right: -81%; */
+  margin-left: 14vw;
+  width: 80px;
+  height: 80px;
+  background: transparent;
+  z-index: 2;
+}
+.loader1,
+.loader2 {
+  position: absolute;
+}
+.loader1 span,
+.loader2 span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #22fbf7b2;
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0.3;
+  animation: glowing 4s ease-out infinite;
+  animation-delay: calc(0.4s * var(--i));
+}
+.loader2 {
+  animation: glowing2 4s ease-out infinite;
+  animation-delay: calc(0.6s * var(--i));
+}
+.loader1 :nth-child(1) {
+  background: #03164b;
+}
+.loader1 :nth-child(1) {
+  background: #03164b;
+}
+
+@keyframes glowing2 {
+  100% {
+    transform: scale(2.5) rotate(-60deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(2) skew(-5deg);
+    opacity: 0;
+  }
+}
+
+@keyframes glowing {
+  100% {
+    transform: scale(2.5) rotate(360deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(2) skew(5deg);
+    opacity: 0;
+  }
+}
+@media only screen and (368px<=width < 768px) {
+  .animation-logo {
+    margin-left: 28vw;
+  }
+}
+@media only screen and (768px<=width < 992px) {
+  .animation-logo {
+    margin-left: 30vw;
+  }
+}

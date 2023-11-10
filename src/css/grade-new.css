@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  /* fonts */
+  --font-pacifico: Pacifico;
+  --font-roboto: Roboto;
+
+  /* font sizes */
+  --font-size-mini-5: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 16px;
+  --font-size-Hb: 25px;
+  --font-size-Xl: 32px;
+  --font-size-XXl-sc: 48px;
+  --font-size-XXl-pr: 61px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-black: #000;
+  --color-primary: #080d27;
+  --color-secondary: #1e206f;
+  --color-accent: #22fbf9;
+  font-family: var(--font-roboto);
+}
+
+.grade-menu-item:hover {
+  color: var(--color-white);
+}
+.grade-menu-item:hover :nth-child(1) {
+  color: var(--color-accent);
+}
+/* .resrc-item {
+  position: absolute;
+  width: max-content;
+  display: flex;
+  gap: 8px;
+  transition: transform 0.6s ease;
+} */
+
+.resource-sec {
+  gap: 16px;
+}
