@@ -2735,7 +2735,7 @@ footer {
   nav,
   .overlay {
     position: absolute;
-    width: 101%;
+    width: 100vw;
     left: 0;
     top: 71px;
     height: auto;

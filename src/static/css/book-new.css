@@ -1258,12 +1258,17 @@ input[type="file"]:hover {
     width: 90%;
     min-width: 420px;
   }
+  .chatbot-var-2,
+  .chatbot-var-3,
+  .chatbot-var-4 {
+    height: 97%;
+  }
   .arrow-btn {
     display: none;
   }
   .chatbot-var-2,
   .chatbot-var-3 {
-    width: 84vw;
+    width: 76vw;
     margin: 24px 0;
   }
   .text-input-container {
