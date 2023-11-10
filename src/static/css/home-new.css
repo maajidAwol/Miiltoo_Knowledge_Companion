@@ -726,7 +726,7 @@ h1 span {
   font-family: Roboto;
   font-size: 23px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 150%;
 }
 .explore-btn {
@@ -2046,7 +2046,7 @@ footer {
   }
 
   .feature-sec {
-    padding: 8px 0px;
+    padding: 32px 0px;
     gap: 24px;
   }
   .feat-container {
@@ -2898,6 +2898,10 @@ footer {
   .login-group-mob {
     display: none;
   }
+  .ad-sec {
+    padding: 32px 32px;
+  }
+
   .country-menu-item-icon {
     margin-left: 0;
   }

@@ -363,3 +363,19 @@ label {
 .hidden {
   display: none;
 }
+@media only screen and (width < 600px) {
+  .login-container-inner,
+  .signup-container-inner {
+    width: 300px;
+    height: 489px;
+  }
+}
+@media only screen and (width < 992px) {
+  .login-container {
+    padding: 16px;
+  }
+  .login-container-inner,
+  .signup-container-inner {
+    padding: 16px 24px;
+  }
+}

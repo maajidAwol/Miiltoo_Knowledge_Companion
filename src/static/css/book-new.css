@@ -1192,7 +1192,7 @@ input[type="file"]:hover {
 }
 .btns:hover {
   cursor: pointer;
-  background: #16cfce;
+  background: #18e6e6;
 }
 .btns .line {
   width: 24px;
@@ -1282,6 +1282,9 @@ input[type="file"]:hover {
   }
   .var2-logo {
     display: none;
+  }
+  .signup-container-inner {
+    padding: 24px 24px;
   }
 }
 
