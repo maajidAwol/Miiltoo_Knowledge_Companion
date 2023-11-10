@@ -56,7 +56,7 @@ def register():
         user_google = User.query.filter_by(email=email).first()
 
         if user_google:
-            # Call the register_user function
+
             if user_google.password == "google":
                 return render_template("signup.html")
         # Call the register_user function
@@ -67,10 +67,10 @@ def register():
             check_ver = User.query.filter_by(email=email).first()
             print(check_ver.verified)
             if check_ver.verified:
-                # Registration failed, username already exists
+
                 error_message = "Username already exists. Please choose a different username."
                 all_users = User.query.all()
-                return render_template('sign_disp.html', users=all_users, error_message=error_message)
+                return redirect("/login")
             elif not check_ver.verified:
                 session["email_before"] = email
                 return render_template("confirm_email.html")

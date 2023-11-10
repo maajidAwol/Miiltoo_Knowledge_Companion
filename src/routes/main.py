@@ -270,7 +270,7 @@ def contest_send():
     current_time = datetime.strptime(current_time, '%Y%m%d%H%M%S')
 
     if not contest_query.start_time:
-        return render_template("leaderboard.html")
+        return redirect("/leaderboard")
     if contest_query.start_time <= current_time <= contest_query.end_time:
         result = ext(contest_query.contest_data)
         print(current_time)
@@ -278,7 +278,7 @@ def contest_send():
         # db.session.commit()
         return result
     else:
-        return render_template("leaderboard.html")
+        return redirect("/leaderboard")
 @main.route("/leaderboard")
 def leaderboard():
     contest_id_from_session = session.get('contest_id')
