@@ -5,12 +5,10 @@ const box = document.querySelectorAll(".how-does-reg");
 for (let i = 0; i < circle_dot.length; i++) {
   circle_dot[i].style.opacity = "0";
 }
-
 for (let i = 0; i < box.length; i++) {
   box[i].style.opacity = "0.2";
   box[i].style.transform = `translateX(160%)`; // Adjusted the initial translation value
 }
-
 how_does_sec.addEventListener("mouseenter", () => {
   const revealStep = () => {
     let stepIndex = 0;
