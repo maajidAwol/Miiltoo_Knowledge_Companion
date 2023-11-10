@@ -1,44 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Error</title>
-    <style>
-        body {
-            background-color: #f1f1f1;
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        .error-container {
-            margin: 100px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            border-radius: 5px;
-        }
-        img {
-            width: 100px;
-            height: 100px;
-        }
-        h1 {
-            color: #ff5733;
-            font-size: 36px;
-        }
-        p {
-            font-size: 24px;
-            color: #333;
-        }
-    </style>
-</head>
-<body>
-    
-     <div class="error-container">
-        <img src="/static/asset/robot-2.svg" alt="Logo">
-        <h1>Error {{ error_code }}</h1>
-        <p>{{ error_message }}</p>
-        <a href="/">Go back to home</a>
+    <link rel="stylesheet" href="/src/static/css/error.css" />
+  </head>
+  <body>
+    <div class="error-container">
+      <img src="/static/asset/robot-2.svg" alt="Logo" />
+      <h1>Error {{ error_code }}</h1>
+      <p>{{ error_message }}</p>
+      <a href="/">Go back to home</a>
     </div>
-</body>
+  </body>
 </html>
-   
