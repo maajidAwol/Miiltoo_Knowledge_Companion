@@ -17,7 +17,7 @@ flow = Flow.from_client_secrets_file(
     client_secrets_file=client_secrets_file,
     scopes=["https://www.googleapis.com/auth/userinfo.profile", "https://www.googleapis.com/auth/userinfo.email",
             "openid"],
-    redirect_uri="http://127.0.0.1:5000/callback"
+    redirect_uri="https://miltoo.onrender.com/callback"
 )
 GOOGLE_CLIENT_ID = config('GOOGLE_CLIENT_ID')  
 users = Blueprint('users', __name__)
