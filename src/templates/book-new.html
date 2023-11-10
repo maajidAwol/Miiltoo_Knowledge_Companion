@@ -19,14 +19,10 @@
         </select>
       </div>
       <br />
-      <iframe
-        Content-Disposition:
-        inline;
-        src="/static/{{book}}"
-        frameborder="0"
-        class="pdf-section"
-        id="pdf-embed"
-      ></iframe>
+      <object data="/static/{{book}}" type="application/pdf" width="100%" height="800px">
+        <p>Unable to view PDF. Download PDF instead.</p>
+    </object>
+    
     </div>
 
     <div style="text-transform: capitalize" class="chatbot-container">
