@@ -249,7 +249,7 @@ a {
   align-items: end;
   width: 84%;
   display: flex;
-  padding: 0 8%;
+  padding: 0px 8%;
   gap: 2%;
 }
 .login-group-mob a {
@@ -722,11 +722,11 @@ h1 span {
 .headline-quatation {
   max-width: 650px;
   align-self: stretch;
-  color: rgba(255, 255, 255, 0.692);
+  color: rgba(255, 255, 255, 0.91);
   font-family: Roboto;
   font-size: 23px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 150%;
 }
 .explore-btn {
@@ -761,6 +761,7 @@ h1 span {
 .mesh-shape,
 .robot-pic {
   position: absolute;
+  top: 2%;
   left: 63%;
 }
 .robot-pic {
@@ -1731,7 +1732,7 @@ h1 span {
   align-self: stretch;
   border-radius: 24px;
   border: 2px solid var(--secondary, #1e206f);
-  background: rgba(30, 32, 111, 0.5);
+  background: rgb(14 19 63);
   color: var(--action, #22fbf9);
   font-family: Roboto;
   font-size: 20px;
@@ -1739,6 +1740,14 @@ h1 span {
   font-weight: 600;
   line-height: normal;
   text-transform: capitalize;
+}
+.team-sec {
+  position: relative;
+  padding: 32px 0px;
+  gap: 34.5px;
+  background: no-repeat url(/static/asset/testimoney-bg.svg);
+  background-position: center -47px;
+  background-size: auto;
 }
 .email-icon i,
 .phone-icon i,
@@ -1763,7 +1772,7 @@ h1 span {
   text-transform: capitalize;
 }
 .member-email span {
-  text-transform: lowercase;
+  text-transform: none;
 }
 .member-role {
   display: flex;
@@ -2023,7 +2032,9 @@ footer {
     border-radius: 33px;
     padding: 8%;
   }
-
+  .feat-container {
+    padding-bottom: 35px;
+  }
   .feat-headline,
   .resrc-headline {
     font-size: 25px;
@@ -2035,7 +2046,7 @@ footer {
   }
 
   .feature-sec {
-    padding: 8px 0px;
+    padding: 32px 0px;
     gap: 24px;
   }
   .feat-container {
@@ -2060,7 +2071,7 @@ footer {
     transform: scale(0.6);
   }
   .resrc-btns :nth-child(1) {
-    margin-left: 204px;
+    margin-left: 55%;
   }
 
   .resrc-btns :last-child {
@@ -2170,12 +2181,12 @@ footer {
     flex-direction: column;
   }
   .how-does-step-container {
-    width: 72%;
+    width: 80%;
     gap: 24px;
   }
   .vertical-dots {
     position: absolute;
-    margin-left: -31px;
+    margin-left: -12px;
     margin-top: -7px;
     display: flex;
     flex-direction: column;
@@ -2190,7 +2201,10 @@ footer {
   .team-content {
     flex-direction: column;
     /* margin: 0 6%; */
-    margin-top: 12px;
+    margin-top: 127px;
+  }
+  .testimoney-content {
+    margin-top: -34px;
   }
   .testi-frame {
     display: none;
@@ -2205,6 +2219,9 @@ footer {
     padding-left: 46%;
     height: 645px;
   }
+  .slider-testimoney {
+    height: 568px;
+  }
   .testi-nav-container {
     width: 76%;
   }
@@ -2215,7 +2232,8 @@ footer {
   }
   .testimony-sec {
     gap: 0;
-    background-position: 0 -52px;
+    padding: 32px 0;
+    background-position: 0 -50px;
     background-size: auto;
   }
   .resrc-slider-indicator,
@@ -2226,7 +2244,7 @@ footer {
   .team-container {
     width: 100%;
     padding: 2%;
-    height: 600px;
+    height: 556px;
     margin: 0;
   }
   .team-content {
@@ -2238,6 +2256,19 @@ footer {
   }
   .member-profile {
     position: absolute;
+    flex-direction: row;
+    padding-bottom: 78px;
+    border-radius: 75px 148px 219px 58px;
+    z-index: 4;
+  }
+  .member-name {
+    align-items: center;
+    padding: 15.5px 15px;
+    height: 24px;
+    border-radius: 52px;
+  }
+  .user-icon {
+    display: none;
   }
   .robot-4 {
     display: none;
@@ -2304,6 +2335,22 @@ footer {
   }
   .robot-3 img {
     width: 230px;
+  }
+  .robot-2 img {
+    width: 20.75rem;
+  }
+  .step-1 {
+    padding: 5px;
+    width: 40px;
+    font-size: 32px;
+  }
+  .step {
+    width: 33%;
+  }
+  .member-pic {
+    /* transform: scale(.4); */
+    width: 100px;
+    height: 111px;
   }
 }
 @media only screen and (600px <= width < 768px) {
@@ -2688,7 +2735,7 @@ footer {
   nav,
   .overlay {
     position: absolute;
-    width: 101%;
+    width: 100vw;
     left: 0;
     top: 71px;
     height: auto;
@@ -2718,6 +2765,10 @@ footer {
     height: 53px;
     display: flex;
     align-items: center;
+    gap: 24px;
+  }
+  .feature-sec {
+    padding: 32px 0px;
     gap: 24px;
   }
   .home-link:hover {
@@ -2851,6 +2902,10 @@ footer {
   .login-group-mob {
     display: none;
   }
+  .ad-sec {
+    padding: 32px 32px;
+  }
+
   .country-menu-item-icon {
     margin-left: 0;
   }

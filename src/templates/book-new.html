@@ -1,385 +1,391 @@
-{%extends "base.html"%}
+{%extends "base.html"%} {%block title%}Book{%endblock%} {%block head%}
+<link rel="stylesheet" href="/static/css/home-new.css" />
+<link rel="stylesheet" href="/static/css/loading-style.css" />
+<link rel="stylesheet" href="/static/css/book-new.css" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+{%endblock%} {%block body%}
+<main sty>
+  <section class="chat-sec">
+    <div class="book-container">
+      <div class="chapter-container">
+        <select name="" id="chapter" class="chapter">
+          <option value="all">All Chapters</option>
+        </select>
+      </div>
+      <br />
+      <iframe
+        Content-Disposition:
+        inline;
+        src="/static/{{book}}"
+        frameborder="0"
+        class="pdf-section"
+        id="pdf-embed"
+      ></iframe>
+    </div>
 
-    {%block title%}Book{%endblock%}
-   {%block head%}
-    <link rel="stylesheet" href="/static/css/home-new.css" />
-    <link rel="stylesheet" href="/static/css/loading-style.css" />
-    <link rel="stylesheet" href="/static/css/book-new.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    {%endblock%}
-  {%block body%}
-    <main sty>
-      <section class="chat-sec">
-        <div class="book-container">
-            <div class="chapter-container">
-               <select name="" id="chapter" class="chapter">
-                 <option  value="all">
+    <div style="text-transform: capitalize" class="chatbot-container">
+      <div class="chatbot-var-2 hidden">
+        <button class="arrow-btn chat-left-btn">
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
 
-                 All Chapters
-
-                 </option>
-                </select>
-              </div>
-              <br>
-            <embed
-            src="/static/{{book}}"
-            frameborder="0"
-            class="pdf-section"
-            id="pdf-embed"
-          ></embed>
+        <div class="chat-top-container">
+          <div class="var2-logo">
+            <img src="/static/asset/logo.svg" alt="" />
+            miiltoo
+          </div>
+          <div class="chat-top-headline">
+            <div class="chat-text">
+              <span class="chat-text-icon"
+                ><i class="fa-brands fa-rocketchat"></i
+              ></span>
+              chat
+            </div>
+            <div class="subject-text">
+              <span class="subject-text-icon"
+                ><i class="fa-solid fa-book"></i
+              ></span>
+              subject :
+              <p class="subject-name"></p>
+            </div>
+          </div>
         </div>
-
-        <div style="text-transform: capitalize;" class="chatbot-container">
-
-          <div class="chatbot-var-2 hidden">
-            <button class="arrow-btn chat-left-btn">
-              <i class="fa-solid fa-arrow-right"></i>
-            </button>
-
-            <div class="chat-top-container">
-              <div class="var2-logo">
-                <img src="/static/asset/logo.svg" alt="">
-                miiltoo
-              </div>
-              <div class="chat-top-headline">
-                <div class="chat-text">
-                  <span class="chat-text-icon"><i class="fa-brands fa-rocketchat"></i></span>
-                  chat
-                </div>
-                <div class="subject-text">
-                  <span class="subject-text-icon"><i class="fa-solid fa-book"></i></span>
-                  subject :
-                  <p class="subject-name"></p>
-                </div>
-              </div>
-            </div>
-            <form method="post" class="ask-form">
-              <div class="text-input-container">
-                <span class="question-icon">?
-                </span>
-                <textarea name="" id="aaa" class="text-input" placeholder="what can i help you?"></textarea>
-              </div>
-
-
-              <button type="submit" id="bbb" class="ask-btn">
-                <span class="ask-btn-icon">
-
-                  <i class="fa-solid fa-microchip"></i>
-                <span class="icon-text">ai</span>
-                </span>
-                ask
-              </button>
-                <input id="book_choice" name="book_choice" type="hidden" value="/{{book}}" >
-            </form>
-            <div class="result-label">
-              <div class="result-label-item">
-                <span class="static-icon"><i class="fa-solid fa-square-poll-vertical"></i></span>
-                result
-              </div>
-            </div>
-            <div class="result-container" >
-
-<div class="result-container-item" id="ccc">
-
-            </div>
+        <form method="post" class="ask-form">
+          <div class="text-input-container">
+            <span class="question-icon">? </span>
+            <textarea
+              name=""
+              id="aaa"
+              class="text-input"
+              placeholder="what can i help you?"
+            ></textarea>
           </div>
-          </div>
-          <div class="chatbot-var-3 hidden">
-                 <!--    protect       -->
-            <button class="arrow-btn chat-left-btn">
-              <i class="fa-solid fa-arrow-right"></i>
-            </button>
-            <div class="chat-top-container">
-              <div class="var2-logo">
-                <img src="/static/asset/logo.svg" alt="">
-                miilt<span>oo</span>
-              </div>
-              <div class="chat-top-headline">
-                <div class="chat-text">
 
-                  <span class="chat-text-icon">
-                    <i class="fa-regular fa-message"></i>
-                    <i class="fa-solid fa-question"></i>
-                  </span>
-                  quiz
-                </div>
-                <div class="subject-text">
-                  <span class="subject-text-icon"><i class="fa-solid fa-book"></i></span>
-                  subject :
-                  <p class="subject-name">subject name</p>
-                </div>
-              </div>
-            </div>
-<!--    protect       -->
-<!--              generation form-->
-          <form  class="generate-form" >
-            <div class="selection-container">
-
-               <div class="chapter-container">
-                 <select name="" id="subtopic" class="subtopic">
-                   <option  value="Definition of Biology ">
-                 <div class="please-choose-section">Choose subtopic</div>
-
-                   </option>
-                 </select>
-               </div>
-             <div class="chapter-container">
-               <select name="" id="number" class="totalNoQuize">
-                 <option value="label">choose no of quize</option>
-                 <option value="1">1</option>
-                 <option value="2">2</option>
-                 <option value="3">3</option>
-                 <option value="4" >4</option>
-                 <option value="5" >5</option>
-                 <option value="6">6</option>
-                </select>
-             </div>
-           </div>
-            <button id="fetch-quiz" type="submit" class="generate-btn">
-            <span class="generate-btn-icon">
-                <i class="fa-solid fa-microchip"></i>
+          <button type="submit" id="bbb" class="ask-btn">
+            <span class="ask-btn-icon">
+              <i class="fa-solid fa-microchip"></i>
               <span class="icon-text">ai</span>
+            </span>
+            ask
+          </button>
+          <input
+            id="book_choice"
+            name="book_choice"
+            type="hidden"
+            value="/{{book}}"
+          />
+        </form>
+        <div class="result-label">
+          <div class="result-label-item">
+            <span class="static-icon"
+              ><i class="fa-solid fa-square-poll-vertical"></i
+            ></span>
+            result
+          </div>
+        </div>
+        <div class="result-container">
+          <div class="result-container-item" id="ccc"></div>
+        </div>
+      </div>
+      <div class="chatbot-var-3 hidden">
+        <!--    protect       -->
+        <button class="arrow-btn chat-left-btn">
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <div class="chat-top-container">
+          <div class="var2-logo">
+            <img src="/static/asset/logo.svg" alt="" />
+            miilt<span>oo</span>
+          </div>
+          <div class="chat-top-headline">
+            <div class="chat-text">
+              <span class="chat-text-icon">
+                <i class="fa-regular fa-message"></i>
+                <i class="fa-solid fa-question"></i>
               </span>
-              generate quiz
-            </button>
-          </form>
-              <!--              generation form-->
-<!--result text-->
-          <div class="result-label">
-            <div class="result-label-item">
-              <span class="static-icon"><i class="fa-solid fa-square-poll-vertical"></i></span>
-              result
+              quiz
             </div>
-          </div>   <script>
-  var biology = {{ json_data | default('null') | tojson | safe }};
-</script>
-              <!--result text-->
-<!--the generated quiz container-->
-          <div class="result-container">
-
-           <div class="result-container-item">
-           <form action="" class="generated-quize-form" id="quiz-form">
-
-
-               <div id="quiz-container"></div>
-<!--        <div class="blue-line"></div>-->
-
-            <button class="generate-btn" type="button" style="display: none;" id="submit-button" disabled>Submit Answers</button><br>
-           </form>
-           <div class="explanation-container" id="results"  style="display: none;"></div>
-           </div>
-
-          </div>
-
-
-
-
-          </div>
-              <!--the generated quiz container-->
-
-       
-          <div class="chatbot-var-1">
-                <button class="arrow-btn right-arrow-btn">
-                    <i class="fa-solid fa-arrow-right"></i>
-                </button>
-                <div class="chatbot-logo">
-                    <img src="/static/asset/logo.svg" alt="logo" />
-                </div>
-                <div class="chatbot-headline">
-                    what can i <span>help</span> you ?
-                </div>
-                <div class="robot-say-hi">
-                    <img src="/static/asset/robot-3.png" alt="" />
-                </div>
-                <div class="func-container">
-                    <button class="chatbot-func-item" id="chat-btn">
-                        <div class="active-state-shape hidden">
-                            <img src="/static/asset/active-state-shape.svg" alt="">
-                        </div>
-                        <span class="func-item-icon">
-                          <i class="fa-brands fa-rocketchat"></i>
-                        </span>
-                         <p>chat</p>
-                    </button>
-                    <button class="chatbot-func-item" id="quize-btn">
-                      <div class="active-state-shape hidden">
-                        <img src="/static/asset/active-state-shape.svg" alt="">
-                      </div>
-                        <span class="func-item-icon">
-                            <i class="fa-regular fa-message"></i>
-                            <i class="fa-solid fa-question"></i></span>
-                    <p>quiz</p>
-                    </button>
-                   
-                    <button class="chatbot-func-item" id="setting-btn">
-                      <div class="active-state-shape hidden">
-                        <img src="/static/asset/active-state-shape.svg" alt="">
-                      </div>
-                      <span class="func-item-icon"><i class="fa-solid fa-gear"></i></span>
-                       <p>setting</p>
-                    </button>
-                </div>
+            <div class="subject-text">
+              <span class="subject-text-icon"
+                ><i class="fa-solid fa-book"></i
+              ></span>
+              subject :
+              <p class="subject-name">subject name</p>
             </div>
-            <button class="float_btn btns">
-              <div class="line"></div>
-              <div class="line"></div>
-            </button>
-  <button class="quize_btn btns">
-    <span class="quize-text-icon">
-    <i class="fa-regular fa-message"></i>
-    <i class="fa-solid fa-question"></i>
-  </span>
-</button>
-  <button class="chat_btn btns"><i class="fa-brands fa-rocketchat"></i></button>
-
-  <button class="pdf_btn btns"><i class="fa-solid fa-file-pdf"></i></button>
-
-
-  
+          </div>
         </div>
-      </section>
-    </main>
-    {%block footer%}
-    <footer>
-      <div class="footer-content">
-        <div class="footer-logo">
-          <img src="/static/asset/logo.svg" alt="" />
-          <div>miilt<span class="oo">oo</span></div>
+        <!--    protect       -->
+        <!--              generation form-->
+        <form class="generate-form">
+          <div class="selection-container">
+            <div class="chapter-container">
+              <select name="" id="subtopic" class="subtopic">
+                <option value="Definition of Biology ">
+                  <div class="please-choose-section">Choose subtopic</div>
+                </option>
+              </select>
+            </div>
+            <div class="chapter-container">
+              <select name="" id="number" class="totalNoQuize">
+                <option value="label">choose no of quize</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+              </select>
+            </div>
+          </div>
+          <button id="fetch-quiz" type="submit" class="generate-btn">
+            <span class="generate-btn-icon">
+              <i class="fa-solid fa-microchip"></i>
+              <span class="icon-text">ai</span>
+            </span>
+            generate quiz
+          </button>
+        </form>
+        <!--              generation form-->
+        <!--result text-->
+        <div class="result-label">
+          <div class="result-label-item">
+            <span class="static-icon"
+              ><i class="fa-solid fa-square-poll-vertical"></i
+            ></span>
+            result
+          </div>
         </div>
-        <div class="footer-link-container">
-          <div class="link-container">
-            Home
-            <a href="" class="link">grade</a>
-            <a href="" class="link">subject</a>
-            <a href="" class="link">chatbot</a>
-          </div>
-          <div class="link-container">
-            resource
-            <a href="" class="link">textbook</a>
-            <a href="" class="link">study guid</a>
-            <a href="" class="link">upload</a>
-          </div>
-          <div class="link-container">
-            grade
-            <a href="" class="link">grade-9</a>
-            <a href="" class="link">grade-10</a>
-            <a href="" class="link">grade-11</a>
-            <a href="" class="link">grade-12</a>
-          </div>
-          <div class="link-container">
-            pages
-            <a href="" class="link">About us</a>
-            <a href="" class="link">contact us</a>
-            <a href="" class="link">FAQ</a>
-            <a href="" class="link">help</a>
+        <script>
+          var biology = {{ json_data | default('null') | tojson | safe }};
+        </script>
+        <!--result text-->
+        <!--the generated quiz container-->
+        <div class="result-container">
+          <div class="result-container-item">
+            <form action="" class="generated-quize-form" id="quiz-form">
+              <div id="quiz-container"></div>
+              <!--        <div class="blue-line"></div>-->
+
+              <button
+                class="generate-btn"
+                type="button"
+                style="display: none"
+                id="submit-button"
+                disabled
+              >
+                Submit Answers</button
+              ><br />
+            </form>
+            <div
+              class="explanation-container"
+              id="results"
+              style="display: none"
+            ></div>
           </div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <a class="social-icons"><i class="fa-brands fa-square-twitter"></i></a>
-        <a class="social-icons"><i class="fa-brands fa-facebook"></i></a>
-        <a class="social-icons"><i class="fa-brands fa-linkedin"></i></a>
-        <a class="social-icons"><i class="fa-brands fa-github"></i></a>
-        <a class="social-icons"><i class="fa-brands fa-telegram"></i></a>
+      <!--the generated quiz container-->
+
+      <div class="chatbot-var-1">
+        <button class="arrow-btn right-arrow-btn">
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <div class="chatbot-logo">
+          <img src="/static/asset/logo.svg" alt="logo" />
+        </div>
+        <div class="chatbot-headline">what can i <span>help</span> you ?</div>
+        <div class="robot-say-hi">
+          <img src="/static/asset/robot-3.png" alt="" />
+        </div>
+        <div class="func-container">
+          <button class="chatbot-func-item" id="chat-btn">
+            <div class="active-state-shape hidden">
+              <img src="/static/asset/active-state-shape.svg" alt="" />
+            </div>
+            <span class="func-item-icon">
+              <i class="fa-brands fa-rocketchat"></i>
+            </span>
+            <p>chat</p>
+          </button>
+          <button class="chatbot-func-item" id="quize-btn">
+            <div class="active-state-shape hidden">
+              <img src="/static/asset/active-state-shape.svg" alt="" />
+            </div>
+            <span class="func-item-icon">
+              <i class="fa-regular fa-message"></i>
+              <i class="fa-solid fa-question"></i
+            ></span>
+            <p>quiz</p>
+          </button>
+
+          <button class="chatbot-func-item" id="setting-btn">
+            <div class="active-state-shape hidden">
+              <img src="/static/asset/active-state-shape.svg" alt="" />
+            </div>
+            <span class="func-item-icon"><i class="fa-solid fa-gear"></i></span>
+            <p>setting</p>
+          </button>
+        </div>
       </div>
-    </footer>
-    {%endblock%}
-    <!--<script src="/static/js/menu.js"></script>
+      <button class="float_btn btns">
+        <div class="line"></div>
+        <div class="line"></div>
+      </button>
+      <button class="quize_btn btns">
+        <span class="quize-text-icon">
+          <i class="fa-regular fa-message"></i>
+          <i class="fa-solid fa-question"></i>
+        </span>
+      </button>
+      <button class="chat_btn btns">
+        <i class="fa-brands fa-rocketchat"></i>
+      </button>
+
+      <button class="pdf_btn btns"><i class="fa-solid fa-file-pdf"></i></button>
+    </div>
+  </section>
+</main>
+{%block footer%}
+<footer>
+  <div class="footer-content">
+    <div class="footer-logo">
+      <img src="/static/asset/logo.svg" alt="" />
+      <div>miilt<span class="oo">oo</span></div>
+    </div>
+    <div class="footer-link-container">
+      <div class="link-container">
+        Home
+        <a href="" class="link">grade</a>
+        <a href="" class="link">subject</a>
+        <a href="" class="link">chatbot</a>
+      </div>
+      <div class="link-container">
+        resource
+        <a href="" class="link">textbook</a>
+        <a href="" class="link">study guid</a>
+        <a href="" class="link">upload</a>
+      </div>
+      <div class="link-container">
+        grade
+        <a href="" class="link">grade-9</a>
+        <a href="" class="link">grade-10</a>
+        <a href="" class="link">grade-11</a>
+        <a href="" class="link">grade-12</a>
+      </div>
+      <div class="link-container">
+        pages
+        <a href="" class="link">About us</a>
+        <a href="" class="link">contact us</a>
+        <a href="" class="link">FAQ</a>
+        <a href="" class="link">help</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <a class="social-icons"><i class="fa-brands fa-square-twitter"></i></a>
+    <a class="social-icons"><i class="fa-brands fa-facebook"></i></a>
+    <a class="social-icons"><i class="fa-brands fa-linkedin"></i></a>
+    <a class="social-icons"><i class="fa-brands fa-github"></i></a>
+    <a class="social-icons"><i class="fa-brands fa-telegram"></i></a>
+  </div>
+</footer>
+{%endblock%}
+<!--<script src="/static/js/menu.js"></script>
     -->
 
-    <script src="/static/js/leftbar.js"></script>
-    <script>
+<script src="/static/js/leftbar.js"></script>
+<script>
+  const quize_choose = document.querySelectorAll(".quize-choose");
+  const choiceOption = document.querySelectorAll(".choose-list");
+  const choose_item = document.querySelectorAll(".choose-item");
+  var questions = {
+    1: null,
+    2: null,
+  };
 
-const quize_choose = document.querySelectorAll(".quize-choose");
-const choiceOption = document.querySelectorAll(".choose-list");
-const choose_item = document.querySelectorAll(".choose-item");
-var questions = {
-  1: null,
-  2: null
-};
+  function handleChoice(questionId, choice) {
+    var selectedChoice = questions[questionId];
 
-function handleChoice(questionId, choice) {
-  var selectedChoice = questions[questionId];
+    if (selectedChoice === choice) {
+      // Deselect the choice if it's already selected
+      questions[questionId] = null;
+      event.target.classList.remove("active");
+    } else {
+      // Select the choice
+      questions[questionId] = choice;
 
-  if (selectedChoice === choice) {
-    // Deselect the choice if it's already selected
-    questions[questionId] = null;
-    event.target.classList.remove("active");
-  } else {
-    // Select the choice
-    questions[questionId] = choice;
-
-    var buttons = document.querySelectorAll('.quize-content-container[data-question-id="' + questionId + '"] .choose-list');
-   for (let i = 0; i < buttons.length; i++) {
-    buttons[i].classList.remove('active');
-   }
-    event.target.classList.add("active");
-  }
-
-  event.preventDefault();
-}
-
-document.getElementById("generated-quize-form").addEventListener("submit", function(e) {
-  for (var questionId in questions) {
-    if (questions.hasOwnProperty(questionId)) {
-      var selectedChoice = questions[questionId];
-      document.getElementById("selectedChoice" + questionId).value = selectedChoice;
-    }
-  }
-
-  // Perform any additional form validation or submission logic
-  // if needed before allowing the form to be submitted.
-
-  // Uncomment the line below to submit the form
-  // this.submit();
-});
-
-
-
-    </script>
-    <script>
-      var select = document.getElementById("chapter");
-      var embed = document.getElementById("pdf-embed");
-  
-      // Get the variable from the backend
-      var bookParam = "{{book}}"; // Replace "book_param" with the actual variable name used in Jinja
-  
-      // Determine the default source based on the "book" parameter
-      var defaultSource = "/static/bk/ETH/bio/all.pdf";  // Default source for "bio"
-      var chapter_change =""
-      if (bookParam === "bk/ETH/history_g-9.pdf") {
-          defaultSource = "/static/bk/ETH/history_g-9.pdf";  // Default source for "hist"
-         chapter_change = "/static/bk/ETH/hist/";
-      } else if (bookParam === "bk/SS/history_g-9.pdf") {
-          defaultSource = "/static/bk/SS/history_g-9.pdf";
-          chapter_change ="/static/bk/SS/hist/";
-            // Default source for "ss"
-          
-      } else if (bookParam === "bk/ETH/biology_g-9.pdf") {
-    defaultSource = "/static/bk/ETH/biology_g-9.pdf";
-    chapter_change ="/static/bk/ETH/bio/";
-      }else{
-
-      defaultSource  = "/static/{{book}}";
+      var buttons = document.querySelectorAll(
+        '.quize-content-container[data-question-id="' +
+          questionId +
+          '"] .choose-list'
+      );
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("active");
       }
-  
-      // Update the default src attribute
-      embed.src = defaultSource;
-  
-      // Add an event listener to the select element
-      select.addEventListener("change", function () {
-          // Update the src attribute of the embed element with the selected value
-          embed.src = chapter_change + select.value + ".pdf";
-         
-      });
-  </script>
-  
+      event.target.classList.add("active");
+    }
+
+    event.preventDefault();
+  }
+
+  document
+    .getElementById("generated-quize-form")
+    .addEventListener("submit", function (e) {
+      for (var questionId in questions) {
+        if (questions.hasOwnProperty(questionId)) {
+          var selectedChoice = questions[questionId];
+          document.getElementById("selectedChoice" + questionId).value =
+            selectedChoice;
+        }
+      }
+
+      // Perform any additional form validation or submission logic
+      // if needed before allowing the form to be submitted.
+
+      // Uncomment the line below to submit the form
+      // this.submit();
+    });
+</script>
+<script>
+  var select = document.getElementById("chapter");
+  var embed = document.getElementById("pdf-embed");
+
+  // Get the variable from the backend
+  var bookParam = "{{book}}"; // Replace "book_param" with the actual variable name used in Jinja
+
+  // Determine the default source based on the "book" parameter
+  var defaultSource = "/static/bk/ETH/bio/all.pdf"; // Default source for "bio"
+  var chapter_change = "";
+  if (bookParam === "bk/ETH/history_g-9.pdf") {
+    defaultSource = "/static/bk/ETH/history_g-9.pdf"; // Default source for "hist"
+    chapter_change = "/static/bk/ETH/hist/";
+  } else if (bookParam === "bk/SS/history_g-9.pdf") {
+    defaultSource = "/static/bk/SS/history_g-9.pdf";
+    chapter_change = "/static/bk/SS/hist/";
+    // Default source for "ss"
+  } else if (bookParam === "bk/ETH/biology_g-9.pdf") {
+    defaultSource = "/static/bk/ETH/biology_g-9.pdf";
+    chapter_change = "/static/bk/ETH/bio/";
+  } else {
+    defaultSource = "/static/{{book}}";
+  }
+
+  // Update the default src attribute
+  embed.src = defaultSource;
+
+  // Add an event listener to the select element
+  select.addEventListener("change", function () {
+    // Update the src attribute of the embed element with the selected value
+    embed.src = chapter_change + select.value + ".pdf";
+  });
+</script>
+
 <script src="/static/js/chat.js"></script>
 <script src="/static/js/bioquiz.js"></script>
 {%endblock%}
