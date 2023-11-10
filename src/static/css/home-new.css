@@ -2767,6 +2767,10 @@ footer {
     align-items: center;
     gap: 24px;
   }
+  .feature-sec {
+    padding: 32px 0px;
+    gap: 24px;
+  }
   .home-link:hover {
     background: #1e1f6f8c;
     border: 1px solid var(--color-secondary);
