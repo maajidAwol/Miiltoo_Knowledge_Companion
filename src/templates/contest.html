@@ -3,8 +3,6 @@
 <link rel="stylesheet" href="/static/css/contest.css" />
 <title>Contest</title>
 {% endblock %} {%block body%}
-<body class="body">
-  
 
 <section class="mock-sec">
   <h2 class="mock-headline">Mock Contest</h2>
@@ -22,7 +20,7 @@
       <span class="col-content first">{{con.title}}</span>
       <span class="col-content">
         <div class="timer-container">
-        <div style="color: var(--color-accent);" id="countdown_to_end">Anytime</div></div>
+        <div style="color: var(--color-accent);">Anytime</div></div>
         </span>
       <span class="col-content">As much as you Want</span>
       <span class="col-content last">
@@ -47,12 +45,12 @@
     <div class="table-row">
       {%for con in contest%}
       {%if con.title!="Mock Contest"%}
-     <span class="col-content first">wtf</span>
+     <span class="col-content first">{{con.title}}</span>
       <span class="col-content">
         <div class="timer-container">
         <div style="color: var(--color-accent);" id="countdown_to_end"></div></div>
         </span>
-      <span class="col-content">wtf</span>
+      <span class="col-content">{{con.start_time}}</span>
       <span class="col-content last">
             <button id="register-button" class="register-btn">Register</button>
        <button style="display: none;" class="register-btn" id="enter-contest-button">Enter Contest</button></div>
@@ -66,7 +64,6 @@
 </section>
 
 
-</body>
   <form action="#" id="main_contest_form" style="display: none;" class="form">
     <h2 class="text-center">Contest</h2>
     <!-- Progress bar -->
@@ -112,7 +109,7 @@
           type="button"
           class="btn submit-Answer-btn"
           id="history-submit-button"
-        >
+        >er Contest
           Submit Answers<i class="fa-solid fa-square-arrow-up-right"></i>
         </button>
       </div>
@@ -319,5 +316,5 @@
   </script>
 
   <script src="/static/js/contest.js"></script>
-</body>
+
 {%endblock%} 
