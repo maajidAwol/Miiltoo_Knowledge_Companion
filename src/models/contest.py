@@ -11,6 +11,7 @@ class Contest(db.Model, UserMixin):
     start_time = db.Column(db.DateTime, nullable=True)
     end_time = db.Column(db.DateTime, nullable=True)
     is_active = db.Column(db.Boolean, nullable=True)
+    title = db.Column(db.String, default="Mock Contest")
 
     @property
     def is_active(self):

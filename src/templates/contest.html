@@ -2,35 +2,68 @@
 <link rel="stylesheet" href="/static/css/book-new.css" />
 <link rel="stylesheet" href="/static/css/contest.css" />
 <title>Contest</title>
-<style>
-  .timer-container {
-    font-size: 24px;
-    text-align: center;
-    padding: 10px;
-    border: 2px solid #000;
-    width: 400px;
-    margin: 0 auto;
-  }
-  .timer-container1 {
-    font-size: 24px;
-    text-align: center;
-    padding: 10px;
-   
-    width: 400px;
-    margin: 0 auto;
-  }
-</style>
 {% endblock %} {%block body%}
 <body class="body">
-  <div class="timer-container">
-<div style="color: white;" id="countdown_to_end"></div></div>
-<div class="timer-container1">
-<div id="registration-div">
-    <button id="register-button" class="btn btn-primary">Register for Contest</button>
+  
+
+<section class="mock-sec">
+  <h2 class="mock-headline">Mock Contest</h2>
+  <div class="mock-table">
+    <div class="table-header">
+      <span class="col-header">Title</span>
+      <span class="col-header">Start</span>
+      <span class="col-header">Length</span>
+      <span class="col-header"></span>
+    </div>
+     {%for con in contest%}
+      {%if con.title=="Mock Contest"%}
+    <div class="table-row">
+     
+      <span class="col-content first">{{con.title}}</span>
+      <span class="col-content">
+        <div class="timer-container">
+        <div style="color: var(--color-accent);" id="countdown_to_end">Anytime</div></div>
+        </span>
+      <span class="col-content">As much as you Want</span>
+      <span class="col-content last">
+            <button id="register-button" class="register-btn">Register</button>
+  <button style="display: none;" class="register-btn" id="enter-contest-button">Enter Contest</button></div>
+        
+          </span>
+          
   </div>
+  {%endif%}
+          {%endfor%}
+</section>
+<section class="upcoming-sec">
+  <h2 class="upcoming-headline">Upcoming Contest</h2>
+  <div class="upcoming-table">
+    <div class="table-header">
+      <span class="col-header">Title</span>
+      <span class="col-header">Start</span>
+      <span class="col-header">Length</span>
+      <span class="col-header"></span>
+    </div>
+    <div class="table-row">
+      {%for con in contest%}
+      {%if con.title!="Mock Contest"%}
+     <span class="col-content first">wtf</span>
+      <span class="col-content">
+        <div class="timer-container">
+        <div style="color: var(--color-accent);" id="countdown_to_end"></div></div>
+        </span>
+      <span class="col-content">wtf</span>
+      <span class="col-content last">
+            <button id="register-button" class="register-btn">Register</button>
+       <button style="display: none;" class="register-btn" id="enter-contest-button">Enter Contest</button></div>
+        
+          </span>
+        {%endif%}
+        {%endfor%}
+   
+</div>
 
-  <button style="display: none;" class="btn btn-primary" id="enter-contest-button">Enter Contest</button></div>
-
+</section>
 
 
 </body>
@@ -220,46 +253,64 @@
 
     // Function to update the countdown timer
    
-function updateCountdown() {
-  const contestEndTime = new Date("{{ contest_end_time }}").getTime(); // Replace with your back-end value
-  const now = new Date().getTime();
-
-  const timeRemaining = contestEndTime - now;
-
-  if (timeRemaining <= 0) {
-    // Time's up!
-    const countdownDiv = document.getElementById("countdown_to_end");
+    function updateCountdown() {
+      const contestEndTime = new Date("{{ contest_end_time }}").getTime(); // Replace with your back-end value
+      const contestStartTime = new Date("{{ contest_start_time }}").getTime(); // Replace with your back-end value
+      const now = new Date().getTime();
     
-    countdownDiv.innerHTML = "Time's up!";
-  //  var newRoute = "/finish_contest";
-
-  // Redirect to the new route
- // window.location.href = newRoute;
- finish_contest();
-
-    showResults(
-    resultsContainer,
-    biology_quizData,
-    bio_score,
-    "Biology",
-    biology_score
-  );
-  submitButton.style.display = "none";
-  } else {
-    const hours = Math.floor(timeRemaining / (1000 * 60 * 60));
-    const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-    const countdownDiv = document.getElementById("countdown_to_end");
-    countdownDiv.innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
-  }
-}
-
-// Update the countdown timer every second
-setInterval(updateCountdown, 1000);
-
-// Call the function immediately to display the countdown
-updateCountdown();
+      const timeRemaining = contestEndTime - now;
+      var timeUntilStart = contestStartTime - now;
+      var timeUntilEnd = contestEndTime - now;
+      if (timeUntilEnd <= 0) {
+        // Time's up!
+        const countdownDiv = document.getElementById("countdown_to_end");
+        
+        countdownDiv.innerHTML = "Time's up!";
+      //  var newRoute = "/finish_contest";
+    
+      // Redirect to the new route
+     // window.location.href = newRoute;
+     finish_contest();
+    
+        showResults(
+        resultsContainer,
+        biology_quizData,
+        bio_score,
+        "Biology",
+        biology_score
+      );
+      submitButton.style.display = "none";
+      } 
+      else if (timeUntilStart > 0) {
+        // Contest has not started yet
+        const countdownDiv = document.getElementById("countdown_to_end");
+        var days = Math.floor(timeUntilStart / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeUntilStart % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeUntilStart % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeUntilStart % (1000 * 60)) / 1000);
+      
+        // Display the countdown until the start of the contest
+        countdownDiv.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+      
+      }
+      else {
+        // Contest is in progress
+       
+    
+        const hours = Math.floor(timeUntilEnd / (1000 * 60 * 60));
+        const minutes = Math.floor((timeUntilEnd % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeUntilEnd % (1000 * 60)) / 1000);
+    
+        const countdownDiv = document.getElementById("countdown_to_end");
+        countdownDiv.innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+      }
+    }
+    
+    // Update the countdown timer every second
+    setInterval(updateCountdown, 1000);
+    
+    // Call the function immediately to display the countdown
+    updateCountdown();
 
 // saving data
    

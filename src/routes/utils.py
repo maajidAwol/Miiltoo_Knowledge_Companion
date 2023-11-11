@@ -193,12 +193,16 @@ def save_first_contest():
     # Generate a random contest ID by concatenating "grade9" with the current time and the random suffix
     current_time = datetime.now().strftime('%Y%m%d%H%M%S')
     contest_id = f'grade9_{current_time}_{random_suffix}'
+    
+    
+
 
     # Create the Contest instance with the generated ID
     sample_contest = Contest(
         contest_id=contest_id,
         contest_data=str_contest,
-        is_approved=False
+        is_approved=True,
+        
     )
 
 

@@ -27,20 +27,27 @@
   font-family: var(--font-roboto);
 }
 
-.grade-menu-item:hover {
-  color: var(--color-white);
+body {
+  background-color: #f1f1f1;
+  font-family: Arial, sans-serif;
+  text-align: center;
 }
-.grade-menu-item:hover :nth-child(1) {
-  color: var(--color-accent);
+.error-container {
+  margin: 100px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 }
-/* .resrc-item {
-  position: absolute;
-  width: max-content;
-  display: flex;
-  gap: 8px;
-  transition: transform 0.6s ease;
-} */
-
-.resource-sec {
-  gap: 16px;
+img {
+  width: 100px;
+  height: 100px;
+}
+h1 {
+  color: #ff5733;
+  font-size: 36px;
+}
+p {
+  font-size: 24px;
+  color: #333;
 }

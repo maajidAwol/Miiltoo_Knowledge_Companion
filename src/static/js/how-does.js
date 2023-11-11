@@ -16,20 +16,20 @@ how_does_sec.addEventListener("mouseenter", () => {
       if (stepIndex % 2 === 0) {
         // Show dot
         let dotIndex = Math.floor(stepIndex / 2);
-        let delay_dot = dotIndex * 0.15; // Adjusted the delay duration
+        let delay_dot = dotIndex * 0.1; // Adjusted the delay duration
         if (dotIndex > 0) {
-          delay_dot = dotIndex * 0.15 + 0.3; // Adjusted the delay duration
+          delay_dot = dotIndex * 0.1 + 0.2; // Adjusted the delay duration
         }
         circle_dot[dotIndex].style.opacity = "1";
         circle_dot[dotIndex].style.transitionDelay = `${delay_dot}s`;
       } else {
         // Show box item
         let boxIndex = Math.floor(stepIndex / 2);
-        let delay_box = boxIndex * 0.25; // Adjusted the delay duration
+        let delay_box = boxIndex * 0.15; // Adjusted the delay duration
         if (boxIndex > 0) {
-          delay_box = boxIndex * 0.25 + 0.5; // Adjusted the delay duration
+          delay_box = boxIndex * 0.15 + 0.3; // Adjusted the delay duration
         }
-        let delay_item = boxIndex * 0.25 + delay_box;
+        let delay_item = boxIndex * 0.15 + delay_box;
         box[boxIndex].style.opacity = "1";
         box[boxIndex].style.transitionDelay = `${delay_item}s`;
         box[boxIndex].style.transform = "translateX(0)";
