@@ -51,6 +51,7 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
+
 body {
   position: relative;
   left: 0;
@@ -247,9 +248,9 @@ a {
 .login-group-mob {
   height: 115px;
   align-items: end;
-  width: 84%;
+  width: 80vw;
   display: flex;
-  padding: 0px 8%;
+  padding: 0px 9vw;
   gap: 2%;
 }
 .login-group-mob a {
@@ -2071,11 +2072,11 @@ footer {
     transform: scale(0.6);
   }
   .resrc-btns :nth-child(1) {
-    margin-left: 55%;
+    margin-left: 45%;
   }
 
   .resrc-btns :last-child {
-    margin-right: 0%;
+    margin-right: 10%;
   }
   .active-btn,
   .other-btns {
@@ -2101,9 +2102,11 @@ footer {
     justify-content: flex-start;
     width: 100vw;
     height: 390px;
-    gap: 4%;
+    gap: 1%;
   }
-
+  .resrc-item.last {
+    margin-right: 6%;
+  }
   .resrc-box {
     width: 38vw;
     min-width: 203px;
@@ -2116,10 +2119,15 @@ footer {
     width: max-content;
   }
   .resrc-container :nth-child(1) {
-    margin-left: 4%;
+    margin-left: 2%;
   }
-  .resrc-box:last-of-type {
-    margin-right: 8%;
+  .resrc-container :last-child {
+    /* margin-right: 4%; */
+  }
+  .resrc-btns,
+  .resrc-btns-item {
+    margin: 0;
+    width: 100vw;
   }
   .resrc-cover-overlay {
     border-radius: 12px;
