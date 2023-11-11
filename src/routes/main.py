@@ -176,11 +176,11 @@ def contest():
     contest_id = session['contest_id']
     user_email = session['google_email']
     user_contest_entry = UserContest.query.filter_by(user_email=user_email, contest_id=contest_id).first()
-
+    contest= Contest.query.all()
     # if user_contest_entry and user_contest_entry.finished_contest:
     #     return redirect("/leaderboard")
 
-    return render_template('contest.html', contest_start_time=contest_start_time, contest_end_time=contest_end_time)
+    return render_template('contest.html', contest=contest)
 
 @main.route('/finish_contest/', methods=['POST'])
 def finish_contest():
