@@ -39,12 +39,14 @@ const enter_contest_button =  document.getElementById('enter-contest-button');
 
 const main_contest_form =  document.getElementById('main_contest_form');
 
-
+const mock = document.querySelector(".mock-sec");
+const upc = document.querySelector(".upcoming-sec");
 enter_contest_button.addEventListener('click', function (event) {
   event.preventDefault();
   submitButton.style.display = "none";
   main_contest_form.style.display = "block";
-
+  upc.style.display = "none";
+  mock.style.display = "none";
   quizContainer.innerHTML = ""; // Clear the previous quiz content
   resultsContainer.style.display = "none"; // Hide the results
   enter_contest_button.style.display = "none";
@@ -433,6 +435,7 @@ function showResults(
            // You can display a success message or redirect the user
            
            window.location.href = "/leaderboard";
+            mock.style.display = "block";
          } else {
            // Handle the error (e.g., display an error message)
            alert(data.message);

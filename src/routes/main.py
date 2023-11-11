@@ -177,8 +177,8 @@ def contest():
     user_email = session['google_email']
     user_contest_entry = UserContest.query.filter_by(user_email=user_email, contest_id=contest_id).first()
 
-    if user_contest_entry and user_contest_entry.finished_contest:
-        return redirect("/leaderboard")
+    # if user_contest_entry and user_contest_entry.finished_contest:
+    #     return redirect("/leaderboard")
 
     return render_template('contest.html', contest_start_time=contest_start_time, contest_end_time=contest_end_time)
 
