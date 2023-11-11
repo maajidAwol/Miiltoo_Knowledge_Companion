@@ -2027,6 +2027,9 @@ footer {
     top: 0;
     opacity: 0.08;
   }
+  .profile-detail {
+    display: none;
+  }
   .headline-container {
     backdrop-filter: blur(5px);
     border-radius: 33px;
