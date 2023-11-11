@@ -51,7 +51,6 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
-
 body {
   position: relative;
   left: 0;
@@ -75,9 +74,9 @@ header {
   padding: 8px 8%;
   align-items: center;
   gap: 8px;
-  background: #2f3f903b;
+  background: #2f3f9017;
   align-self: stretch;
-  backdrop-filter: blur(32px);
+  backdrop-filter: blur(5px);
   z-index: 2;
 }
 header::before {
@@ -248,9 +247,9 @@ a {
 .login-group-mob {
   height: 115px;
   align-items: end;
-  width: 80vw;
+  width: 84%;
   display: flex;
-  padding: 0px 9vw;
+  padding: 0px 8%;
   gap: 2%;
 }
 .login-group-mob a {
@@ -2018,8 +2017,8 @@ footer {
   }
 
   .hero-sec {
-    width: 92%;
-    padding: 16px 4%;
+    width: 100%;
+    padding: 0%;
     overflow-x: hidden;
     height: 448px;
   }
@@ -2072,11 +2071,11 @@ footer {
     transform: scale(0.6);
   }
   .resrc-btns :nth-child(1) {
-    margin-left: 45%;
+    margin-left: 55%;
   }
 
   .resrc-btns :last-child {
-    margin-right: 10%;
+    margin-right: 0%;
   }
   .active-btn,
   .other-btns {
@@ -2102,11 +2101,9 @@ footer {
     justify-content: flex-start;
     width: 100vw;
     height: 390px;
-    gap: 1%;
+    gap: 4%;
   }
-  .resrc-item.last {
-    margin-right: 6%;
-  }
+
   .resrc-box {
     width: 38vw;
     min-width: 203px;
@@ -2119,15 +2116,10 @@ footer {
     width: max-content;
   }
   .resrc-container :nth-child(1) {
-    margin-left: 2%;
+    margin-left: 4%;
   }
-  .resrc-container :last-child {
-    /* margin-right: 4%; */
-  }
-  .resrc-btns,
-  .resrc-btns-item {
-    margin: 0;
-    width: 100vw;
+  .resrc-box:last-of-type {
+    margin-right: 8%;
   }
   .resrc-cover-overlay {
     border-radius: 12px;
@@ -2893,10 +2885,11 @@ footer {
     padding: 1.5% 10%;
   }
   .headline-container {
-    width: 64%;
-    backdrop-filter: blur(0);
-    border-radius: 33px;
-    padding: 8%;
+    width: 70%;
+    background: #080d2752;
+    backdrop-filter: blur(2px);
+    border-radius: 2px;
+    padding: 14%;
   }
 }
 @media only screen and (width >= 992px) {

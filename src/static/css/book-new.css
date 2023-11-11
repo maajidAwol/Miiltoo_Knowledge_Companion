@@ -1241,8 +1241,8 @@ input[type="file"]:hover {
   }
 
   .chat-sec {
-    width: 100%;
-    /* padding: 8px 2%; */
+    width: 93%;
+    padding: 8px 2%;
     /* margin-right: -47vw; */
     margin-bottom: 24px;
     justify-content: center;
@@ -1255,8 +1255,8 @@ input[type="file"]:hover {
   }
   .chatbot-var-2,
   .chatbot-var-3 {
-    width: 88%;
-    /* min-width: 420px; */
+    width: 90%;
+    min-width: 420px;
   }
   .chatbot-var-2,
   .chatbot-var-3,
@@ -1268,7 +1268,7 @@ input[type="file"]:hover {
   }
   .chatbot-var-2,
   .chatbot-var-3 {
-    width: 70vw;
+    width: 76vw;
     margin: 24px 0;
   }
   .text-input-container {
