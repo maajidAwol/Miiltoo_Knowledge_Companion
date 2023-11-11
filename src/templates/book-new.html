@@ -2,7 +2,11 @@
 <link rel="stylesheet" href="/static/css/home-new.css" />
 <link rel="stylesheet" href="/static/css/loading-style.css" />
 <link rel="stylesheet" href="/static/css/book-new.css" />
- <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+ <!-- Include PDF.js library from CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.js"></script>
+<!-- Include PDF.js worker from CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.worker.js"></script>
+
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -20,12 +24,7 @@
         </select>
       </div>
       <br />
-      <embed
-            src="/static/{{book}}"
-            frameborder="0"
-            class="pdf-section"
-            id="pdf-embed"
-          ></embed>
+      <div id="pdf-viewer"></div>
     </div>
 
     <div style="text-transform: capitalize" class="chatbot-container">
@@ -350,38 +349,36 @@
       // Uncomment the line below to submit the form
       // this.submit();
     });
-</script>
-<script>
+</script><script>
+var embed = document.getElementById("pdf-embed");
+  var container = document.getElementById('pdf-viewer');
+  var pdfUrl = "/static/{{book}}";
+
+  // Load the PDF document using PDF.js
+  pdfjsLib.getDocument(pdfUrl).promise.then(function(pdfDoc) {
+    return pdfDoc.getPage(1);
+  }).then(function(page) {
+    // Create a canvas element to render the page
+    var canvas = document.createElement('canvas');
+    container.appendChild(canvas);
+
+    // Set the canvas size to the page size
+    var viewport = page.getViewport({ scale: 1.5 });
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+
+    // Render the page content into the canvas
+    var renderContext = {
+      canvasContext: canvas.getContext('2d'),
+      viewport: viewport
+    };
+    page.render(renderContext);
+  });
+
+  // Your existing logic to handle chapter change
   var select = document.getElementById("chapter");
-  var embed = document.getElementById("pdf-embed");
-
-  // Get the variable from the backend
-  var bookParam = "{{book}}"; // Replace "book_param" with the actual variable name used in Jinja
-
-  // Determine the default source based on the "book" parameter
-  var defaultSource = "/static/bk/ETH/bio/all.pdf"; // Default source for "bio"
-  var chapter_change = "";
-  if (bookParam === "bk/ETH/history_g-9.pdf") {
-    defaultSource = "/static/bk/ETH/history_g-9.pdf"; // Default source for "hist"
-    chapter_change = "/static/bk/ETH/hist/";
-  } else if (bookParam === "bk/SS/history_g-9.pdf") {
-    defaultSource = "/static/bk/SS/history_g-9.pdf";
-    chapter_change = "/static/bk/SS/hist/";
-    // Default source for "ss"
-  } else if (bookParam === "bk/ETH/biology_g-9.pdf") {
-    defaultSource = "/static/bk/ETH/biology_g-9.pdf";
-    chapter_change = "/static/bk/ETH/bio/";
-  } else {
-    defaultSource = "/static/{{book}}";
-  }
-
-  // Update the default src attribute
-  embed.src = defaultSource;
-
-  // Add an event listener to the select element
   select.addEventListener("change", function () {
-    // Update the src attribute of the embed element with the selected value
-    embed.src = chapter_change + select.value + ".pdf";
+    embed.src = "/static/{{book}}/" + select.value + ".pdf";
   });
 </script>
 
