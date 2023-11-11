@@ -2118,6 +2118,9 @@ footer {
     position: relative;
     width: max-content;
   }
+  .resrc-item.last {
+    margin-right: 10%;
+  }
   .resrc-container :nth-child(1) {
     margin-left: 4%;
   }

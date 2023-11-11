@@ -202,6 +202,10 @@ function createResrc(g_no, country_code, subj_Name, k) {
       let dots = document.querySelector(".dots");
       dots.classList.add("active");
     }
+    if (i == q + Math.floor(subj_Name.length / p) - 1) {
+      let item = document.querySelectorAll(".resrc-item");
+      item[i].classList.toggle("last");
+    }
     dots_container.insertAdjacentHTML(
       "beforeend",
       `  <span class="dots"></span>`
