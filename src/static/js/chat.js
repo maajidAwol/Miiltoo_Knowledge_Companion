@@ -177,11 +177,10 @@ function sendMessage() {
       })
       .catch((error) => {
         // Handle network errors or other exceptions here
-        
-  
+
         sendBtn.style.display = "block";
         console.error("Error fetching data:", error);
-        alert("Error fetching data" );
+        alert("Error fetching data");
       });
   }
 }
@@ -205,33 +204,44 @@ sendBtn.addEventListener("click", function (event) {
 // Assuming that session["bio"] contains the chat history data in the specified format
 // Replace the URL with the actual endpoint URL from your server
 
-
-
-
-
 function add_chat_history_Message(message, isUserMessage) {
   const messageDiv = document.createElement("div");
-  messageDiv.classList.add("mt-3", "p-3", "rounded");
 
+  messageDiv.classList.add("mt-3", "p-3", "rounded");
+  var icon_user = document.querySelector(".user-message-icon");
+  var icon_class;
+  var inner_icon;
+  var message_content;
+  // var icon = document.querySelector(".user-message-icon i");
+  // var icon_chatbot = document.querySelector('.chatbot-message-icon');
   if (isUserMessage) {
     messageDiv.classList.add("user-message-container");
+    // icon_user.classList.replace("chatbot-message-icon", "user-message-icon");
+
+    // icon_user.classList.add("user-message-icon");
+    icon_class = "user-message-icon";
+    inner_icon = `<i class="fa-solid fa-user-tie"></i>`;
+    message_content = `user-message-content`;
   } else {
     messageDiv.classList.add("chatbot-message-container");
+    icon_user.classList.add("chatbot-message-icon");
+    icon_class = "chatbot-icon";
+    inner_icon = `<img src="/static/asset/logo.svg" alt=""></img>`;
+    message_content = `content-afterResponse`;
   }
-
+  console.log("test" + inner_icon);
   messageDiv.innerHTML = `
 
   <div class="user-message-container-my">
 		
-                  <span class="user-message-icon">
-                    <i class="fa-solid fa-user-tie"></i>
+                  <span class="${icon_class}">
+                  
+                    ${inner_icon}
                   </span>
-                  <div class="user-message-content">
+                  <div class="${message_content}">
                    ${message}
                   </div>
-                  </div>
-
-                
+                  </div>           
 
     `;
 
@@ -239,31 +249,26 @@ function add_chat_history_Message(message, isUserMessage) {
   //chatBox.scrollTop = chatBox.scrollHeight;
   parentContainer.scrollTop = parentContainer.scrollHeight;
 }
-const historyEndpoint = '/get_chat_history';
+const historyEndpoint = "/get_chat_history";
 
 function displayChatHistory() {
-  
   const book_choice1 = oda.value.trim();
   fetch(historyEndpoint, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({book_choice: book_choice1 }),
-    })
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ book_choice: book_choice1 }),
+  })
     .then((response) => response.json())
     .then((chatHistory) => {
-
       chatHistory.forEach(([userMessage, chatbotMessage]) => {
         add_chat_history_Message(userMessage, true);
         add_chat_history_Message(chatbotMessage, false);
       });
     })
     .catch((error) => console.error(error));
-
 }
 
 // Call the function to display chat history
 displayChatHistory();
-
-

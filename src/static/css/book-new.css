@@ -591,6 +591,7 @@ footer {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  text-transform: none;
 }
 .chatbot-message-container {
   display: flex;
@@ -606,8 +607,9 @@ footer {
 }
 .chatbot-content,
 .content-afterResponse {
+  width: 100%;
   display: flex;
-  width: 488px;
+  /* width: 488px; */
   color: rgba(255, 255, 255, 0.8);
   font-size: 16px;
   font-style: normal;
@@ -623,6 +625,7 @@ footer {
   border-radius: 7.614px;
   border: 0.5px solid var(--secondary, #1e206f);
   background: rgba(30, 32, 111, 0.2);
+  text-transform: none;
 }
 .selection-container {
   display: flex;
