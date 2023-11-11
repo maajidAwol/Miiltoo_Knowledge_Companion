@@ -11,7 +11,7 @@ from langchain.document_loaders import TextLoader
 from langchain.indexes import VectorstoreIndexCreator
 from langchain.chains import ConversationalRetrievalChain
 from langchain.chat_models import ChatOpenAI
-from datetime import datetime
+from datetime import datetime, timedelta
 from ..models.contest import Contest
 from .topics import biology, history,rt,cont_hist,cont_geo,cont_chem,sudan_hist
 def generate_verification_code():
@@ -202,9 +202,11 @@ def save_first_contest():
         contest_id=contest_id,
         contest_data=str_contest,
         is_approved=True,
+        start_time=datetime.now(),
+        end_time=datetime.now() + timedelta(days=100),
         
     )
-
-
-    db.session.add(sample_contest)
-    db.session.commit()
+    exist= Contest.query.filter_by(title="Mock Contest").first()
+    if not exist:
+        db.session.add(sample_contest)
+        db.session.commit()
