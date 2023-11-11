@@ -571,6 +571,9 @@ footer {
   background: rgba(30, 32, 111, 0.56);
   box-shadow: 0px 1.11623px 5.58116px 0px #080d27;
 }
+.result-container-item :last-child .user-message-container-my {
+  margin-bottom: 2%;
+}
 .user-message-icon i {
   font-size: 24px;
   color: var(--color-accent);
