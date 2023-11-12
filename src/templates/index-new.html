@@ -4,7 +4,7 @@
 <body>
   <main>
     <section class="hero-sec">
-      <div class="headline-container">
+      <div class="headline-container mob">
         <h1>
           Elevate <span class="anime-text">Education</span> with AI
           powered-services
@@ -100,13 +100,13 @@
         <span class="resrc-line"></span>
       </div>
       <div class="resrc-btns">
-        <!-- <div class="resrc-btns-item"> -->
-        <button class="active-btn">All</button>
-        <button class="other-btns">grade-9</button>
-        <button class="other-btns">grade-10</button>
-        <button class="other-btns">grade-11</button>
-        <button class="other-btns">grade-12</button>
-        <!-- </div> -->
+        <div class="resrc-btns-item">
+          <button class="active-btn">All</button>
+          <button class="other-btns">grade-9</button>
+          <button class="other-btns">grade-10</button>
+          <button class="other-btns">grade-11</button>
+          <button class="other-btns">grade-12</button>
+        </div>
       </div>
       <div class="resrc-nav-container">
         <button class="left-btn">
@@ -854,14 +854,24 @@
           <div class="fullname-box">
             Full Name
             <div class="name-container">
-              <input type="text" class="contact-name" placeholder="fullname" name="name"/>
+              <input
+                type="text"
+                class="contact-name"
+                placeholder="fullname"
+                name="name"
+              />
               <span class="fullname-icon"></span>
             </div>
           </div>
           <div class="email-box">
             email
             <div class="email-container">
-              <input type="email" class="contact-email" placeholder="email" name="email" />
+              <input
+                type="email"
+                class="contact-email"
+                placeholder="email"
+                name="email"
+              />
               <span class="email-icon"></span>
             </div>
           </div>
@@ -884,18 +894,12 @@
             ></span>
             send message
           </button>
-        </form> 
-        {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-        {% for category, message in messages %}
-            <div class="alert alert-{{ category }}">
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endif %}
-{% endwith %}
+        </form>
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if
+        messages %} {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %} {% endif %} {% endwith %}
       </div>
-     
     </section>
   </main>
   <footer style="display: block">
@@ -906,30 +910,41 @@
       </div>
       <div class="footer-link-container">
         <div class="link-container">
-          Home
-          <a href="" class="link">grade</a>
-          <a href="" class="link">subject</a>
-          <a href="" class="link">chatbot</a>
+          <div class="link-container-inner">
+            <i class="fa-solid fa-caret-down"></i>
+            Home
+          </div>
+          <div class="inner-link">
+            <a href="#grade" class="link">grade</a>
+            <a href="#subject" class="link">subject</a>
+            <a href="#chatbot" class="link">chatbot</a>
+          </div>
         </div>
         <div class="link-container">
-          resource
-          <a href="" class="link">textbook</a>
-          <a href="" class="link">study guid</a>
-          <a href="" class="link">upload</a>
+          <div class="link-container-inner">
+            <i class="fa-solid fa-caret-down"></i>
+            grade
+          </div>
+          <div class="inner-link">
+            <a href="" class="link">grade-9</a>
+            <a href="" class="link">grade-10</a>
+            <a href="" class="link">grade-11</a>
+            <a href="" class="link">grade-12</a>
+          </div>
         </div>
         <div class="link-container">
-          grade
-          <a href="" class="link">grade-9</a>
-          <a href="" class="link">grade-10</a>
-          <a href="" class="link">grade-11</a>
-          <a href="" class="link">grade-12</a>
-        </div>
-        <div class="link-container">
-          pages
-          <a href="" class="link">About us</a>
-          <a href="" class="link">contact us</a>
-          <a href="" class="link">FAQ</a>
-          <a href="" class="link">help</a>
+          <div class="link-container-inner">
+            <i class="fa-solid fa-caret-down"></i>
+            pages
+          </div>
+          <div class="inner-link">
+            <a href="#feature" class="link">features</a>
+            <a href="#guides" class="link">Guide</a>
+            <a href="#testi-sec" class="link">Testimony</a>
+            <a href="#team-sec" class="link">Our team</a>
+            <a href="#feature" class="link">FAQ</a>
+            <a href="#feature" class="link">help</a>
+          </div>
         </div>
       </div>
     </div>

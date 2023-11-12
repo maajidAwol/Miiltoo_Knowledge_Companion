@@ -1242,6 +1242,14 @@ input[type="file"]:hover {
 .hidden {
   display: none;
 }
+@media only screen and (width < 600px) {
+  .login-group-mob {
+    height: 115px;
+    align-items: end;
+    justify-content: space-between;
+    width: 55%;
+  }
+}
 @media only screen and (width < 992px) {
   .pdf-section {
     border-radius: 12px 12px 4px 4px;
