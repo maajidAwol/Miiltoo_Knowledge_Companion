@@ -136,14 +136,14 @@ if (window.matchMedia("(min-width:992px)").matches) {
     });
   }
 }
-var bod = document.querySelector(".html");
+var html = document.querySelector(".html");
 hamb_btn.addEventListener("click", function () {
   nav_links.classList.toggle("slide");
   hamb_btn.classList.toggle("active");
   overlayHeader.classList.toggle("hidden");
   // upload_popup.classList.add("hidden");
   overlayHeader.style.zIndex = "1";
-  bod.classList.toggle("overflow-hidden");
+  html.classList.toggle("overflow");
 });
 overlayHeader.addEventListener("click", () => {
   nav_links.classList.toggle("slide");
@@ -155,7 +155,7 @@ overlayHeader.addEventListener("click", () => {
   upload_popup.classList.add("hidden");
   document.querySelector(".body").style.overflowY = "auto";
   overlay.classList.remove("forMob");
-  bod.classList.toggle("overflow-hidden");
+  html.classList.toggle("overflow");
 });
 if (window.matchMedia("(width>=992px)").matches) {
   profile_group.addEventListener("mouseover", () => {

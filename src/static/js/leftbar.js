@@ -119,7 +119,10 @@ function collapse_2() {
 const btns = document.querySelectorAll(".btns");
 const line_1 = document.querySelector(".float_btn :nth-child(1)");
 const line_2 = document.querySelector(".float_btn :nth-child(2)");
+const chat_container = document.querySelector(".chat-sec");
 let isOpen = false;
+
+chat_container.style.padding = `8px 2%`;
 
 for (let i = 0; i < btns.length; i++) {
   btns[i].addEventListener("click", () => {
@@ -138,13 +141,17 @@ for (let i = 0; i < btns.length; i++) {
     if (i == 1) {
       book_container.style.display = "none";
       quize_sect.classList.remove("hidden");
+      chat_container.style.padding = `8px 0%`;
+
       chat_sect.classList.add("hidden");
     } else if (i == 2) {
       book_container.style.display = "none";
+      chat_container.style.padding = `8px 0%`;
       chat_sect.classList.remove("hidden");
       quize_sect.classList.add("hidden");
     } else if (i == 3) {
       book_container.style.display = "block";
+      chat_container.style.padding = `8px 2%`;
       chat_sect.classList.add("hidden");
       quize_sect.classList.add("hidden");
     } else {

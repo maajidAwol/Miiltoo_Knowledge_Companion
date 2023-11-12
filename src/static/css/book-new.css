@@ -1283,7 +1283,7 @@ input[type="file"]:hover {
   }
   .chatbot-var-2,
   .chatbot-var-3 {
-    width: 75vw;
+    width: 80vw;
     margin: 24px 0;
   }
   .text-input-container {
@@ -1291,6 +1291,13 @@ input[type="file"]:hover {
   }
   .chatbot-var-1 {
     display: none;
+  }
+  .logo-container img {
+    width: 33px;
+    height: 44px;
+  }
+  .logo-name {
+    font-size: 25px;
   }
   .profile-menu {
     top: 68px;
