@@ -2980,6 +2980,10 @@ footer {
     cursor: pointer;
     transform: scale(1.004);
   }
+  .link-container .faq,
+  .link-container .help {
+    display: none;
+  }
 }
 @media only screen and (width < 992px) {
   nav,
@@ -3147,6 +3151,15 @@ footer {
   .resrc-box:hover {
     cursor: pointer;
     transform: scale(1.004);
+  }
+  .inner-link {
+    width: 100%;
+    gap: 12px;
+    font-size: 16px;
+  }
+  .link-container .faq,
+  .link-container .help {
+    display: none;
   }
   .login-link,
   .signup-link {

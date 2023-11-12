@@ -350,7 +350,7 @@ function sliderWithAuto(section, item, indicator, left, right, sec_nav) {
   let intervalId;
 
   function startAutoSlide() {
-    intervalId = setInterval(slideToNext, 5000); // Adjust the interval duration as needed
+    intervalId = setInterval(slideToNext, 8000); // Adjust the interval duration as needed
   }
   function stopAutoSlide() {
     clearInterval(intervalId);

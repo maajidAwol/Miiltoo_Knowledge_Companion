@@ -6,21 +6,22 @@ from google.oauth2 import id_token
 from google_auth_oauthlib.flow import Flow
 from pip._vendor import cachecontrol
 import google.auth.transport.requests
-from flask import Blueprint, render_template,request, redirect, flash,session,abort
+from flask import Blueprint, render_template, request, redirect, flash, session, abort
 from ..models.user import User
 from ..models.book import Books
-from ..extensions import db,mail
+from ..extensions import db, mail
 from flask_mail import Message
 from .utils import register_user, login_auth
 from flask_login import login_user, logout_user
-client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "../../clientSecret.json")
+client_secrets_file = os.path.join(pathlib.Path(
+    __file__).parent, "../../clientSecret.json")
 flow = Flow.from_client_secrets_file(
     client_secrets_file=client_secrets_file,
     scopes=["https://www.googleapis.com/auth/userinfo.profile", "https://www.googleapis.com/auth/userinfo.email",
             "openid"],
     redirect_uri="https://miltoo.onrender.com/callback"
 )
-GOOGLE_CLIENT_ID = config('GOOGLE_CLIENT_ID')  
+GOOGLE_CLIENT_ID = config('GOOGLE_CLIENT_ID')
 users = Blueprint('users', __name__)
 
 
@@ -28,16 +29,17 @@ users = Blueprint('users', __name__)
 def login():
     return render_template("login.html")
 
+
 @users.route("/signup")
 def signup():
-    
-    
-        
+
     return render_template("signup.html")
+
 
 @users.route("/forget")
 def forget():
     return render_template("forget.html")
+
 
 @users.route("/change_password", methods=['POST'])
 def change_password():
@@ -46,6 +48,8 @@ def change_password():
         return render_template('login.html')
     elif not users.send_password(email):
         return "no user exist by that username"
+
+
 @users.route('/register', methods=['POST', 'GET'])
 def register():
     if request.method == 'POST':
@@ -76,7 +80,8 @@ def register():
                 session["email_before"] = email
                 return render_template("confirm_email.html")
         elif registration_result:
-            user_for_confirmation = User.query.filter_by(username=username).first()
+            user_for_confirmation = User.query.filter_by(
+                username=username).first()
             session["email_before"] = email
             return render_template("confirm_email.html")
     # Retrieve all users from the database
@@ -92,13 +97,14 @@ def auth():
     print(email)
     print(password)
     if login_auth(email, password):
-        if email == "ararsaderese6@gmail.com" or email == "maajidawol@gmail.com" or email=="natnaelmeseret5@gmail.com":
+        if email == "ararsaderese6@gmail.com" or email == "maajidawol@gmail.com" or email == "natnaelmeseret5@gmail.com":
             login_user(User.query.filter_by(email=email).first())
         session['logged_in'] = "true"
 
         return redirect('/')
 
     return redirect('/login')
+
 
 @users.route('/account/', methods=['GET', 'POST'])
 def profile():
@@ -207,7 +213,7 @@ def confirm_email():
             session['logged_in'] = "true"
             session["google_name"] = user.username
             session["google_email"] = user.email
-            if user.email == "ararsaderese6@gmail.com" or user.email == "maajidawol@gmail.com" or user.email=="natnaelmeseret5@gmail.com":
+            if user.email == "ararsaderese6@gmail.com" or user.email == "maajidawol@gmail.com" or user.email == "natnaelmeseret5@gmail.com":
                 login_user(user)
             return redirect('/')
         else:
@@ -244,7 +250,8 @@ def callback():
     credentials = flow.credentials
     request_session = requests.session()
     cached_session = cachecontrol.CacheControl(request_session)
-    token_request = google.auth.transport.requests.Request(session=cached_session)
+    token_request = google.auth.transport.requests.Request(
+        session=cached_session)
 
     id_info = id_token.verify_oauth2_token(
         id_token=credentials._id_token,
@@ -268,40 +275,48 @@ def callback():
         db.session.add(new_user)
         db.session.commit()
     if session["google_email"] == "ararsaderese6@gmail.com" or session["google_email"] == "maajidawol@gmail.com" or session["google_email"] == "natnaelmeseret5@gmail.com":
-        user= User.query.filter_by(email=session["google_email"]).first()
-        login_user(user) 
+        user = User.query.filter_by(email=session["google_email"]).first()
+        login_user(user)
     return redirect("/protected_area")
+
+
 @users.route("/protected_area")
 @login_is_required
 def protected_area():
     session['logged_in'] = "true"
     return redirect("/")
+
+
 @users.route("/booklist")
 def booklist():
-    books=Books.query.filter_by(user_email=session['google_email'])
+    books = Books.query.filter_by(user_email=session['google_email'])
     if books:
-        return render_template('booklist.html',books=books)
+        return render_template('booklist.html', books=books)
     return render_template('booklist.html')
+
+
 @users.route("/delete_book")
 def delete_book():
-    book_name=request.args.get('book_name')
-    txt_name=request.args.get('txt_name')
-    book=Books.query.filter_by(user_email=session['google_email'],book_url=book_name).first()
+    book_name = request.args.get('book_name')
+    txt_name = request.args.get('txt_name')
+    book = Books.query.filter_by(
+        user_email=session['google_email'], book_url=book_name).first()
     db.session.delete(book)
     db.session.commit()
-    file_path = os.path.join(users.root_path,book_name)
+    file_path = os.path.join(users.root_path, book_name)
     os.remove(file_path)
     txt_path = os.path.abspath('src/static/'+txt_name)
     os.remove(txt_path)
-           
-           
+
     return redirect("/booklist")
-@users.route("/contact_us/", methods=['GET','POST'])
+
+
+@users.route("/contact_us/", methods=['GET', 'POST'])
 def contact_us():
-    name=request.form['name']   
-    email=request.form['email']
-    message=request.form['message']
-    
+    name = request.form['name']
+    email = request.form['email']
+    message = request.form['message']
+
     msg = Message(
         'New message from {} <{}>'.format(name, email),
         sender='miltooknowledgecompanion@gmail.com',  # Use your email
@@ -309,5 +324,5 @@ def contact_us():
     )
     msg.body = message
     mail.send(msg)
-    flash('Message sent!', 'success') 
+    flash('Message sent!', 'success')
     return redirect("/#contact")
