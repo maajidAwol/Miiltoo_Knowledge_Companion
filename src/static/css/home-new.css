@@ -284,6 +284,9 @@ a {
   border: none;
   color: var(--color-white);
 }
+.drag-text {
+  font-size: 16px;
+}
 .upload-btn {
   padding: 8px 16px;
   font-size: 16px;
@@ -3047,6 +3050,10 @@ footer {
     border: none;
     background: transparent;
     gap: 24px;
+  }
+  .upload-popup {
+    width: 77%;
+    margin: 0 6%;
   }
   .country-menu-item-icon {
     margin-left: -16px;
