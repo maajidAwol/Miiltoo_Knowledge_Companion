@@ -248,3 +248,39 @@ function animateSection(section) {
   section.classList.add("active");
   section.style.animation = "fadeInUp 0.5s ease";
 }
+
+const linkAn = document.querySelectorAll(".link-container");
+const linkContainers = document.querySelectorAll(".link-container-inner");
+const linkContainers_icon = document.querySelectorAll(
+  ".link-container-inner i"
+);
+const sm_links = document.querySelectorAll(".inner-link");
+for (let i = 0; i < linkContainers.length; i++) {
+  linkContainers[i].addEventListener("click", (e) => {
+    if (!linkAn[i].classList.contains("active")) {
+      e.stopPropagation();
+      linkAn[i].classList.toggle("active");
+      for (let j = 0; j < sm_links.length; j++) {
+        if (sm_links[j].classList.contains("show")) {
+          sm_links[j].classList.remove("show");
+          linkAn[j].style.background = `transparent`;
+          linkContainers_icon[j].style.transform = `rotate(0deg)`;
+        }
+      }
+      linkContainers_icon[i].style.transform = `rotate(180deg)`;
+      linkAn[i].style.background = `#1e206f3b`;
+      sm_links[i].classList.toggle("show");
+    } else {
+      console.log("cccccc");
+      linkAn[i].classList.toggle("active");
+      sm_links[i].classList.toggle("show");
+      for (let j = 0; j < sm_links.length; j++) {
+        // if (sm_links[j].classList.contains("show")) {
+        sm_links[j].classList.remove("show");
+        linkAn[j].style.background = `transparent`;
+        linkContainers_icon[j].style.transform = `rotate(0deg)`;
+        // }
+      }
+    }
+  });
+}
