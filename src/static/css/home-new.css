@@ -79,7 +79,7 @@ header {
   gap: 8px;
   background: #2f3f904d;
   align-self: stretch;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(94px);
   z-index: 2;
 }
 header::before {
@@ -2271,7 +2271,7 @@ footer {
     height: 645px;
   }
   .slider-testimoney {
-    height: 630px;
+    height: 709px;
   }
   .testi-nav-container {
     width: 75%;
@@ -3055,6 +3055,10 @@ footer {
     width: 77%;
     margin: 0 6%;
   }
+  .hero-sec {
+    margin-top: 72px;
+  }
+
   .country-menu-item-icon {
     margin-left: -16px;
   }

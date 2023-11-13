@@ -1300,6 +1300,9 @@ input[type="file"]:hover {
   .logo-name {
     font-size: 25px;
   }
+  .arrow-btn {
+    display: none;
+  }
   .profile-menu {
     top: 68px;
     left: 56vw;
