@@ -1303,6 +1303,9 @@ input[type="file"]:hover {
   .arrow-btn {
     display: none;
   }
+  .upload-popup .chatbot-var-4 .arrow-btn {
+    display: block;
+  }
   .profile-menu {
     top: 68px;
     left: 56vw;
